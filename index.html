@@ -172,6 +172,9 @@
   .card .go{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;
     color:var(--type-c);white-space:nowrap;}
   .card .go.queued{color:var(--ink-faint);}
+  .savestar{background:none;border:0;cursor:pointer;font-size:15px;line-height:1;color:var(--ink-faint);padding:0 0 0 6px;flex:none;}
+  .savestar:hover{color:var(--sand);}
+  .savestar.on{color:var(--rust-bright);}
   .ribbon{position:absolute;top:-1px;right:-1px;font-family:'Oswald';font-size:9px;letter-spacing:.12em;
     background:var(--rust-bright);color:var(--granite-900);padding:2px 7px;border-radius:0 var(--r) 0 var(--r);}
   .card.empty{border-style:dashed;background:transparent;color:var(--ink-faint);text-align:center;
@@ -265,6 +268,7 @@
       <button class="filt" data-f="close" aria-pressed="false"><span class="dot"></span>≤5 hr</button>
       <button class="filt" data-f="wild" aria-pressed="false"><span class="dot"></span>Wild trout</button>
       <button class="filt" data-f="skinny" aria-pressed="false"><span class="dot"></span>Skinny-dip water</button>
+      <button class="filt" data-f="saved" aria-pressed="false"><span class="dot" style="background:var(--rust-bright)"></span>★ Saved <span id="savedCount" style="color:var(--ink-faint)"></span></button>
     </div>
     <span class="spacer"></span>
     <select class="monthjump" id="monthJump" aria-label="Jump to month"></select>
@@ -345,6 +349,11 @@ const SEASON_TAG = m => ({7:'High Sierra prime',8:'Peak alpine',9:'The sweet spo
 const composite = t => t.s[0]*5 + t.s[1]*4 + t.s[2]*3 + t.s[3]*2 + t.s[4]*1; // priority-weighted
 
 const state = { type:'all', filters:new Set() };
+const SAVE_KEY='getout_saved'; let SAVED=[];
+function getSaved(){try{return JSON.parse(localStorage.getItem(SAVE_KEY))||[]}catch(e){return[]}}
+function setSaved(a){try{localStorage.setItem(SAVE_KEY,JSON.stringify(a))}catch(e){}}
+function toggleSaved(id){let a=getSaved();a=a.includes(id)?a.filter(x=>x!==id):a.concat(id);setSaved(a);SAVED=a;return a.includes(id);}
+function updateSavedCount(){const n=getSaved().length;const el=document.getElementById('savedCount');if(el)el.textContent=n?('('+n+')'):'';}
 
 function passFilters(t){
   if(state.type!=='all' && t.type!==state.type) return false;
@@ -353,6 +362,7 @@ function passFilters(t){
   if(f.has('close') && t.drive>5) return false;
   if(f.has('wild') && !t.wild) return false;
   if(f.has('skinny') && !t.skinny) return false;
+  if(f.has('saved') && !SAVED.includes(t.id)) return false;
   return true;
 }
 
@@ -383,7 +393,7 @@ function card(t,month){
   if(t.epic) meta+=`<span class="m epic">★ EPIC</span>`;
   return `<a class="card ${t.type==='backpack'?'bp':'car'}" href="${href}"${tgt} id="card-${t.id}">
     ${peak?'<span class="ribbon">PEAK</span>':''}
-    <div class="top"><div><div class="nm">${t.name}</div><div class="rg">${t.region}</div></div></div>
+    <div class="top"><div><div class="nm">${t.name}</div><div class="rg">${t.region}</div></div><button class="savestar ${SAVED.includes(t.id)?'on':''}" data-save="${t.id}" aria-label="Save ${t.name}" title="Save to my trips">${SAVED.includes(t.id)?'★':'☆'}</button></div>
     <div class="blurb">${t.blurb}</div>
     <div class="meta">${meta}</div>
     <div class="bottom">${pips(t)}<span class="go ${live?'':'queued'}">${live?'Open page →':'Spec queued'}</span></div>
@@ -504,7 +514,7 @@ function buildMap(){
 }
 
 /* ---------- wire up ---------- */
-function rerender(){ buildCalendar(); buildNow(); buildLibrary(); buildMap(); }
+function rerender(){ SAVED=getSaved(); buildCalendar(); buildNow(); buildLibrary(); buildMap(); updateSavedCount(); }
 
 document.querySelectorAll('.seg button').forEach(b=>{
   b.addEventListener('click',()=>{
@@ -523,6 +533,15 @@ document.querySelectorAll('.filt').forEach(b=>{
 });
 document.getElementById('monthJump').addEventListener('change',e=>{
   if(e.target.value){ const el=document.getElementById(e.target.value); if(el) el.scrollIntoView({behavior:'smooth'}); }
+});
+
+document.addEventListener('click',e=>{
+  const s=e.target.closest('.savestar'); if(!s) return;
+  e.preventDefault(); e.stopPropagation();
+  const id=s.dataset.save; const on=toggleSaved(id);
+  document.querySelectorAll('.savestar[data-save="'+id+'"]').forEach(b=>{b.classList.toggle('on',on);b.textContent=on?'\u2605':'\u2606';});
+  updateSavedCount();
+  if(state.filters.has('saved')) rerender();
 });
 
 rerender();

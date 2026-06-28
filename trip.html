@@ -143,6 +143,54 @@
   .wk-legend span{display:inline-flex;align-items:center;gap:5px;}
   .swatch{width:10px;height:10px;border-radius:2px;display:inline-block;}
 
+  /* fishing catchability + gear/flies */
+  .catch{display:flex;align-items:center;gap:13px;margin:0 0 14px;padding:11px 13px;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:var(--r);background:var(--granite-850);}
+  .catch .meter{display:flex;gap:3px;flex:none;}
+  .catch .meter i{width:18px;height:10px;border-radius:2px;background:var(--granite-600);display:block;}
+  .catch .meter i.on{background:var(--teal);}
+  .catch .ct{font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;font-size:14px;color:var(--ink);line-height:1.1;}
+  .catch .cs{font-family:'Oswald';font-size:10px;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase;margin-top:3px;}
+  .catch.none{border-left-color:var(--ink-faint);}
+  .catch.none .ct{color:var(--ink-faint);}
+  .fbox{margin-top:13px;}
+  .fbox .fh{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--teal);margin:0 0 7px;}
+  .fly{display:inline-block;font-family:'Spectral';font-size:13.5px;color:var(--ink-dim);border:1px solid var(--line);border-radius:100px;padding:5px 11px;margin:0 6px 6px 0;background:var(--granite-800);}
+  .gearline{font-size:14.5px;color:var(--ink-dim);}
+
+  /* hero tools */
+  .toolsbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;}
+  .tbtn{display:inline-flex;align-items:center;gap:7px;font-family:'Oswald';text-transform:uppercase;letter-spacing:.09em;font-size:11px;color:var(--ink-dim);background:var(--granite-800);border:1px solid var(--line);border-radius:100px;padding:8px 14px;cursor:pointer;}
+  .tbtn:hover{color:var(--ink);border-color:var(--teal-dim);}
+  .tbtn.saved{background:var(--rust);border-color:var(--rust-bright);color:var(--ink);}
+  .tbtn .i{font-size:13px;line-height:1;}
+
+  /* permit planner */
+  .planner label{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--ink-faint);display:block;margin-bottom:6px;}
+  .planner input[type=date]{width:100%;background:var(--granite-800);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);padding:8px 10px;font-family:'Oswald';font-size:14px;color-scheme:dark;}
+  .planres{margin-top:11px;display:flex;flex-direction:column;gap:8px;}
+  .planres .pr{border:1px solid var(--line);border-left:3px solid var(--rust);border-radius:var(--r);padding:8px 11px;background:var(--granite-800);}
+  .planres .pr .pl{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:10px;color:var(--rust-bright);}
+  .planres .pr .pd{font-family:'Oswald';font-size:15px;color:var(--ink);margin-top:2px;}
+  .planres .pr .pn{font-size:12.5px;color:var(--ink-faint);margin-top:3px;}
+  .planres .pr.open{border-left-color:var(--teal);}
+  .planres .pr.open .pl{color:var(--teal);}
+  .planner .caveat{font-size:12.5px;color:var(--ink-faint);font-style:italic;margin-top:10px;line-height:1.45;}
+
+  /* print field-card */
+  @media print{
+    :root{--granite-900:#fff;--granite-850:#fff;--granite-800:#fff;--granite-700:#eee;--granite-600:#ccc;--line:#bbb;--ink:#111;--ink-dim:#222;--ink-faint:#555;--sand:#7a4a12;--teal:#1d6f6b;--teal-dim:#1d6f6b;--rust:#834112;--rust-bright:#8a3f12;--shadow:none;}
+    body{font-size:10.5pt;background:#fff;color:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .topbar,.ridge,#map,.noprint,.toolsbar{display:none!important;}
+    .hero-inner{padding:4px 0 8px;}
+    .hero h1{font-size:24pt;}
+    .grid{display:block;margin:8px 0;}
+    .side{position:static;}
+    .card,.sec,.opt,.whyitem,.catch{break-inside:avoid;}
+    .card{box-shadow:none;border:1px solid #bbb;margin-bottom:12px;}
+    a{color:#111;text-decoration:none;}
+    @page{margin:1.3cm;}
+  }
+
   /* packing */
   .pk-head{display:flex;align-items:center;gap:10px;}
   .pk-prog{display:flex;gap:10px;margin:0 0 4px;}
@@ -299,7 +347,89 @@ function nearby(t){
     }).sort((a,b)=>b.score-a.score).slice(0,4).map(o=>o.x);
 }
 
-/* ---------------- main render ---------------- */
+/* ---------------- fishing module ---------------- */
+function fishingHTML(t){
+  const f=t.d.fish; const c=f.catch||0;
+  const fishIc=t.wild?'◐ wild':'○ stocked / mixed';
+  const dots=[1,2,3,4,5].map(i=>`<i class="${i<=c?'on':''}"></i>`).join('');
+  if(c===0){
+    return `<div class="catch none"><div class="meter">${dots}</div><div><div class="ct">${esc(f.label||'No fishery')}</div><div class="cs">Catchability 0 / 5</div></div></div>
+      <p style="color:var(--ink-faint);margin:0">Not a fishing destination — save the rod for another trip on the list.</p>`;
+  }
+  let h=`<div class="catch"><div class="meter">${dots}</div><div><div class="ct">${esc(f.label||'')}</div><div class="cs">Catchability ${c} / 5 · ${fishIc}</div></div></div>`;
+  h+=`<dl class="kv"><dt>Water</dt><dd>${esc(f.water)}</dd><dt>Species</dt><dd>${esc(f.species)}</dd><dt>Method</dt><dd>${esc(f.method)}</dd><dt>Season</dt><dd>${esc(f.season)}</dd></dl>`;
+  if(f.gear&&f.gear!=='—') h+=`<div class="fbox"><div class="fh">Recommended gear</div><div class="gearline">${esc(f.gear)}</div></div>`;
+  if(f.flies&&f.flies.length&&f.flies[0]!=='—') h+=`<div class="fbox"><div class="fh">Flies &amp; lures</div>${f.flies.map(x=>`<span class="fly">${esc(x)}</span>`).join('')}</div>`;
+  if(f.timing) h+=`<div class="fbox"><div class="fh">When</div><div class="gearline">${esc(f.timing)}</div></div>`;
+  return h;
+}
+
+/* ---------------- saved trips (shared with hub) ---------------- */
+const SAVE_KEY='getout_saved';
+function getSaved(){try{return JSON.parse(localStorage.getItem(SAVE_KEY))||[]}catch(e){return[]}}
+function setSaved(a){try{localStorage.setItem(SAVE_KEY,JSON.stringify(a))}catch(e){}}
+function toggleSaved(id){let a=getSaved();a=a.includes(id)?a.filter(x=>x!==id):a.concat(id);setSaved(a);return a.includes(id);}
+
+/* ---------------- GPX export ---------------- */
+function downloadGPX(t){
+  const desc=`${t.region} · ${t.type} · ~${t.drive}h from Pacifica · Permit: ${t.permit} · ${t.d.tag}`;
+  const gpx=`<?xml version="1.0" encoding="UTF-8"?>\n`+
+    `<gpx version="1.1" creator="Get Out — Reck the Fort" xmlns="http://www.topografix.com/GPX/1/1">\n`+
+    `  <metadata><name>${esc(t.name)}</name></metadata>\n`+
+    `  <wpt lat="${t.coord[0]}" lon="${t.coord[1]}">\n`+
+    `    <name>${esc(t.name)}</name>\n    <desc>${esc(desc)}</desc>\n    <sym>Trailhead</sym>\n  </wpt>\n</gpx>\n`;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([gpx],{type:'application/gpx+xml'}));
+  a.download='getout-'+t.id+'.gpx'; document.body.appendChild(a); a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
+}
+
+/* ---------------- permit release planner ---------------- */
+const PERMIT_CAL={
+  littlelakes:'inyo', shadow:'inyo',
+  cathedral:'yosemite', laurel:'yosemite',
+  lostcoast:'lostcoast', enchant:'lottery_spring', pointreyes:'recgov_pr',
+  desolation:'recgov6mo', twentylakes:'recgov6mo',
+  lakesbasin:'recgov6mo', junelake:'recgov6mo', bishopcreek:'recgov6mo', lassencar:'recgov6mo',
+  mccloud:'recgov6mo', eastsierracar:'recgov6mo', pinnacles:'recgov6mo', joshuatree:'recgov6mo', deathvalley:'recgov6mo',
+  hatcreek:'reservecal', bigsur:'reservecal', mendocino:'reservecal',
+  emigrant:'selfissue', carsonpass:'selfissue', trinity:'selfissue', marble:'selfissue', lassenbc:'selfissue',
+  skylakes:'selfissue', wallowas:'selfissue', steens:'selfissue', dvbackpack:'selfissue', ventana:'selfissue',
+  jtbackpack:'selfissue', henrycoe:'selfissue', carrizo:'selfissue', alabamahills:'selfissue', anzaborrego:'selfissue'
+};
+const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fmtD(d){return `${DOW[d.getDay()]}, ${MON[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;}
+function minusMonths(d,n){return new Date(d.getFullYear(),d.getMonth()-n,d.getDate());}
+function minusDays(d,n){const x=new Date(d);x.setDate(x.getDate()-n);return x;}
+function computeRelease(type,entry){
+  const today=new Date(); today.setHours(0,0,0,0);
+  const past=d=>d<today?' · already open — book or check cancellations':'';
+  const R=(label,date,note,open)=>({label,date:fmtD(date),note:note+past(date),open:open||date<today});
+  switch(type){
+    case 'inyo': return {rows:[
+      R('60% advance block', minusMonths(entry,6), '7am PT, same calendar date 6 months out'),
+      R('40% online block', minusDays(entry,14), '7am PT, same weekday, 2 weeks before')],
+      caveat:'Inyo NF via recreation.gov. Quota season May 1–Nov 1; outside it, permits are unlimited (just register).'};
+    case 'yosemite': return {rows:[
+      R('Reservation opens', minusDays(entry,168), '7am PT, 24 weeks (168 days) ahead, rolling daily')],
+      caveat:'Yosemite Wilderness via recreation.gov. Does NOT include Half Dome.'};
+    case 'lostcoast': return {rows:[
+      R('Permit release', minusDays(entry,90), '~7am PT, rolling ≈90 days ahead')],
+      caveat:'King Range via recreation.gov. Some sources cite a 6-month window — verify. And CHECK TIDES before you book; some dates have no passable window.'};
+    case 'reservecal': return {rows:[
+      R('Reservation opens', minusMonths(entry,6), '8am PT, 6 months ahead, rolling daily')],
+      caveat:'ReserveCalifornia (state-park campgrounds), 6-month rolling window.'};
+    case 'recgov_pr': return {rows:[
+      R('Reservation opens', minusDays(entry,90), 'rolling on recreation.gov (often ≈3 months)')],
+      caveat:'Point Reyes backcountry via recreation.gov — confirm the current lead time.'};
+    case 'recgov6mo': return {rows:[
+      R('Reservation opens', minusMonths(entry,6), 'rolling, ≈6 months ahead on recreation.gov')],
+      caveat:'recreation.gov lead time varies by unit — confirm the exact window for this site.'};
+    case 'lottery_spring': return {rows:[], caveat:'Core lottery: the application window runs in late winter / early spring (≈ Feb–Mar) for the whole season, not per-date. Apply when it opens and treat a win as the trip of the year.'};
+    default: return {rows:[], caveat:'No advance reservation — free self-issue or first-come. Register at the trailhead (or grab a walk-up) and go.'};
+  }
+}
 function render(t){
   document.title='Get Out — '+t.name;
   $('#bcType').textContent=t.type==='backpack'?'Backpacking':'Car camping';
@@ -344,6 +474,11 @@ function render(t){
         <div class="stat"><div class="k">Fishing</div><div class="v fish">${fishIc}</div></div>
       </div>
       <div class="scorebar">${pipsHTML(t.s)}</div>
+      <div class="toolsbar">
+        <button class="tbtn" id="saveBtn"><span class="i" id="saveIco">☆</span><span id="saveLbl">Save to my trips</span></button>
+        <button class="tbtn" id="printBtn"><span class="i">⎙</span>Print field card</button>
+        <button class="tbtn" id="gpxBtn"><span class="i">⤓</span>Download GPX</button>
+      </div>
     </div>
   </header>
 
@@ -362,14 +497,7 @@ function render(t){
 
         <section class="sec"><h2>${t.type==='backpack'?'Route &amp; Itinerary':'Basecamp &amp; Day Hikes'}</h2>${routeHTML}</section>
 
-        <section class="sec"><h2>Fishing <span class="n">${fishIc}</span></h2>
-          <dl class="kv">
-            <dt>Water</dt><dd>${esc(d.fish.water)}</dd>
-            <dt>Species</dt><dd>${esc(d.fish.species)}</dd>
-            <dt>Method</dt><dd>${esc(d.fish.method)}</dd>
-            <dt>Season</dt><dd>${esc(d.fish.season)}</dd>
-          </dl>
-        </section>
+        <section class="sec"><h2>Fishing <span class="n">proven catchability</span></h2>${fishingHTML(t)}</section>
 
         <section class="sec"><h2>Wildlife</h2><div class="tagrow">${d.wild.map(w=>`<span class="pill">${esc(w)}</span>`).join('')}</div></section>
 
@@ -414,12 +542,21 @@ function render(t){
       </div>
 
       <aside class="side">
-        <div class="card"><div class="ch">Live Weather</div><div class="cb" id="wxBody"><div class="wx-note">Loading trailhead forecast…</div></div></div>
+        <div class="card noprint"><div class="ch">Live Weather</div><div class="cb" id="wxBody"><div class="wx-note">Loading trailhead forecast…</div></div></div>
 
         <div class="card"><div class="ch">Best Weeks <span style="font-family:Spectral;text-transform:none;letter-spacing:0;font-style:italic;color:var(--ink-faint);font-size:12px">Jul → Mar</span></div>
           <div class="cb">
             <div class="weeks">${weeksHTML(ws)}</div>
             <div class="wk-legend"><span><i class="swatch" style="background:var(--rust-bright)"></i>Peak</span><span><i class="swatch" style="background:var(--teal-dim)"></i>In season</span><span><i class="swatch" style="background:var(--granite-700)"></i>Off</span></div>
+          </div>
+        </div>
+
+        <div class="card noprint" id="plannerCard"><div class="ch">Permit Release Planner</div>
+          <div class="cb planner">
+            <div id="plannerDate"><label for="entryDate">Your target entry date</label>
+            <input type="date" id="entryDate"></div>
+            <div class="planres" id="planRes"></div>
+            <div class="caveat" id="planCaveat"></div>
           </div>
         </div>
 
@@ -430,7 +567,7 @@ function render(t){
           <div class="cb" id="pkBody"></div>
         </div>
 
-        <div class="card"><div class="ch">Map</div><div id="map"></div></div>
+        <div class="card noprint"><div class="ch">Map</div><div id="map"></div></div>
       </aside>
     </div>
 
@@ -443,6 +580,8 @@ function render(t){
   loadWeather(t);
   buildMap(t);
   buildPacking(t);
+  buildTools(t);
+  buildPlanner(t);
 }
 
 /* ---------------- map ---------------- */
@@ -515,6 +654,34 @@ function buildPacking(t){
 
   $('#pkEdit').addEventListener('click',()=>{ const c=$('#pkBody'); c.classList.toggle('editing'); $('#pkEdit').textContent=c.classList.contains('editing')?'Done':'Edit'; });
   $('#pkReset').addEventListener('click',()=>{ if(confirm('Reset this packing list for both of you?')){ localStorage.removeItem(PK_KEY(t)); store={checks:{},custom:{},removed:[]}; draw(); } });
+}
+
+/* ---------------- tools (save / print / gpx) ---------------- */
+function buildTools(t){
+  const sb=$('#saveBtn');
+  function paint(){ const on=getSaved().includes(t.id); sb.classList.toggle('saved',on); $('#saveIco').textContent=on?'★':'☆'; $('#saveLbl').textContent=on?'Saved to my trips':'Save to my trips'; }
+  paint();
+  sb.addEventListener('click',()=>{ toggleSaved(t.id); paint(); });
+  $('#printBtn').addEventListener('click',()=>window.print());
+  $('#gpxBtn').addEventListener('click',()=>downloadGPX(t));
+}
+
+/* ---------------- permit planner ---------------- */
+function buildPlanner(t){
+  const type=PERMIT_CAL[t.id]||'selfissue';
+  const dateWrap=$('#plannerDate'), res=$('#planRes'), cav=$('#planCaveat'), input=$('#entryDate');
+  const noDate=(type==='selfissue'||type==='lottery_spring');
+  if(noDate) dateWrap.style.display='none';
+  function run(){
+    if(noDate){ res.innerHTML=''; cav.textContent=computeRelease(type,new Date()).caveat; return; }
+    if(!input.value){ res.innerHTML='<div class="pr"><div class="pn">Pick a date to see exactly when permits release for it.</div></div>'; cav.textContent=computeRelease(type,new Date()).caveat; return; }
+    const entry=new Date(input.value+'T00:00');
+    const c=computeRelease(type,entry);
+    res.innerHTML=c.rows.map(r=>`<div class="pr ${r.open?'open':''}"><div class="pl">${esc(r.label)}</div><div class="pd">${esc(r.date)}</div><div class="pn">${esc(r.note)}</div></div>`).join('');
+    cav.textContent=c.caveat;
+  }
+  if(input) input.addEventListener('change',run);
+  run();
 }
 </script>
 </body>

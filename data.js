@@ -711,3 +711,47 @@ window.TRIPS = [
   verify:['Backcountry rules/zones','Park entry/road status','Weather (flood risk)']}}
 
 ];
+
+/* ============================================================
+   FISHING INTEL — proven catchability + gear/flies per water
+   catch: 0–5 (how reliably you'll actually land fish — NOT the
+   scenery-priority score). label = plain-English tier.
+============================================================ */
+const FISHING = {
+  emigrant:{catch:5,label:'Lights out',gear:'4–5 wt, 8–9 ft, floating line, 9 ft 5x leader · or ultralight spin, 2–4 lb',flies:['Elk Hair Caddis #14–16','Parachute Adams #16','Royal Wulff #14','Copper John #16','Gold Panther Martin (spin)'],timing:'All day; dawn and the evening rise are best. Numbers fishing — push past the first lakes for size.'},
+  skylakes:{catch:5,label:'Lights out (many lakes)',gear:'4–5 wt floating, 5x leader',flies:['Elk Hair Caddis #14–16','Parachute Adams #16','Griffith\u2019s Gnat #18','Black Ant #16','Small spinner'],timing:'Evening rise is excellent — but you\u2019ll pay in bug bites before late August.'},
+  littlelakes:{catch:4,label:'Reliable; goldens up high',gear:'3–4 wt, 7.5–9 ft, 6x leader for goldens · or ultralight spin',flies:['Parachute Adams #16–18','Griffith\u2019s Gnat #18','Zebra Midge #18','Elk Hair Caddis #16','Tiny gold spinner'],timing:'Brookies anywhere; goldens hold in the upper Gem Lakes and favor midday.'},
+  twentylakes:{catch:4,label:'Reliable (wild brook)',gear:'4–5 wt floating, 5x–6x leader',flies:['Parachute Adams #16','Griffith\u2019s Gnat #18','Elk Hair Caddis #16','Copper John #18','Black Kastmaster 1/12 oz (spin)'],timing:'Work the inlets at Steelhead and Shamrock, morning and last light.'},
+  lakesbasin:{catch:4,label:'Reliable (dozens of lakes)',gear:'5 wt, or ultralight spin; a float tube unlocks the bigger lakes',flies:['Woolly Bugger, olive/black #10','Callibaetis Parachute #16','Elk Hair Caddis #16','Thomas Buoyant / Kastmaster (spin)'],timing:'Cast or troll the lakes; mornings best. Gold and Sardine are the producers.'},
+  junelake:{catch:4,label:'Reliable (stocked + holdover)',gear:'5–6 wt or spin; stockers fall for PowerBait, holdovers want flies',flies:['Woolly Bugger #8–10','Callibaetis #16','Zebra Midge #18','Kastmaster 1/4 oz (spin)'],timing:'Rush Creek runs wild; the loop lakes are stocked — early morning.'},
+  bishopcreek:{catch:4,label:'Reliable (wild + holdover)',gear:'4–5 wt, 5x; nymph the creek forks',flies:['Pheasant Tail #16','Hare\u2019s Ear #16','Elk Hair Caddis #14','Parachute Adams #16'],timing:'Creek forks at dawn; the high lakes (Treasure, Blue) midday.'},
+  mccloud:{catch:4,label:'Reliable (wild, classic)',gear:'4–5 wt, 9 ft, 5x; nymph the runs below the falls',flies:['Golden Stone nymph #10','Pheasant Tail #16','Hare\u2019s Ear #14','Elk Hair Caddis #14','October Caddis (fall)'],timing:'Riffles below Lower Falls, morning and evening. Book the Nature Conservancy reach for the storied water.'},
+  eastsierracar:{catch:4,label:'Reliable; goldens on the day-hike',gear:'4–5 wt or ultralight spin',flies:['Parachute Adams #16','Elk Hair Caddis #16','Pheasant Tail #16','Gold spinner'],timing:'Rock Creek at dawn; day-hike the Little Lakes chain for goldens.'},
+  marble:{catch:4,label:'Reliable (wild brook)',gear:'3–4 wt, 5x–6x',flies:['Parachute Adams #16','Elk Hair Caddis #16','Griffith\u2019s Gnat #18','Renegade #16'],timing:'Sky High Lakes — numbers fishing, all day.'},
+  wallowas:{catch:4,label:'Reliable (goldens & brook)',gear:'3–5 wt, 5x–6x',flies:['Parachute Adams #16','Elk Hair Caddis #16','Royal Wulff #14','Griffith\u2019s Gnat #18'],timing:'Goldens in the higher basin lakes, midday. Glacier and Mirror are the gems.'},
+  alabamahills:{catch:4,label:'Reliable winter tailwater',gear:'4–5 wt, 9 ft, 5x; nymph rigs under an indicator — fishes ALL winter',flies:['Zebra Midge #18–20','Pheasant Tail #16–18','WD-40 #18','San Juan Worm','Baetis #18'],timing:'Lower Owens, midday in winter — the year-round trout option when everything alpine is shut.'},
+  trinity:{catch:3,label:'Moderate (wild)',gear:'4–5 wt, 5x; dry-dropper on the creek',flies:['Elk Hair Caddis #14','Stimulator #14','Pheasant Tail #16','Copper John #16'],timing:'The creek pools below the lakes fish best; the cold cirque lakes are tougher.'},
+  desolation:{catch:3,label:'Moderate (self-sustaining, pressured)',gear:'4–5 wt, 5x–6x; or ultralight spin',flies:['Parachute Adams #16','Griffith\u2019s Gnat #18','Elk Hair Caddis #16','Small Kastmaster (spin)'],timing:'Work the inlet seams of Dicks and Fontanillis at dawn and dusk. Aloha is barren.'},
+  shadow:{catch:3,label:'Moderate (creek best)',gear:'4–5 wt, 5x; dry-dropper',flies:['Elk Hair Caddis #14–16','Parachute Adams #16','Pheasant Tail #16','Hare\u2019s Ear #16'],timing:'Shadow Creek pools out-fish the lakes; lakes early and late.'},
+  lassenbc:{catch:3,label:'Moderate (stocked/holdover)',gear:'4–5 wt or ultralight spin',flies:['Woolly Bugger #10','Parachute Adams #16','Pheasant Tail #16','Thomas Buoyant 1/8 oz (spin)'],timing:'Cooler morning/evening on the Cluster Lakes.'},
+  lassencar:{catch:3,label:'Moderate (Manzanita is C&R)',gear:'5 wt + float tube for Manzanita (fly-only, barbless, catch-and-release)',flies:['Callibaetis nymph #16','Woolly Bugger #10','Blood Midge #18','Hare\u2019s Ear #16'],timing:'Manzanita at dawn from a tube; Butte Lake will take spinners.'},
+  steens:{catch:3,label:'Moderate (wild redband)',gear:'3–4 wt, 5x; small-stream tactics',flies:['Elk Hair Caddis #14','Parachute Adams #16','Stimulator #14','Pheasant Tail #16'],timing:'Gorge creeks and the Donner und Blitzen — confirm current Oregon regs.'},
+  henrycoe:{catch:3,label:'Warmwater (bass/bluegill, not trout)',gear:'Light spin, 6 lb · or 6 wt for poppers',flies:['Foam popper #8','Woolly Bugger, black #8','Senko / soft plastic (spin)','Rooster Tail (spin)'],timing:'Pond margins in spring (Mississippi, Kelly Lake). Not a trout fishery — set expectations.'},
+  hatcreek:{catch:3,label:'Technical — loaded but demanding',gear:'4–5 wt, 9 ft; LONG 12 ft 6x–7x leaders. This is spring-creek sight-fishing — the fish are everywhere and they\u2019ve seen it all',flies:['Pale Morning Dun #16–18','Trico spinner #20–22','Blue-Winged Olive #18','Tiny Pheasant Tail #18–20','Caddis emerger (evening)'],timing:'Match the hatch precisely; the evening caddis is when even mortals catch fish.'},
+  cathedral:{catch:2,label:'Light',gear:'3–4 wt, 6x',flies:['Griffith\u2019s Gnat #18','Parachute Adams #18','Small midge'],timing:'Optional — this is a scenery pilgrimage, not a fishing trip.'},
+  laurel:{catch:2,label:'Light–moderate',gear:'4–5 wt, 5x',flies:['Parachute Adams #16','Woolly Bugger, olive #10','Elk Hair Caddis #16'],timing:'Lake margins early and late; bring it as a bonus, not the plan.'},
+  carsonpass:{catch:2,label:'Small wild brookies',gear:'3–4 wt, 6x — light and fun',flies:['Griffith\u2019s Gnat #18','Parachute Adams #18','Small Elk Hair Caddis #16'],timing:'Round Top Lake and Fourth of July — casual pan-sized brookies.'},
+  lostcoast:{catch:1,label:'Surf only (incidental)',gear:'9–10 ft surf rod, 3–4 oz pyramid sinker',flies:['Surf rig + sand crab / Gulp! sandworm','Small metal jig for surfperch'],timing:'Incoming tide on sandy stretches — a bonus, never the reason you came.'},
+  ventana:{catch:1,label:'Marginal',gear:'3–4 wt if anything',flies:['Small Adams','Elk Hair Caddis'],timing:'The Big Sur River is light — go for the pools, not the rod.'},
+  bigsur:{catch:1,label:'Marginal (steelhead closed)',gear:'—',flies:['—'],timing:'Not a fishing trip — it\u2019s a coastline.'},
+  enchant:{catch:1,label:'Light (scenery trip)'},
+  pointreyes:{catch:0,label:'No trout fishery (ocean)'},
+  mendocino:{catch:0,label:'No trout fishery'},
+  carrizo:{catch:0,label:'No fishery (dry plain)'},
+  deathvalley:{catch:0,label:'No fishery (desert)'},
+  dvbackpack:{catch:0,label:'No fishery (desert)'},
+  anzaborrego:{catch:0,label:'No fishery (desert)'},
+  joshuatree:{catch:0,label:'No fishery (desert)'},
+  jtbackpack:{catch:0,label:'No fishery (desert)'}
+};
+window.TRIPS.forEach(t=>{ const f=FISHING[t.id]; if(f) Object.assign(t.d.fish, f); else if(!('catch' in t.d.fish)) t.d.fish.catch=0; });
