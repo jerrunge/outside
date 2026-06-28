@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Register — 9-Month Trip Calendar</title>
+<meta name="description" content="A standing seasonal calendar of car-camping and backpacking trips for Jeremy & David, scored on scenery, wild trout, wildlife, low bugs, and swimmable water." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  :root{
+    /* Coastal Operator — dark */
+    --granite-900:#14171a;
+    --granite-850:#181c1f;
+    --granite-800:#1e2327;
+    --granite-700:#262d32;
+    --granite-600:#333c42;
+    --line:#2c343a;
+    --pine:#2f4a40;
+    --pine-bright:#3c6354;
+    --teal:#5fa3a0;
+    --teal-dim:#3f7370;
+    --rust:#834112;
+    --rust-bright:#b65d22;
+    --sand:#cdbfa6;
+    --ink:#e9e3d6;
+    --ink-dim:#a6a092;
+    --ink-faint:#6f6c63;
+    --good:#5fa3a0;
+    --warn:#b88a3a;
+    --flag:#b65d22;
+    --r:3px;
+    --maxw:1240px;
+    --shadow:0 1px 0 rgba(0,0,0,.5), 0 14px 40px -24px rgba(0,0,0,.9);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--granite-900);color:var(--ink);
+    font-family:'Spectral',Georgia,serif;font-size:17px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.disp{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:.01em;}
+  .mono,.eyebrow,.pip-key,.metric,.chip,.btn,.wk-label,.legend-grid b{
+    font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.13em;font-weight:500;
+  }
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{color:var(--ink);}
+  :focus-visible{outline:2px solid var(--rust-bright);outline-offset:2px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  /* ---------- header / hero ---------- */
+  header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#10141600 0%, var(--granite-900) 92%), var(--granite-850);}
+  .ridge{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5;}
+  .hero-inner{position:relative;padding:46px 0 30px;}
+  .eyebrow{font-size:12.5px;color:var(--rust-bright);}
+  .hero h1{font-size:clamp(34px,6vw,62px);line-height:.98;margin:.18em 0 .15em;font-weight:600;
+    letter-spacing:.005em;}
+  .hero h1 em{font-style:normal;color:var(--teal);}
+  .hero .lede{max-width:62ch;color:var(--ink-dim);font-size:18px;margin:0 0 4px;}
+  .hero .lede b{color:var(--sand);font-weight:500;}
+  .priorities{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;}
+  .priorities .chip{font-size:11px;color:var(--ink-dim);border:1px solid var(--line);
+    border-radius:100px;padding:5px 11px;background:var(--granite-800);letter-spacing:.1em;}
+  .priorities .chip b{color:var(--rust-bright);font-weight:600;margin-right:5px;}
+
+  /* this-week panel */
+  .now-panel{margin-top:26px;border:1px solid var(--line);border-radius:var(--r);
+    background:linear-gradient(180deg,var(--granite-800),var(--granite-850));box-shadow:var(--shadow);}
+  .now-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding:14px 18px;border-bottom:1px solid var(--line);}
+  .now-head .l{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+  .now-head .tag{font-size:11.5px;color:var(--granite-900);background:var(--rust-bright);
+    padding:3px 9px;border-radius:100px;}
+  .now-head h2{font-size:20px;margin:0;font-weight:500;}
+  .now-head .dates{font-family:'Oswald';letter-spacing:.06em;color:var(--ink-faint);font-size:13px;text-transform:uppercase;}
+  .now-head .season{font-family:'Spectral';font-style:italic;color:var(--teal);font-size:15px;text-transform:none;letter-spacing:0;}
+  .now-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .now-col{padding:14px 18px 18px;}
+  .now-col:first-child{border-right:1px solid var(--line);}
+  .now-col > .colhead{margin:0 0 10px;}
+
+  /* ---------- toolbar ---------- */
+  .toolbar{position:sticky;top:0;z-index:40;background:rgba(20,23,26,.93);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .toolbar-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:11px 0;}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;background:var(--granite-800);}
+  .seg button{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:11.5px;
+    background:transparent;color:var(--ink-dim);border:0;padding:7px 14px;cursor:pointer;}
+  .seg button[aria-pressed="true"]{background:var(--rust);color:var(--ink);}
+  .filters{display:flex;gap:7px;flex-wrap:wrap;align-items:center;}
+  .filt{font-family:'Oswald';text-transform:uppercase;letter-spacing:.09em;font-size:11px;
+    color:var(--ink-dim);border:1px solid var(--line);background:var(--granite-800);
+    border-radius:100px;padding:6px 11px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;}
+  .filt[aria-pressed="true"]{border-color:var(--teal-dim);color:var(--ink);background:var(--pine);}
+  .filt .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);}
+  .toolbar .spacer{flex:1;}
+  .monthjump{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:11.5px;
+    background:var(--granite-800);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);
+    padding:7px 10px;}
+
+  /* ---------- legend ---------- */
+  .legend{border:1px solid var(--line);border-radius:var(--r);background:var(--granite-850);
+    margin:24px 0 6px;padding:16px 18px;}
+  .legend h3{margin:0 0 4px;font-size:14px;color:var(--sand);letter-spacing:.12em;text-transform:uppercase;font-family:'Oswald';}
+  .legend p{margin:0 0 12px;color:var(--ink-dim);font-size:14.5px;}
+  .legend-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  .legend-grid .lk{display:flex;gap:10px;align-items:flex-start;}
+  .legend-grid .ord{font-family:'Oswald';color:var(--rust-bright);font-size:13px;width:1.4em;flex:none;}
+  .legend-grid b{display:block;color:var(--ink);font-size:12px;letter-spacing:.08em;}
+  .legend-grid span{color:var(--ink-faint);font-size:12.5px;line-height:1.35;}
+  .legend .keyrow{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
+    color:var(--ink-faint);font-size:12.5px;}
+  .legend .keyrow span{display:inline-flex;gap:7px;align-items:center;}
+  .ic{font-family:'Oswald';font-size:13px;color:var(--teal);}
+
+  /* ---------- month + week ---------- */
+  .month{margin-top:30px;scroll-margin-top:70px;}
+  .month > .mhead{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--rust);
+    padding-bottom:7px;margin-bottom:4px;}
+  .month .mname{font-family:'Oswald';font-size:26px;font-weight:600;letter-spacing:.02em;color:var(--ink);text-transform:uppercase;}
+  .month .myear{font-family:'Oswald';color:var(--ink-faint);font-size:14px;letter-spacing:.14em;}
+  .month .mnote{font-family:'Spectral';font-style:italic;color:var(--teal);font-size:14.5px;margin-left:auto;text-align:right;max-width:42ch;}
+
+  .week{border-bottom:1px solid var(--line);padding:16px 0 6px;}
+  .whead{display:flex;align-items:baseline;gap:12px;margin-bottom:11px;flex-wrap:wrap;}
+  .wk-label{font-size:12px;color:var(--sand);}
+  .wdate{font-family:'Oswald';font-size:12px;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;}
+  .wseason{font-family:'Spectral';font-style:italic;color:var(--teal-dim);font-size:13.5px;}
+  .wcols{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .wcol .colhead{display:flex;align-items:center;gap:8px;margin:0 0 9px;}
+  .colhead .ct{font-family:'Oswald';text-transform:uppercase;letter-spacing:.13em;font-size:12px;}
+  .colhead.bp .ct{color:var(--rust-bright);}
+  .colhead.car .ct{color:var(--teal);}
+  .colhead .cl{height:1px;background:var(--line);flex:1;}
+  .cardstack{display:flex;flex-direction:column;gap:9px;}
+
+  /* ---------- trip card ---------- */
+  .card{display:block;border:1px solid var(--line);border-left:3px solid var(--type-c,var(--line));
+    border-radius:var(--r);background:var(--granite-800);padding:11px 13px;position:relative;
+    transition:border-color .15s, transform .15s, background .15s;}
+  .card.bp{--type-c:var(--rust);}
+  .card.car{--type-c:var(--teal-dim);}
+  .card:hover{transform:translateY(-1px);background:var(--granite-700);border-left-color:var(--type-c);}
+  .card.bp:hover{border-color:var(--rust);}
+  .card.car:hover{border-color:var(--teal-dim);}
+  .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .card .nm{font-family:'Oswald';font-weight:500;font-size:16.5px;color:var(--ink);line-height:1.12;letter-spacing:.01em;}
+  .card .rg{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--ink-faint);margin-top:3px;}
+  .card .blurb{font-size:14px;color:var(--ink-dim);margin:7px 0 9px;line-height:1.4;}
+  .card .meta{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px;}
+  .card .m{font-family:'Oswald';font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-dim);border:1px solid var(--line);border-radius:100px;padding:3px 7px;background:var(--granite-850);}
+  .card .m.fish{color:var(--teal);border-color:var(--teal-dim);}
+  .card .m.swim{color:var(--sand);}
+  .card .m.permit{color:var(--flag);border-color:#5a3a23;}
+  .card .m.epic{color:var(--granite-900);background:var(--rust-bright);border-color:var(--rust-bright);}
+  .card .bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;}
+
+  /* pips */
+  .pips{display:flex;gap:4px;align-items:flex-end;}
+  .pip{display:flex;flex-direction:column;align-items:center;gap:3px;}
+  .pip .bars{display:flex;align-items:flex-end;gap:1.5px;height:18px;}
+  .pip .bars i{width:3px;background:var(--granite-600);border-radius:1px;display:block;}
+  .pip .bars i.on{background:var(--rust-bright);}
+  .pip.f .bars i.on{background:var(--teal);}
+  .pip .pl{font-family:'Oswald';font-size:8.5px;letter-spacing:.04em;color:var(--ink-faint);}
+  .card .go{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;
+    color:var(--type-c);white-space:nowrap;}
+  .card .go.queued{color:var(--ink-faint);}
+  .ribbon{position:absolute;top:-1px;right:-1px;font-family:'Oswald';font-size:9px;letter-spacing:.12em;
+    background:var(--rust-bright);color:var(--granite-900);padding:2px 7px;border-radius:0 var(--r) 0 var(--r);}
+  .card.empty{border-style:dashed;background:transparent;color:var(--ink-faint);text-align:center;
+    font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:11px;padding:18px;border-left-color:var(--line);}
+
+  /* ---------- library + map ---------- */
+  section.block{margin:54px 0 0;}
+  .bhead{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rust);padding-bottom:7px;margin-bottom:16px;}
+  .bhead h2{font-size:24px;margin:0;font-weight:600;text-transform:uppercase;letter-spacing:.03em;}
+  .bhead .sub{color:var(--ink-faint);font-family:'Oswald';letter-spacing:.1em;font-size:12px;text-transform:uppercase;margin-left:auto;}
+  .libgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:11px;}
+  #map{height:460px;border:1px solid var(--line);border-radius:var(--r);background:var(--granite-800);}
+  .leaflet-popup-content-wrapper{background:var(--granite-800);color:var(--ink);border-radius:var(--r);border:1px solid var(--line);}
+  .leaflet-popup-tip{background:var(--granite-800);border:1px solid var(--line);}
+  .leaflet-popup-content{font-family:'Spectral';margin:11px 13px;}
+  .pop b{font-family:'Oswald';font-size:15px;letter-spacing:.02em;}
+  .pop .pr{font-family:'Oswald';text-transform:uppercase;font-size:10px;letter-spacing:.1em;color:var(--ink-faint);}
+  .pop a{font-family:'Oswald';text-transform:uppercase;font-size:11px;letter-spacing:.08em;}
+
+  footer{margin:60px 0 30px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-faint);font-size:13px;}
+  footer b{color:var(--ink-dim);font-weight:500;}
+  .disclaim{background:var(--granite-850);border:1px solid var(--line);border-left:3px solid var(--warn);
+    border-radius:var(--r);padding:11px 14px;margin:18px 0;color:var(--ink-dim);font-size:13.5px;}
+
+  @media(max-width:880px){
+    .now-grid,.wcols{grid-template-columns:1fr;}
+    .now-col:first-child{border-right:0;border-bottom:1px solid var(--line);}
+    .legend-grid{grid-template-columns:1fr 1fr;}
+    .month .mnote{display:none;}
+  }
+  @media(max-width:520px){ .legend-grid{grid-template-columns:1fr;} body{font-size:16px;} }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <svg class="ridge" viewBox="0 0 1200 360" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="none" stroke="#26303a" stroke-width="1">
+      <path d="M0,300 C160,250 300,288 430,250 C560,212 690,250 820,214 C950,178 1080,210 1200,180"/>
+      <path d="M0,330 C150,300 320,322 460,292 C600,262 720,300 860,268 C1000,236 1100,262 1200,238"/>
+      <path d="M0,268 C180,232 300,255 440,212 C580,170 700,210 840,170 C980,130 1090,160 1200,128"/>
+    </g>
+    <g fill="none" stroke="#2f3d3a" stroke-width="1" opacity=".6">
+      <path d="M0,236 C160,206 300,224 450,184 C600,144 720,182 870,146 C1010,112 1100,138 1200,108"/>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Reck the Fort · Field Operations</div>
+    <h1>The <em>Register</em></h1>
+    <p class="lede">A standing 9-month calendar of <b>backpacking</b> and <b>car-camping</b> trips for you and David — every week scored on the five things that matter, in your order of priority. Trips recur across the weeks they're actually in season, so any week shows six options you could run that weekend.</p>
+    <div class="priorities">
+      <span class="chip"><b>1</b>Scenery</span>
+      <span class="chip"><b>2</b>Wild trout</span>
+      <span class="chip"><b>3</b>Wildlife</span>
+      <span class="chip"><b>4</b>Fewer bugs</span>
+      <span class="chip"><b>5</b>Swimmable water</span>
+    </div>
+
+    <div class="now-panel" id="nowPanel">
+      <div class="now-head">
+        <div class="l">
+          <span class="tag">This week</span>
+          <h2 id="nowTitle">—</h2>
+          <span class="dates" id="nowDates"></span>
+        </div>
+        <span class="season" id="nowSeason"></span>
+      </div>
+      <div class="now-grid">
+        <div class="now-col">
+          <div class="colhead bp"><span class="ct" style="color:var(--rust-bright)">▲ Backpacking</span></div>
+          <div class="cardstack" id="nowBP"></div>
+        </div>
+        <div class="now-col">
+          <div class="colhead car"><span class="ct" style="color:var(--teal)">■ Car camping</span></div>
+          <div class="cardstack" id="nowCar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap toolbar-inner">
+    <div class="seg" role="group" aria-label="Trip type">
+      <button data-type="all" aria-pressed="true">All</button>
+      <button data-type="backpack" aria-pressed="false">Backpack</button>
+      <button data-type="car" aria-pressed="false">Car</button>
+    </div>
+    <div class="filters" id="filters">
+      <button class="filt" data-f="nopermit" aria-pressed="false"><span class="dot"></span>No permit</button>
+      <button class="filt" data-f="close" aria-pressed="false"><span class="dot"></span>≤5 hr</button>
+      <button class="filt" data-f="wild" aria-pressed="false"><span class="dot"></span>Wild trout</button>
+      <button class="filt" data-f="skinny" aria-pressed="false"><span class="dot"></span>Skinny-dip water</button>
+    </div>
+    <span class="spacer"></span>
+    <select class="monthjump" id="monthJump" aria-label="Jump to month"></select>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="legend">
+    <h3>How the scoring works</h3>
+    <p>Each trip carries five bars, left to right in your priority order. <b style="color:var(--rust-bright)">Rust</b> bars are the general criteria; the <b style="color:var(--teal)">teal</b> bar is fishing, weighted toward <em>wild</em> trout over stocked. Skinny-dip is a tiebreaker, not a filter — it's flagged where the water and the solitude both deliver.</p>
+    <div class="legend-grid">
+      <div class="lk"><span class="ord">1</span><div><b>Scenery</b><span>Nat-Geo ceiling. The thing you drove for.</span></div></div>
+      <div class="lk"><span class="ord">2</span><div><b>Fish</b><span>Wild trout rated above stocked. Teal bar.</span></div></div>
+      <div class="lk"><span class="ord">3</span><div><b>Wildlife</b><span>Variety — bears, bighorn, snakes, the works.</span></div></div>
+      <div class="lk"><span class="ord">4</span><div><b>Bugs</b><span>High bar = fewer bugs in the trip's window.</span></div></div>
+      <div class="lk"><span class="ord">5</span><div><b>Water</b><span>Lakes/streams to get into. Skinny-dip noted.</span></div></div>
+    </div>
+    <div class="keyrow">
+      <span><span class="ic">◐</span> wild &nbsp;|&nbsp; <span class="ic">○</span> stocked / mixed fishing</span>
+      <span><span class="ic">~</span> skinny-dip-grade water</span>
+      <span><span class="ic">✦</span> permit / lottery — apply ahead</span>
+      <span><span class="ic" style="color:var(--rust-bright)">★</span> EPIC — worth the long drive</span>
+      <span><span class="ic" style="color:var(--rust-bright)">●</span> live page &nbsp; <span class="ic">●</span> page queued</span>
+    </div>
+  </div>
+
+  <div class="disclaim" id="legendNote">
+    Each cell links to a fully-spec'd trip page. <b>Desolation is live</b> — the rest are queued and I'm deep-building them in batches, starting with this season's High Sierra alpine. Conditions (road status, snow, tides, permit windows) get re-verified on each page at build, the way your other trip pages work.
+  </div>
+
+  <div id="calendar"></div>
+
+  <section class="block" id="library">
+    <div class="bhead"><h2>The Library</h2><span class="sub" id="libCount"></span></div>
+    <p style="color:var(--ink-dim);margin:-6px 0 16px;max-width:70ch;">Every destination in the rotation, browsable directly. This is the set the calendar pulls from — each one earns its own page.</p>
+    <div class="libgrid" id="libGrid"></div>
+  </section>
+
+  <section class="block" id="mapblock">
+    <div class="bhead"><h2>The Map</h2><span class="sub">Rust ▲ backpack · Teal ■ car</span></div>
+    <div id="map"></div>
+  </section>
+
+  <footer>
+    <p><b>The Register</b> — built for Jeremy &amp; David. Library: <span id="footCount"></span> trips · 9-month horizon · radius from Pacifica, widened where a trip is genuinely EPIC.</p>
+    <p style="margin-top:6px;color:var(--ink-faint);">Scores are an opinionated read for your five criteria, not gospel. Drive times are door-to-trailhead estimates. Always confirm road, snow, tide, and permit status before you commit — the deep pages do this for you.</p>
+  </footer>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+/* ============================ TRIP LIBRARY ============================
+   s = [scenery, fish, wildlife, lowBugs, water]  (1–5, your priority order)
+   wild: fishing leans wild trout (teal pip + ◐)   skinny: skinny-dip-grade water
+   season: months in-season (1–12)   peak: subset that earns a PEAK ribbon
+   permit flag, epic flag, status: 'live'|'queued', url
+======================================================================= */
+const T = [
+  // ---------------- High Sierra / NorCal alpine — summer ----------------
+  {id:'desolation',name:'Desolation — Dicks & Fontanillis',type:'backpack',region:'Tahoe · Eagle Falls',drive:3.5,len:'2–3 nts',miles:'~7/day',gain:'≤2,400/day',
+   s:[5,4,3,2,5],wild:true,skinny:true,permit:'Zone quota ✦',fish:'Wild brook & rainbow',swim:'Alpine cirque lakes ~',
+   season:[7,8,9],peak:[7,8],epic:false,status:'live',url:'https://jerrunge.github.io/desolation/',coord:[38.952,-120.115],
+   blurb:'Granite cirque, glassy lakes, hike-in solitude a short drive from home. Your benchmark trip.'},
+
+  {id:'twentylakes',name:'Twenty Lakes Basin',type:'backpack',region:'Hoover · Saddlebag',drive:4.5,len:'2 nts',miles:'~6/day',gain:'≤1,400/day',
+   s:[5,4,3,3,5],wild:true,skinny:true,permit:'Hoover quota ✦',fish:'Wild brook, Steelhead Lk',swim:'Helen, Steelhead, Shamrock ~',
+   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[37.966,-119.272],
+   blurb:'A whole basin of cobalt lakes at 10k, gentle grades, water-taxi shortcut off Saddlebag.'},
+
+  {id:'emigrant',name:'Emigrant — Buck Lakes',type:'backpack',region:'Emigrant Wild · Crabtree',drive:4,len:'2–3 nts',miles:'~8/day',gain:'≤2,000/day',
+   s:[4,5,3,3,4],wild:true,skinny:true,permit:'Free self-issue',fish:'Famous wild brook/rainbow',swim:'Granite lakes ~',
+   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[38.30,-119.83],
+   blurb:'No quota, no lottery — and some of the most reliable wild-trout water in the range.'},
+
+  {id:'carsonpass',name:'Carson Pass — Winnemucca & Round Top',type:'backpack',region:'Mokelumne · Carson Pass',drive:3.5,len:'1–2 nts',miles:'~6/day',gain:'≤1,800/day',
+   s:[4,3,3,3,4],wild:false,skinny:true,permit:'Free quota ✦',fish:'Small brook lakes',swim:'Winnemucca, Round Top Lk ~',
+   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[38.694,-119.989],
+   blurb:'Peak wildflower theater under Round Top — short, scenic, close. The easy-yes alpine trip.'},
+
+  {id:'littlelakes',name:'Little Lakes Valley',type:'backpack',region:'E. Sierra · Rock Creek',drive:5.5,len:'2 nts',miles:'~6/day',gain:'≤1,200/day',
+   s:[5,5,3,3,5],wild:true,skinny:true,permit:'Inyo quota ✦',fish:'Golden & brook, wild',swim:'A staircase of alpine lakes ~',
+   season:[7,8,9],peak:[7,8,9],epic:false,status:'queued',url:null,coord:[37.435,-118.748],
+   blurb:'Highest paved trailhead in the Sierra — you start at 10,300. Lakes for miles, goldens in them.'},
+
+  {id:'shadow',name:'Shadow & Ediza Lakes',type:'backpack',region:'Ansel Adams · Agnew Mdws',drive:5.5,len:'2–3 nts',miles:'~8/day',gain:'≤2,300/day',
+   s:[5,4,3,2,5],wild:true,skinny:true,permit:'Inyo quota ✦ · Reds Mdw rd',fish:'Wild trout, Shadow Ck',swim:'Ediza under the Minarets ~',
+   season:[7,8,9],peak:[8,9],epic:false,status:'queued',url:null,coord:[37.68,-119.08],
+   blurb:'The Minarets reflected in Ediza is the postcard. Verify Reds Meadow Rd before booking.'},
+
+  {id:'cathedral',name:'Cathedral Lakes',type:'backpack',region:'Yosemite high · Tuolumne',drive:4.5,len:'1–2 nts',miles:'~7/day',gain:'≤1,000/day',
+   s:[5,3,3,2,4],wild:false,skinny:true,permit:'Yosemite lottery ✦',fish:'Light',swim:'Lower Cathedral under the spire ~',
+   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[37.85,-119.42],
+   blurb:'Cathedral Peak over a quiet tarn, a few miles off Tioga. Lottery permit, huge payoff.'},
+
+  {id:'laurel',name:'Laurel Lake & Lake Vernon',type:'backpack',region:'Yosemite · Hetch Hetchy',drive:3.5,len:'2–3 nts',miles:'~8/day',gain:'≤2,200/day',
+   s:[4,3,4,3,4],wild:false,skinny:true,permit:'Yosemite quota ✦',fish:'Lake trout',swim:'Quiet lake, near-zero crowds ~',
+   season:[7,8,9,10],peak:[7,8],epic:false,status:'queued',url:null,coord:[37.97,-119.79],
+   blurb:'Yosemite without the people. Mid-elevation = bears and rattlers on the same trip.'},
+
+  {id:'trinity',name:'Canyon Creek Lakes',type:'backpack',region:'Trinity Alps',drive:5,len:'2–3 nts',miles:'~8/day',gain:'≤2,800/day',
+   s:[5,4,4,2,5],wild:true,skinny:true,permit:'Free self-issue',fish:'Wild trout',swim:'Falls, pools, granite lakes ~',
+   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[40.86,-123.02],
+   blurb:'Drama-first: a staircase of waterfalls into twin alpine lakes under Sawtooth granite.'},
+
+  {id:'marble',name:'Marble Mountains — Sky High Lakes',type:'backpack',region:'Marble Mtn Wild',drive:5.5,len:'2–3 nts',miles:'~8/day',gain:'≤2,400/day',
+   s:[4,4,4,3,4],wild:true,skinny:true,permit:'Free self-issue',fish:'Wild brook',swim:'Sky High Lakes ~',
+   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[41.50,-123.10],
+   blurb:'Marble-banded peaks, big wildlife corridor (bear, deer, the occasional wolf track), few people.'},
+
+  {id:'lassenbc',name:'Lassen Backcountry — Cluster Lakes',type:'backpack',region:'Lassen NP',drive:4,len:'1–2 nts',miles:'~7/day',gain:'≤1,200/day',
+   s:[4,3,4,3,3],wild:false,skinny:true,permit:'Free wilderness',fish:'Stocked/holdover',swim:'Warm-ish forest lakes ~',
+   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[40.50,-121.36],
+   blurb:'Volcanic weirdness, easy grades, lakes warm enough to actually want to swim.'},
+
+  {id:'skylakes',name:'Sky Lakes Wilderness',type:'backpack',region:'Oregon · S. of Crater Lk',drive:7.5,len:'2–3 nts',miles:'~9/day',gain:'≤1,800/day',
+   s:[4,4,3,1,5],wild:true,skinny:true,permit:'Free self-issue',fish:'Wild & brook, many lakes',swim:'Hundreds of lakes ~',
+   season:[7,8,9],peak:[8,9],epic:true,status:'queued',url:null,coord:[42.45,-122.20],
+   blurb:'Lake after lake under Mt McLoughlin. EPIC — but legendarily buggy until late August.'},
+
+  {id:'wallowas',name:'Eagle Cap — Lakes Basin',type:'backpack',region:'Oregon · Wallowas',drive:10.5,len:'3–4 nts',miles:'~9/day',gain:'≤2,600/day',
+   s:[5,5,4,3,5],wild:true,skinny:true,permit:'Free self-issue',fish:'Golden & brook, wild',swim:'Granite-rimmed alpine lakes ~',
+   season:[7,8,9],peak:[8,9],epic:true,status:'queued',url:null,coord:[45.20,-117.30],
+   blurb:'"Oregon\'s Alps." A marquee, once-a-summer push — goldens, white granite, real remoteness.'},
+
+  {id:'enchant',name:'The Enchantments',type:'backpack',region:'Washington · Cascades',drive:13,len:'2–3 nts',miles:'~9/day',gain:'≤2,900/day',
+   s:[5,3,4,3,5],wild:false,skinny:true,permit:'Core lottery ✦',fish:'Light',swim:'Larch-rimmed granite lakes ~',
+   season:[7,8,9],peak:[9],epic:true,status:'queued',url:null,coord:[47.49,-120.79],
+   blurb:'The aspirational white whale. Core-zone lottery, golden larches late Sept. Bucket-list only.'},
+
+  // ---------------- Car camping — summer / fishing-forward ----------------
+  {id:'lakesbasin',name:'Lakes Basin & Sierra Buttes',type:'car',region:'Tahoe Nat\'l Forest · Gold Lk',drive:4,len:'2–3 nts',miles:'day hikes',gain:'flexible',
+   s:[5,4,3,3,5],wild:true,skinny:true,permit:'Reservable/FCFS',fish:'Wild & stocked, dozens of lakes',swim:'Sardine, Long, Gold ~',
+   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[39.65,-120.65],
+   blurb:'Sierra Buttes lookout, a basin full of swimmable lakes, hike-or-relax flexibility. Underrated.'},
+
+  {id:'junelake',name:'June Lake Loop',type:'car',region:'E. Sierra · Hwy 158',drive:5.5,len:'2–3 nts',miles:'day hikes',gain:'flexible',
+   s:[4,4,2,3,4],wild:false,skinny:false,permit:'Reservable',fish:'Rush Ck + 4 lakes, holdover',swim:'Gull & Silver Lake',
+   season:[7,8,9,10],peak:[9,10],epic:false,status:'queued',url:null,coord:[37.78,-119.07],
+   blurb:'Four lakes on a loop, aspen blaze in October, Hot Creek wild-trout water 30 min south.'},
+
+  {id:'bishopcreek',name:'Bishop Creek — Sabrina & South Lk',type:'car',region:'E. Sierra · Hwy 168',drive:6,len:'2–3 nts',miles:'day hikes',gain:'flexible',
+   s:[5,5,3,3,4],wild:true,skinny:false,permit:'Reservable/FCFS',fish:'Wild + holdover, classic',swim:'Lake edges (cold)',
+   season:[7,8,9,10],peak:[9,10],epic:false,status:'queued',url:null,coord:[37.21,-118.61],
+   blurb:'13k peaks straight overhead, legendary trout creek, the best aspen color in California in early Oct.'},
+
+  {id:'lassencar',name:'Lassen — Summit & Butte Lake',type:'car',region:'Lassen NP',drive:4,len:'2–3 nts',miles:'day hikes',gain:'flexible',
+   s:[4,3,4,3,4],wild:false,skinny:false,permit:'Reservable',fish:'Butte & Manzanita lakes',swim:'Summit Lake (swimmable!)',
+   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[40.475,-121.42],
+   blurb:'Cinder Cone, Bumpass Hell, bears everywhere, and a lake warm enough to swim laps in.'},
+
+  {id:'hatcreek',name:'Hat Creek & Burney Falls',type:'car',region:'Shasta-Cascade',drive:4.5,len:'2 nts',miles:'easy',gain:'flat',
+   s:[3,5,3,3,3],wild:true,skinny:false,permit:'Reservable',fish:'Hat Ck wild-trout flyfishing mecca',swim:'Burney Falls pool',
+   season:[6,7,8,9,10],peak:[6,7,9,10],epic:false,status:'queued',url:null,coord:[41.013,-121.652],
+   blurb:'For the fly rod above all else — wild-trout riffles plus the "8th wonder," Burney Falls.'},
+
+  {id:'mccloud',name:'McCloud River Falls',type:'car',region:'Mt Shasta',drive:4.5,len:'2 nts',miles:'easy',gain:'flat',
+   s:[4,5,3,3,5],wild:true,skinny:true,permit:'Reservable/FCFS',fish:'Wild trout, classic water',swim:'Three waterfalls, deep pools ~',
+   season:[6,7,8,9,10],peak:[7,8],epic:false,status:'queued',url:null,coord:[41.20,-122.02],
+   blurb:'Lower/Middle/Upper Falls with swimming holes between them, Shasta looming, wild trout in the run.'},
+
+  {id:'eastsierracar',name:'Rock Creek Lake',type:'car',region:'E. Sierra · Rock Ck Rd',drive:5.5,len:'2–3 nts',miles:'day hikes',gain:'flexible',
+   s:[5,5,3,3,5],wild:true,skinny:false,permit:'Reservable',fish:'Wild brook & golden nearby',swim:'Rock Creek Lake',
+   season:[7,8,9],peak:[7,8,9],epic:false,status:'queued',url:null,coord:[37.46,-118.74],
+   blurb:'Drive-up basecamp at 9,700ft with Little Lakes Valley out the back door. Best of both worlds.'},
+
+  {id:'steens',name:'Steens Mountain',type:'car',region:'Oregon · high desert',drive:9,len:'2–3 nts',miles:'day hikes',gain:'flexible',
+   s:[5,4,4,3,4],wild:true,skinny:true,permit:'FCFS',fish:'Wild redband trout',swim:'Gorge streams ~',
+   season:[7,8,9],peak:[7,8],epic:true,status:'queued',url:null,coord:[42.64,-118.58],
+   blurb:'Mile-deep glacial gorges, wild horses, antelope, native redband trout. EPIC and empty.'},
+
+  // ---------------- Coast — shoulder / year-round ----------------
+  {id:'lostcoast',name:'Lost Coast — Mattole → Black Sands',type:'backpack',region:'King Range · BLM',drive:4,len:'3 nts',miles:'~8/day (sand)',gain:'≤1,500 total',
+   s:[5,2,5,4,5],wild:false,skinny:true,permit:'King Range permit ✦',fish:'Surf only',swim:'Ocean + creeks, naked beach camp ~',
+   season:[7,8,9,10,11],peak:[9,10],epic:true,status:'queued',url:null,coord:[40.293,-124.353],
+   blurb:'Elephant seals, black bears, rattlers, whales — wildlife maxed. Tide-gated, best in low-bug fall. EPIC.'},
+
+  {id:'pointreyes',name:'Point Reyes — Wildcat & Coast Camp',type:'backpack',region:'Marin · National Seashore',drive:1.5,len:'1–2 nts',miles:'~6/day',gain:'≤1,200/day',
+   s:[4,2,5,4,3],wild:false,skinny:true,permit:'Reservable ✦',fish:'None (ocean)',swim:'Alamere Falls, Bass Lk, ocean ~',
+   season:[1,2,3,4,5,6,7,8,9,10,11,12],peak:[9,10,11,4,5],epic:false,status:'queued',url:null,coord:[38.04,-122.85],
+   blurb:'Tule elk, bobcats, whales (winter), a waterfall onto the beach — and it\'s an hour and a half away.'},
+
+  {id:'bigsur',name:'Big Sur — Ventana & the River',type:'car',region:'Los Padres · Hwy 1',drive:2.5,len:'2 nts',miles:'day hikes',gain:'flexible',
+   s:[5,2,3,3,4],wild:false,skinny:true,permit:'Reservable',fish:'Light',swim:'Big Sur River gorge pools ~',
+   season:[1,2,3,4,5,9,10,11,12],peak:[10,11,4,5],epic:false,status:'queued',url:null,coord:[36.25,-121.78],
+   blurb:'Redwoods meeting surf, river pools in the gorge, off-season quiet. Skip the summer crush.'},
+
+  {id:'mendocino',name:'Mendocino Coast — Russian Gulch',type:'car',region:'Mendocino',drive:3.5,len:'2 nts',miles:'easy',gain:'flat',
+   s:[4,2,3,4,3],wild:false,skinny:false,permit:'Reservable',fish:'Light',swim:'Coves, waterfall, headlands',
+   season:[3,4,5,6,9,10,11],peak:[5,10],epic:false,status:'queued',url:null,coord:[39.31,-123.80],
+   blurb:'Sea-tunnel blowhole, fern canyons, dramatic headlands. A soft-landing coastal weekend.'},
+
+  // ---------------- Inland green-season — fall/winter/spring ----------------
+  {id:'henrycoe',name:'Henry Coe — China Hole',type:'backpack',region:'Santa Clara foothills',drive:1.5,len:'1–2 nts',miles:'~8/day',gain:'≤2,500/day',
+   s:[3,2,5,3,3],wild:false,skinny:true,permit:'Self-register',fish:'Pond bass/bluegill',swim:'China Hole swimming pools ~',
+   season:[10,11,12,1,2,3,4,5],peak:[3,4],epic:false,status:'queued',url:null,coord:[37.19,-121.42],
+   blurb:'Closest real wilderness you have. Wild pigs, bobcats, tarantulas, rattlers; green and flowing in winter/spring.'},
+
+  {id:'pinnacles',name:'Pinnacles — Talus Caves & Spires',type:'car',region:'Pinnacles NP',drive:2,len:'2 nts',miles:'day hikes',gain:'flexible',
+   s:[4,1,4,3,1],wild:false,skinny:false,permit:'Reservable',fish:'None',swim:'Reservoir (no swim)',
+   season:[10,11,12,1,2,3,4,5],peak:[3,4],epic:false,status:'queued',url:null,coord:[36.49,-121.18],
+   blurb:'California condors overhead, talus caves below, volcanic spires to scramble. A cool-season gem.'},
+
+  {id:'carrizo',name:'Carrizo Plain — Soda Lake & Bloom',type:'car',region:'San Luis Obispo Co.',drive:4,len:'1–2 nts',miles:'easy',gain:'flat',
+   s:[5,1,5,4,1],wild:false,skinny:false,permit:'Dispersed/FCFS',fish:'None',swim:'None (dry lakebed)',
+   season:[12,1,2,3,4],peak:[2,3],epic:false,status:'queued',url:null,coord:[35.19,-119.79],
+   blurb:'California\'s Serengeti — pronghorn, elk, kit fox, darkest skies in the state, super-bloom in spring.'},
+
+  {id:'alabamahills',name:'Alabama Hills & the Owens',type:'car',region:'Lone Pine · E. Sierra',drive:5.5,len:'2–3 nts',miles:'flexible',gain:'flexible',
+   s:[5,4,3,4,3],wild:true,skinny:false,permit:'Dispersed/FCFS',fish:'Lower Owens — year-round',swim:'Owens dips, Diaz Lake',
+   season:[9,10,11,12,1,2,3,4,5],peak:[10,11,3,4],epic:false,status:'queued',url:null,coord:[36.61,-118.12],
+   blurb:'Rock arches framing Mt Whitney, free dispersed camping, and a tailwater that fishes all winter.'},
+
+  {id:'deathvalley',name:'Death Valley — Saline & the Canyons',type:'car',region:'Death Valley NP',drive:8,len:'3 nts',miles:'flexible',gain:'flexible',
+   s:[5,1,3,4,2],wild:false,skinny:true,permit:'Dispersed/FCFS',fish:'None',swim:'Saline Valley hot springs ~ (4WD, remote)',
+   season:[11,12,1,2,3],peak:[12,1,2],epic:true,status:'queued',url:null,coord:[36.51,-116.93],
+   blurb:'Winter is the only season. Dunes, slot canyons, bighorn — and a remote clothing-optional soak. EPIC.'},
+
+  {id:'anzaborrego',name:'Anza-Borrego — Palms & Badlands',type:'car',region:'Colorado Desert',drive:9,len:'2–3 nts',miles:'flexible',gain:'flexible',
+   s:[5,1,4,4,2],wild:false,skinny:false,permit:'Dispersed/FCFS',fish:'None',swim:'Palm oasis pools',
+   season:[11,12,1,2,3,4],peak:[2,3],epic:true,status:'queued',url:null,coord:[33.26,-116.40],
+   blurb:'Slot canyons, fan-palm oases, bighorn sheep, and the state\'s best super-bloom. Free dispersed camping.'},
+
+  {id:'joshuatree',name:'Joshua Tree',type:'car',region:'Mojave/Colorado Desert',drive:8.5,len:'2–3 nts',miles:'flexible',gain:'flexible',
+   s:[5,1,3,4,1],wild:false,skinny:false,permit:'Reservable',fish:'None',swim:'None',
+   season:[10,11,12,1,2,3,4],peak:[11,12,3],epic:true,status:'queued',url:null,coord:[33.88,-115.90],
+   blurb:'Monzogranite boulder gardens, alien trees, cold clear winter nights. A scenery-and-stars play. EPIC.'},
+
+  // ---------------- Winter-viable backpacking ----------------
+  {id:'dvbackpack',name:'Death Valley — Cottonwood/Marble Loop',type:'backpack',region:'Death Valley NP',drive:8,len:'2–3 nts',miles:'~9/day',gain:'≤1,800/day',
+   s:[5,1,3,4,2],wild:false,skinny:false,permit:'Free backcountry register',fish:'None',swim:'Cottonwood Spring (seasonal)',
+   season:[11,12,1,2,3],peak:[12,1,2],epic:true,status:'queued',url:null,coord:[36.94,-117.30],
+   blurb:'A slot-and-spring loop through total desert silence — bighorn, wild burros, sidewinders, zero crowds. Winter only.'},
+
+  {id:'ventana',name:'Ventana Wilderness — Big Sur River',type:'backpack',region:'Los Padres · Big Sur',drive:2.5,len:'1–2 nts',miles:'~7/day',gain:'≤2,200/day',
+   s:[4,2,3,3,4],wild:false,skinny:true,permit:'Free self-issue · verify trail',fish:'Light (river)',swim:'Big Sur River gorge pools ~',
+   season:[10,11,12,1,2,3,4,5],peak:[10,11,4,5],epic:false,status:'queued',url:null,coord:[36.25,-121.74],
+   blurb:'Redwood canyons and river pools above Big Sur, green and running in the wet months. Confirm post-fire trail status.'},
+
+  {id:'jtbackpack',name:'Joshua Tree — Boy Scout Trail',type:'backpack',region:'Joshua Tree NP',drive:8.5,len:'1–2 nts',miles:'~8/day',gain:'≤1,200/day',
+   s:[5,1,3,4,1],wild:false,skinny:false,permit:'Free backcountry register',fish:'None',swim:'None (dry)',
+   season:[10,11,12,1,2,3,4],peak:[11,12,3],epic:true,status:'queued',url:null,coord:[34.02,-116.16],
+   blurb:'Sleep among monzogranite giants and Joshua trees, coyotes calling, the clearest winter stars in the state. EPIC.'},
+];
+
+/* ============================ ENGINE ============================ */
+const PIP_LABELS = ['S','F','W','B','A']; // Scenery, Fish, Wildlife, Bugs(low), Aqua
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const MONTHS_SH = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MNOTE = {
+  7:'High Sierra wide open — peak alpine, peak bugs. Treat your clothing.',
+  8:'Prime alpine. Lakes finally warm enough to want to be in.',
+  9:'The sweet spot — bugs collapse, aspens start, water still swimmable.',
+  10:'Color season. Coast and foothills wake up; high country closing.',
+  11:'Streams close Nov 15. Pivot to coast, desert, and year-round tailwaters.',
+  12:'Desert season opens. Clear, cold, empty. Soak-and-stars country.',
+  1:'Deep winter — desert, coast, and the green foothills carry the calendar.',
+  2:'Super-bloom watch in the south. Best wildlife viewing of the year.',
+  3:'Foothills greenest now; desert blooms peak. Shoulder before the melt.'
+};
+const SEASON_TAG = m => ({7:'High Sierra prime',8:'Peak alpine',9:'The sweet spot',10:'Color & coast',11:'Coast / desert pivot',12:'Desert season',1:'Desert & green foothills',2:'Bloom & big wildlife',3:'Green shoulder'}[m]||'In season');
+
+const composite = t => t.s[0]*5 + t.s[1]*4 + t.s[2]*3 + t.s[3]*2 + t.s[4]*1; // priority-weighted
+
+const state = { type:'all', filters:new Set() };
+
+function passFilters(t){
+  if(state.type!=='all' && t.type!==state.type) return false;
+  const f = state.filters;
+  if(f.has('nopermit') && /✦/.test(t.permit)) return false;
+  if(f.has('close') && t.drive>5) return false;
+  if(f.has('wild') && !t.wild) return false;
+  if(f.has('skinny') && !t.skinny) return false;
+  return true;
+}
+
+function pips(t){
+  let h='<div class="pips">';
+  t.s.forEach((v,i)=>{
+    const isFish=i===1;
+    h+=`<div class="pip ${isFish?'f':''}" title="${['Scenery','Fishing','Wildlife','Fewer bugs','Water'][i]}: ${v}/5"><div class="bars">`;
+    for(let b=1;b<=5;b++){ h+=`<i class="${b<=v?'on':''}" style="height:${4+b*2.6}px"></i>`; }
+    h+=`</div><span class="pl">${PIP_LABELS[i]}</span></div>`;
+  });
+  return h+'</div>';
+}
+
+function card(t,month){
+  const peak = t.peak && t.peak.includes(month);
+  const fishIc = t.wild?'◐':'○';
+  const live = t.status==='live';
+  const href = t.url||('#lib-'+t.id);
+  const tgt = live?' target="_blank" rel="noopener"':'';
+  let meta='';
+  meta+=`<span class="m">${t.drive}h</span>`;
+  meta+=`<span class="m">${t.len}</span>`;
+  if(t.type==='backpack') meta+=`<span class="m">${t.miles}</span>`;
+  meta+=`<span class="m fish">${fishIc} ${t.fish}</span>`;
+  if(t.skinny) meta+=`<span class="m swim">~ skinny-dip</span>`;
+  if(/✦/.test(t.permit)) meta+=`<span class="m permit">✦ permit</span>`;
+  if(t.epic) meta+=`<span class="m epic">★ EPIC</span>`;
+  return `<a class="card ${t.type==='backpack'?'bp':'car'}" href="${href}"${tgt} id="card-${t.id}">
+    ${peak?'<span class="ribbon">PEAK</span>':''}
+    <div class="top"><div><div class="nm">${t.name}</div><div class="rg">${t.region}</div></div></div>
+    <div class="blurb">${t.blurb}</div>
+    <div class="meta">${meta}</div>
+    <div class="bottom">${pips(t)}<span class="go ${live?'':'queued'}">${live?'Open page →':'Spec queued'}</span></div>
+  </a>`;
+}
+
+function pickForWeek(month, type, weekIdx){
+  let pool = T.filter(t=>t.type===type && t.season.includes(month) && passFilters(t));
+  pool.sort((a,b)=>{
+    const c = composite(b)-composite(a);
+    if(c!==0) return c;
+    return (b.skinny?1:0)-(a.skinny?1:0); // skinny-dip tiebreaker
+  });
+  if(pool.length===0) return [];
+  // rotate to keep consecutive in-season weeks fresh, without dropping quality far
+  const off = weekIdx % pool.length;
+  const rot = pool.slice(off).concat(pool.slice(0,off));
+  return rot.slice(0,3);
+}
+
+function emptyCard(type){
+  return `<div class="card empty">No ${type==='backpack'?'backpacking':'car-camping'} match — loosen filters</div>`;
+}
+
+function buildCalendar(){
+  const cal = document.getElementById('calendar');
+  cal.innerHTML='';
+  const start = new Date(2026,5,29); // Mon Jun 29 2026
+  const WEEKS = 39;
+  let curMonthKey='', monthEl=null, weekIdx=0;
+  const jump = document.getElementById('monthJump');
+  jump.innerHTML='<option value="">Jump to month…</option>';
+  const seenMonths=new Set();
+
+  for(let w=0; w<WEEKS; w++){
+    const ws = new Date(start); ws.setDate(start.getDate()+w*7);
+    const we = new Date(ws); we.setDate(ws.getDate()+6);
+    const mid = new Date(ws); mid.setDate(ws.getDate()+3); // representative day
+    const m = mid.getMonth()+1, y=mid.getFullYear();
+    const mk = m+'-'+y;
+
+    if(mk!==curMonthKey){
+      curMonthKey=mk;
+      monthEl=document.createElement('section');
+      monthEl.className='month';
+      monthEl.id='m-'+mk;
+      monthEl.innerHTML=`<div class="mhead">
+        <span class="mname">${MONTHS[m-1]}</span>
+        <span class="myear">${y}</span>
+        <span class="mnote">${MNOTE[m]||''}</span></div>`;
+      cal.appendChild(monthEl);
+      if(!seenMonths.has(mk)){ seenMonths.add(mk);
+        const o=document.createElement('option'); o.value='m-'+mk; o.textContent=`${MONTHS_SH[m-1]} ${y}`; jump.appendChild(o); }
+    }
+
+    const bp = pickForWeek(m,'backpack',w);
+    const car = pickForWeek(m,'car',w);
+    const showBP = state.type!=='car';
+    const showCar = state.type!=='backpack';
+    const fmt = d=>`${MONTHS_SH[d.getMonth()]} ${d.getDate()}`;
+
+    const week=document.createElement('div');
+    week.className='week';
+    week.innerHTML=`<div class="whead">
+        <span class="wk-label">Week ${w+1}</span>
+        <span class="wdate">${fmt(ws)} – ${fmt(we)}</span>
+        <span class="wseason">${SEASON_TAG(m)}</span>
+      </div>
+      <div class="wcols" style="${state.type!=='all'?'grid-template-columns:1fr;':''}">
+        ${showBP?`<div class="wcol"><div class="colhead bp"><span class="ct">▲ Backpacking</span><span class="cl"></span></div>
+          <div class="cardstack">${bp.length?bp.map(t=>card(t,m)).join(''):emptyCard('backpack')}</div></div>`:''}
+        ${showCar?`<div class="wcol"><div class="colhead car"><span class="ct">■ Car camping</span><span class="cl"></span></div>
+          <div class="cardstack">${car.length?car.map(t=>card(t,m)).join(''):emptyCard('car')}</div></div>`:''}
+      </div>`;
+    monthEl.appendChild(week);
+    weekIdx++;
+  }
+}
+
+function buildNow(){
+  const m = 7; // late June -> first in-season window is July alpine; we surface week 1
+  document.getElementById('nowTitle').textContent='Late June → first July window';
+  const ws=new Date(2026,5,29), we=new Date(2026,6,5);
+  document.getElementById('nowDates').textContent=`Jun 29 – Jul 5, 2026`;
+  document.getElementById('nowSeason').textContent='High Sierra coming online — low-snow year, early access';
+  const bp=pickForWeek(7,'backpack',0), car=pickForWeek(7,'car',0);
+  document.getElementById('nowBP').innerHTML=bp.map(t=>card(t,7)).join('');
+  document.getElementById('nowCar').innerHTML=car.map(t=>card(t,7)).join('');
+}
+
+function buildLibrary(){
+  const grid=document.getElementById('libGrid');
+  const list=[...T].filter(passFilters).sort((a,b)=>composite(b)-composite(a));
+  grid.innerHTML=list.map(t=>{
+    const wrap=document.createElement('div'); return `<div id="lib-${t.id}">${card(t, (t.peak&&t.peak[0])||t.season[0])}</div>`;
+  }).join('');
+  document.getElementById('libCount').textContent=`${list.length} of ${T.length} shown`;
+  document.getElementById('footCount').textContent=T.length;
+}
+
+/* ---------- map ---------- */
+let map, markers=[];
+function buildMap(){
+  if(!map){
+    map=L.map('map',{scrollWheelZoom:false}).setView([38.6,-120.5],6);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+      attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+  }
+  markers.forEach(mk=>map.removeLayer(mk)); markers=[];
+  const shown=T.filter(passFilters);
+  shown.forEach(t=>{
+    const c=t.type==='backpack'?'#b65d22':'#5fa3a0';
+    const mk=L.circleMarker(t.coord,{radius:6,color:c,weight:2,fillColor:c,fillOpacity:.55}).addTo(map);
+    const link=t.status==='live'?`<a href="${t.url}" target="_blank" rel="noopener">Open page →</a>`:`<span class="pr">page queued</span>`;
+    mk.bindPopup(`<div class="pop"><b>${t.name}</b><br><span class="pr">${t.region} · ${t.drive}h · ${t.type==='backpack'?'Backpack':'Car'}${t.epic?' · ★EPIC':''}</span><br>${link}</div>`);
+    markers.push(mk);
+  });
+}
+
+/* ---------- wire up ---------- */
+function rerender(){ buildCalendar(); buildNow(); buildLibrary(); buildMap(); }
+
+document.querySelectorAll('.seg button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');
+    state.type=b.dataset.type; rerender();
+  });
+});
+document.querySelectorAll('.filt').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const f=b.dataset.f, on=b.getAttribute('aria-pressed')==='true';
+    b.setAttribute('aria-pressed',(!on).toString());
+    if(on) state.filters.delete(f); else state.filters.add(f);
+    rerender();
+  });
+});
+document.getElementById('monthJump').addEventListener('change',e=>{
+  if(e.target.value){ const el=document.getElementById(e.target.value); if(el) el.scrollIntoView({behavior:'smooth'}); }
+});
+
+rerender();
+</script>
+</body>
+</html>
