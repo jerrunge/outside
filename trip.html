@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Get Out — Trip</title>
+<meta name="description" content="A fully-spec'd field plan: scenery, fishing, wildlife, water, permits, logistics, live weather, and an interactive packing list." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  :root{
+    --granite-900:#14171a;--granite-850:#181c1f;--granite-800:#1e2327;--granite-700:#262d32;--granite-600:#333c42;
+    --line:#2c343a;--pine:#2f4a40;--pine-bright:#3c6354;--teal:#5fa3a0;--teal-dim:#3f7370;
+    --rust:#834112;--rust-bright:#b65d22;--sand:#cdbfa6;--ink:#e9e3d6;--ink-dim:#a6a092;--ink-faint:#6f6c63;
+    --warn:#b88a3a;--flag:#b65d22;--r:3px;--maxw:1180px;
+    --shadow:0 1px 0 rgba(0,0,0,.5),0 14px 40px -24px rgba(0,0,0,.9);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--granite-900);color:var(--ink);font-family:'Spectral',Georgia,serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4,.disp{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:.01em;}
+  .mono,.eyebrow,.klabel,.chip,.btn,.tag,.sub,.bcrumb{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-weight:500;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{color:var(--ink);}
+  :focus-visible{outline:2px solid var(--rust-bright);outline-offset:2px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  /* top bar */
+  .topbar{border-bottom:1px solid var(--line);background:var(--granite-850);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:11px 0;gap:12px;}
+  .bcrumb{font-size:11.5px;color:var(--ink-faint);}
+  .bcrumb a{color:var(--teal);}
+  .topbar .nm{font-family:'Oswald';font-size:14px;color:var(--ink);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:50vw;}
+
+  /* hero */
+  header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--granite-850);}
+  .ridge{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.45;}
+  .hero-inner{position:relative;padding:34px 0 26px;}
+  .eyebrow{font-size:12px;color:var(--rust-bright);}
+  .badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px;}
+  .tag{font-size:10.5px;padding:4px 9px;border-radius:100px;border:1px solid var(--line);color:var(--ink-dim);background:var(--granite-800);}
+  .tag.type-bp{color:var(--rust-bright);border-color:#5a3a23;}
+  .tag.type-car{color:var(--teal);border-color:var(--teal-dim);}
+  .tag.epic{background:var(--rust-bright);color:var(--granite-900);border-color:var(--rust-bright);}
+  .tag.live{background:var(--pine-bright);color:var(--granite-900);border-color:var(--pine-bright);}
+  .hero h1{font-size:clamp(30px,5.2vw,52px);line-height:1.0;margin:.1em 0 .12em;font-weight:600;}
+  .hero .region{font-family:'Oswald';text-transform:uppercase;letter-spacing:.14em;color:var(--ink-faint);font-size:13px;}
+  .hero .tagline{font-family:'Spectral';font-style:italic;color:var(--sand);font-size:19px;max-width:60ch;margin:14px 0 0;}
+  .statline{display:flex;flex-wrap:wrap;gap:0;margin-top:20px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--granite-800);}
+  .stat{flex:1;min-width:104px;padding:11px 14px;border-right:1px solid var(--line);}
+  .stat:last-child{border-right:0;}
+  .stat .k{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:10px;color:var(--ink-faint);}
+  .stat .v{font-family:'Oswald';font-size:18px;color:var(--ink);font-weight:500;margin-top:2px;}
+  .stat .v.fish{color:var(--teal);} .stat .v.permit{color:var(--flag);}
+
+  /* scoring */
+  .scorebar{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;align-items:flex-end;}
+  .pip{display:flex;flex-direction:column;align-items:center;gap:5px;}
+  .pip .bars{display:flex;align-items:flex-end;gap:2px;height:30px;}
+  .pip .bars i{width:5px;background:var(--granite-600);border-radius:1px;display:block;}
+  .pip .bars i.on{background:var(--rust-bright);}
+  .pip.f .bars i.on{background:var(--teal);}
+  .pip .pl{font-family:'Oswald';font-size:10px;letter-spacing:.08em;color:var(--ink-dim);text-transform:uppercase;}
+  .pip .pv{font-family:'Oswald';font-size:11px;color:var(--ink-faint);}
+
+  /* layout */
+  .grid{display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:start;margin:34px 0;}
+  @media(max-width:900px){.grid{grid-template-columns:1fr;}}
+  section.sec{margin:0 0 30px;scroll-margin-top:64px;}
+  .sec h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--sand);font-family:'Oswald';
+    border-bottom:1px solid var(--rust);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:10px;}
+  .sec h2 .n{color:var(--ink-faint);font-size:11px;margin-left:auto;text-transform:none;letter-spacing:.04em;font-style:normal;}
+  .sec p{margin:0 0 12px;}
+  .lead p{font-size:18px;color:var(--ink);}
+
+  .whygrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:560px){.whygrid{grid-template-columns:1fr;}}
+  .whyitem{border:1px solid var(--line);border-radius:var(--r);padding:11px 13px;background:var(--granite-850);border-left:3px solid var(--rust);}
+  .whyitem.f{border-left-color:var(--teal);}
+  .whyitem .wk{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--ink-faint);display:flex;justify-content:space-between;}
+  .whyitem .wk .sc{color:var(--rust-bright);}
+  .whyitem.f .wk .sc{color:var(--teal);}
+  .whyitem .wt{font-size:14.5px;color:var(--ink-dim);margin-top:4px;}
+
+  .opt{border:1px solid var(--line);border-radius:var(--r);background:var(--granite-850);padding:13px 15px;margin-bottom:11px;}
+  .opt .on{font-family:'Oswald';font-size:16px;color:var(--ink);font-weight:500;}
+  .opt .os{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--rust-bright);margin:3px 0 7px;}
+  .opt .ot{font-size:14.5px;color:var(--ink-dim);margin:0;}
+  .dayhikes{list-style:none;padding:0;margin:8px 0 0;}
+  .dayhikes li{padding:7px 0 7px 20px;border-top:1px solid var(--line);position:relative;font-size:15px;color:var(--ink-dim);}
+  .dayhikes li:before{content:'▸';position:absolute;left:2px;color:var(--teal);}
+
+  .tagrow{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 0;}
+  .pill{font-family:'Oswald';font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);
+    border:1px solid var(--line);border-radius:100px;padding:5px 11px;background:var(--granite-800);}
+
+  .kv{display:grid;grid-template-columns:120px 1fr;gap:6px 14px;}
+  .kv dt{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--ink-faint);padding-top:3px;}
+  .kv dd{margin:0;font-size:15px;color:var(--ink-dim);}
+  .notebox{border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:var(--r);padding:10px 13px;background:var(--granite-850);color:var(--ink-dim);font-size:14px;margin-top:10px;}
+
+  .checklist{list-style:none;padding:0;margin:0;}
+  .checklist li{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-dim);}
+  .checklist li:before{content:'⬡';color:var(--flag);font-size:13px;line-height:1.5;}
+  .safety li:before{content:'△';color:var(--warn);}
+  .insider li:before{content:'★';color:var(--rust-bright);}
+
+  /* sidebar cards */
+  .side{position:sticky;top:64px;display:flex;flex-direction:column;gap:18px;}
+  @media(max-width:900px){.side{position:static;}}
+  .card{border:1px solid var(--line);border-radius:var(--r);background:var(--granite-850);box-shadow:var(--shadow);overflow:hidden;}
+  .card .ch{font-family:'Oswald';text-transform:uppercase;letter-spacing:.13em;font-size:11.5px;color:var(--sand);
+    padding:11px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+  .card .cb{padding:13px 14px;}
+
+  /* weather */
+  .wx-now{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .wx-now .ic{font-size:34px;line-height:1;}
+  .wx-now .t{font-family:'Oswald';font-size:30px;color:var(--ink);}
+  .wx-now .d{font-size:13px;color:var(--ink-dim);}
+  .wx-days{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;}
+  .wx-d{text-align:center;border:1px solid var(--line);border-radius:var(--r);padding:7px 2px;background:var(--granite-800);}
+  .wx-d .dn{font-family:'Oswald';font-size:9.5px;letter-spacing:.05em;color:var(--ink-faint);text-transform:uppercase;}
+  .wx-d .em{font-size:17px;margin:3px 0;}
+  .wx-d .hi{font-family:'Oswald';font-size:12px;color:var(--ink);}
+  .wx-d .lo{font-family:'Oswald';font-size:11px;color:var(--ink-faint);}
+  .wx-d .pp{font-size:9px;color:var(--teal);}
+  .wx-note{font-size:12px;color:var(--ink-faint);margin-top:9px;font-style:italic;}
+
+  /* best weeks strip */
+  .weeks{display:flex;flex-wrap:wrap;gap:3px;}
+  .wcell{width:13px;height:20px;border-radius:1.5px;background:var(--granite-700);position:relative;}
+  .wcell.on{background:var(--teal-dim);}
+  .wcell.peak{background:var(--rust-bright);}
+  .wk-months{display:flex;justify-content:space-between;margin-top:6px;font-family:'Oswald';font-size:9px;letter-spacing:.04em;color:var(--ink-faint);text-transform:uppercase;}
+  .wk-legend{display:flex;gap:14px;margin-top:9px;font-size:11px;color:var(--ink-faint);}
+  .wk-legend span{display:inline-flex;align-items:center;gap:5px;}
+  .swatch{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+  /* packing */
+  .pk-head{display:flex;align-items:center;gap:10px;}
+  .pk-prog{display:flex;gap:10px;margin:0 0 4px;}
+  .pk-person{flex:1;}
+  .pk-person .pn{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--ink-dim);display:flex;justify-content:space-between;}
+  .pk-person .bar{height:5px;background:var(--granite-700);border-radius:3px;margin-top:4px;overflow:hidden;}
+  .pk-person .bar i{display:block;height:100%;background:var(--teal);width:0;transition:width .25s;}
+  .pk-person.j .bar i{background:var(--rust-bright);}
+  .pk-cat{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:10px;color:var(--rust-bright);margin:14px 0 5px;}
+  .pk-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-top:1px solid var(--line);}
+  .pk-row .it{flex:1;font-size:14px;color:var(--ink-dim);}
+  .pk-row .it.done{text-decoration:line-through;color:var(--ink-faint);}
+  .pk-cb{width:19px;height:19px;border:1px solid var(--granite-600);border-radius:3px;background:var(--granite-800);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:none;font-size:12px;color:transparent;}
+  .pk-cb.j.on{background:var(--rust);border-color:var(--rust-bright);color:var(--ink);}
+  .pk-cb.d.on{background:var(--teal-dim);border-color:var(--teal);color:var(--ink);}
+  .pk-cbh{font-family:'Oswald';font-size:8.5px;letter-spacing:.04em;color:var(--ink-faint);width:19px;text-align:center;flex:none;text-transform:uppercase;}
+  .pk-rm{background:none;border:0;color:var(--ink-faint);cursor:pointer;font-size:14px;padding:0 2px;flex:none;display:none;}
+  .editing .pk-rm{display:inline;}
+  .pk-add{display:none;gap:6px;margin-top:8px;}
+  .editing .pk-add{display:flex;}
+  .pk-add input{flex:1;background:var(--granite-800);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);padding:6px 9px;font-family:'Spectral';font-size:13px;}
+  .btn{background:var(--granite-800);border:1px solid var(--line);color:var(--ink-dim);border-radius:100px;padding:6px 11px;font-size:10.5px;cursor:pointer;}
+  .btn:hover{color:var(--ink);border-color:var(--teal-dim);}
+  .btn.sm{padding:4px 9px;}
+  .pk-tools{display:flex;gap:6px;}
+
+  #map{height:230px;border-top:1px solid var(--line);background:var(--granite-800);}
+  .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--granite-800);color:var(--ink);border:1px solid var(--line);}
+  .leaflet-popup-content{font-family:'Spectral';}
+
+  .nearby{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+  @media(max-width:560px){.nearby{grid-template-columns:1fr;}}
+  .ncard{border:1px solid var(--line);border-left:3px solid var(--type-c,var(--line));border-radius:var(--r);background:var(--granite-800);padding:9px 11px;display:block;}
+  .ncard.bp{--type-c:var(--rust);} .ncard.car{--type-c:var(--teal-dim);}
+  .ncard:hover{background:var(--granite-700);}
+  .ncard .nn{font-family:'Oswald';font-size:14px;color:var(--ink);line-height:1.1;}
+  .ncard .nr{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:var(--ink-faint);margin-top:3px;}
+
+  footer{margin:40px 0 30px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-faint);font-size:13px;}
+  .disclaim{border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:var(--r);padding:11px 14px;margin:0 0 16px;color:var(--ink-dim);font-size:13.5px;background:var(--granite-850);}
+  .err{padding:60px 0;text-align:center;color:var(--ink-dim);}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap topbar-inner">
+  <span class="bcrumb"><a href="index.html">← Get Out</a> &nbsp;/&nbsp; <span id="bcType"></span></span>
+  <span class="nm" id="bcName"></span>
+</div></div>
+
+<div id="app"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
+<script>
+/* ---------------- helpers ---------------- */
+const $ = (s,r=document)=>r.querySelector(s);
+const PIP_LABELS=['Scenery','Fish','Wildlife','Bugs','Water'];
+const PIP_SHORT=['SCEN','FISH','WILD','BUGS','H2O'];
+const MONTHS_SH=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function getId(){ return new URLSearchParams(location.search).get('id'); }
+const TRIPS = window.TRIPS||[];
+const trip = TRIPS.find(t=>t.id===getId());
+
+if(!trip){
+  $('#app').innerHTML='<div class="wrap err"><h1 style="font-family:Oswald">Trip not found</h1><p>That trip id isn\'t in the library. <a href="index.html">Back to the calendar →</a></p></div>';
+} else { render(trip); }
+
+/* ---------------- pips ---------------- */
+function pipsHTML(s){
+  return s.map((v,i)=>{
+    let bars='';for(let b=1;b<=5;b++) bars+=`<i class="${b<=v?'on':''}" style="height:${5+b*4}px"></i>`;
+    return `<div class="pip ${i===1?'f':''}"><div class="bars">${bars}</div><span class="pl">${PIP_SHORT[i]}</span><span class="pv">${v}/5</span></div>`;
+  }).join('');
+}
+
+/* ---------------- best-weeks strip ---------------- */
+function weeksStrip(t){
+  const start=new Date(2026,5,29); let cells='',monthMarks=[],lastM=null;
+  for(let w=0;w<39;w++){
+    const ws=new Date(start);ws.setDate(start.getDate()+w*7);
+    const mid=new Date(ws);mid.setDate(ws.getDate()+3);const m=mid.getMonth()+1;
+    const on=t.season.includes(m), peak=t.peak&&t.peak.includes(m);
+    cells+=`<div class="wcell ${peak?'peak':on?'on':''}" title="Week of ${MONTHS_SH[mid.getMonth()]} ${mid.getDate()}${peak?' · PEAK':on?' · in season':''}"></div>`;
+    if(m!==lastM){monthMarks.push(MONTHS_SH[m-1]);lastM=m;}
+  }
+  return {cells, months:monthMarks};
+}
+
+/* ---------------- packing model ---------------- */
+function basePacking(t){
+  const cats={};
+  cats['The Ten Essentials']=['Navigation (map / GPS / compass)','Sun protection (sunscreen, hat, shades)','Insulation (extra layers)','Headlamp + spare batteries','First-aid kit','Fire (lighter / matches)','Repair kit + knife','Extra food','Water + treatment','Emergency shelter'];
+  if(t.type==='backpack'){
+    cats['Backpacking']=['Backpack (40–55L)','Tent / shelter','Sleeping bag','Sleeping pad','Stove + fuel','Cook pot + spork','Water filter','Trekking poles'];
+  } else {
+    cats['Car Camp']=['Tent (roomy)','Sleeping bags + pads / cot','Camp chairs + table','Cooler + ice','2-burner stove + fuel','Water jugs','Lantern','Tarp / shade'];
+  }
+  if(t.s[1]>=2){ cats['Fishing']=['Rod + reel','Flies / lures','CA fishing license (on phone)','Net + forceps','Polarized glasses']; if(t.wild) cats['Fishing'].push('Barbless hooks (wild-trout regs)'); }
+  if(t.s[4]>=3){ cats['Water & Swim']=['Quick-dry towel','Swim shoes / sandals','Dry bag']; }
+  cats['Personal (both)']=['Meds + toiletries','Layered clothing','Rain shell','Camp shoes','Power bank'];
+  if(t.d.pack&&t.d.pack.length) cats['Trip-specific']=t.d.pack.slice();
+  return cats;
+}
+const PK_KEY=t=>'getout_pack_'+t.id;
+function loadPack(t){ try{return JSON.parse(localStorage.getItem(PK_KEY(t)))||{}}catch(e){return {}} }
+function savePack(t,d){ try{localStorage.setItem(PK_KEY(t),JSON.stringify(d))}catch(e){} }
+
+/* ---------------- weather (Open-Meteo) ---------------- */
+const WX={0:['☀️','Clear'],1:['🌤️','Mostly clear'],2:['⛅','Partly cloudy'],3:['☁️','Overcast'],45:['🌫️','Fog'],48:['🌫️','Rime fog'],
+  51:['🌦️','Drizzle'],53:['🌦️','Drizzle'],55:['🌦️','Drizzle'],61:['🌧️','Rain'],63:['🌧️','Rain'],65:['🌧️','Heavy rain'],
+  71:['🌨️','Snow'],73:['🌨️','Snow'],75:['❄️','Heavy snow'],77:['🌨️','Snow grains'],80:['🌦️','Showers'],81:['🌧️','Showers'],82:['⛈️','Violent showers'],
+  85:['🌨️','Snow showers'],86:['❄️','Snow showers'],95:['⛈️','Thunderstorm'],96:['⛈️','Thunderstorm'],99:['⛈️','Hailstorm']};
+function wxIcon(c){return (WX[c]||['🌡️','—'])}
+async function loadWeather(t){
+  const el=$('#wxBody'); if(!el) return;
+  try{
+    const u=`https://api.open-meteo.com/v1/forecast?latitude=${t.coord[0]}&longitude=${t.coord[1]}&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code&temperature_unit=fahrenheit&timezone=auto&forecast_days=7`;
+    const r=await fetch(u); const j=await r.json();
+    const cw=j.current, d=j.daily;
+    const [ci,ct]=wxIcon(cw.weather_code);
+    let days='';
+    for(let i=1;i<7;i++){
+      const dt=new Date(d.time[i]+'T00:00'); const [em]=wxIcon(d.weather_code[i]);
+      days+=`<div class="wx-d"><div class="dn">${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dt.getDay()]}</div><div class="em">${em}</div><div class="hi">${Math.round(d.temperature_2m_max[i])}°</div><div class="lo">${Math.round(d.temperature_2m_min[i])}°</div><div class="pp">${d.precipitation_probability_max[i]||0}%</div></div>`;
+    }
+    el.innerHTML=`<div class="wx-now"><div class="ic">${ci}</div><div><div class="t">${Math.round(cw.temperature_2m)}°F</div><div class="d">${ct} · at the trailhead now</div></div></div>
+      <div class="wx-days">${days}</div>
+      <div class="wx-note">Live 6-day forecast at the trailhead coordinates. Expect colder, windier conditions higher up and overnight — plan layers accordingly.</div>`;
+  }catch(e){
+    el.innerHTML='<div class="wx-note">Couldn\'t load live weather right now. Check Open-Meteo or NWS before you go.</div>';
+  }
+}
+
+/* ---------------- nearby ---------------- */
+function nearby(t){
+  const comp=x=>x.s[0]*5+x.s[1]*4+x.s[2]*3+x.s[3]*2+x.s[4];
+  return TRIPS.filter(x=>x.id!==t.id)
+    .map(x=>{
+      let score=comp(x);
+      if(x.type===t.type) score+=12;
+      if(x.season.some(m=>t.season.includes(m))) score+=8;
+      const dlat=Math.abs(x.coord[0]-t.coord[0]), dlng=Math.abs(x.coord[1]-t.coord[1]);
+      if(dlat+dlng<2.2) score+=14;
+      return {x,score};
+    }).sort((a,b)=>b.score-a.score).slice(0,4).map(o=>o.x);
+}
+
+/* ---------------- main render ---------------- */
+function render(t){
+  document.title='Get Out — '+t.name;
+  $('#bcType').textContent=t.type==='backpack'?'Backpacking':'Car camping';
+  $('#bcName').textContent=t.name;
+
+  const d=t.d;
+  const ws=weeksStrip(t);
+  const fishIc=t.wild?'◐ wild':'○ stocked / mixed';
+
+  // route block
+  let routeHTML='';
+  if(d.route.options){
+    routeHTML=d.route.options.map(o=>`<div class="opt"><div class="on">${esc(o.name)}</div><div class="os">${esc(o.stat)}</div><p class="ot">${esc(o.text)}</p></div>`).join('');
+  } else {
+    routeHTML=`<div class="opt"><div class="on">Basecamp</div><p class="ot">${esc(d.route.basecamp)}</p>
+      <ul class="dayhikes">${(d.route.dayhikes||[]).map(h=>`<li>${esc(h)}</li>`).join('')}</ul></div>`;
+  }
+
+  $('#app').innerHTML=`
+  <header class="hero">
+    <svg class="ridge" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none" stroke="#26303a" stroke-width="1">
+        <path d="M0,250 C160,210 300,238 430,205 C560,172 690,205 820,176 C950,148 1080,176 1200,150"/>
+        <path d="M0,210 C180,180 300,196 450,158 C600,120 700,156 840,120 C980,86 1090,110 1200,84"/>
+      </g></svg>
+    <div class="wrap hero-inner">
+      <div class="eyebrow">Reck the Fort · Field Plan</div>
+      <div class="badges">
+        <span class="tag ${t.type==='backpack'?'type-bp':'type-car'}">${t.type==='backpack'?'▲ Backpacking':'■ Car camping'}</span>
+        ${t.epic?'<span class="tag epic">★ EPIC</span>':''}
+        ${t.status==='live'?'<span class="tag live">● Live page</span>':''}
+        ${/✦/.test(t.permit)?'<span class="tag" style="color:var(--flag);border-color:#5a3a23">✦ Permit / lottery</span>':'<span class="tag">No permit lottery</span>'}
+      </div>
+      <div class="region">${esc(t.region)}</div>
+      <h1>${esc(t.name)}</h1>
+      <p class="tagline">${esc(d.tag)}</p>
+      <div class="statline">
+        <div class="stat"><div class="k">Drive (Pacifica)</div><div class="v">${t.drive} hr</div></div>
+        <div class="stat"><div class="k">Length</div><div class="v">${esc(t.len)}</div></div>
+        <div class="stat"><div class="k">${t.type==='backpack'?'Daily miles':'Activity'}</div><div class="v">${esc(t.miles)}</div></div>
+        <div class="stat"><div class="k">${t.type==='backpack'?'Gain / day':'Terrain'}</div><div class="v">${esc(t.gain)}</div></div>
+        <div class="stat"><div class="k">Fishing</div><div class="v fish">${fishIc}</div></div>
+      </div>
+      <div class="scorebar">${pipsHTML(t.s)}</div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    ${t.status==='live'?`<div class="disclaim" style="margin-top:20px">There\'s also a standalone deep-dive page for this trip at <a href="${t.url}" target="_blank" rel="noopener">${t.url}</a>.</div>`:''}
+    <div class="grid">
+      <div class="main">
+        <section class="sec lead"><h2>The Overview</h2>${d.over.map(p=>`<p>${esc(p)}</p>`).join('')}</section>
+
+        <section class="sec"><h2>Why it scores <span class="n">your five criteria, in order</span></h2>
+          <div class="whygrid">
+            ${[['scenery',0],['fish',1],['wildlife',2],['bugs',3],['water',4]].map(([k,i])=>`
+              <div class="whyitem ${i===1?'f':''}"><div class="wk"><span>${PIP_LABELS[i]}</span><span class="sc">${t.s[i]}/5</span></div><div class="wt">${esc(d.why[k])}</div></div>`).join('')}
+          </div>
+        </section>
+
+        <section class="sec"><h2>${t.type==='backpack'?'Route &amp; Itinerary':'Basecamp &amp; Day Hikes'}</h2>${routeHTML}</section>
+
+        <section class="sec"><h2>Fishing <span class="n">${fishIc}</span></h2>
+          <dl class="kv">
+            <dt>Water</dt><dd>${esc(d.fish.water)}</dd>
+            <dt>Species</dt><dd>${esc(d.fish.species)}</dd>
+            <dt>Method</dt><dd>${esc(d.fish.method)}</dd>
+            <dt>Season</dt><dd>${esc(d.fish.season)}</dd>
+          </dl>
+        </section>
+
+        <section class="sec"><h2>Wildlife</h2><div class="tagrow">${d.wild.map(w=>`<span class="pill">${esc(w)}</span>`).join('')}</div></section>
+
+        <section class="sec"><h2>Water &amp; Swimming</h2>
+          <div class="tagrow">${d.water.spots.map(s=>`<span class="pill">${esc(s)}</span>`).join('')}</div>
+          ${t.skinny?`<div class="notebox" style="border-left-color:var(--sand)"><b style="color:var(--sand);font-family:Oswald;letter-spacing:.06em">~ SKINNY-DIP</b> &nbsp;${esc(d.water.skinny)}</div>`:`<p style="margin-top:10px;color:var(--ink-faint)">${esc(d.water.skinny)}</p>`}
+        </section>
+
+        <section class="sec"><h2>Permit &amp; Logistics</h2>
+          <dl class="kv">
+            <dt>System</dt><dd>${esc(d.permit.system)}</dd>
+            <dt>Cost</dt><dd>${esc(d.permit.cost)}</dd>
+            <dt>Where</dt><dd>${esc(d.permit.where)}</dd>
+            ${d.permit.when?`<dt>Timing</dt><dd>${esc(d.permit.when)}</dd>`:''}
+          </dl>
+          ${d.permit.notes?`<div class="notebox">${esc(d.permit.notes)}</div>`:''}
+        </section>
+
+        <section class="sec"><h2>Getting There</h2>
+          <dl class="kv">
+            <dt>Drive time</dt><dd>${esc(d.drive.time)}</dd>
+            <dt>Route</dt><dd>${esc(d.drive.route)}</dd>
+          </dl>
+          ${(d.drive.flags&&d.drive.flags.length)?`<ul class="checklist safety" style="margin-top:8px">${d.drive.flags.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:''}
+        </section>
+
+        <section class="sec"><h2>Safety &amp; Conditions</h2>
+          <ul class="checklist safety">${d.safety.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
+        </section>
+
+        <section class="sec"><h2>Insider Moves</h2>
+          <ul class="checklist insider">${d.insider.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
+        </section>
+
+        <section class="sec"><h2>Confirm Before You Go <span class="n">re-check at booking</span></h2>
+          <ul class="checklist">${d.verify.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
+        </section>
+
+        <section class="sec"><h2>Nearby &amp; Similar</h2>
+          <div class="nearby">${nearby(t).map(n=>`<a class="ncard ${n.type==='backpack'?'bp':'car'}" href="trip.html?id=${n.id}"><div class="nn">${esc(n.name)}</div><div class="nr">${esc(n.region)} · ${n.drive}h</div></a>`).join('')}</div>
+        </section>
+      </div>
+
+      <aside class="side">
+        <div class="card"><div class="ch">Live Weather</div><div class="cb" id="wxBody"><div class="wx-note">Loading trailhead forecast…</div></div></div>
+
+        <div class="card"><div class="ch">Best Weeks <span style="font-family:Spectral;text-transform:none;letter-spacing:0;font-style:italic;color:var(--ink-faint);font-size:12px">Jul → Mar</span></div>
+          <div class="cb">
+            <div class="weeks">${ws.cells}</div>
+            <div class="wk-months">${ws.months.map(m=>`<span>${m}</span>`).join('')}</div>
+            <div class="wk-legend"><span><i class="swatch" style="background:var(--rust-bright)"></i>Peak</span><span><i class="swatch" style="background:var(--teal-dim)"></i>In season</span><span><i class="swatch" style="background:var(--granite-700)"></i>Off</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="ch pk-head"><span>Packing List</span>
+            <span class="pk-tools"><button class="btn sm" id="pkEdit">Edit</button><button class="btn sm" id="pkReset">Reset</button></span>
+          </div>
+          <div class="cb" id="pkBody"></div>
+        </div>
+
+        <div class="card"><div class="ch">Map</div><div id="map"></div></div>
+      </aside>
+    </div>
+
+    <footer>
+      <p>Field plan for <b style="color:var(--ink-dim)">Jeremy &amp; David</b>. Scores reflect your five criteria in priority order. Content blends verified 2026 research with deep destination knowledge — the <b style="color:var(--ink-dim)">Confirm Before You Go</b> list flags what to re-check (road, snow, tide, permit windows) at booking time.</p>
+      <p style="margin-top:6px"><a href="index.html">← Back to the calendar</a></p>
+    </footer>
+  </div>`;
+
+  loadWeather(t);
+  buildMap(t);
+  buildPacking(t);
+}
+
+/* ---------------- map ---------------- */
+function buildMap(t){
+  const m=L.map('map',{scrollWheelZoom:false,attributionControl:false}).setView(t.coord, t.type==='backpack'?11:10);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:18}).addTo(m);
+  const c=t.type==='backpack'?'#b65d22':'#5fa3a0';
+  L.circleMarker(t.coord,{radius:8,color:c,weight:2,fillColor:c,fillOpacity:.5}).addTo(m)
+    .bindPopup(`<b style="font-family:Oswald">${esc(t.name)}</b><br><span style="font-family:Oswald;font-size:10px;letter-spacing:.08em;color:#a6a092">TRAILHEAD / BASECAMP</span>`);
+}
+
+/* ---------------- packing render ---------------- */
+function buildPacking(t){
+  const base=basePacking(t);
+  let store=loadPack(t); // {checks:{cat::item:{j,d}}, custom:{cat:[items]}, removed:[keys]}
+  store.checks=store.checks||{}; store.custom=store.custom||{}; store.removed=store.removed||[];
+
+  function itemKey(cat,it){return cat+'::'+it;}
+  function compose(){
+    const out={};
+    Object.keys(base).forEach(cat=>{ out[cat]=base[cat].filter(it=>!store.removed.includes(itemKey(cat,it))); });
+    Object.keys(store.custom).forEach(cat=>{ out[cat]=(out[cat]||[]).concat(store.custom[cat].filter(it=>!store.removed.includes(itemKey(cat,it)))); });
+    return out;
+  }
+  function counts(comp){
+    let tot=0,j=0,dd=0;
+    Object.keys(comp).forEach(cat=>comp[cat].forEach(it=>{tot++;const c=store.checks[itemKey(cat,it)]||{};if(c.j)j++;if(c.d)dd++;}));
+    return {tot,j,dd};
+  }
+  function draw(){
+    const comp=compose(); const cc=counts(comp);
+    const pj=cc.tot?Math.round(cc.j/cc.tot*100):0, pd=cc.tot?Math.round(cc.dd/cc.tot*100):0;
+    let html=`<div class="pk-prog">
+      <div class="pk-person j"><div class="pn"><span>Jeremy</span><span>${cc.j}/${cc.tot}</span></div><div class="bar"><i style="width:${pj}%"></i></div></div>
+      <div class="pk-person"><div class="pn"><span>David</span><span>${cc.dd}/${cc.tot}</span></div><div class="bar"><i style="width:${pd}%"></i></div></div>
+    </div>
+    <div class="pk-row" style="border-top:0;padding-bottom:0"><span class="it" style="color:var(--ink-faint);font-size:11px;font-family:Oswald;letter-spacing:.06em;text-transform:uppercase">Item</span><span class="pk-cbh">JR</span><span class="pk-cbh">DV</span><span style="width:18px"></span></div>`;
+    Object.keys(comp).forEach(cat=>{
+      html+=`<div class="pk-cat">${esc(cat)}</div>`;
+      comp[cat].forEach(it=>{
+        const k=itemKey(cat,it), c=store.checks[k]||{};
+        html+=`<div class="pk-row" data-k="${esc(k)}">
+          <span class="it ${(c.j&&c.d)?'done':''}">${esc(it)}</span>
+          <span class="pk-cb j ${c.j?'on':''}" data-p="j" role="checkbox" aria-checked="${!!c.j}" tabindex="0">✓</span>
+          <span class="pk-cb d ${c.d?'on':''}" data-p="d" role="checkbox" aria-checked="${!!c.d}" tabindex="0">✓</span>
+          <button class="pk-rm" data-rm="${esc(k)}" data-cat="${esc(cat)}" data-it="${esc(it)}" title="Remove">✕</button>
+        </div>`;
+      });
+    });
+    html+=`<div class="pk-add"><input id="pkNew" placeholder="Add item…" aria-label="Add packing item"><button class="btn sm" id="pkAddBtn">Add</button></div>`;
+    const body=$('#pkBody'); body.innerHTML=html;
+
+    body.querySelectorAll('.pk-cb').forEach(cb=>{
+      const toggle=()=>{ const row=cb.closest('.pk-row'),k=row.dataset.k,p=cb.dataset.p;
+        store.checks[k]=store.checks[k]||{}; store.checks[k][p]=!store.checks[k][p]; savePack(t,store); draw(); };
+      cb.addEventListener('click',toggle);
+      cb.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle();}});
+    });
+    body.querySelectorAll('.pk-rm').forEach(b=>b.addEventListener('click',()=>{
+      store.removed.push(b.dataset.rm); savePack(t,store); draw();
+    }));
+    const addBtn=$('#pkAddBtn');
+    if(addBtn) addBtn.addEventListener('click',()=>{
+      const v=$('#pkNew').value.trim(); if(!v) return;
+      const cat='Trip-specific'; store.custom[cat]=store.custom[cat]||[]; store.custom[cat].push(v);
+      savePack(t,store); draw(); $('#pkBody').classList&&0; $('#pkBody').parentElement.classList.add('editing');
+    });
+  }
+  draw();
+
+  $('#pkEdit').addEventListener('click',()=>{ const c=$('#pkBody'); c.classList.toggle('editing'); $('#pkEdit').textContent=c.classList.contains('editing')?'Done':'Edit'; });
+  $('#pkReset').addEventListener('click',()=>{ if(confirm('Reset this packing list for both of you?')){ localStorage.removeItem(PK_KEY(t)); store={checks:{},custom:{},removed:[]}; draw(); } });
+}
+</script>
+</body>
+</html>

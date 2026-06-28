@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Register — 9-Month Trip Calendar</title>
+<title>Get Out — 9-Month Trip Calendar</title>
 <meta name="description" content="A standing seasonal calendar of car-camping and backpacking trips for Jeremy & David, scored on scenery, wild trout, wildlife, low bugs, and swimmable water." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -220,7 +220,7 @@
   </svg>
   <div class="wrap hero-inner">
     <div class="eyebrow">Reck the Fort · Field Operations</div>
-    <h1>The <em>Register</em></h1>
+    <h1>Get <em>Out</em></h1>
     <p class="lede">A standing 9-month calendar of <b>backpacking</b> and <b>car-camping</b> trips for you and David — every week scored on the five things that matter, in your order of priority. Trips recur across the weeks they're actually in season, so any week shows six options you could run that weekend.</p>
     <div class="priorities">
       <span class="chip"><b>1</b>Scenery</span>
@@ -309,12 +309,13 @@
   </section>
 
   <footer>
-    <p><b>The Register</b> — built for Jeremy &amp; David. Library: <span id="footCount"></span> trips · 9-month horizon · radius from Pacifica, widened where a trip is genuinely EPIC.</p>
+    <p><b>Get Out</b> — built for Jeremy &amp; David. Library: <span id="footCount"></span> trips · 9-month horizon · radius from Pacifica, widened where a trip is genuinely EPIC.</p>
     <p style="margin-top:6px;color:var(--ink-faint);">Scores are an opinionated read for your five criteria, not gospel. Drive times are door-to-trailhead estimates. Always confirm road, snow, tide, and permit status before you commit — the deep pages do this for you.</p>
   </footer>
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
 <script>
 /* ============================ TRIP LIBRARY ============================
    s = [scenery, fish, wildlife, lowBugs, water]  (1–5, your priority order)
@@ -322,192 +323,7 @@
    season: months in-season (1–12)   peak: subset that earns a PEAK ribbon
    permit flag, epic flag, status: 'live'|'queued', url
 ======================================================================= */
-const T = [
-  // ---------------- High Sierra / NorCal alpine — summer ----------------
-  {id:'desolation',name:'Desolation — Dicks & Fontanillis',type:'backpack',region:'Tahoe · Eagle Falls',drive:3.5,len:'2–3 nts',miles:'~7/day',gain:'≤2,400/day',
-   s:[5,4,3,2,5],wild:true,skinny:true,permit:'Zone quota ✦',fish:'Wild brook & rainbow',swim:'Alpine cirque lakes ~',
-   season:[7,8,9],peak:[7,8],epic:false,status:'live',url:'https://jerrunge.github.io/desolation/',coord:[38.952,-120.115],
-   blurb:'Granite cirque, glassy lakes, hike-in solitude a short drive from home. Your benchmark trip.'},
-
-  {id:'twentylakes',name:'Twenty Lakes Basin',type:'backpack',region:'Hoover · Saddlebag',drive:4.5,len:'2 nts',miles:'~6/day',gain:'≤1,400/day',
-   s:[5,4,3,3,5],wild:true,skinny:true,permit:'Hoover quota ✦',fish:'Wild brook, Steelhead Lk',swim:'Helen, Steelhead, Shamrock ~',
-   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[37.966,-119.272],
-   blurb:'A whole basin of cobalt lakes at 10k, gentle grades, water-taxi shortcut off Saddlebag.'},
-
-  {id:'emigrant',name:'Emigrant — Buck Lakes',type:'backpack',region:'Emigrant Wild · Crabtree',drive:4,len:'2–3 nts',miles:'~8/day',gain:'≤2,000/day',
-   s:[4,5,3,3,4],wild:true,skinny:true,permit:'Free self-issue',fish:'Famous wild brook/rainbow',swim:'Granite lakes ~',
-   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[38.30,-119.83],
-   blurb:'No quota, no lottery — and some of the most reliable wild-trout water in the range.'},
-
-  {id:'carsonpass',name:'Carson Pass — Winnemucca & Round Top',type:'backpack',region:'Mokelumne · Carson Pass',drive:3.5,len:'1–2 nts',miles:'~6/day',gain:'≤1,800/day',
-   s:[4,3,3,3,4],wild:false,skinny:true,permit:'Free quota ✦',fish:'Small brook lakes',swim:'Winnemucca, Round Top Lk ~',
-   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[38.694,-119.989],
-   blurb:'Peak wildflower theater under Round Top — short, scenic, close. The easy-yes alpine trip.'},
-
-  {id:'littlelakes',name:'Little Lakes Valley',type:'backpack',region:'E. Sierra · Rock Creek',drive:5.5,len:'2 nts',miles:'~6/day',gain:'≤1,200/day',
-   s:[5,5,3,3,5],wild:true,skinny:true,permit:'Inyo quota ✦',fish:'Golden & brook, wild',swim:'A staircase of alpine lakes ~',
-   season:[7,8,9],peak:[7,8,9],epic:false,status:'queued',url:null,coord:[37.435,-118.748],
-   blurb:'Highest paved trailhead in the Sierra — you start at 10,300. Lakes for miles, goldens in them.'},
-
-  {id:'shadow',name:'Shadow & Ediza Lakes',type:'backpack',region:'Ansel Adams · Agnew Mdws',drive:5.5,len:'2–3 nts',miles:'~8/day',gain:'≤2,300/day',
-   s:[5,4,3,2,5],wild:true,skinny:true,permit:'Inyo quota ✦ · Reds Mdw rd',fish:'Wild trout, Shadow Ck',swim:'Ediza under the Minarets ~',
-   season:[7,8,9],peak:[8,9],epic:false,status:'queued',url:null,coord:[37.68,-119.08],
-   blurb:'The Minarets reflected in Ediza is the postcard. Verify Reds Meadow Rd before booking.'},
-
-  {id:'cathedral',name:'Cathedral Lakes',type:'backpack',region:'Yosemite high · Tuolumne',drive:4.5,len:'1–2 nts',miles:'~7/day',gain:'≤1,000/day',
-   s:[5,3,3,2,4],wild:false,skinny:true,permit:'Yosemite lottery ✦',fish:'Light',swim:'Lower Cathedral under the spire ~',
-   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[37.85,-119.42],
-   blurb:'Cathedral Peak over a quiet tarn, a few miles off Tioga. Lottery permit, huge payoff.'},
-
-  {id:'laurel',name:'Laurel Lake & Lake Vernon',type:'backpack',region:'Yosemite · Hetch Hetchy',drive:3.5,len:'2–3 nts',miles:'~8/day',gain:'≤2,200/day',
-   s:[4,3,4,3,4],wild:false,skinny:true,permit:'Yosemite quota ✦',fish:'Lake trout',swim:'Quiet lake, near-zero crowds ~',
-   season:[7,8,9,10],peak:[7,8],epic:false,status:'queued',url:null,coord:[37.97,-119.79],
-   blurb:'Yosemite without the people. Mid-elevation = bears and rattlers on the same trip.'},
-
-  {id:'trinity',name:'Canyon Creek Lakes',type:'backpack',region:'Trinity Alps',drive:5,len:'2–3 nts',miles:'~8/day',gain:'≤2,800/day',
-   s:[5,4,4,2,5],wild:true,skinny:true,permit:'Free self-issue',fish:'Wild trout',swim:'Falls, pools, granite lakes ~',
-   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[40.86,-123.02],
-   blurb:'Drama-first: a staircase of waterfalls into twin alpine lakes under Sawtooth granite.'},
-
-  {id:'marble',name:'Marble Mountains — Sky High Lakes',type:'backpack',region:'Marble Mtn Wild',drive:5.5,len:'2–3 nts',miles:'~8/day',gain:'≤2,400/day',
-   s:[4,4,4,3,4],wild:true,skinny:true,permit:'Free self-issue',fish:'Wild brook',swim:'Sky High Lakes ~',
-   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[41.50,-123.10],
-   blurb:'Marble-banded peaks, big wildlife corridor (bear, deer, the occasional wolf track), few people.'},
-
-  {id:'lassenbc',name:'Lassen Backcountry — Cluster Lakes',type:'backpack',region:'Lassen NP',drive:4,len:'1–2 nts',miles:'~7/day',gain:'≤1,200/day',
-   s:[4,3,4,3,3],wild:false,skinny:true,permit:'Free wilderness',fish:'Stocked/holdover',swim:'Warm-ish forest lakes ~',
-   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[40.50,-121.36],
-   blurb:'Volcanic weirdness, easy grades, lakes warm enough to actually want to swim.'},
-
-  {id:'skylakes',name:'Sky Lakes Wilderness',type:'backpack',region:'Oregon · S. of Crater Lk',drive:7.5,len:'2–3 nts',miles:'~9/day',gain:'≤1,800/day',
-   s:[4,4,3,1,5],wild:true,skinny:true,permit:'Free self-issue',fish:'Wild & brook, many lakes',swim:'Hundreds of lakes ~',
-   season:[7,8,9],peak:[8,9],epic:true,status:'queued',url:null,coord:[42.45,-122.20],
-   blurb:'Lake after lake under Mt McLoughlin. EPIC — but legendarily buggy until late August.'},
-
-  {id:'wallowas',name:'Eagle Cap — Lakes Basin',type:'backpack',region:'Oregon · Wallowas',drive:10.5,len:'3–4 nts',miles:'~9/day',gain:'≤2,600/day',
-   s:[5,5,4,3,5],wild:true,skinny:true,permit:'Free self-issue',fish:'Golden & brook, wild',swim:'Granite-rimmed alpine lakes ~',
-   season:[7,8,9],peak:[8,9],epic:true,status:'queued',url:null,coord:[45.20,-117.30],
-   blurb:'"Oregon\'s Alps." A marquee, once-a-summer push — goldens, white granite, real remoteness.'},
-
-  {id:'enchant',name:'The Enchantments',type:'backpack',region:'Washington · Cascades',drive:13,len:'2–3 nts',miles:'~9/day',gain:'≤2,900/day',
-   s:[5,3,4,3,5],wild:false,skinny:true,permit:'Core lottery ✦',fish:'Light',swim:'Larch-rimmed granite lakes ~',
-   season:[7,8,9],peak:[9],epic:true,status:'queued',url:null,coord:[47.49,-120.79],
-   blurb:'The aspirational white whale. Core-zone lottery, golden larches late Sept. Bucket-list only.'},
-
-  // ---------------- Car camping — summer / fishing-forward ----------------
-  {id:'lakesbasin',name:'Lakes Basin & Sierra Buttes',type:'car',region:'Tahoe Nat\'l Forest · Gold Lk',drive:4,len:'2–3 nts',miles:'day hikes',gain:'flexible',
-   s:[5,4,3,3,5],wild:true,skinny:true,permit:'Reservable/FCFS',fish:'Wild & stocked, dozens of lakes',swim:'Sardine, Long, Gold ~',
-   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[39.65,-120.65],
-   blurb:'Sierra Buttes lookout, a basin full of swimmable lakes, hike-or-relax flexibility. Underrated.'},
-
-  {id:'junelake',name:'June Lake Loop',type:'car',region:'E. Sierra · Hwy 158',drive:5.5,len:'2–3 nts',miles:'day hikes',gain:'flexible',
-   s:[4,4,2,3,4],wild:false,skinny:false,permit:'Reservable',fish:'Rush Ck + 4 lakes, holdover',swim:'Gull & Silver Lake',
-   season:[7,8,9,10],peak:[9,10],epic:false,status:'queued',url:null,coord:[37.78,-119.07],
-   blurb:'Four lakes on a loop, aspen blaze in October, Hot Creek wild-trout water 30 min south.'},
-
-  {id:'bishopcreek',name:'Bishop Creek — Sabrina & South Lk',type:'car',region:'E. Sierra · Hwy 168',drive:6,len:'2–3 nts',miles:'day hikes',gain:'flexible',
-   s:[5,5,3,3,4],wild:true,skinny:false,permit:'Reservable/FCFS',fish:'Wild + holdover, classic',swim:'Lake edges (cold)',
-   season:[7,8,9,10],peak:[9,10],epic:false,status:'queued',url:null,coord:[37.21,-118.61],
-   blurb:'13k peaks straight overhead, legendary trout creek, the best aspen color in California in early Oct.'},
-
-  {id:'lassencar',name:'Lassen — Summit & Butte Lake',type:'car',region:'Lassen NP',drive:4,len:'2–3 nts',miles:'day hikes',gain:'flexible',
-   s:[4,3,4,3,4],wild:false,skinny:false,permit:'Reservable',fish:'Butte & Manzanita lakes',swim:'Summit Lake (swimmable!)',
-   season:[7,8,9],peak:[7,8],epic:false,status:'queued',url:null,coord:[40.475,-121.42],
-   blurb:'Cinder Cone, Bumpass Hell, bears everywhere, and a lake warm enough to swim laps in.'},
-
-  {id:'hatcreek',name:'Hat Creek & Burney Falls',type:'car',region:'Shasta-Cascade',drive:4.5,len:'2 nts',miles:'easy',gain:'flat',
-   s:[3,5,3,3,3],wild:true,skinny:false,permit:'Reservable',fish:'Hat Ck wild-trout flyfishing mecca',swim:'Burney Falls pool',
-   season:[6,7,8,9,10],peak:[6,7,9,10],epic:false,status:'queued',url:null,coord:[41.013,-121.652],
-   blurb:'For the fly rod above all else — wild-trout riffles plus the "8th wonder," Burney Falls.'},
-
-  {id:'mccloud',name:'McCloud River Falls',type:'car',region:'Mt Shasta',drive:4.5,len:'2 nts',miles:'easy',gain:'flat',
-   s:[4,5,3,3,5],wild:true,skinny:true,permit:'Reservable/FCFS',fish:'Wild trout, classic water',swim:'Three waterfalls, deep pools ~',
-   season:[6,7,8,9,10],peak:[7,8],epic:false,status:'queued',url:null,coord:[41.20,-122.02],
-   blurb:'Lower/Middle/Upper Falls with swimming holes between them, Shasta looming, wild trout in the run.'},
-
-  {id:'eastsierracar',name:'Rock Creek Lake',type:'car',region:'E. Sierra · Rock Ck Rd',drive:5.5,len:'2–3 nts',miles:'day hikes',gain:'flexible',
-   s:[5,5,3,3,5],wild:true,skinny:false,permit:'Reservable',fish:'Wild brook & golden nearby',swim:'Rock Creek Lake',
-   season:[7,8,9],peak:[7,8,9],epic:false,status:'queued',url:null,coord:[37.46,-118.74],
-   blurb:'Drive-up basecamp at 9,700ft with Little Lakes Valley out the back door. Best of both worlds.'},
-
-  {id:'steens',name:'Steens Mountain',type:'car',region:'Oregon · high desert',drive:9,len:'2–3 nts',miles:'day hikes',gain:'flexible',
-   s:[5,4,4,3,4],wild:true,skinny:true,permit:'FCFS',fish:'Wild redband trout',swim:'Gorge streams ~',
-   season:[7,8,9],peak:[7,8],epic:true,status:'queued',url:null,coord:[42.64,-118.58],
-   blurb:'Mile-deep glacial gorges, wild horses, antelope, native redband trout. EPIC and empty.'},
-
-  // ---------------- Coast — shoulder / year-round ----------------
-  {id:'lostcoast',name:'Lost Coast — Mattole → Black Sands',type:'backpack',region:'King Range · BLM',drive:4,len:'3 nts',miles:'~8/day (sand)',gain:'≤1,500 total',
-   s:[5,2,5,4,5],wild:false,skinny:true,permit:'King Range permit ✦',fish:'Surf only',swim:'Ocean + creeks, naked beach camp ~',
-   season:[7,8,9,10,11],peak:[9,10],epic:true,status:'queued',url:null,coord:[40.293,-124.353],
-   blurb:'Elephant seals, black bears, rattlers, whales — wildlife maxed. Tide-gated, best in low-bug fall. EPIC.'},
-
-  {id:'pointreyes',name:'Point Reyes — Wildcat & Coast Camp',type:'backpack',region:'Marin · National Seashore',drive:1.5,len:'1–2 nts',miles:'~6/day',gain:'≤1,200/day',
-   s:[4,2,5,4,3],wild:false,skinny:true,permit:'Reservable ✦',fish:'None (ocean)',swim:'Alamere Falls, Bass Lk, ocean ~',
-   season:[1,2,3,4,5,6,7,8,9,10,11,12],peak:[9,10,11,4,5],epic:false,status:'queued',url:null,coord:[38.04,-122.85],
-   blurb:'Tule elk, bobcats, whales (winter), a waterfall onto the beach — and it\'s an hour and a half away.'},
-
-  {id:'bigsur',name:'Big Sur — Ventana & the River',type:'car',region:'Los Padres · Hwy 1',drive:2.5,len:'2 nts',miles:'day hikes',gain:'flexible',
-   s:[5,2,3,3,4],wild:false,skinny:true,permit:'Reservable',fish:'Light',swim:'Big Sur River gorge pools ~',
-   season:[1,2,3,4,5,9,10,11,12],peak:[10,11,4,5],epic:false,status:'queued',url:null,coord:[36.25,-121.78],
-   blurb:'Redwoods meeting surf, river pools in the gorge, off-season quiet. Skip the summer crush.'},
-
-  {id:'mendocino',name:'Mendocino Coast — Russian Gulch',type:'car',region:'Mendocino',drive:3.5,len:'2 nts',miles:'easy',gain:'flat',
-   s:[4,2,3,4,3],wild:false,skinny:false,permit:'Reservable',fish:'Light',swim:'Coves, waterfall, headlands',
-   season:[3,4,5,6,9,10,11],peak:[5,10],epic:false,status:'queued',url:null,coord:[39.31,-123.80],
-   blurb:'Sea-tunnel blowhole, fern canyons, dramatic headlands. A soft-landing coastal weekend.'},
-
-  // ---------------- Inland green-season — fall/winter/spring ----------------
-  {id:'henrycoe',name:'Henry Coe — China Hole',type:'backpack',region:'Santa Clara foothills',drive:1.5,len:'1–2 nts',miles:'~8/day',gain:'≤2,500/day',
-   s:[3,2,5,3,3],wild:false,skinny:true,permit:'Self-register',fish:'Pond bass/bluegill',swim:'China Hole swimming pools ~',
-   season:[10,11,12,1,2,3,4,5],peak:[3,4],epic:false,status:'queued',url:null,coord:[37.19,-121.42],
-   blurb:'Closest real wilderness you have. Wild pigs, bobcats, tarantulas, rattlers; green and flowing in winter/spring.'},
-
-  {id:'pinnacles',name:'Pinnacles — Talus Caves & Spires',type:'car',region:'Pinnacles NP',drive:2,len:'2 nts',miles:'day hikes',gain:'flexible',
-   s:[4,1,4,3,1],wild:false,skinny:false,permit:'Reservable',fish:'None',swim:'Reservoir (no swim)',
-   season:[10,11,12,1,2,3,4,5],peak:[3,4],epic:false,status:'queued',url:null,coord:[36.49,-121.18],
-   blurb:'California condors overhead, talus caves below, volcanic spires to scramble. A cool-season gem.'},
-
-  {id:'carrizo',name:'Carrizo Plain — Soda Lake & Bloom',type:'car',region:'San Luis Obispo Co.',drive:4,len:'1–2 nts',miles:'easy',gain:'flat',
-   s:[5,1,5,4,1],wild:false,skinny:false,permit:'Dispersed/FCFS',fish:'None',swim:'None (dry lakebed)',
-   season:[12,1,2,3,4],peak:[2,3],epic:false,status:'queued',url:null,coord:[35.19,-119.79],
-   blurb:'California\'s Serengeti — pronghorn, elk, kit fox, darkest skies in the state, super-bloom in spring.'},
-
-  {id:'alabamahills',name:'Alabama Hills & the Owens',type:'car',region:'Lone Pine · E. Sierra',drive:5.5,len:'2–3 nts',miles:'flexible',gain:'flexible',
-   s:[5,4,3,4,3],wild:true,skinny:false,permit:'Dispersed/FCFS',fish:'Lower Owens — year-round',swim:'Owens dips, Diaz Lake',
-   season:[9,10,11,12,1,2,3,4,5],peak:[10,11,3,4],epic:false,status:'queued',url:null,coord:[36.61,-118.12],
-   blurb:'Rock arches framing Mt Whitney, free dispersed camping, and a tailwater that fishes all winter.'},
-
-  {id:'deathvalley',name:'Death Valley — Saline & the Canyons',type:'car',region:'Death Valley NP',drive:8,len:'3 nts',miles:'flexible',gain:'flexible',
-   s:[5,1,3,4,2],wild:false,skinny:true,permit:'Dispersed/FCFS',fish:'None',swim:'Saline Valley hot springs ~ (4WD, remote)',
-   season:[11,12,1,2,3],peak:[12,1,2],epic:true,status:'queued',url:null,coord:[36.51,-116.93],
-   blurb:'Winter is the only season. Dunes, slot canyons, bighorn — and a remote clothing-optional soak. EPIC.'},
-
-  {id:'anzaborrego',name:'Anza-Borrego — Palms & Badlands',type:'car',region:'Colorado Desert',drive:9,len:'2–3 nts',miles:'flexible',gain:'flexible',
-   s:[5,1,4,4,2],wild:false,skinny:false,permit:'Dispersed/FCFS',fish:'None',swim:'Palm oasis pools',
-   season:[11,12,1,2,3,4],peak:[2,3],epic:true,status:'queued',url:null,coord:[33.26,-116.40],
-   blurb:'Slot canyons, fan-palm oases, bighorn sheep, and the state\'s best super-bloom. Free dispersed camping.'},
-
-  {id:'joshuatree',name:'Joshua Tree',type:'car',region:'Mojave/Colorado Desert',drive:8.5,len:'2–3 nts',miles:'flexible',gain:'flexible',
-   s:[5,1,3,4,1],wild:false,skinny:false,permit:'Reservable',fish:'None',swim:'None',
-   season:[10,11,12,1,2,3,4],peak:[11,12,3],epic:true,status:'queued',url:null,coord:[33.88,-115.90],
-   blurb:'Monzogranite boulder gardens, alien trees, cold clear winter nights. A scenery-and-stars play. EPIC.'},
-
-  // ---------------- Winter-viable backpacking ----------------
-  {id:'dvbackpack',name:'Death Valley — Cottonwood/Marble Loop',type:'backpack',region:'Death Valley NP',drive:8,len:'2–3 nts',miles:'~9/day',gain:'≤1,800/day',
-   s:[5,1,3,4,2],wild:false,skinny:false,permit:'Free backcountry register',fish:'None',swim:'Cottonwood Spring (seasonal)',
-   season:[11,12,1,2,3],peak:[12,1,2],epic:true,status:'queued',url:null,coord:[36.94,-117.30],
-   blurb:'A slot-and-spring loop through total desert silence — bighorn, wild burros, sidewinders, zero crowds. Winter only.'},
-
-  {id:'ventana',name:'Ventana Wilderness — Big Sur River',type:'backpack',region:'Los Padres · Big Sur',drive:2.5,len:'1–2 nts',miles:'~7/day',gain:'≤2,200/day',
-   s:[4,2,3,3,4],wild:false,skinny:true,permit:'Free self-issue · verify trail',fish:'Light (river)',swim:'Big Sur River gorge pools ~',
-   season:[10,11,12,1,2,3,4,5],peak:[10,11,4,5],epic:false,status:'queued',url:null,coord:[36.25,-121.74],
-   blurb:'Redwood canyons and river pools above Big Sur, green and running in the wet months. Confirm post-fire trail status.'},
-
-  {id:'jtbackpack',name:'Joshua Tree — Boy Scout Trail',type:'backpack',region:'Joshua Tree NP',drive:8.5,len:'1–2 nts',miles:'~8/day',gain:'≤1,200/day',
-   s:[5,1,3,4,1],wild:false,skinny:false,permit:'Free backcountry register',fish:'None',swim:'None (dry)',
-   season:[10,11,12,1,2,3,4],peak:[11,12,3],epic:true,status:'queued',url:null,coord:[34.02,-116.16],
-   blurb:'Sleep among monzogranite giants and Joshua trees, coyotes calling, the clearest winter stars in the state. EPIC.'},
-];
+const T = window.TRIPS;
 
 /* ============================ ENGINE ============================ */
 const PIP_LABELS = ['S','F','W','B','A']; // Scenery, Fish, Wildlife, Bugs(low), Aqua
@@ -555,7 +371,7 @@ function card(t,month){
   const peak = t.peak && t.peak.includes(month);
   const fishIc = t.wild?'◐':'○';
   const live = t.status==='live';
-  const href = t.url||('#lib-'+t.id);
+  const href = t.status==='live' ? t.url : ('trip.html?id='+t.id);
   const tgt = live?' target="_blank" rel="noopener"':'';
   let meta='';
   meta+=`<span class="m">${t.drive}h</span>`;
