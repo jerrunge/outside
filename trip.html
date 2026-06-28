@@ -129,13 +129,17 @@
   .wx-d .pp{font-size:9px;color:var(--teal);}
   .wx-note{font-size:12px;color:var(--ink-faint);margin-top:9px;font-style:italic;}
 
-  /* best weeks strip */
-  .weeks{display:flex;flex-wrap:wrap;gap:3px;}
-  .wcell{width:13px;height:20px;border-radius:1.5px;background:var(--granite-700);position:relative;}
+  /* best weeks strip — one row per month */
+  .weeks{display:flex;flex-direction:column;gap:5px;}
+  .wkrow{display:flex;align-items:center;gap:10px;}
+  .wkm{font-family:'Oswald';font-size:10.5px;letter-spacing:.08em;color:var(--ink-faint);text-transform:uppercase;width:30px;flex:none;text-align:right;}
+  .wkrow.has-peak .wkm{color:var(--rust-bright);}
+  .wkrow.has-on .wkm{color:var(--ink-dim);}
+  .wkcells{display:flex;gap:4px;}
+  .wcell{width:30px;height:15px;border-radius:2px;background:var(--granite-700);}
   .wcell.on{background:var(--teal-dim);}
   .wcell.peak{background:var(--rust-bright);}
-  .wk-months{display:flex;justify-content:space-between;margin-top:6px;font-family:'Oswald';font-size:9px;letter-spacing:.04em;color:var(--ink-faint);text-transform:uppercase;}
-  .wk-legend{display:flex;gap:14px;margin-top:9px;font-size:11px;color:var(--ink-faint);}
+  .wk-legend{display:flex;gap:14px;margin-top:11px;padding-top:9px;border-top:1px solid var(--line);font-size:11px;color:var(--ink-faint);}
   .wk-legend span{display:inline-flex;align-items:center;gap:5px;}
   .swatch{width:10px;height:10px;border-radius:2px;display:inline-block;}
 
@@ -216,17 +220,24 @@ function pipsHTML(s){
   }).join('');
 }
 
-/* ---------------- best-weeks strip ---------------- */
+/* ---------------- best-weeks strip (grouped by month) ---------------- */
 function weeksStrip(t){
-  const start=new Date(2026,5,29); let cells='',monthMarks=[],lastM=null;
+  const start=new Date(2026,5,29); const groups=[]; let cur=null;
   for(let w=0;w<39;w++){
     const ws=new Date(start);ws.setDate(start.getDate()+w*7);
     const mid=new Date(ws);mid.setDate(ws.getDate()+3);const m=mid.getMonth()+1;
-    const on=t.season.includes(m), peak=t.peak&&t.peak.includes(m);
-    cells+=`<div class="wcell ${peak?'peak':on?'on':''}" title="Week of ${MONTHS_SH[mid.getMonth()]} ${mid.getDate()}${peak?' · PEAK':on?' · in season':''}"></div>`;
-    if(m!==lastM){monthMarks.push(MONTHS_SH[m-1]);lastM=m;}
+    const on=t.season.includes(m), peak=!!(t.peak&&t.peak.includes(m));
+    if(!cur||cur.m!==m){cur={m,label:MONTHS_SH[m-1],weeks:[]};groups.push(cur);}
+    cur.weeks.push({on,peak,label:MONTHS_SH[mid.getMonth()]+' '+mid.getDate()});
   }
-  return {cells, months:monthMarks};
+  return groups;
+}
+function weeksHTML(groups){
+  return groups.map(g=>{
+    const cls=g.weeks.some(x=>x.peak)?'has-peak':g.weeks.some(x=>x.on)?'has-on':'';
+    const cells=g.weeks.map(x=>`<span class="wcell ${x.peak?'peak':x.on?'on':''}" title="Week of ${x.label}${x.peak?' · PEAK':x.on?' · in season':''}"></span>`).join('');
+    return `<div class="wkrow ${cls}"><span class="wkm">${g.label}</span><div class="wkcells">${cells}</div></div>`;
+  }).join('');
 }
 
 /* ---------------- packing model ---------------- */
@@ -407,8 +418,7 @@ function render(t){
 
         <div class="card"><div class="ch">Best Weeks <span style="font-family:Spectral;text-transform:none;letter-spacing:0;font-style:italic;color:var(--ink-faint);font-size:12px">Jul → Mar</span></div>
           <div class="cb">
-            <div class="weeks">${ws.cells}</div>
-            <div class="wk-months">${ws.months.map(m=>`<span>${m}</span>`).join('')}</div>
+            <div class="weeks">${weeksHTML(ws)}</div>
             <div class="wk-legend"><span><i class="swatch" style="background:var(--rust-bright)"></i>Peak</span><span><i class="swatch" style="background:var(--teal-dim)"></i>In season</span><span><i class="swatch" style="background:var(--granite-700)"></i>Off</span></div>
           </div>
         </div>
