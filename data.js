@@ -755,3 +755,50 @@ const FISHING = {
   jtbackpack:{catch:0,label:'No fishery (desert)'}
 };
 window.TRIPS.forEach(t=>{ const f=FISHING[t.id]; if(f) Object.assign(t.d.fish, f); else if(!('catch' in t.d.fish)) t.d.fish.catch=0; });
+
+/* ============================================================
+   AllTrails links (all trips) + nearest airports (fly-in-worthy
+   trips only; local Bay Area / Central Coast drives omitted).
+   at = AllTrails URL · air = nearest commercial airports
+============================================================ */
+const AT='https://www.alltrails.com/trail/us/';
+const ATS='https://www.alltrails.com/search?q=';
+const LINKS={
+  littlelakes:{at:ATS+'Little%20Lakes%20Valley',air:'Mammoth Yosemite (MMH, seasonal) ~40 min · Bishop (BIH) ~50 min · Reno (RNO) ~3 h'},
+  twentylakes:{at:ATS+'Twenty%20Lakes%20Basin%20Saddlebag',air:'Mammoth (MMH) ~1 h · Reno (RNO) ~2.75 h'},
+  emigrant:{at:ATS+'Buck%20Lakes%20Crabtree%20Emigrant'},
+  carsonpass:{at:ATS+'Winnemucca%20Lake%20Carson%20Pass',air:'Reno–Tahoe (RNO) ~1.5 h · Sacramento (SMF) ~2 h'},
+  shadow:{at:AT+'california/shadow-and-ediza-lakes-trail',air:'Mammoth Yosemite (MMH) ~25 min · Reno (RNO) ~3 h'},
+  cathedral:{at:ATS+'Cathedral%20Lakes%20Yosemite'},
+  laurel:{at:AT+'california/laurel-lake-trail'},
+  trinity:{at:ATS+'Canyon%20Creek%20Lakes%20Trinity%20Alps',air:'Redding (RDD) ~1.5 h · Arcata/Eureka (ACV) ~2.5 h'},
+  marble:{at:ATS+'Sky%20High%20Lakes%20Marble%20Mountains',air:'Medford, OR (MFR) ~2 h · Redding (RDD) ~2.5 h'},
+  lassenbc:{at:ATS+'Cluster%20Lakes%20Lassen',air:'Redding (RDD) ~1.5 h · Reno (RNO) ~2.5 h'},
+  skylakes:{at:AT+'oregon/seven-lakes-basin-and-sky-lakes-trail',air:'Klamath Falls (LMT) ~1 h · Medford (MFR) ~1.5 h'},
+  wallowas:{at:AT+'oregon/lakes-basin-via-east-fork-lostine-trail',air:'Pendleton (PDT) ~2.5 h · Walla Walla (ALW) ~2.5 h · Boise, ID (BOI) ~3 h'},
+  enchant:{at:AT+'washington/colchuck-lake-via-stuart-lake-trail',air:'Wenatchee (EAT) ~45 min · Seattle (SEA) ~2.5 h'},
+  lakesbasin:{at:ATS+'Sierra%20Buttes%20Lakes%20Basin',air:'Reno–Tahoe (RNO) ~1.5 h · Sacramento (SMF) ~2.5 h'},
+  junelake:{at:ATS+'Parker%20Lake%20June%20Lake',air:'Mammoth Yosemite (MMH) ~30 min · Reno (RNO) ~3 h'},
+  bishopcreek:{at:ATS+'Treasure%20Lakes%20Bishop',air:'Bishop (BIH) ~30 min · Mammoth (MMH) ~1 h · Reno (RNO) ~3.5 h'},
+  lassencar:{at:ATS+'Bumpass%20Hell%20Lassen',air:'Redding (RDD) ~1.5 h · Reno (RNO) ~2.5 h'},
+  hatcreek:{at:ATS+'Burney%20Falls',air:'Redding (RDD) ~1 h'},
+  mccloud:{at:ATS+'McCloud%20Falls',air:'Redding (RDD) ~1 h'},
+  eastsierracar:{at:ATS+'Little%20Lakes%20Valley%20Rock%20Creek',air:'Mammoth Yosemite (MMH) ~40 min · Bishop (BIH) ~50 min · Reno (RNO) ~3 h'},
+  steens:{at:ATS+'Wildhorse%20Lake%20Steens%20Mountain',air:'Boise, ID (BOI) ~3.5 h · Redmond/Bend (RDM) ~4 h (Burns has no commercial service)'},
+  lostcoast:{at:ATS+'Lost%20Coast%20Trail%20Mattole',air:'Arcata/Eureka (ACV) ~1.5 h to the trailhead'},
+  pointreyes:{at:AT+'california/wildcat-camp-trail-to-alamere-falls'},
+  bigsur:{at:ATS+'Pfeiffer%20Falls%20Big%20Sur'},
+  mendocino:{at:ATS+'Russian%20Gulch%20Falls%20Mendocino'},
+  henrycoe:{at:AT+'california/china-hole-trail-loop'},
+  pinnacles:{at:ATS+'High%20Peaks%20Pinnacles'},
+  carrizo:{at:ATS+'Carrizo%20Plain'},
+  alabamahills:{at:ATS+'Mobius%20Arch%20Alabama%20Hills',air:'Bishop (BIH) ~1 h · Mammoth (MMH) ~1.75 h · Las Vegas (LAS) ~3.5 h'},
+  deathvalley:{at:ATS+'Golden%20Canyon%20Death%20Valley',air:'Las Vegas (LAS) ~2 h'},
+  anzaborrego:{at:ATS+'Borrego%20Palm%20Canyon',air:'Palm Springs (PSP) ~1.5 h · San Diego (SAN) ~2 h'},
+  joshuatree:{at:AT+'california/ryan-mountain-trail',air:'Palm Springs (PSP) ~45 min · Ontario (ONT) ~1.5 h'},
+  dvbackpack:{at:AT+'california/cottonwood-marble-canyon-loop',air:'Las Vegas (LAS) ~2.5 h'},
+  ventana:{at:AT+'california/sykes-hot-springs-via-pine-ridge-trail'},
+  jtbackpack:{at:AT+'california/boy-scout-trail--8',air:'Palm Springs (PSP) ~1 h · Ontario (ONT) ~1.5 h'},
+  desolation:{at:ATS+'Desolation%20Wilderness%20Lake%20Aloha',air:'Reno–Tahoe (RNO) ~1.25 h · Sacramento (SMF) ~2 h'}
+};
+window.TRIPS.forEach(t=>{ const l=LINKS[t.id]; if(l){ if(l.at) t.at=l.at; if(l.air) t.air=l.air; } });

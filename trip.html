@@ -478,6 +478,7 @@ function render(t){
         <button class="tbtn" id="saveBtn"><span class="i" id="saveIco">☆</span><span id="saveLbl">Save to my trips</span></button>
         <button class="tbtn" id="printBtn"><span class="i">⎙</span>Print field card</button>
         <button class="tbtn" id="gpxBtn"><span class="i">⤓</span>Download GPX</button>
+        ${t.at?`<a class="tbtn" href="${t.at}" target="_blank" rel="noopener"><span class="i">◬</span>View on AllTrails</a>`:''}
       </div>
     </div>
   </header>
@@ -520,6 +521,7 @@ function render(t){
           <dl class="kv">
             <dt>Drive time</dt><dd>${esc(d.drive.time)}</dd>
             <dt>Route</dt><dd>${esc(d.drive.route)}</dd>
+            ${t.air?`<dt>Nearest airports</dt><dd>${esc(t.air)}</dd>`:''}
           </dl>
           ${(d.drive.flags&&d.drive.flags.length)?`<ul class="checklist safety" style="margin-top:8px">${d.drive.flags.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:''}
         </section>
