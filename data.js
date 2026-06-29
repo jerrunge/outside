@@ -54,8 +54,8 @@ window.TRIPS = [
   over:['Emigrant Wilderness sits north of Yosemite with a fraction of the crowds and none of the permit anxiety — entry is a free self-issue at the Crabtree trailhead. The Buck Lakes and the surrounding granite basins hold dense, eager wild brook and rainbow.','Scenery here is good rather than jaw-dropping by Sierra standards — rolling granite, lodgepole, broad lake basins — which is exactly why it stays quiet. The trade is the fishing, which is as reliable as it gets.'],
   why:{scenery:'Handsome granite-and-lodgepole basins; a notch below the high cirques.',fish:'The headline — wild brook & rainbow, abundant and willing.',wildlife:'Bear, deer, coyote, abundant birdlife.',bugs:'Standard Sierra timing — better by late July.',water:'Plenty of swimmable granite-bottomed lakes.'},
   route:{mode:'backpack',options:[
-   {name:'Buck Lakes out-and-back',stat:'2 nts · ~8 mi/day',text:'Crabtree TH past Camp & Bear Lakes to the Buck Lakes; basecamp and fish the chain. Low-stress, fish-forward.'},
-   {name:'Buck Lakes loop',stat:'3 nts · ~8–9 mi/day',text:'Extend via Deer Lake and Gem Lake for a loop that strings together five-plus lakes.'}]},
+   {name:'Camp & Bear Lakes basecamp',stat:'1–2 nts · ~6–8 mi RT',text:'Crabtree TH to the closer Camp and Bear Lakes — the low-effort, fish-forward option. Basecamp and work the chain; eager wild brook and rainbow throughout.'},
+   {name:'Buck Lakes loop',stat:'3 nts · 26.2 mi · 3,946 ft',text:'The full Buck Lakes loop out of Crabtree runs 26.2 mi and 3,946 ft (4.7★) — a 3-night circuit stringing a dozen lakes at ~8–9 mi/day. The deeper objective, and the best fishing.'}]},
   fish:{water:'Buck Lakes, Gem, Deer, Camp, Bear',species:'Wild brook & rainbow (self-sustaining, dense)',method:'Almost anything — small dries, a Panther Martin, a hopper; numbers fishing',season:'July–Sept'},
   wild:['Black bear','Mule deer','Coyote','Osprey','Great gray owl (rare)'],
   water:{spots:['Buck Lakes','Gem Lake'],skinny:'Empty basins midweek — easy privacy on the far shore.'},
@@ -174,8 +174,8 @@ window.TRIPS = [
   over:['The Trinity Alps are NorCal\'s answer to the High Sierra with a fraction of the traffic, and Canyon Creek is their showpiece: a relentless climb alongside cascade after cascade, topping out at Lower and Upper Canyon Creek Lakes beneath the white granite of Sawtooth Ridge.','Free self-issue permit, real waterfalls, swimmable pools the whole way up, and a wildlife mix richer than the Sierra — this is one of the best value trips on the list.'],
   why:{scenery:'Waterfall staircase into granite cirque lakes — top-tier.',fish:'Wild trout in the creek and lakes.',wildlife:'Black bear, more biodiversity than the Sierra — even rare carnivores.',bugs:'Buggy early at the lakes; better late summer.',water:'Cascades, pools, and two cirque lakes — endless swimming.'},
   route:{mode:'backpack',options:[
-   {name:'Canyon Creek Lakes',stat:'2 nts · ~8 mi/day · ≤2,800 ft',text:'Canyon Creek TH up past the cascades to the Lower Lake; basecamp, day-hike to Upper Lake and the "L" Lake. The climb is the whole show.'},
-   {name:'Plus Boulder Creek Lakes',stat:'3 nts',text:'Add a day to reach the quieter Boulder Creek Lakes on the bench to the west.'}]},
+   {name:'Canyon Creek Lakes',stat:'2–3 nts · 15.6 mi RT · 2,942 ft',text:'Canyon Creek TH up past the cascades to the Lower Lake (15.6 mi round trip, 2,942 ft, 4.8★); basecamp and day-hike to the Upper Lake and "L" Lake. The waterfall staircase is the whole show.'},
+   {name:'Plus Boulder Creek Lakes',stat:'3 nts · 18.7 mi · 3,815 ft',text:'Add the quieter Boulder Creek Lakes on the bench to the west for an 18.7-mi, 3,815-ft trip (4.7★).'}]},
   fish:{water:'Canyon Creek, Lower & Upper Canyon Creek Lakes',species:'Wild trout',method:'Dries on the creek pools; lakes early/late',season:'July–Sept'},
   wild:['Black bear','Mule deer','Pacific fisher / marten (rare)','Mountain lion (seldom seen)','Bald eagle'],
   water:{spots:['Canyon Creek Falls pools','Lower Canyon Creek Lake','Upper Lake'],skinny:'Creek pools below the lakes are private and warmer than the cirque.'},
@@ -194,8 +194,8 @@ window.TRIPS = [
   over:['Far up near the Oregon border, the Marble Mountains are remote enough to stay genuinely quiet, with the namesake marble-and-granite peaks banding the skyline. The Sky High Lakes basin is the classic destination — a cluster of brook-trout lakes under Boulder Peak.','This is big-wildlife country: black bear and deer for certain, and a corridor that occasionally turns up wolf and wolverine sign. You go here for solitude and the sense of being somewhere genuinely wild.'],
   why:{scenery:'Banded marble peaks over a lake basin — distinctive and quiet.',fish:'Wild brook throughout the Sky High Lakes.',wildlife:'Bear, deer, and a corridor with wolf/wolverine sign — top biodiversity.',bugs:'Standard timing; breezy ridges help.',water:'Several swimmable basin lakes.'},
   route:{mode:'backpack',options:[
-   {name:'Sky High Lakes via Lovers Camp',stat:'2 nts · ~8 mi/day',text:'Lovers Camp TH up the Canyon Creek trail to the Sky High Lakes basin; basecamp and fish, day-hike the marble rim.'},
-   {name:'Marble Valley loop',stat:'3 nts · ~8–9 mi/day',text:'Loop up to Marble Valley and the PCT for the marble formations, returning via Sky High.'}]},
+   {name:'Sky High Lakes loop',stat:'2–3 nts · 14.6 mi · 3,083 ft',text:'Lover\u2019s Camp TH to the Sky High Lakes basin via Shadow Lake — a 14.6-mi, 3,083-ft loop (4.7★). Basecamp and fish the brookies, day-hike the marble rim.'},
+   {name:'Marble Valley extension',stat:'3 nts',text:'Add Marble Valley and a stretch of the PCT for the namesake marble formations, returning via Sky High.'}]},
   fish:{water:'Lower & Upper Sky High Lakes, Frying Pan Lake',species:'Wild brook trout',method:'Small dries; numbers fishing',season:'July–Sept'},
   wild:['Black bear','Black-tailed deer','Gray wolf (corridor — sign possible)','Pacific fisher','Bald eagle'],
   water:{spots:['Lower Sky High Lake','Frying Pan Lake'],skinny:'Remote and lightly used — privacy is easy midweek.'},
@@ -440,7 +440,7 @@ window.TRIPS = [
   verify:['Steens Loop Road open (snow)','Oregon fishing regs','Fuel stops']}},
 
 /* ===================== COAST — SHOULDER / YEAR-ROUND ===================== */
-{id:'lostcoast',name:'Lost Coast — Mattole → Black Sands',type:'backpack',region:'King Range · BLM',drive:4,len:'3 nts',miles:'~8/day (sand)',gain:'≤1,500 total',
+{id:'lostcoast',name:'Lost Coast — Mattole → Black Sands',type:'backpack',region:'King Range · BLM',drive:4,len:'3 nts',miles:'~8/day (sand)',gain:'1,522 ft total',
  s:[5,2,5,4,5],wild:false,skinny:true,permit:'King Range permit ✦',fish:'Surf only',swim:'Ocean + creeks, naked beach camp ~',
  season:[7,8,9,10,11],peak:[9,10],epic:true,status:'queued',url:null,coord:[40.293,-124.353],
  blurb:'Elephant seals, black bears, rattlers, whales — wildlife maxed. Tide-gated, best in low-bug fall. EPIC.',
@@ -448,7 +448,7 @@ window.TRIPS = [
   over:['Too rugged for Highway 1, the King Range\'s Lost Coast Trail runs ~24.6 miles of wild shoreline from Mattole Beach to Black Sands, with King Peak rising 4,088 ft just three miles from the waves. You walk beaches and bluffs past an elephant-seal colony at Punta Gorda, find campsites by creek mouths, and most nights have a stretch of empty beach to yourself.','For your wildlife criterion it\'s the single best trip on the list — elephant seals, sea lions, black bears, bald eagles, rattlesnakes, and gray whales offshore. The whole thing is tide-gated: three sections are impassable at high tide, so the schedule is dictated by a tide chart, not your legs.'],
   why:{scenery:'Mountains rising straight from the surf — singular in the Lower 48.',fish:'Surf fishing only — no trout. The one low score.',wildlife:'Maxed — seals, sea lions, bears, eagles, rattlers, whales.',bugs:'Coastal breeze keeps it low; fall is best.',water:'Ocean + creek mouths; legendary naked beach camping.'},
   route:{mode:'backpack',options:[
-   {name:'Mattole → Black Sands (N→S)',stat:'3 nts · ~24.6 mi · ≤1,500 ft',text:'Classic one-way, north to south with the prevailing wind at your back. Plan ~8 mi/day on soft sand (roughly half your normal pace). Tides dictate when you move through the three impassable zones.'}]},
+   {name:'Mattole → Black Sands (N→S)',stat:'3 nts · 25.4 mi · 1,522 ft (4.9★)',text:'Classic one-way, north to south with the prevailing wind at your back. 25.4 mi point-to-point per AllTrails; plan ~8 mi/day on soft sand (roughly half your normal pace). Tides dictate when you move through the three impassable zones.'}]},
   fish:{water:'Surf zone',species:'Surfperch / rockfish (surf casting only)',method:'Surf rod — this is not a trout trip',season:'Year-round surf'},
   wild:['Northern elephant seal (Punta Gorda colony)','Black bear (tracks everywhere)','California sea lion','Bald eagle','Rattlesnake','Gray whale (offshore, migration)'],
   water:{spots:['Creek-mouth pools','Open beaches','The surf (cold)'],skinny:'Empty beaches between campsites — naked beach camping is the whole appeal. Privacy is easy.'},
