@@ -291,12 +291,12 @@
       <span><span class="ic">~</span> skinny-dip-grade water</span>
       <span><span class="ic">✦</span> permit / lottery — apply ahead</span>
       <span><span class="ic" style="color:var(--rust-bright)">★</span> EPIC — worth the long drive</span>
-      <span><span class="ic" style="color:var(--rust-bright)">●</span> live page &nbsp; <span class="ic">●</span> page queued</span>
+      <span><span class="ic" style="color:var(--rust-bright)">●</span> every cell opens a full field plan</span>
     </div>
   </div>
 
   <div class="disclaim" id="legendNote">
-    Each cell links to a fully-spec'd trip page. <b>Desolation is live</b> — the rest are queued and I'm deep-building them in batches, starting with this season's High Sierra alpine. Conditions (road status, snow, tides, permit windows) get re-verified on each page at build, the way your other trip pages work.
+    Each cell opens a fully-spec'd trip page — scenery, fishing (proven catchability with recommended gear and flies), wildlife, water, permits, logistics, live weather, GPX export, a permit-release planner, and an interactive packing list. All 36 are built on real trail data, with AllTrails mileage and gain on every route. Conditions — road status, snow, tides, permit windows — still get re-verified per page the way your other trip pages work.
   </div>
 
   <div id="calendar"></div>
@@ -396,7 +396,7 @@ function card(t,month){
     <div class="top"><div><div class="nm">${t.name}</div><div class="rg">${t.region}</div></div><button class="savestar ${SAVED.includes(t.id)?'on':''}" data-save="${t.id}" aria-label="Save ${t.name}" title="Save to my trips">${SAVED.includes(t.id)?'★':'☆'}</button></div>
     <div class="blurb">${t.blurb}</div>
     <div class="meta">${meta}</div>
-    <div class="bottom">${pips(t)}<span class="go ${live?'':'queued'}">${live?'Open page →':'Spec queued'}</span></div>
+    <div class="bottom">${pips(t)}<span class="go">Open page →</span></div>
   </a>`;
 }
 
@@ -507,7 +507,7 @@ function buildMap(){
   shown.forEach(t=>{
     const c=t.type==='backpack'?'#b65d22':'#5fa3a0';
     const mk=L.circleMarker(t.coord,{radius:6,color:c,weight:2,fillColor:c,fillOpacity:.55}).addTo(map);
-    const link=t.status==='live'?`<a href="${t.url}" target="_blank" rel="noopener">Open page →</a>`:`<span class="pr">page queued</span>`;
+    const link=t.status==='live'?`<a href="${t.url}" target="_blank" rel="noopener">Open page →</a>`:`<a href="trip.html?id=${t.id}">Open page →</a>`;
     mk.bindPopup(`<div class="pop"><b>${t.name}</b><br><span class="pr">${t.region} · ${t.drive}h · ${t.type==='backpack'?'Backpack':'Car'}${t.epic?' · ★EPIC':''}</span><br>${link}</div>`);
     markers.push(mk);
   });
