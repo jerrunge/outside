@@ -207,9 +207,15 @@
   }
   @media(max-width:520px){ .legend-grid{grid-template-columns:1fr;} body{font-size:16px;} }
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto;}}
+  .topnav{border-bottom:1px solid var(--line);background:var(--granite-850);position:sticky;top:0;z-index:60;}
+  .topnav .in{max-width:var(--maxw);margin:0 auto;padding:10px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  .topnav .bc{font-family:'Oswald';text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--ink-faint);}
+  .topnav a.kit{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:11.5px;color:var(--rust-bright);border:1px solid #5a3a23;border-radius:100px;padding:6px 13px;}
+  .topnav a.kit:hover{background:var(--rust);color:var(--ink);}
 </style>
 </head>
 <body>
+<div class="topnav"><div class="in"><span class="bc">Get Out · Field Ops</span><a class="kit" href="gear.html">🎣 Fly-Fishing Kit →</a></div></div>
 <header class="hero">
   <svg class="ridge" viewBox="0 0 1200 360" preserveAspectRatio="none" aria-hidden="true">
     <g fill="none" stroke="#26303a" stroke-width="1">

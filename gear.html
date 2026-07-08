@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fly-Fishing Kit · Get Out</title>
+<meta name="description" content="The complete fly-fishing setup for two beginners: rod comparison, full shopping cart with live totals, buy links, and a field school — tuned to small cold Sierra tailwater." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --granite-900:#14171a;--granite-850:#181c1f;--granite-800:#1e2327;--granite-700:#262d32;--granite-600:#333c42;
+    --line:#2c343a;--pine:#2f4a40;--pine-bright:#3c6354;--teal:#5fa3a0;--teal-dim:#3f7370;
+    --rust:#834112;--rust-bright:#b65d22;--sand:#cdbfa6;--ink:#e9e3d6;--ink-dim:#a6a092;--ink-faint:#6f6c63;
+    --r:3px;--maxw:1180px;--shadow:0 1px 0 rgba(0,0,0,.5),0 14px 40px -24px rgba(0,0,0,.9);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--granite-900);color:var(--ink);font-family:'Spectral',Georgia,serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:.01em;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{color:var(--ink);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+  .n{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--ink-faint);}
+
+  .topbar{border-bottom:1px solid var(--line);background:var(--granite-850);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar .in{max-width:var(--maxw);margin:0 auto;padding:11px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  .topbar .bc{font-family:'Oswald';text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--ink-faint);}
+  .topbar .bc a{color:var(--teal);}
+
+  header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--granite-850);}
+  .ridge{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.45;}
+  .hero-inner{position:relative;padding:34px 0 26px;}
+  .eyebrow{font-family:'Oswald';text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--rust-bright);}
+  .hero h1{font-size:40px;margin:6px 0 8px;}
+  .hero h1 em{color:var(--rust-bright);font-style:normal;}
+  .hero .lede{max-width:74ch;color:var(--ink-dim);font-size:17px;margin:0;}
+  @media(max-width:600px){.hero h1{font-size:30px;}}
+
+  .section{padding:32px 0;border-top:1px solid var(--line);}
+  .section h2{font-size:24px;margin:0 0 4px;}
+  .section .sub{margin:0 0 14px;}
+  .lead-p{color:var(--ink-dim);font-size:16px;max-width:72ch;}
+
+  .tiers{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;margin:4px 0;}
+  .tiers button{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--ink-dim);background:none;border:0;padding:9px 17px;cursor:pointer;}
+  .tiers button.on{background:var(--rust);color:var(--ink);}
+
+  .cmp{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;}
+  @media(max-width:900px){.cmp{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.cmp{grid-template-columns:1fr;}}
+  .ocard{border:1px solid var(--line);border-radius:var(--r);background:var(--granite-850);padding:15px;display:flex;flex-direction:column;}
+  .ocard.pick{border-color:var(--rust-bright);box-shadow:var(--shadow);}
+  .ocard .obadge{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:9.5px;color:var(--rust-bright);height:13px;}
+  .ocard h3{font-size:16.5px;margin:2px 0 0;}
+  .ocard .oprice{font-family:'Oswald';font-size:23px;color:var(--ink);margin:5px 0 10px;}
+  .ocard .ospec{font-size:12.5px;color:var(--ink-dim);margin:0 0 10px;line-height:1.45;}
+  .ocard ul{margin:0 0 10px;padding-left:16px;}
+  .ocard li{font-size:12.5px;color:var(--ink-dim);margin:4px 0;}
+  .ocard li.pro::marker{content:"+  ";color:var(--teal);}
+  .ocard li.con::marker{content:"–  ";color:var(--rust-bright);}
+  .ocard .obest{font-size:12.5px;color:var(--sand);margin-top:auto;padding-top:9px;line-height:1.4;}
+  .ocard .obtn{margin-top:11px;display:block;font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--teal);border:1px solid var(--teal-dim);border-radius:100px;padding:8px 12px;text-align:center;}
+  .ocard .obtn:hover{background:var(--teal-dim);color:var(--ink);}
+
+  .callout{border:1px solid var(--line);border-left:3px solid var(--rust);border-radius:var(--r);background:var(--granite-850);padding:16px 18px;margin-top:18px;}
+  .callout h3{font-size:14px;margin:0 0 9px;color:var(--sand);text-transform:uppercase;letter-spacing:.06em;}
+  .callout p{margin:0 0 8px;font-size:14.5px;color:var(--ink-dim);}
+  .callout p:last-child{margin-bottom:0;}
+
+  .cart .grp{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--teal);margin:18px 0 4px;}
+  .crow{display:grid;grid-template-columns:1fr auto;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line);align-items:baseline;}
+  .crow .cl{font-size:14.5px;color:var(--ink);}
+  .crow .cl .cx{display:block;font-size:12.5px;color:var(--ink-dim);margin-top:2px;}
+  .crow .cl a{font-size:11px;font-family:'Oswald';letter-spacing:.06em;text-transform:uppercase;}
+  .crow .cp{font-family:'Oswald';font-size:15px;color:var(--ink);white-space:nowrap;}
+  .totbox{margin-top:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--granite-800);padding:14px 16px;}
+  .totrow{display:flex;justify-content:space-between;font-family:'Oswald';font-size:14px;color:var(--ink-dim);padding:3px 0;letter-spacing:.02em;}
+  .totrow.grand{font-size:21px;color:var(--ink);border-top:1px solid var(--line);margin-top:7px;padding-top:11px;}
+  .totrow.grand .v{color:var(--rust-bright);}
+
+  .fs h3{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--sand);margin:20px 0 9px;}
+  .rig{border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:var(--r);padding:10px 12px;margin-bottom:9px;background:var(--granite-850);}
+  .rig b{font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--ink);}
+  .rig p{margin:4px 0 0;font-size:13.5px;color:var(--ink-dim);}
+  ol.steps,ul.knots{margin:0;padding-left:20px;}
+  ol.steps li,ul.knots li{font-size:14.5px;color:var(--ink-dim);margin:8px 0;line-height:1.5;}
+
+  .notebox{border:1px solid var(--line);border-left:3px solid var(--sand);border-radius:var(--r);background:var(--granite-850);padding:13px 15px;margin-top:12px;font-size:14px;color:var(--ink-dim);}
+  .notebox b{color:var(--sand);font-family:'Oswald';letter-spacing:.05em;}
+  footer{margin:50px 0 30px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-faint);font-size:13px;}
+  footer a{color:var(--teal);}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <span class="bc"><a href="index.html">← Get Out</a> &nbsp;/&nbsp; Fly-Fishing Kit</span>
+  <span class="n">Reck the Fort · Field Ops</span>
+</div></div>
+
+<header class="hero">
+  <svg class="ridge" viewBox="0 0 1200 360" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="none" stroke="#26303a" stroke-width="1">
+      <path d="M0,300 C160,250 300,288 430,250 C560,212 690,250 820,214 C950,178 1080,210 1200,180"/>
+      <path d="M0,330 C150,300 320,322 460,292 C600,262 720,300 860,268 C1000,236 1100,262 1200,238"/>
+      <path d="M0,268 C180,232 300,255 440,212 C580,170 700,210 840,170 C980,130 1090,160 1200,128"/>
+    </g>
+    <g fill="none" stroke="#2f3d3a" stroke-width="1" opacity=".6">
+      <path d="M0,236 C160,206 300,224 450,184 C600,144 720,182 870,146 C1010,112 1100,138 1200,108"/>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">The Complete Setup · for the two of you</div>
+    <h1>Fly-Fishing <em>Kit</em></h1>
+    <p class="lede">Assume you own nothing. Here is the whole setup for two beginners — a real rod comparison, a full shopping cart with live totals and buy links, and a field school — tuned to small, cold, clear Sierra tailwater where barbless flies are the law. Built for wet-wading in July (skip the waders).</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ROD DECISION -->
+  <section class="section">
+    <h2>The rod decision</h2>
+    <p class="sub n">the one thing not to cheap out on — but you have honest options</p>
+    <p class="lead-p">Every kit below comes rigged and ready: rod, reel, weight-forward floating line, backing, leader, and a case. They differ in reel material, case, warranty, and refinement — not much in whether you'll catch fish. For this water (delicate dries and hopper-droppers), any of them works.</p>
+    <div class="cmp">
+      <div class="ocard">
+        <div class="obadge">Best value</div>
+        <h3>Redington Wrangler Trout</h3>
+        <div class="oprice">$249</div>
+        <div class="ospec">9′ 5-wt medium-fast · Crosswater reel · RIO Mainstream line · nylon case · lifetime warranty</div>
+        <ul>
+          <li class="pro">Dry-fly performance above its price class</li>
+          <li class="pro">$149 less than the Clearwater</li>
+          <li class="con">Polymer reel, soft nylon case</li>
+          <li class="con">Strains on heavy 3-fly nymph rigs</li>
+        </ul>
+        <div class="obest">Best for your water: small dry-fly &amp; hopper-dropper. The smart save.</div>
+        <a class="obtn" href="https://www.sportsmans.com/fishing-gear-supplies/fly-rod-reel-combos/redington-wrangler-kit-fly-fishing-rod-and-reel-combo-trout-9ft-5wt-4pc/p/1828223" target="_blank" rel="noopener">Shop →</a>
+      </div>
+      <div class="ocard">
+        <div class="obadge">Cheapest</div>
+        <h3>Orvis Encounter</h3>
+        <div class="oprice">$189</div>
+        <div class="ospec">9′ 5-wt · reel, line, backing, leader · ready to fish</div>
+        <ul>
+          <li class="pro">Lowest cost onto the water</li>
+          <li class="pro">Fully functional beginner rig</li>
+          <li class="con">Basic components; you'll likely upgrade</li>
+        </ul>
+        <div class="obest">Best for the absolute minimum spend or testing the sport.</div>
+        <a class="obtn" href="https://www.orvis.com/fly-fishing/featured/fly-fishing-gear-for-beginners" target="_blank" rel="noopener">Shop →</a>
+      </div>
+      <div class="ocard pick">
+        <div class="obadge">Recommended</div>
+        <h3>Orvis Clearwater</h3>
+        <div class="oprice">$398</div>
+        <div class="ospec">9′ 5-wt taper-specific · die-cast aluminum large-arbor reel · rigid rod tube · 25-yr no-fault warranty</div>
+        <ul>
+          <li class="pro">Metal reel, smoother drag, hard tube</li>
+          <li class="pro">Refined blank, grows into bigger water</li>
+          <li class="pro">Break it yourself, they still fix it</li>
+          <li class="con">$149 more per rod</li>
+        </ul>
+        <div class="obest">Best for one rig that lasts years and shrugs off self-inflicted breakage.</div>
+        <a class="obtn" href="https://www.orvis.com/product/clearwater-fly-rod-outfit/3ASN.html" target="_blank" rel="noopener">Shop →</a>
+      </div>
+      <div class="ocard">
+        <div class="obadge">Splurge</div>
+        <h3>Orvis Recon / Sage</h3>
+        <div class="oprice">$800+</div>
+        <div class="ospec">Premium rod + Hydros-class reel, some USA-made</div>
+        <ul>
+          <li class="pro">Lighter, more accurate, lifetime keepers</li>
+          <li class="con">Overkill for beginners on small water</li>
+        </ul>
+        <div class="obest">Best only if gear quality is its own reward.</div>
+        <a class="obtn" href="https://www.orvis.com/fly-fishing/rods-reels-line/fly-rods" target="_blank" rel="noopener">Shop →</a>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h3>Clearwater vs Wrangler — the real decision</h3>
+      <p>For <b>your</b> trip, the Wrangler Trout ($249) matches the fishing exactly — delicate dries and hopper-droppers — and its one weakness (turning over heavy three-fly nymph rigs) is fishing you won't be doing at Poopenaut. It saves ~$149 a rod, about $300 across the two of you.</p>
+      <p>The Clearwater's premium buys a <b>metal reel</b>, a <b>rigid tube</b> (nice for the drive and the 800-ft climb), a more refined blank that grows into bigger water, and the <b>25-year no-fault warranty</b> — they'll fix it even if you close a car door on it. Those are longevity wins, not "catch more fish" wins.</p>
+      <p><b>Bottom line:</b> get the Wranglers if this stays a light dry-fly hobby and you'd rather put the savings into glasses, net, and license. Step up to the Clearwater if you want one rig for years that laughs off self-inflicted breakage. Flip the toggle below to price either build.</p>
+    </div>
+  </section>
+
+  <!-- CART -->
+  <section class="section">
+    <h2>The complete two-person cart</h2>
+    <p class="sub n">pick a tier — the total updates live</p>
+    <div class="tiers" id="tiers">
+      <button data-tier="budget">Budget</button>
+      <button data-tier="recommended" class="on">Recommended</button>
+      <button data-tier="premium">Premium</button>
+    </div>
+    <div class="cart" id="cart"></div>
+    <div class="totbox" id="totbox"></div>
+    <div class="notebox"><b>Wet-wade note.</b> This build skips waders (~$200/person) because you'll fish in July — cold water, hot air. If you add spring or fall trips later, breathable Clearwater waders become worth it.</div>
+  </section>
+
+  <!-- FIELD SCHOOL -->
+  <section class="section fs">
+    <h2>Field school</h2>
+    <p class="sub n">rig it, knot it, fish it</p>
+
+    <h3>Three rigs, easiest first</h3>
+    <div class="rig"><b>Hopper-dropper (start here)</b><p>Tie a buoyant dry (foam hopper or Elk Hair Caddis) to your tippet with an improved clinch knot. Then tie 18–24″ of tippet to the BEND of that hook and add a Pheasant Tail nymph. The dry floats and doubles as your strike indicator; the nymph does the catching. Highest-odds beginner rig.</p></div>
+    <div class="rig"><b>Single dry</b><p>During a visible hatch or rising fish, fish just the dry (Parachute Adams / caddis). Watch it drift; set gently when a fish eats it.</p></div>
+    <div class="rig"><b>Nymph under indicator</b><p>When nothing's rising: indicator up the leader about 1.5× the water's depth, a weighted nymph plus one split shot, dead-drifted through the deeper runs.</p></div>
+
+    <h3>The only three knots you need</h3>
+    <ul class="knots">
+      <li>Loop-to-loop: fly-line loop ↔ leader loop, no knot to tie.</li>
+      <li>Leader → tippet: double surgeon's knot (or a blood knot).</li>
+      <li>Tippet → fly: improved clinch knot. Wet it, seat it slowly.</li>
+    </ul>
+
+    <h3>How to actually fish it</h3>
+    <ol class="steps">
+      <li>Practice first. The evening before, string a rod and cast on the lawn for twenty minutes. Ten-to-two, pause on the backcast to let the rod load, keep it short — 20–30 ft is plenty.</li>
+      <li>Read the water. Trout hold where fast meets slow: seams beside the current, behind boulders, the heads and tails of pools, foam lines ("foam is home"), and shaded undercut banks.</li>
+      <li>Approach like a heron. The water is low and gin-clear. Come from downstream, stay low, keep your shadow and feet quiet. The first cast to a spot is the best cast.</li>
+      <li>Get a drag-free drift. Cast up and across; let the flies drift at exactly the current's speed. Flip a mend (a small upstream flick of line) so the current doesn't drag the fly. The dead drift is the whole game.</li>
+      <li>Set and land. On a dry, lift the rod gently when the fish eats; on the dropper/indicator, set at any pause. Rod tip up, let it run, net it quickly in the rubber mesh.</li>
+      <li>Release it right (required over 12″): barbless hook, wet hands, fish stays in the water, minimal air, face it upstream until it kicks off.</li>
+    </ol>
+  </section>
+
+  <!-- NOTES -->
+  <section class="section">
+    <h2>Before you buy · fine print</h2>
+    <div class="notebox"><b>Pinch every barb.</b> It's the law on the Tuolumne system and it makes unhooking a fish — or your own ear — painless. Free; just squeeze each hook flat with your forceps.</div>
+    <div class="notebox"><b>License.</b> Anyone 16+ needs a CA sport-fishing license. Resident annual is $64.54 (covers every other Get Out trip); a 2-day is $32.40. Buy at <a href="https://wildlife.ca.gov/Licensing/Fishing" target="_blank" rel="noopener">wildlife.ca.gov</a> — the digital license on the CDFW app counts as proof.</div>
+    <div class="notebox"><b>Prices &amp; links.</b> Figures are current as of the build and can move; each line links to the product or its category. One good net can be shared to save ~$45.</div>
+    <p style="margin-top:18px"><a href="trip.html?id=poopenaut">← Back to the Poopenaut Valley trip</a> &nbsp;·&nbsp; <a href="index.html">All trips</a></p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  Get Out · Reck the Fort field operations. Gear picks are independent recommendations, not paid placements; buy anywhere you like.
+</footer>
+
+<script>
+const TIER = {budget:'Budget', recommended:'Recommended', premium:'Premium'};
+let tier = 'recommended';
+
+// per-person items (bought once each; multiplied by 2)
+const PP = [
+  {label:'Rod / reel / line outfit', tiers:{
+    budget:{name:'Redington Wrangler Trout 9′ 5-wt kit', price:249, link:'https://www.sportsmans.com/fishing-gear-supplies/fly-rod-reel-combos/redington-wrangler-kit-fly-fishing-rod-and-reel-combo-trout-9ft-5wt-4pc/p/1828223'},
+    recommended:{name:'Orvis Clearwater 9′ 5-wt outfit', price:398, link:'https://www.orvis.com/product/clearwater-fly-rod-outfit/3ASN.html'},
+    premium:{name:'Orvis Recon rod + Hydros reel', price:898, link:'https://www.orvis.com/fly-fishing/rods-reels-line/fly-rods'}
+  }},
+  {label:'Wading boots (rubber sole)', tiers:{
+    budget:{name:'Orvis Encounter boots', price:98, link:'https://www.orvis.com/fly-fishing/wading-gear/wading-boots'},
+    recommended:{name:'Orvis Clearwater boots', price:149, link:'https://www.orvis.com/fly-fishing/wading-gear/wading-boots'},
+    premium:{name:'Simms Freestone boots', price:179, link:'https://www.orvis.com/fly-fishing/wading-gear/wading-boots'}
+  }},
+  {label:'Neoprene guard socks', fixed:{name:'For wet-wading', price:39, link:'https://www.orvis.com/fly-fishing/wading-gear/wading-boots'}},
+  {label:'Polarized sunglasses', tiers:{
+    budget:{name:'Value polarized, amber', price:25, link:'https://www.orvis.com/fly-fishing/featured/fly-fishing-gear-for-beginners'},
+    recommended:{name:'Good polarized pair', price:90, link:'https://www.orvis.com/fly-fishing/featured/fly-fishing-gear-for-beginners'},
+    premium:{name:'Costa / Smith polarized', price:220, link:'https://www.costadelmar.com/'}
+  }},
+  {label:'Sling pack', fixed:{name:'Orvis Sling Pack', price:99, link:'https://www.orvis.com/packs-bags/style/sling-packs'}},
+  {label:'Landing net (rubber mesh)', tiers:{
+    budget:{name:'Value rubber net', price:45, link:'https://feather-craft.com/collections/fly-fishing-nets'},
+    recommended:{name:'Value rubber net', price:45, link:'https://feather-craft.com/collections/fly-fishing-nets'},
+    premium:{name:'Fishpond Nomad Emerger', price:180, link:'https://feather-craft.com/collections/fly-fishing-nets'}
+  }},
+  {label:'Fly box', fixed:{name:'Holds the flies', price:15, link:'https://www.orvis.com/fly-fishing/featured/fly-fishing-gear-for-beginners'}},
+  {label:'CA fishing license', fixed:{name:'Resident annual (365-day)', price:64.54, link:'https://wildlife.ca.gov/Licensing/Fishing'}}
+];
+
+// shared items (bought once for the pair)
+const SH = [
+  {label:'Tapered leaders (9′ 5X)', price:26, link:'https://www.orvis.com/fly-fishing/featured/fly-fishing-gear-for-beginners'},
+  {label:'Tippet spools (5X nylon, 5X fluoro, 6X)', price:24, link:'https://www.orvis.com/fly-fishing/featured/fly-fishing-gear-for-beginners'},
+  {label:'Barbless fly assortment + key patterns', price:50, link:'https://www.orvis.com/fly-fishing/featured/fly-fishing-gear-for-beginners'},
+  {label:'Tools: 2× nippers, 2× forceps, floatant, split shot, indicators', price:60, link:'https://www.orvis.com/fly-fishing/featured/fly-fishing-gear-for-beginners'}
+];
+
+const money = n => '$'+n.toLocaleString('en-US',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2});
+const pick = it => it.fixed ? it.fixed : it.tiers[tier];
+
+function render(){
+  // toggle buttons
+  document.querySelectorAll('#tiers button').forEach(b=>b.classList.toggle('on', b.dataset.tier===tier));
+  // cart
+  let h = '<div class="grp">Each of you needs</div>';
+  let perPerson = 0;
+  PP.forEach(it=>{ const c=pick(it); perPerson+=c.price;
+    h += `<div class="crow"><div class="cl">${it.label}<span class="cx">${c.name} · <a href="${c.link}" target="_blank" rel="noopener">buy →</a></span></div><div class="cp">${money(c.price)}</div></div>`;
+  });
+  h += '<div class="grp">Share between you</div>';
+  let shared = 0;
+  SH.forEach(it=>{ shared+=it.price;
+    h += `<div class="crow"><div class="cl">${it.label}<span class="cx"><a href="${it.link}" target="_blank" rel="noopener">buy →</a></span></div><div class="cp">${money(it.price)}</div></div>`;
+  });
+  document.getElementById('cart').innerHTML = h;
+  // totals
+  const two = perPerson*2 + shared;
+  document.getElementById('totbox').innerHTML =
+    `<div class="totrow"><span>Per person (${TIER[tier]})</span><span>${money(perPerson)}</span></div>`+
+    `<div class="totrow"><span>× 2 anglers</span><span>${money(perPerson*2)}</span></div>`+
+    `<div class="totrow"><span>Shared kit</span><span>${money(shared)}</span></div>`+
+    `<div class="totrow grand"><span>Two-person total</span><span class="v">${money(two)}</span></div>`;
+}
+document.getElementById('tiers').addEventListener('click', e=>{
+  const b=e.target.closest('button'); if(!b) return; tier=b.dataset.tier; render();
+});
+render();
+</script>
+</body>
+</html>

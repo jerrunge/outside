@@ -268,7 +268,7 @@
 </head>
 <body>
 <div class="topbar"><div class="wrap topbar-inner">
-  <span class="bcrumb"><a href="index.html">← Get Out</a> &nbsp;/&nbsp; <span id="bcType"></span></span>
+  <span class="bcrumb"><a href="index.html">← Get Out</a> &nbsp;·&nbsp; <a href="gear.html">Kit</a> &nbsp;/&nbsp; <span id="bcType"></span></span>
   <span class="nm" id="bcName"></span>
 </div></div>
 
@@ -405,6 +405,7 @@ function altsHTML(a){
 function kitHTML(k){
   let h='<section class="sec kit"><h2>Fly-Fishing Starter Kit <span class="n">field school — assume you own nothing</span></h2>';
   h+=`<p style="color:var(--ink-dim);font-size:15px">${esc(k.intro)}</p>`;
+  h+=`<p style="margin:2px 0 4px"><a href="gear.html">→ See the full shopping cart, rod comparison, and buy links on the Kit page</a></p>`;
   h+='<h3 class="kh">The kit to buy</h3>';
   k.shopping.forEach(c=>{
     h+=`<div class="kitcat"><div class="kchead">${esc(c.cat)}</div>`;
