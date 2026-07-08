@@ -157,6 +157,28 @@
   .fly{display:inline-block;font-family:'Spectral';font-size:13.5px;color:var(--ink-dim);border:1px solid var(--line);border-radius:100px;padding:5px 11px;margin:0 6px 6px 0;background:var(--granite-800);}
   .gearline{font-size:14.5px;color:var(--ink-dim);}
 
+  /* fly-fishing starter kit */
+  .kit .kh{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--sand);margin:22px 0 11px;padding-top:15px;border-top:1px solid var(--line);}
+  .kit .kh .n{color:var(--ink-faint);font-size:11px;}
+  .kitcat{margin-bottom:15px;}
+  .kitcat .kchead{font-family:'Oswald';letter-spacing:.04em;font-size:14px;color:var(--teal);margin-bottom:6px;}
+  .kititem{padding:8px 0;border-bottom:1px dashed var(--line);}
+  .kititem:last-child{border-bottom:0;}
+  .kiname{font-family:'Oswald';font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;gap:12px;align-items:baseline;}
+  .kiprice{font-family:'Oswald';font-size:12px;color:var(--rust-bright);white-space:nowrap;letter-spacing:.03em;}
+  .kinote{font-size:13.5px;color:var(--ink-dim);margin-top:3px;line-height:1.45;}
+  .rig{border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:var(--r);padding:10px 12px;margin-bottom:9px;background:var(--granite-850);}
+  .rig .rigname{font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--ink);}
+  .rig .rignote{font-size:13.5px;color:var(--ink-dim);margin-top:4px;line-height:1.45;}
+  .klist{margin:0;padding-left:18px;} .klist li{font-size:14px;color:var(--ink-dim);margin:5px 0;}
+  .ksteps{margin:0;padding-left:20px;counter-reset:none;} .ksteps li{font-size:14.5px;color:var(--ink-dim);margin:9px 0;line-height:1.55;}
+  .daytl{display:flex;flex-direction:column;}
+  .dayrow{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);}
+  .dayrow:last-child{border-bottom:0;}
+  .dayt{font-family:'Oswald';text-transform:uppercase;letter-spacing:.04em;font-size:12px;color:var(--sand);}
+  .dayw{font-size:14px;color:var(--ink-dim);line-height:1.45;}
+  @media(max-width:600px){.dayrow{grid-template-columns:1fr;gap:2px;}}
+
   /* hero tools */
   .toolsbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;}
   .tbtn{display:inline-flex;align-items:center;gap:7px;font-family:'Oswald';text-transform:uppercase;letter-spacing:.09em;font-size:11px;color:var(--ink-dim);background:var(--granite-800);border:1px solid var(--line);border-radius:100px;padding:8px 14px;cursor:pointer;}
@@ -364,6 +386,25 @@ function fishingHTML(t){
   return h;
 }
 
+/* ---------------- fly-fishing starter kit ---------------- */
+function kitHTML(k){
+  let h='<section class="sec kit"><h2>Fly-Fishing Starter Kit <span class="n">field school — assume you own nothing</span></h2>';
+  h+=`<p style="color:var(--ink-dim);font-size:15px">${esc(k.intro)}</p>`;
+  h+='<h3 class="kh">The kit to buy</h3>';
+  k.shopping.forEach(c=>{
+    h+=`<div class="kitcat"><div class="kchead">${esc(c.cat)}</div>`;
+    c.items.forEach(it=>{ h+=`<div class="kititem"><div class="kiname">${esc(it.name)}${it.price?`<span class="kiprice">${esc(it.price)}</span>`:''}</div>${it.note?`<div class="kinote">${esc(it.note)}</div>`:''}</div>`; });
+    h+='</div>';
+  });
+  h+='<h3 class="kh">Three rigs, easiest first</h3>';
+  k.rigs.forEach(r=>{ h+=`<div class="rig"><div class="rigname">${esc(r.name)}</div><div class="rignote">${esc(r.how)}</div></div>`; });
+  if(k.knots&&k.knots.length){ h+='<h3 class="kh">The only three knots you need</h3><ul class="klist">'+k.knots.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>'; }
+  h+='<h3 class="kh">How to actually fish it</h3><ol class="ksteps">'+k.steps.map(s=>`<li>${esc(s)}</li>`).join('')+'</ol>';
+  if(k.day&&k.day.length){ h+='<h3 class="kh">The honest day plan <span class="n">built around the gate</span></h3><div class="daytl">'+k.day.map(d=>`<div class="dayrow"><div class="dayt">${esc(d.t)}</div><div class="dayw">${esc(d.what)}</div></div>`).join('')+'</div>'; }
+  h+='</section>';
+  return h;
+}
+
 /* ---------------- saved trips (shared with hub) ---------------- */
 const SAVE_KEY='getout_saved';
 function getSaved(){try{return JSON.parse(localStorage.getItem(SAVE_KEY))||[]}catch(e){return[]}}
@@ -499,6 +540,7 @@ function render(t){
         <section class="sec"><h2>${t.type==='backpack'?'Route &amp; Itinerary':'Basecamp &amp; Day Hikes'}</h2>${routeHTML}</section>
 
         <section class="sec"><h2>Fishing <span class="n">proven catchability</span></h2>${fishingHTML(t)}</section>
+        ${d.kit?kitHTML(d.kit):''}
 
         <section class="sec"><h2>Wildlife</h2><div class="tagrow">${d.wild.map(w=>`<span class="pill">${esc(w)}</span>`).join('')}</div></section>
 

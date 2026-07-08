@@ -802,3 +802,151 @@ const LINKS={
   desolation:{at:ATS+'Desolation%20Wilderness%20Lake%20Aloha',air:'Reno–Tahoe (RNO) ~1.25 h · Sacramento (SMF) ~2 h'}
 };
 window.TRIPS.forEach(t=>{ const l=LINKS[t.id]; if(l){ if(l.at) t.at=l.at; if(l.air) t.air=l.air; } });
+
+/* ============================================================
+   SPECIAL TRIP — Poopenaut Valley fly-fishing (fixed dates)
+   Added after the merge passes, so it carries its own fish/at.
+============================================================ */
+window.TRIPS.push({
+  id:'poopenaut', name:'Poopenaut Valley — Tuolumne Tailwater', type:'car',
+  region:'Hetch Hetchy · Yosemite NP', drive:3.5, len:'2 nts · Evergreen Lodge',
+  miles:'2.6 mi RT to the river', gain:'800 ft climb out',
+  s:[5,4,3,3,4], wild:true, skinny:true, permit:'CA license + park entry',
+  fish:'Wild rainbow & brown', swim:'Cold tailwater pools ~',
+  season:[7], peak:[7], epic:false, status:'ready', url:null, coord:[37.9432,-119.8085],
+  at:'https://www.alltrails.com/search?q=Poopenaut%20Valley%20Trail',
+  blurb:'A cold bottom-release tailwater below O’Shaughnessy Dam that fishes when the little forks go warm and thin. Wild trout, a brutal 800-ft climb out, a hard sunset gate. Fixed dates: Jul 22–24, 2026.',
+  d:{
+    tag:'Fixed dates · Jul 22–24, 2026 · basecamp Evergreen Lodge',
+    over:[
+      'Below O’Shaughnessy Dam, the Tuolumne comes back to life as a cold, bottom-release tailwater. While the little Middle and South Forks warm up and shrink in late-July heat, the water pouring out of the base of Hetch Hetchy stays in the 50s and keeps its wild rainbows and browns honest and feeding. That is the whole case for fishing here on these dates — and it is a good one.',
+      'The verdict: for July 22–24, this is the best close-by fly water, and I agree with the call. The tailwater logic is sound — cold, steady water beats warm, thin creeks every time in a heat wave. Three honest amendments, though. First, this is the hardest access on the shortlist: a steep 800-foot climb back out in afternoon heat, through poison oak and rattlesnake ground — a demanding first fly outing for two people on brand-new gear. Second, it is barbless-artificial-only water by law, with a 12-inch maximum size limit — fine for fly fishing, but know it. Third, the gate rewrites the day (below). So: best fishing, yes; easiest day, no. Pair it with an easy evening backup and you get both.',
+      'The gate is the plot twist. Hetch Hetchy Road opens only at sunrise and locks at sunset, and Evergreen Lodge sits outside it — so you cannot start before it opens (~7 a.m.), and you must climb out and drive clear before it locks (~8:20 p.m. in late July). That quietly removes the classic evening rise from the menu here. The move: fish Poopenaut hard in the cool morning, beat the gate out, and — if you still want that last-light bite — throw at the easy roadside South Fork water near the Lodge, which has no gate.'
+    ],
+    why:{
+      scenery:'The Tuolumne plunges out of the 430-foot O’Shaughnessy Dam into a granite gorge, then flattens into the quiet Poopenaut meadow. Big walls, loud water, almost nobody.',
+      fish:'A cold bottom-release tailwater holds temperature all summer when the forks go warm — wild rainbows and browns, less pressured because the climb turns most people around. Catchability is moderate: eager fish in the right water, but it is low, clear, and technical.',
+      wildlife:'Rattlesnakes on the warm rocky climb, black-bear country, mule deer in the meadow, American dippers working the riffles, peregrines on the walls.',
+      bugs:'Some mosquitoes around the meadow morning and evening, but the canyon is drier and airier than the high country. Late July is manageable.',
+      water:'Cold, clear pools and runs off the base of the reservoir — swimmable but genuinely bracing even in July. Remote enough for a private dip once you have earned the climb back up.'
+    },
+    route:{mode:'car', basecamp:'Evergreen Lodge — just outside the Hetch Hetchy gate near Camp Mather (cabins, restaurant, tavern; ~20–25 min from the trailhead).', dayhikes:[
+      'Poopenaut Valley Trail to the Tuolumne · 2.6 mi RT · 800 ft (all on the climb out) · the fishing access',
+      'Wapama Falls from O’Shaughnessy Dam · 5.6 mi RT · 900 ft · the classic non-fishing leg-stretcher',
+      'Carlon Falls, South Fork Tuolumne · 4.0 mi RT · easy · roadside and outside the gate — the easy evening water',
+      'O’Shaughnessy Dam & reservoir overlook · easy · cross the dam for the Tueeulala / Wapama view'
+    ]},
+    fish:{
+      water:'Tuolumne River below O’Shaughnessy Dam (Poopenaut Valley)',
+      species:'Wild rainbow & brown trout',
+      method:'Barbless artificial only — fly or single-hook lure (bait is illegal here)',
+      season:'Cold tailwater; fishes all summer. Year-round season as of 2026.',
+      catch:3, label:'Moderate — cold wild tailwater, low & clear',
+      gear:'9 ft 5-wt, floating line, 9 ft 5X leader (drop to 6X in low clear water)',
+      flies:['Elk Hair Caddis #14–16','Parachute Adams #16','Pheasant Tail #16','Hare’s Ear #16','Zebra Midge #18','Foam hopper #12 (dropper rig)','Olive Woolly Bugger #10'],
+      timing:'Morning through early afternoon — the cool, productive window before you must beat the gate out.'
+    },
+    wild:['Wild rainbow & brown trout','Rattlesnakes (watch the climb)','Black-bear country','Mule deer','American dipper (water ouzel)','Peregrine falcons on the walls'],
+    water:{spots:['Poopenaut meadow pools, runs & pocket water','Cold bottom-release — low 50s°F even in July','Deep tailouts below the rapids'], skinny:'Remote enough for a bracing skinny-dip in the pools — but the water comes off the bottom of the reservoir, so it stays cold all summer. A quick, gasping plunge, then back up you go.'},
+    permit:{
+      system:'CA sport-fishing license (age 16+) + Yosemite park entry',
+      cost:'License: 1-day ~$20, 2-day ~$31, or annual ~$62. Park entry per vehicle (or America the Beautiful pass).',
+      where:'Buy the license online at CDFW before you leave signal; pay park entry at the Hetch Hetchy station.',
+      when:'Year-round fishing season as of the 2026 rule change — no seasonal closure.',
+      notes:'Tuolumne system, including below Hetch Hetchy: artificial lures with SINGLE BARBLESS hooks only, no bait. A 12-inch maximum size limit applies from O’Shaughnessy Dam down to Early Intake — release anything longer, and the daily limit is low. Treat it as catch-and-release wild water.'
+    },
+    drive:{
+      time:'~3.5 h from Pacifica to Evergreen Lodge; then ~20–25 min from the Lodge to the Poopenaut trailhead (through the gate).',
+      route:'I-580 / I-205 to Hwy 120 east through Groveland; Evergreen Rd to the Lodge and Mather; past the Hetch Hetchy entrance ~3.8 mi down Hetch Hetchy Rd to the marked Poopenaut trailhead pullout.',
+      flags:[
+        'THE GATE: Hetch Hetchy Rd is open sunrise-to-sunset only and locked overnight. Evergreen Lodge is outside it — you cannot reach the trailhead before it opens (~7 a.m.; confirm the recorded line 209-372-0200).',
+        'You must clear the gate by sunset (~8:20 p.m. in late July). Budget the 45–60 min climb-out plus drive — this is why the evening rise is effectively off the table here.',
+        'Vehicles / trailers over 25 ft are not allowed on Hetch Hetchy Rd.',
+        'No cell signal past Groveland — download maps and buy licenses in advance.'
+      ]
+    },
+    safety:[
+      'The climb out is 800 ft of steep, exposed trail — start up with water in hand and plenty of time before the gate.',
+      'Rattlesnake country: watch hands and feet on the warm rocky climb, especially in the afternoon.',
+      'Poison oak lines the lower trail — leaves of three, let it be. Long pants help.',
+      'Canyon heat is real by midday; carry 2 L each plus salty snacks.',
+      'No treatment plan at the river? Pack all the water you need in and out.',
+      'Barbless is the law here — and it makes unhooking a fish (or your own ear) far easier.'
+    ],
+    insider:[
+      'Practice-cast on the Evergreen Lodge lawn the evening before — twenty minutes turns a frustrating morning into a fun one.',
+      'Fish upstream and approach from below: the water is low and clear and the fish see everything.',
+      'Start with a hopper-dropper — the dry floats as your indicator and the nymph does the catching.',
+      'Foam is home: drift your flies through the foam lines and current seams, not the flat frog water.',
+      'Save the evening rise for the roadside South Fork near the Lodge — no gate, no climb, dusk caddis.'
+    ],
+    pack:[
+      'CA fishing license (on phone or printed)','Fly rod outfit + reel, spare leaders & tippet','Fly box (barbs pinched)','Nippers, forceps, floatant, split shot, indicators','Rubber landing net','Wading boots + neoprene socks (wet-wade)','Polarized sunglasses, hat, sun hoody, sunscreen','2 L water each + salty snacks','Small first-aid, offline map, headlamp','Dry clothes & towel in the car for after'
+    ],
+    verify:[
+      'Recheck USGS gauge 11276500 (Tuolumne nr Hetch Hetchy) ~48 h out — you want cold temps and a fishable, not blown-out, flow.',
+      'Confirm Hetch Hetchy gate hours (209-372-0200) — they track sunrise/sunset and shift week to week.',
+      'Reconfirm Yosemite fishing regs (barbless + size limits can change).',
+      'Buy both CA fishing licenses online (CDFW) before you lose signal in Groveland.',
+      'Check park alerts, fire, and air quality for the dates.'
+    ],
+    kit:{
+      intro:'Assume you own nothing. Here is exactly what to buy for the two of you, what it costs, and how to use it — tuned to a small, cold, clear tailwater where barbless flies are the law.',
+      shopping:[
+        {cat:'The outfit (buy 2 — one each)', items:[
+          {name:'9-ft 5-weight fly rod + reel “outfit”, pre-spooled', note:'A 9-ft 5-wt is THE all-around trout rod — delicate enough for dries, enough backbone for hoppers, streamers, and wind. Buy a rigged combo so it arrives ready to fish: Orvis Clearwater (~$250), Redington Path/Crosswater (~$180), or Echo Base (~$150).', price:'$150–250 ea'},
+          {name:'Weight-forward floating line (WF5F)', note:'Comes already loaded on the outfit with backing and a leader. Nothing to add.', price:'included'}
+        ]},
+        {cat:'Leaders & tippet', items:[
+          {name:'9-ft 5X tapered leaders', note:'The clear tapered section connecting fly line to fly; loops on. Bring 3–4 — you will wreck a couple.', price:'~$5 ea'},
+          {name:'Tippet spools: 5X nylon + 5X/6X fluorocarbon', note:'Tippet is the fine end you tie flies to and rebuild as it shortens. Nylon floats (dries); fluoro sinks and is nearly invisible (nymphs). 6X for spooky low water.', price:'~$8 ea'}
+        ]},
+        {cat:'Flies (pinch every barb)', items:[
+          {name:'Dries', note:'Elk Hair Caddis #14–16, Parachute Adams #16, Royal Wulff #14, Griffith’s Gnat #18.', price:''},
+          {name:'Nymphs', note:'Pheasant Tail #16, Hare’s Ear #16, Copper John #16, Zebra Midge #18.', price:''},
+          {name:'Streamer & terrestrials', note:'Olive Woolly Bugger #10; a small foam hopper #12 and a black ant #16 for late July.', price:''},
+          {name:'Or just buy a boxed trout assortment', note:'A 30–40-fly Sierra/tailwater assortment covers most of the above in one purchase.', price:'~$25–35'}
+        ]},
+        {cat:'On your body (late July = wet-wade)', items:[
+          {name:'Wading boots + neoprene guard socks', note:'The water is cold but the day is hot — skip waders and wet-wade in quick-dry pants or shorts. Rubber-lug wading boots + 3 mm neoprene socks give grip and warmth. (Sturdy closed-toe water shoes work in a pinch.)', price:'boots ~$100 · socks ~$25'},
+          {name:'Polarized sunglasses', note:'Non-negotiable: they let you SEE fish and holding water, and shield your eyes from a wind-blown barbless hook. Amber/copper lens.', price:'$25–150'},
+          {name:'Sun hoody, wide-brim hat, sunscreen', note:'The canyon bakes by midday. Cover up.', price:'$20–60'}
+        ]},
+        {cat:'Tools & carry (one shared set is fine)', items:[
+          {name:'Nippers', note:'Trim tippet and knot tags — a cheap pair or even nail clippers.', price:'~$10'},
+          {name:'Forceps / hemostats', note:'Unhook fish and pinch down barbs. Essential.', price:'~$8'},
+          {name:'Rubber-mesh landing net', note:'Fish-safe rubber bag lands and releases fast and protects the slime coat.', price:'~$30'},
+          {name:'Floatant + split shot + strike indicators', note:'Floatant keeps dries riding high; a couple of tin (non-lead) shot sink a nymph; a small indicator (or a buoyant dry) signals the take.', price:'~$20 total'},
+          {name:'Fly box + sling / chest pack', note:'The box holds the flies; a sling pack carries box, tippet, tools, and water on the hike.', price:'box ~$10 · pack ~$40–60'}
+        ]},
+        {cat:'Licenses & the hike', items:[
+          {name:'CA fishing license (each, age 16+)', note:'Buy online at CDFW before you lose signal. A 2-day (~$31) covers the weekend; annual is ~$62.', price:'~$20–31'},
+          {name:'Water, food, first-aid, offline map, headlamp', note:'2 L water each (no treatment plan at the river), salty snacks, small first-aid, a downloaded map, and a headlamp in case the climb runs long.', price:'—'}
+        ]}
+      ],
+      rigs:[
+        {name:'Hopper-dropper (start here)', how:'Tie a buoyant dry (foam hopper or Elk Hair Caddis) to your tippet with an improved clinch knot. Then tie 18–24″ of tippet to the BEND of that hook and add a Pheasant Tail nymph. The dry floats and doubles as your strike indicator; the nymph rides below. Highest-odds beginner rig.'},
+        {name:'Single dry', how:'During a visible hatch or rising fish, fish just the dry (Parachute Adams / caddis). Watch it drift; set gently when a fish eats it.'},
+        {name:'Nymph under indicator', how:'When nothing is rising: indicator up the leader about 1.5× the water’s depth, a weighted nymph plus one split shot, dead-drifted through the deeper runs.'}
+      ],
+      knots:['Loop-to-loop: fly-line loop ↔ leader loop, no knot to tie.','Leader → tippet: double surgeon’s knot (or a blood knot).','Tippet → fly: improved clinch knot. Wet it, seat it slowly.'],
+      steps:[
+        'Practice first. The evening before, string a rod and cast on the Evergreen Lodge lawn for twenty minutes. Ten-o’clock-to-two-o’clock, pause on the backcast to let the rod load, and keep it short — 20–30 ft is plenty here.',
+        'Read the water. Trout hold where fast meets slow: seams beside the current, behind boulders, the heads and tails of pools, foam lines (“foam is home”), and shaded undercut banks.',
+        'Approach like a heron. The water is low and gin-clear. Come from downstream, stay low, and keep your shadow and your feet quiet. The first cast to a spot is the best cast — do not line the fish.',
+        'Get a drag-free drift. Cast up and across; let the flies drift at exactly the current’s speed. Flip a mend (a small upstream flick of line) so the current does not drag the fly unnaturally. The dead drift is the whole game.',
+        'Set and land. On a dry, lift the rod gently when the fish eats; on the dropper or indicator, set at any pause or twitch. Rod tip up, let it run, net it quickly in the rubber mesh.',
+        'Release it right (required over 12″, and just do it for all of them): barbless hook, wet hands, keep the fish in the water, minimal air, and face it upstream until it kicks off.'
+      ],
+      day:[
+        {t:'Night before', what:'Buy both licenses online, rig both rods, pinch all barbs, practice-cast on the lawn, fill water bottles, set an alarm.'},
+        {t:'~6:15 a.m.', what:'Leave Evergreen with coffee and breakfast — you want to be at the Hetch Hetchy gate as it opens.'},
+        {t:'Gate open (~7 a.m.)', what:'Through the entrance, drive ~3.8 mi down Hetch Hetchy Rd to the marked Poopenaut trailhead (small pullout).'},
+        {t:'~7:20–8 a.m.', what:'Hike down — ~1.3 mi, 800 ft, ~30–40 min — in the cool morning. Poison-oak and rattlesnake aware.'},
+        {t:'Morning → early afternoon', what:'The window. Fish upstream through the meadow pools and seams while the water is cool and the light is soft. This is the productive stretch — make it count.'},
+        {t:'Early–mid afternoon', what:'Start the climb out with margin. The 800-ft ascent plus drive must clear the gate before sunset — so you fish mornings here, not the last-light rise.'},
+        {t:'Evening', what:'Want the evening rise without the gate clock? Fish the easy roadside South Fork Tuolumne / Carlon Falls water near Evergreen (outside the gate) at dusk — or take the win and have dinner at the Lodge.'}
+      ]
+    }
+  }
+});
