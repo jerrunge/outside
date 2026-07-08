@@ -950,3 +950,161 @@ window.TRIPS.push({
     }
   }
 });
+
+/* ============================================================
+   THREE GENUINE ALTERNATIVES to Poopenaut (same Jul 22–24
+   weekend, based at Evergreen Lodge). Full-spec pages.
+============================================================ */
+window.TRIPS.push(
+{
+  id:'sftuolumne', name:'South Fork Tuolumne — Carlon & the Easy Water', type:'car',
+  region:'Groveland · Stanislaus NF / Yosemite edge', drive:3.5, len:'2 nts · Evergreen Lodge',
+  miles:'0–4 mi, your call', gain:'minimal',
+  s:[4,3,3,3,4], wild:false, skinny:true, permit:'CA license (+ park entry if inside)',
+  fish:'Stocked + wild rainbow', swim:'Carlon Falls pool ~',
+  season:[7], peak:[7], epic:false, status:'ready', url:null, coord:[37.8113,-119.8637],
+  at:'https://www.alltrails.com/search?q=Carlon%20Falls%20Trail',
+  blurb:'The beginner-friendly counter-pick: roadside near the Lodge, no gate, no climb, stocked over wild, and the best evening rise of the bunch. Alt for Jul 22–24.',
+  d:{ tag:'Alternative · Jul 22–24 · the easy win',
+    over:[
+      'This is the honest counter-pick to Poopenaut. If the real goal for two first-timers is to catch fish, groove the cast, and fish the evening rise with zero gate stress, the South Fork Tuolumne near the Lodge is the smart call. It runs right along Evergreen Road and Highway 120 — no entrance gate, no 800-foot climb — and it is stocked with rainbows on top of a resident wild population.',
+      'The trade is quality for accessibility. This is warmer freestone water, not a cold tailwater, so by late July it runs lower and softer than Poopenaut and the fish average smaller. But your odds of a bent rod on day one are far higher, and because it sits outside the Hetch Hetchy gate you can fish the golden evening caddis until dark and still sleep at Evergreen. Carlon Falls is on this same water — a short, easy walk to a swim-hole pool that makes a perfect midday reset.',
+      'Verdict: the beginner-friendly win, and the best evening water of the four options. Fish Poopenaut in the cool morning for the trophy water; come here at dusk to actually catch the rise.'
+    ],
+    why:{
+      scenery:'Forested South Fork canyon, granite pools, and the mossy grotto of Carlon Falls. Pretty, easy, low-stakes.',
+      fish:'Stocked rainbows over a resident wild population — the highest catch odds of the four, ideal for learning. Freestone, so it warms and thins by late July; fish morning and evening.',
+      wildlife:'Deer, black bear, dippers on the riffles, and Sierra songbirds. Poison oak lower down.',
+      bugs:'Some mosquitoes at dusk near the water, but manageable in late July.',
+      water:'Clear pools and the Carlon Falls swim hole — warm enough to actually enjoy, unlike the tailwater. Quiet spots upstream for a private dip.'
+    },
+    route:{mode:'car', basecamp:'Evergreen Lodge (~10 min) — or just fish it on the way in and out.', dayhikes:[
+      'Carlon Falls · 4.0 mi RT · easy · riverside walk to the falls pool (fish and swim)',
+      'South Fork pullouts along Evergreen Rd / Hwy 120 · roadside · pick a pool and wade in',
+      'Middle Fork Tuolumne (nearby) · roadside · a second freestone option if the South Fork is busy'
+    ]},
+    fish:{ water:'South Fork Tuolumne (Carlon / Evergreen Rd)', species:'Stocked rainbows + wild rainbow & brown',
+      method:'Fly or lure; barbless artificial inside the park boundary, general CA regs on the NF stretch',
+      season:'Best late spring–early summer; fishable mornings & evenings in late July',
+      catch:4, label:'Reliable — the beginner-friendly win', gear:'9 ft 5-wt, floating line, 9 ft 5X leader',
+      flies:['Elk Hair Caddis #14–16','Parachute Adams #16','Foam hopper #12','Copper John #16','Small Kastmaster / Panther Martin (spin)'],
+      timing:'Evening caddis is the prize — no gate, so fish it till dark.' },
+    wild:['Stocked & wild rainbow trout','Wild brown trout','Black bear & deer','American dipper','Poison oak (lower river)'],
+    water:{spots:['Carlon Falls pool','South Fork pools & pocket water','Warm-enough swim holes'], skinny:'Walk a few minutes upstream of Carlon Falls and the pools go quiet — a warm, easy dip between sessions.'},
+    permit:{ system:'CA sport-fishing license (16+); park entry only if you fish inside the boundary',
+      cost:'License 1-day ~$20 / 2-day ~$31 / annual ~$62', where:'Buy online at CDFW; Groveland shops sell licenses and tackle too',
+      when:'Year-round season', notes:'Inside Yosemite: barbless artificial only. On the Stanislaus NF stretch near Groveland: general CA regs (bait allowed, 5-trout limit) — but barbless catch-and-release keeps the wild fish healthy. Know which side of the line you are on.' },
+    drive:{ time:'~3.5 h Pacifica→Evergreen; Carlon / South Fork is ~10 min from the Lodge',
+      route:'Hwy 120 east to the Evergreen Rd junction; the Carlon day-use area and river pullouts are right there',
+      flags:['No gate and no fixed hours — fish dawn to dark','Roadside pullouts fill on summer weekends; go early','Poison oak along the lower banks'] },
+    safety:['Poison oak is common on the lower South Fork — long pants, watch what you grab.','Slick granite around the falls pool; wade deliberately.','Afternoon heat down low; the fishing is better cool anyway.'],
+    insider:['Same starter kit as the Poopenaut page — nothing extra to buy.','Fish the hour before dark: the caddis come off and stockers and wild fish both look up.','If a pool has been hammered, walk five minutes; pressure drops off fast.','Use the hopper-dropper to search unfamiliar water quickly.'],
+    pack:['CA fishing license','Fly rod outfit + tippet & flies','Polarized glasses, hat, sunscreen','Wet-wade shoes / sandals','Water & snacks','Towel & dry clothes in the car'],
+    verify:['Check CDFW recent-plants list for the South Fork Tuolumne / Moccasin before you go.','Confirm which regs apply where you plan to fish (park vs NF boundary).','Buy licenses online before Groveland.']
+  }
+},
+{
+  id:'tuolumnemeadows', name:'Tuolumne Meadows — Lyell & Dana Forks', type:'car',
+  region:'Tuolumne Meadows · Yosemite high country', drive:3.5, len:'2 nts · Evergreen (day-trip up)',
+  miles:'1–5 mi meadow walking', gain:'gentle',
+  s:[5,4,3,2,5], wild:true, skinny:true, permit:'CA license + park entry',
+  fish:'Wild brook / rainbow / brown', swim:'Lyell Fork slabs ~',
+  season:[7], peak:[7], epic:false, status:'ready', url:null, coord:[37.8730,-119.3350],
+  at:'https://www.alltrails.com/search?q=Lyell%20Fork%20Tuolumne%20Meadows',
+  blurb:'Cold at 8,600 ft even in a heat wave, gentle meadow banks, and eager wild trout rising to dries in the finest granite meadow in the Sierra. The tax is a ~2 h drive over Tioga. Alt for Jul 22–24.',
+  d:{ tag:'Alternative · Jul 22–24 · the high-country classic',
+    over:[
+      'The alternative that arguably beats Poopenaut on pure experience. At 8,600 feet the Lyell and Dana Forks stay cold no matter what the valleys do in a heat wave, they wind through the most beautiful granite meadow in the Sierra, and the banks are flat and forgiving — no 800-foot climb, no gate. The wild brook, rainbow, and brown trout here are eager and they look up, which makes this a dream place to learn the dry fly.',
+      'The tax is windshield time. From Evergreen it is roughly two hours each way over Tioga Road, so this is one big day, not a quick morning. But if you would trade the drive for gentle terrain, cold water, and rising fish in a cathedral of granite, this is the best all-around fly day of the four. Late July is prime: run-off has dropped, the water is clear, and the meadow is green.',
+      'Verdict: best experience and most beginner-kind terrain of the alternatives — as long as you are willing to drive. Tioga Road is open (it reopened May 15 this year, the earliest in 16 years).'
+    ],
+    why:{
+      scenery:'The Lyell Fork sliding over granite slabs beneath Cathedral and Mammoth Peaks — arguably the finest river-meadow scene in the range.',
+      fish:'Cold high-country water full of eager wild brook, rainbow, and brown trout that rise freely to dries — high catch odds and the classic Sierra dry-fly experience.',
+      wildlife:'Mule deer, marmots, Belding’s ground squirrels, the occasional bear, and Clark’s nutcrackers. Big open sightlines.',
+      bugs:'The catch: Tuolumne Meadows mosquitoes can be fierce in July, morning and evening. A head net and repellent earn their place.',
+      water:'Cold, clear pools and the famous Lyell Fork slabs — the best swimming-and-lounging river in the high country. Bracing but glorious.'
+    },
+    route:{mode:'car', basecamp:'Evergreen Lodge (long day-trip up over Tioga) — or relocate to Tuolumne for a night to get more water time.', dayhikes:[
+      'Lyell Fork footbridges & meadow · 1–3 mi · flat · the classic dry-fly water',
+      'Dana Fork along the highway · roadside · quick pocket-water sessions',
+      'Gaylor Lakes (Tioga Pass) · 3 mi RT · 1,000 ft · alpine brook-trout lakes if you want to climb'
+    ]},
+    fish:{ water:'Lyell & Dana Forks of the Tuolumne, Tuolumne Meadows', species:'Wild brook, rainbow & brown trout',
+      method:'Barbless artificial only (inside the park)', season:'Prime mid-July–September once run-off drops',
+      catch:4, label:'Reliable — classic Sierra dry-fly', gear:'9 ft 5-wt (or a delicate 3–4 wt for the meadow); 9 ft 5X leader',
+      flies:['Parachute Adams #16','Elk Hair Caddis #16','Royal Wulff #14','Griffith’s Gnat #18','Foam hopper #12'],
+      timing:'All day in the meadow; evening caddis on the Lyell Fork is superb.' },
+    wild:['Wild brook, rainbow & brown trout','Mule deer & marmots','Belding’s ground squirrels','Clark’s nutcracker','Black bear (store food properly)'],
+    water:{spots:['Lyell Fork granite-slab pools','Dana Fork runs','Cold, clear high-country water'], skinny:'The Lyell Fork slabs are a rite of passage — sun-warmed granite, deep green pools, and enough space to find privacy. Cold, but worth every gasp.'},
+    permit:{ system:'CA sport-fishing license (16+) + Yosemite park entry',
+      cost:'License as above; park entry per vehicle (no day-use reservation required in 2026)', where:'Buy license online; pay entry at Big Oak Flat en route',
+      when:'Year-round season; comfortable to fish once Tioga is open', notes:'Inside the park: artificial lures with single barbless hooks, no bait. Store all food in bear boxes — this is heavy bear country.' },
+    drive:{ time:'~3.5 h Pacifica→Evergreen; then ~1.75–2 h Evergreen→Tuolumne Meadows over Tioga Rd',
+      route:'Hwy 120 east through Big Oak Flat entrance, up Tioga Rd (120) to Tuolumne Meadows; park at the Lyell Fork / Wilderness Center area',
+      flags:['Requires Tioga Road open — it is (reopened May 15, 2026); reconfirm before you go','A long day-trip from Evergreen; leave early','Afternoon thunderstorms are common at elevation — watch the sky','Fierce July mosquitoes — bring a head net and repellent'] },
+    safety:['Afternoon thunderstorms build fast at 8,600 ft — be off open meadow and high ground if it turns.','Sun and altitude: hydrate, sunscreen, ease into the first hour.','Bear country: use the bear boxes, never leave food in the car cabin.','Mosquitoes are the real adversary here in July — cover up.'],
+    insider:['Same starter kit as the Poopenaut page — a lighter 3–4 wt is a nice luxury here but not required.','Sight-fish: walk the bank slowly and look for rises and shapes before you cast.','Meadow fish spook easily — long leaders, soft presentations, approach low.','If the meadow is buggy, the Dana Fork along the road catches more breeze.'],
+    pack:['CA fishing license','Fly rod outfit + tippet & flies','Head net + repellent (non-negotiable in July)','Polarized glasses, hat, sun hoody','Layers + rain shell (afternoon storms)','Water, food, bear-aware snacks'],
+    verify:['Confirm Tioga Road open (nps.gov Yosemite road status) — reliable by late July.','Recheck flows/run-off; a big snow year pushes the prime window later.','Reconfirm park fishing regs and bear-storage rules.','Check the afternoon thunderstorm forecast.']
+  }
+},
+{
+  id:'cherrylake', name:'Cherry Lake — Stillwater Hedge', type:'car',
+  region:'Stanislaus NF · west of Groveland', drive:3.5, len:'2 nts · Evergreen Lodge',
+  miles:'shore or float-tube', gain:'minimal',
+  s:[4,3,3,3,4], wild:false, skinny:true, permit:'CA license (NF — general regs)',
+  fish:'Planted rainbow / brown / kokanee', swim:'Warm-surface coves ~',
+  season:[7], peak:[7], epic:false, status:'ready', url:null, coord:[37.9750,-119.9150],
+  at:'https://www.alltrails.com/search?q=Cherry%20Lake%20Stanislaus',
+  blurb:'The hedge: a big granite reservoir with planted rainbows, holdover browns and kokanee, on general NF regs (keep a few). Weakest fishing, easiest day, best insurance if the rivers run warm. Alt for Jul 22–24.',
+  d:{ tag:'Alternative · Jul 22–24 · the stillwater hedge',
+    over:[
+      'The hedge. If the rivers run warm and low, if two beginners just want a relaxed shore-or-float-tube day, or if you want a different discipline entirely, Cherry Lake is the genuine stillwater option — a big granite reservoir west of Groveland with planted rainbows, holdover browns, and kokanee salmon. It sits on Stanislaus National Forest land, so general California regulations apply and you can actually keep a few for the campfire.',
+      'Be honest about what it is: the weakest fishing of the four, and a rough, slow road in. It is not a blue-ribbon fishery. But it fishes well at dawn and dusk near the inlets, it is easy and low-stakes, it swims beautifully on a hot afternoon, and it is your best insurance if a July heat wave has knocked the rivers back. Bring a float tube or fish the shoreline; a sink-tip line or a spinning rod opens up the deeper, cooler water.',
+      'Verdict: not the best fishing, but a real, useful alternative — the weather-and-water hedge, the easy day, and the one place here where a fish can legally come home with you.'
+    ],
+    why:{
+      scenery:'A large granite-rimmed reservoir with quiet coves and big Sierra sky. Less dramatic than the river canyons, but wide-open and peaceful.',
+      fish:'Planted rainbows plus holdover browns and kokanee. Best at dawn and dusk near inlets and drop-offs; midday it goes deep and quiet. General NF regs — you may keep a limit.',
+      wildlife:'Osprey and bald eagles working the lake, deer at the margins, and bear in the surrounding forest.',
+      bugs:'Typical summer mosquitoes near shore at dusk; a breeze on the water usually keeps them down.',
+      water:'A warm surface over cold depths — the best plain-fun swimming of the four on a hot day, with private coves if you paddle out.'
+    },
+    route:{mode:'car', basecamp:'Evergreen Lodge (~1 h, rough road) — Cherry Valley Campground sits at the lake if you want to be on the water.', dayhikes:[
+      'Cherry Lake shoreline & dam · easy · cast the inlets and coves',
+      'Float-tube or kayak the coves · on-water · reaches the cooler drop-offs',
+      'Preston Falls (Tuolumne, nearby) · 8.6 mi RT · a wild-river leg-stretcher if you want moving water'
+    ]},
+    fish:{ water:'Cherry Lake (reservoir), Stanislaus NF', species:'Planted rainbow, holdover brown, kokanee',
+      method:'Fly with sink-tip / streamers, or ultralight spin; general CA regs (bait allowed)',
+      season:'Spring & early summer best; summer fishes dawn & dusk', catch:3, label:'Moderate — reservoir, best early & late',
+      gear:'9 ft 5–6 wt with a sink-tip helps; or ultralight spin, 4 lb',
+      flies:['Olive/black Woolly Bugger #8–10','Callibaetis nymph #16','Zebra Midge #18','Kastmaster / Thomas Buoyant (spin)'],
+      timing:'Dawn and dusk near the inlets and drop-offs; go deep midday.' },
+    wild:['Planted rainbow trout','Holdover brown trout','Kokanee salmon','Osprey & bald eagle','Black bear (forest margins)'],
+    water:{spots:['Inlet & cove shorelines','Cold drop-offs (go deep midday)','Warm-surface swimming coves'], skinny:'Paddle to a far cove and the reservoir is all yours — the warmest, easiest swimming of the four on a hot afternoon.'},
+    permit:{ system:'CA sport-fishing license (16+); no park entry (National Forest)',
+      cost:'License as above; free NF access', where:'Buy online at CDFW or in Groveland',
+      when:'Year-round; summer best at first and last light', notes:'General CA freshwater regs on the NF: bait is legal and you may keep a limit (typically 5 trout). Check current CDFW limits for this water.' },
+    drive:{ time:'~3.5 h Pacifica→Evergreen; then ~1 h Evergreen→Cherry Lake on a slow, rough forest road',
+      route:'Hwy 120 west toward Groveland, then Cherry Lake Rd (Forest Rd 1N07) north to the lake and dam',
+      flags:['Cherry Lake Rd is long, narrow, and rough — allow more time than the mileage suggests','Remote: no services, no reliable signal — fuel up and download maps','Fire-season road/area closures are possible — check Stanislaus NF alerts'] },
+    safety:['Rough, remote road — carry a spare, water, and a paper/offline map.','Cold deep water under a warm surface — wear a PFD in a tube or kayak.','Afternoon wind can build on the open lake; watch small craft.','Fire season: check Stanislaus NF closures before you commit.'],
+    insider:['Same starter kit as the Poopenaut page; add a cheap sink-tip line, or just bring a spinning rod for the lake.','Fish the inlets where the creek brings cool, oxygenated water — that is where fish stack in summer.','A float tube doubles your water and reaches the cool drop-offs the shore can’t.','Dawn is worth the early alarm here more than anywhere else on this list.'],
+    pack:['CA fishing license','Fly rod (sink-tip) and/or spinning rod','Float tube or kayak + PFD (optional but great)','Polarized glasses, hat, sunscreen','Plenty of water & food (remote)','Offline map; check the spare tire'],
+    verify:['Check Stanislaus NF alerts for fire/road closures on Cherry Lake Rd.','Confirm current CDFW limits and any low-water access issues.','Check the reservoir level — a very low year shrinks access and warms the lake.']
+  }
+});
+
+/* Cross-link the four Jul 22–24 fishing options as alternatives */
+const FISHWKND=['poopenaut','sftuolumne','tuolumnemeadows','cherrylake'];
+const ALT_NOTE={
+  poopenaut:'Best fishing, hardest access — cold tailwater, gated, 800-ft climb',
+  sftuolumne:'The easy win — roadside, stocked + wild, fish the evening rise',
+  tuolumnemeadows:'Best experience — cold high-country dry-fly (long drive over Tioga)',
+  cherrylake:'The hedge — stillwater, keep a few, insurance if rivers run warm'
+};
+window.TRIPS.forEach(t=>{ if(FISHWKND.includes(t.id)){
+  t.d.alts=FISHWKND.filter(x=>x!==t.id).map(id=>({id,name:window.TRIPS.find(y=>y.id===id).name,note:ALT_NOTE[id]}));
+}});

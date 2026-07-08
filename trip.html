@@ -179,6 +179,15 @@
   .dayw{font-size:14px;color:var(--ink-dim);line-height:1.45;}
   @media(max-width:600px){.dayrow{grid-template-columns:1fr;gap:2px;}}
 
+  /* alternatives cross-link */
+  .altgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media(max-width:600px){.altgrid{grid-template-columns:1fr;}}
+  .altcard{display:block;border:1px solid var(--line);border-radius:var(--r);padding:12px 13px;background:var(--granite-850);text-decoration:none;transition:border-color .15s;}
+  .altcard:hover{border-color:var(--teal-dim);}
+  .altname{font-family:'Oswald';font-size:14.5px;color:var(--ink);letter-spacing:.02em;}
+  .altnote{font-size:13px;color:var(--ink-dim);margin:5px 0 8px;line-height:1.4;}
+  .altgo{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--teal);}
+
   /* hero tools */
   .toolsbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;}
   .tbtn{display:inline-flex;align-items:center;gap:7px;font-family:'Oswald';text-transform:uppercase;letter-spacing:.09em;font-size:11px;color:var(--ink-dim);background:var(--granite-800);border:1px solid var(--line);border-radius:100px;padding:8px 14px;cursor:pointer;}
@@ -386,6 +395,12 @@ function fishingHTML(t){
   return h;
 }
 
+/* ---------------- alternatives cross-link ---------------- */
+function altsHTML(a){
+  return `<section class="sec"><h2>Alternatives for this weekend <span class="n">same dates, same basecamp</span></h2>
+    <div class="altgrid">${a.map(x=>`<a class="altcard" href="trip.html?id=${x.id}"><div class="altname">${esc(x.name)}</div><div class="altnote">${esc(x.note)}</div><div class="altgo">Open page →</div></a>`).join('')}</div></section>`;
+}
+
 /* ---------------- fly-fishing starter kit ---------------- */
 function kitHTML(k){
   let h='<section class="sec kit"><h2>Fly-Fishing Starter Kit <span class="n">field school — assume you own nothing</span></h2>';
@@ -567,6 +582,7 @@ function render(t){
           </dl>
           ${(d.drive.flags&&d.drive.flags.length)?`<ul class="checklist safety" style="margin-top:8px">${d.drive.flags.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:''}
         </section>
+        ${d.alts?altsHTML(d.alts):''}
 
         <section class="sec"><h2>Safety &amp; Conditions</h2>
           <ul class="checklist safety">${d.safety.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
