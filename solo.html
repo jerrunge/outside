@@ -154,9 +154,9 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="data.js"></script>
 <script>
-const SOLO_IDS=['stuartfork','emigrantsolo','humphreysbasin','goldentrout','grandcanyontuolumne','lostcoastloop'];
+const SOLO_PAGE_IDS=['stuartfork','emigrantsolo','humphreysbasin','goldentrout','grandcanyontuolumne','lostcoastloop'];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const trips=SOLO_IDS.map(id=>window.TRIPS.find(t=>t.id===id)).filter(Boolean);
+const trips=SOLO_PAGE_IDS.map(id=>window.TRIPS.find(t=>t.id===id)).filter(Boolean);
 
 // rank labels matching the writeup: 1-2 tied top, 3-4 strong second, 5 epic-no-dog, 6 wildest/weakest-fish-match
 const RANK={stuartfork:'Tied #1',emigrantsolo:'Tied #1',humphreysbasin:'Strong #2',goldentrout:'Strong #2',grandcanyontuolumne:'Most epic, no dog',lostcoastloop:'Wildest, weakest fish match'};

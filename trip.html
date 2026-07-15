@@ -307,10 +307,6 @@ function getId(){ return new URLSearchParams(location.search).get('id'); }
 const TRIPS = window.TRIPS||[];
 const trip = TRIPS.find(t=>t.id===getId());
 
-if(!trip){
-  $('#app').innerHTML='<div class="wrap err"><h1 style="font-family:Oswald">Trip not found</h1><p>That trip id isn\'t in the library. <a href="index.html">Back to the calendar →</a></p></div>';
-} else { render(trip); }
-
 /* ---------------- pips ---------------- */
 function pipsHTML(s){
   return s.map((v,i)=>{
@@ -786,6 +782,11 @@ function buildPlanner(t){
   if(input) input.addEventListener('change',run);
   run();
 }
+
+/* ---------------- go: only now that everything above is declared ---------------- */
+if(!trip){
+  $('#app').innerHTML='<div class="wrap err"><h1 style="font-family:Oswald">Trip not found</h1><p>That trip id isn\'t in the library. <a href="index.html">Back to the calendar →</a></p></div>';
+} else { render(trip); }
 </script>
 </body>
 </html>
