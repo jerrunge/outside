@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Solo Expeditions · Get Out</title>
+<meta name="description" content="Six 5-7 day solo backpacking expeditions across California — scenery, streams and alpine lakes, and solitude, in that order. Cooper welcome on four of six." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  :root{
+    --granite-900:#14171a;--granite-850:#181c1f;--granite-800:#1e2327;--granite-700:#262d32;--granite-600:#333c42;
+    --line:#2c343a;--pine:#2f4a40;--pine-bright:#3c6354;--teal:#5fa3a0;--teal-dim:#3f7370;
+    --rust:#834112;--rust-bright:#b65d22;--sand:#cdbfa6;--ink:#e9e3d6;--ink-dim:#a6a092;--ink-faint:#6f6c63;
+    --r:3px;--maxw:1180px;--shadow:0 1px 0 rgba(0,0,0,.5),0 14px 40px -24px rgba(0,0,0,.9);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--granite-900);color:var(--ink);font-family:'Spectral',Georgia,serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:.01em;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{color:var(--ink);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+  .n{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--ink-faint);}
+
+  .topbar{border-bottom:1px solid var(--line);background:var(--granite-850);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar .in{max-width:var(--maxw);margin:0 auto;padding:11px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  .topbar .bc{font-family:'Oswald';text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--ink-faint);}
+  .topbar .bc a{color:var(--teal);}
+
+  header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--granite-850);}
+  .ridge{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.45;}
+  .hero-inner{position:relative;padding:36px 0 28px;}
+  .eyebrow{font-family:'Oswald';text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--rust-bright);}
+  .hero h1{font-size:40px;margin:6px 0 8px;}
+  .hero h1 em{color:var(--rust-bright);font-style:normal;}
+  .hero .lede{max-width:74ch;color:var(--ink-dim);font-size:17px;margin:0 0 18px;}
+  @media(max-width:600px){.hero h1{font-size:30px;}}
+
+  .prioline{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
+  .pchip{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:100px;padding:7px 14px 7px 10px;background:var(--granite-800);}
+  .pchip .pn{font-family:'Oswald';font-size:13px;color:var(--rust-bright);width:20px;height:20px;border-radius:50%;border:1px solid var(--rust-bright);display:flex;align-items:center;justify-content:center;flex:none;}
+  .pchip .pt{font-family:'Oswald';text-transform:uppercase;letter-spacing:.04em;font-size:12.5px;color:var(--ink-dim);}
+  .blocker{margin-top:14px;display:inline-flex;align-items:center;gap:9px;border:1px solid #5a3a23;border-left:3px solid var(--rust-bright);border-radius:var(--r);padding:9px 14px;background:rgba(182,93,34,.08);}
+  .blocker .bt{font-family:'Oswald';text-transform:uppercase;letter-spacing:.06em;font-size:12.5px;color:var(--sand);}
+
+  .section{padding:32px 0;border-top:1px solid var(--line);}
+  .section h2{font-size:24px;margin:0 0 4px;}
+  .section .sub{margin:0 0 18px;}
+
+  .grid6{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:820px){.grid6{grid-template-columns:1fr;}}
+
+  .xcard{display:block;border:1px solid var(--line);border-radius:var(--r);background:var(--granite-850);overflow:hidden;box-shadow:var(--shadow);transition:border-color .15s,transform .15s;}
+  .xcard:hover{border-color:var(--teal-dim);transform:translateY(-2px);}
+  .xtop{padding:16px 18px 0;}
+  .xrank{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--rust-bright);}
+  .xname{font-family:'Oswald';font-size:20px;color:var(--ink);margin:4px 0 3px;line-height:1.2;}
+  .xregion{font-size:13.5px;color:var(--ink-faint);}
+  .xdog{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:5px 11px;border-radius:100px;font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;font-size:11px;}
+  .xdog.yes{background:rgba(95,163,160,.14);color:var(--teal);border:1px solid var(--teal-dim);}
+  .xdog.no{background:rgba(182,93,34,.1);color:var(--rust-bright);border:1px solid #5a3a23;}
+  .xstats{display:flex;gap:14px;padding:12px 18px;margin-top:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--granite-800);}
+  .xstat{flex:1;}
+  .xstat .xk{font-family:'Oswald';text-transform:uppercase;letter-spacing:.06em;font-size:9.5px;color:var(--ink-faint);}
+  .xstat .xv{font-family:'Oswald';font-size:14.5px;color:var(--ink);margin-top:2px;}
+  .xblurb{padding:14px 18px 18px;font-size:14.5px;color:var(--ink-dim);line-height:1.5;}
+  .xgo{padding:0 18px 16px;font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--teal);}
+
+  #map{height:380px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);}
+  .leaflet-popup-content-wrapper{background:var(--granite-850);color:var(--ink);border-radius:var(--r);}
+  .leaflet-popup-tip{background:var(--granite-850);}
+  .pop b{font-family:'Oswald';font-size:14px;}
+  .pop .pr{font-size:12px;color:var(--ink-faint);}
+  .pop a{color:var(--teal);}
+
+  .comptable{width:100%;border-collapse:collapse;font-size:14px;}
+  .comptable th{font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;font-size:10.5px;color:var(--ink-faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);}
+  .comptable td{padding:10px;border-bottom:1px solid var(--line);color:var(--ink-dim);vertical-align:top;}
+  .comptable tr:hover td{background:var(--granite-800);}
+  .comptable td.nm a{color:var(--ink);font-family:'Oswald';font-size:14px;}
+  .comptable td.dogcell{font-family:'Oswald';font-size:12px;letter-spacing:.04em;}
+  .comptable td.dogcell.yes{color:var(--teal);}
+  .comptable td.dogcell.no{color:var(--rust-bright);}
+  .comptable{overflow-x:auto;display:block;}
+
+  footer{margin:50px 0 30px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-faint);font-size:13px;}
+  footer a{color:var(--teal);}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <span class="bc"><a href="index.html">← Get Out</a> &nbsp;/&nbsp; Solo Expeditions</span>
+  <span class="n">Reck the Fort · Field Ops</span>
+</div></div>
+
+<header class="hero">
+  <svg class="ridge" viewBox="0 0 1200 360" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="none" stroke="#26303a" stroke-width="1">
+      <path d="M0,300 C160,250 300,288 430,250 C560,212 690,250 820,214 C950,178 1080,210 1200,180"/>
+      <path d="M0,330 C150,300 320,322 460,292 C600,262 720,300 860,268 C1000,236 1100,262 1200,238"/>
+      <path d="M0,268 C180,232 300,255 440,212 C580,170 700,210 840,170 C980,130 1090,160 1200,128"/>
+    </g>
+    <g fill="none" stroke="#2f3d3a" stroke-width="1" opacity=".6">
+      <path d="M0,236 C160,206 300,224 450,184 C600,144 720,182 870,146 C1010,112 1100,138 1200,108"/>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">A separate part of Get Out · Solo, not Jeremy + David</div>
+    <h1>Solo <em>Expeditions</em></h1>
+    <p class="lede">Six 5–7 day solo backpacking trips across California — real trail data, real permits, everything verified this cycle. Different trip, different rules: this is Jeremy alone, or Jeremy and Cooper, not the weekly Jeremy + David library. Reprioritized against three criteria, in order:</p>
+    <div class="prioline">
+      <div class="pchip"><span class="pn">1</span><span class="pt">Epic scenery</span></div>
+      <div class="pchip"><span class="pn">2</span><span class="pt">Streams &amp; alpine lakes — swim and fish</span></div>
+      <div class="pchip"><span class="pn">3</span><span class="pt">Solitude (but safe)</span></div>
+    </div>
+    <div class="blocker"><span class="bt">⚠ Blocker: mosquito-crazy is disqualifying, not just unpleasant. September is the safe default across this whole list — see each page for specifics.</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section">
+    <h2>The six</h2>
+    <p class="sub n">at least 3 of 6 are Cooper-eligible — 4 of 6, as it turns out</p>
+    <div class="grid6" id="cardGrid"></div>
+  </section>
+
+  <section class="section">
+    <h2>Where they are</h2>
+    <p class="sub n">drive time was explicitly the least important factor — and it shows</p>
+    <div id="map"></div>
+  </section>
+
+  <section class="section">
+    <h2>Side by side</h2>
+    <p class="sub n">the whole decision on one screen</p>
+    <table class="comptable" id="compTable"></table>
+  </section>
+
+  <section class="section">
+    <p style="color:var(--ink-dim)">Full content for each — route options, catchability-ranked fishing with gear and flies, wildlife, permit release timing, Cooper/solo-specific safety notes, packing list, GPX export, and a live weather panel — lives on each trip's own page. Same engine as the rest of Get Out; this is just a different front door for a different kind of trip.</p>
+    <p><a href="index.html">← Back to the main Get Out calendar</a> &nbsp;·&nbsp; <a href="gear.html">Fly-Fishing Kit →</a></p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  Get Out · Reck the Fort field operations. Solo Expeditions section — added and fully verified this cycle.
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
+<script>
+const SOLO_IDS=['stuartfork','emigrantsolo','humphreysbasin','goldentrout','grandcanyontuolumne','lostcoastloop'];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const trips=SOLO_IDS.map(id=>window.TRIPS.find(t=>t.id===id)).filter(Boolean);
+
+// rank labels matching the writeup: 1-2 tied top, 3-4 strong second, 5 epic-no-dog, 6 wildest/weakest-fish-match
+const RANK={stuartfork:'Tied #1',emigrantsolo:'Tied #1',humphreysbasin:'Strong #2',goldentrout:'Strong #2',grandcanyontuolumne:'Most epic, no dog',lostcoastloop:'Wildest, weakest fish match'};
+
+document.getElementById('cardGrid').innerHTML = trips.map(t=>`
+  <a class="xcard" href="trip.html?id=${t.id}">
+    <div class="xtop">
+      <div class="xrank">${esc(RANK[t.id]||'')}</div>
+      <div class="xname">${esc(t.name)}</div>
+      <div class="xregion">${esc(t.region)}</div>
+      <div class="xdog ${t.d.dog.ok?'yes':'no'}">${t.d.dog.ok?'🐾 Cooper welcome':'🚫 Cooper stays home'}</div>
+    </div>
+    <div class="xstats">
+      <div class="xstat"><div class="xk">Drive</div><div class="xv">${t.drive} h</div></div>
+      <div class="xstat"><div class="xk">Length</div><div class="xv">${esc(t.len.replace(' · solo',''))}</div></div>
+      <div class="xstat"><div class="xk">Scenery/Water</div><div class="xv">${t.s[0]}·${t.s[4]}/5</div></div>
+    </div>
+    <div class="xblurb">${esc(t.blurb)}</div>
+    <div class="xgo">Full trip page →</div>
+  </a>`).join('');
+
+document.getElementById('compTable').innerHTML = `
+  <tr><th>Trip</th><th>Cooper</th><th>Distance</th><th>Fishing</th><th>Permit</th><th>Best month</th></tr>
+  ${trips.map(t=>`<tr>
+    <td class="nm"><a href="trip.html?id=${t.id}">${esc(t.name)}</a></td>
+    <td class="dogcell ${t.d.dog.ok?'yes':'no'}">${t.d.dog.ok?'Welcome':'No'}</td>
+    <td>${esc(t.miles.split(' (')[0])}</td>
+    <td>${t.d.fish.label?esc(t.d.fish.label):'—'} (${t.d.fish.catch}/5)</td>
+    <td>${esc(t.permit)}</td>
+    <td>September</td>
+  </tr>`).join('')}
+`;
+
+const map=L.map('map',{scrollWheelZoom:false}).setView([38.6,-120.8],6);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:18}).addTo(map);
+trips.forEach(t=>{
+  const c=t.d.dog.ok?'#5fa3a0':'#b65d22';
+  const mk=L.circleMarker(t.coord,{radius:7,color:c,weight:2,fillColor:c,fillOpacity:.55}).addTo(map);
+  mk.bindPopup(`<div class="pop"><b>${esc(t.name)}</b><br><span class="pr">${esc(t.region)} · ${t.drive}h · ${t.d.dog.ok?'Cooper OK':'No dog'}</span><br><a href="trip.html?id=${t.id}">Open page →</a></div>`);
+});
+</script>
+</body>
+</html>

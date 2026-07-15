@@ -1108,3 +1108,338 @@ const ALT_NOTE={
 window.TRIPS.forEach(t=>{ if(FISHWKND.includes(t.id)){
   t.d.alts=FISHWKND.filter(x=>x!==t.id).map(id=>({id,name:window.TRIPS.find(y=>y.id===id).name,note:ALT_NOTE[id]}));
 }});
+
+/* ============================================================
+   SOLO EXPEDITIONS — separate section of Get Out. 5-7 day solo
+   (Jeremy + Cooper where noted) trips. Reprioritized: scenery >
+   streams/alpine lakes to swim+fish > solitude (safe). Mosquitoes
+   = hard blocker, solved mainly by September timing. No off-trail.
+============================================================ */
+window.TRIPS.push(
+{
+  id:'stuartfork', name:'Stuart Fork — Emerald & Sapphire Lakes', type:'backpack',
+  region:'Trinity Alps Wilderness · NorCal', drive:5, len:'5–7 days · solo',
+  miles:'~4/day avg (27.2 mi total)', gain:'~650/day avg (4,583 ft total)',
+  s:[5,4,4,3,5], wild:true, skinny:true, permit:'Free self-issue', fish:'Wild trout',
+  swim:'Warm granite-basin lakes ~', season:[8,9], peak:[9], epic:true, status:'ready', url:null,
+  coord:[40.8733585,-122.9180423],
+  at:'https://www.alltrails.com/trail/us/california/stuart-fork-trail-to-emerald-and-sapphire-lakes',
+  blurb:'The current #1: dramatic granite under Sawtooth Ridge, the warmest and most swimmable lakes on the list, real fishing, zero permit friction, and the cleanest solitude-but-safe route of anything here.',
+  d:{
+    tag:'Solo expedition · 5–7 days · Cooper welcome · free self-issue permit',
+    dog:{ok:true,agency:'Trinity Alps Wilderness · Shasta-Trinity/Klamath National Forest',note:'Leashed dogs allowed throughout — no restricted zones on this route.'},
+    solo:{altitude:'Gentle by comparison — trailhead at 2,900 ft, high point around 7,500 ft near Sapphire Lake. No acclimation needed.',
+      comms:'No cell service once you’re past Trinity Center. The trail is well-maintained and well-marked, so navigation risk is low even solo.',
+      avoidOffTrail:[],
+      mosquito:{status:'Real but typically milder than the Sierra — one guide notes Trinity mosquitoes are "never anywhere near as bad as Lassen."',timing:'Peaks July–early August; mid-August through September is the recommended window for fewer bugs and fewer people.'}},
+    over:[
+      'This is the trip that wins on the reordered priorities. Stuart Fork climbs gradually through Morris Meadows into a basin of granite peaks under Sawtooth Ridge, and because Emerald and Sapphire Lakes sit at 5,500 to 6,000 feet rather than 10,000-plus, they are genuinely warm enough to actually enjoy swimming in — a real differentiator from the high alpine picks on this list, where "swimmable" usually means a bracing dip, not a lounge.',
+      'The route stays on a well-maintained, well-marked trail the entire way — no cross-country routefinding required, which matters more solo than with company. Multiple recent trip reports describe passing only two or three other groups in a full day, and the permit system removes all booking anxiety: no quota, no lottery, no advance reservation. You show up, self-issue at the ranger station, and go.',
+      'Plan on 5 to 7 days at an easy 4 miles a day, which leaves enormous room to basecamp at Sapphire Lake and day-hike further — to Portuguese Lake, up toward Caribou Pass, or just fish and swim and read in camp. This is the low-stress, high-payoff pick on the list.'
+    ],
+    why:{
+      scenery:'Sawtooth Ridge and the granite basin around Emerald and Sapphire Lakes are dramatic in a totally different register than the Sierra — "California\u2019s Alps," genuinely.',
+      fish:'Wild trout throughout Stuart Fork and both lakes. Reports describe good luck at Sapphire specifically; less pressured than anything in the main Sierra.',
+      wildlife:'Black bear, mule deer regularly seen in Morris Meadows, dippers on the creek, occasional bald eagle over the lakes.',
+      bugs:'Real but typically milder than the Sierra — one guide notes Trinity mosquitoes are "never anywhere near as bad as Lassen." Worse July, much better by September.',
+      water:'The best swimming on this whole list. Warm enough to actually want to get in, with private coves at both lakes once you are a few days deep.'
+    },
+    route:{mode:'backpack',options:[
+      {name:'Stuart Fork to Sapphire Lake',stat:'5–7 days · 27.2 mi RT · 4,583 ft (4.7★)',text:'Stuart Fork TH through Morris Meadows (9.2 mi, gradual) to a basecamp near Sapphire or Emerald Lake. From there, day-hike with no pack: Portuguese Lake, the Caribou Pass overlook, or simply fish and swim for two or three full days before heading back the way you came.'},
+      {name:'Add Caribou Lakes overlook',stat:'+1 day, day-hike from basecamp',text:'A steep but on-trail push up toward Caribou Pass gives a sweeping view down into the Caribou Lakes basin — a worthy stretch-goal day if you have the extra time.'}
+    ]},
+    fish:{water:'Stuart Fork, Emerald Lake, Sapphire Lake',species:'Wild rainbow & brown trout',
+      method:'Fly or lure, general CA regs apply on this water',season:'Best July–September once flows drop',
+      catch:3,label:'Moderate — wild, unpressured',gear:'4–5 wt, 5x leader; dry-dropper on the creek',
+      flies:['Elk Hair Caddis #14','Stimulator #14','Pheasant Tail #16','Copper John #16'],
+      timing:'Creek pools below the lakes fish best; work the lake inlets morning and evening.'},
+    wild:['Wild rainbow & brown trout','Black bear','Mule deer','American dipper','Bald eagle (occasional)'],
+    water:{spots:['Emerald Lake','Sapphire Lake','Stuart Fork pools'],skinny:'Both lakes are warm enough for real, unhurried swimming — the standout on this list. Private coves are easy to find a few days in.'},
+    permit:{system:'Free wilderness permit + free campfire permit, self-issue',
+      cost:'$0',where:'Weaverville Ranger Station (360 Main St) or the closer Coffee Creek/Big Bar fire stations on Hwy 3',
+      when:'No quota, no advance reservation — self-issue any day, including weekends via the kiosk',
+      notes:'Pick up both permits before you drive to the trailhead. If arriving after hours, call the Weaverville station up to three days ahead to have a permit left in the after-hours box.'},
+    drive:{time:'~5 h from Pacifica to the Stuart Fork Trailhead',
+      route:'I-505/I-5 to Hwy 20 to Hwy 3 north through Weaverville; turn off at Trinity Alps Resort onto the dirt road to Bridge Camp and the trailhead',
+      flags:['2026 is trending toward an above-normal fire season, and far-NorCal specifically has had exceptionally dry fuels — check InciWeb and Shasta-Trinity NF alerts close to your date','Trailhead parking (Bridge Camp, ~50 spaces) fills on summer weekends — arrive early or go midweek','No cell service past Weaverville']},
+    safety:['Fire season is the real risk factor here in 2026 — have a backup plan and check conditions the week you leave.','Creek crossings on the way to Morris Meadows can be tricky in early season; by August/September they are straightforward.','No cell service — carry a satellite communicator solo.','Standard bear-aware food storage; canister or proper hang.'],
+    insider:['Fish Sapphire Lake specifically — it has the best recent reports of the two.','Camp a night or two extra and just explore without the pack — the terrain rewards it.','Weekday entries see meaningfully fewer people than the Fourth of July / Labor Day weekends.','September gives you both the best bugs and the best solitude of the whole season.'],
+    pack:['Free wilderness + campfire permit (printed or in hand)','Bear canister or hang kit','Fly rod + basic kit (see the Kit page)','Swim clothes — you will actually use them here','Satellite communicator','Layers — Trinity nights get cold even when days are warm'],
+    verify:['Check Shasta-Trinity NF fire restrictions and InciWeb before you leave.','Call Weaverville Ranger Station (530-623-2121) for current trail conditions.','Confirm Bridge Camp trailhead parking status if going on a weekend.']
+  }
+},
+{
+  id:'humphreysbasin', name:'Humphreys Basin — Piute Canyon Loop', type:'backpack',
+  region:'John Muir Wilderness · Eastern Sierra', drive:4, len:'6–7 days · solo',
+  miles:'~5/day avg (30.1 mi total)', gain:'~730/day avg (5,127 ft total)',
+  s:[5,4,4,2,5], wild:true, skinny:true, permit:'Inyo NF quota ✦', fish:'Golden & brook trout',
+  swim:'Dozens of alpine lakes ~', season:[8,9], peak:[9], epic:true, status:'ready', url:null,
+  coord:[37.2273822,-118.6275569],
+  at:'https://www.alltrails.com/trail/us/california/piute-canyon-puppet-lake-and-desolation-lake-loop',
+  blurb:'The biggest lake basin in the Sierra — dozens of swimmable alpine lakes under Mt. Humphreys, real golden trout, and genuine solitude once you crest the pass. Stay on-trail per your call; the maintained loop still delivers.',
+  d:{
+    tag:'Solo expedition · 6–7 days · Cooper welcome · Inyo NF quota permit',
+    dog:{ok:true,agency:'John Muir Wilderness · Inyo National Forest',note:'Leashed dogs explicitly allowed on the Piute Pass Trail and throughout Humphreys Basin.'},
+    solo:{altitude:'Trailhead at 9,300 ft, Piute Pass tops out at 11,423 ft — real elevation from sea-level Pacifica. A night near Bishop to acclimate is worth it.',
+      comms:'No cell service past Bishop. A satellite communicator is worth carrying.',
+      avoidOffTrail:['Puppet Pass and the Elba Lake cross-country connector are explicitly flagged in trip reports as requiring real routefinding — skip both solo and stay on the maintained Piute Pass Trail loop through Desolation and Muriel Lakes.'],
+      mosquito:{status:'Historically the worst mosquitoes on this list — lower Piute Canyon gets bad most Augusts.',timing:'September is the clear call here. 2026’s low snowpack means bugs are already tracking early and light.'}},
+    over:[
+      'Piute Pass Trail climbs out of North Lake and crests into the biggest, most lake-dense alpine basin in the entire Sierra Nevada — Humphreys Basin, named for the peak that dominates the skyline. Trip reports describe camping with "not another person in sight, even on a holiday weekend" once you are a few miles past the pass, which is real solitude for country this spectacular.',
+      'Per your call, this route stays entirely on the maintained Piute Pass Trail loop through Piute Canyon, Puppet Lake, and Desolation Lake — the off-trail scrambles some parties add (Puppet Pass shortcuts, the Elba Lake cross-country connector) are explicitly flagged in trip reports as requiring real routefinding, which is a different risk calculus solo than with a partner. You do not need them; the maintained loop alone strings together dozens of lakes.',
+      'The honest catch is mosquitoes — historically the worst on this whole list, concentrated in lower Piute Canyon before the trail breaks into the open basin. This is squarely a timing problem, not a place problem, and September mostly solves it.'
+    ],
+    why:{
+      scenery:'The single biggest, most open alpine basin in the Sierra — Mt. Humphreys standing over a tundra plain scattered with dozens of lakes. Genuinely epic.',
+      fish:'Golden trout in Elba Lake and the Golden Trout Lakes, brook trout throughout. Honest reports: "not blazingly fast, but a handful of brilliantly colored goldens" — real but moderate.',
+      wildlife:'Marmots, mule deer, occasional black bear, and if you are lucky, bighorn sheep on the surrounding ridgelines.',
+      bugs:'The worst on this list historically — lower Piute Canyon is notorious in a normal July/August. Clears fast once you are up in the open basin, and clears earlier in a low-snow year like 2026.',
+      water:'Dozens of alpine lakes to choose from — cold, but the sheer number means you can always find a private one for a real swim.'
+    },
+    route:{mode:'backpack',options:[
+      {name:'Piute Canyon / Puppet / Desolation Loop',stat:'6–7 days · 30.1 mi loop · 5,127 ft (5.0★)',text:'North Lake TH over Piute Pass (11,423 ft) into Humphreys Basin, looping through Piute Canyon past Puppet Lake and Desolation Lake before returning over the pass. Entirely on maintained trail. At 30 miles over a week, this is unhurried — basecamp two or three nights in the basin itself and day-hike without a pack to Muriel Lake, Square Lake, or the Golden Trout Lakes.'}
+    ]},
+    fish:{water:'Humphreys Basin lakes: Elba, Golden Trout Lakes, Muriel, Desolation',species:'Golden trout, brook trout',
+      method:'Fly or ultralight spin',season:'July–September once ice-out is complete',
+      catch:3,label:'Moderate — real goldens, not a lock',gear:'3–4 wt, 6x leader for spooky goldens',
+      flies:['Parachute Adams #16–18','Griffith\u2019s Gnat #18','Zebra Midge #18','Small gold spinner'],
+      timing:'Midday for goldens in the higher lakes; morning/evening for brook trout throughout.'},
+    wild:['Golden trout','Brook trout','Marmots','Mule deer','Bighorn sheep (occasional, ridgelines)','Black bear'],
+    water:{spots:['Humphreys Basin lakes (dozens)','Desolation Lake','Muriel Lake'],skinny:'Cold, but the sheer density of lakes means a private one is always close — pick a wind-sheltered cove for the least brutal entry.'},
+    permit:{system:'Inyo NF wilderness permit — Piute Pass trailhead quota (recreation.gov)',
+      cost:'$6 permit + $5/person',where:'recreation.gov, "Inyo National Forest — Wilderness Permits"',
+      when:'30/day cap. 60% released 6 months in advance, 40% released 2 weeks in advance, both at 7am PT.',
+      notes:'Bear canister is REQUIRED above 10,000 ft and no campfires are allowed above 10,000 ft north of Glacier Divide — most of this route qualifies, so plan to be canister-only.'},
+    drive:{time:'~4 h from Pacifica to the North Lake/Piute Pass Trailhead near Bishop',
+      route:'US-395 to Bishop, then North Lake Rd off Hwy 168 to the trailhead',
+      flags:['No cell service past Bishop','North Lake Rd is narrow and unpaved in sections near the trailhead — take it slow','Quota season runs May 1–Nov 1; outside that window permits are unlimited walk-up']},
+    safety:['Piute Pass tops 11,423 ft — real elevation from sea-level Pacifica. Consider a night near Bishop to acclimate.','Bear canister required above 10,000 ft — no exceptions, no hangs.','No cell service; a satellite communicator is genuinely worth carrying solo.','Afternoon thunderstorms build fast at this elevation in summer — be off exposed terrain by early afternoon.'],
+    insider:['September is the single biggest lever on this trip — bugs down, crowds down, water still fishable.','Push past the first lakes past the pass; pressure and mosquitoes both drop the deeper you go.','Square Lake has tree cover and less wind than Desolation Lake if you want a calmer camp.','A wind-exposed campsite is a real mosquito-avoidance strategy, not just a view choice.'],
+    pack:['Inyo NF wilderness permit (printed)','Bear canister (required above 10,000 ft)','Fly rod + basic kit','Warm layers — nights are genuinely cold at 10,500+ ft','Satellite communicator','Sun protection — exposure is intense at this elevation'],
+    verify:['Reconfirm Piute Pass quota availability close to your date on recreation.gov.','Check current bear-activity notices for the basin.','Watch the 2026 mosquito reports on High Sierra Topix in the weeks before you go.']
+  }
+},
+{
+  id:'grandcanyontuolumne', name:'Grand Canyon of the Tuolumne — Waterwheel Falls', type:'backpack',
+  region:'Yosemite High Country', drive:4, len:'5–7 days · solo',
+  miles:'flexible — turn around anytime (up to 29.5 mi one-way)', gain:'4,826 ft to the far end',
+  s:[5,4,3,3,5], wild:true, skinny:true, permit:'Yosemite lottery ✦', fish:'Wild trout',
+  swim:'Massive granite river pools ~', season:[8,9], peak:[9], epic:true, status:'ready', url:null,
+  coord:[37.8768893,-119.3457162],
+  at:'https://www.alltrails.com/trail/us/california/waterwheel-falls-and-the-grand-canyon-of-the-tuolumne-trail',
+  blurb:'The single most jaw-dropping feature on this whole list: the Tuolumne River drops through a granite canyon in a chain of huge waterfalls, with swimming pools the entire way down. No dog on this one — worth it anyway.',
+  d:{
+    tag:'Solo expedition · 5–7 days, flexible turnaround · Cooper stays home · NPS wilderness permit',
+    dog:{ok:false,agency:'Yosemite National Park Wilderness · National Park Service',note:'Dogs are prohibited on all Yosemite backcountry trails, including this one — Cooper stays home for this one.'},
+    solo:{altitude:'Trailhead at Tuolumne Meadows sits at 8,600 ft; the route mostly descends from there, so altitude is a lesser concern once you’ve acclimated at the trailhead for a day.',
+      comms:'No cell service in the canyon. A communicator is worth it given how few people you’ll see past Waterwheel Falls.',
+      avoidOffTrail:[],
+      mosquito:{status:'2026 reports from Glen Aulin itself have been mild even in late June.',timing:'Any time August onward should be comfortable; September for the safest margin.'}},
+    over:[
+      'Below Tuolumne Meadows, the river drops off the edge of the high country and spends the next fifteen miles carving through a massive granite gorge in a chain of huge cascading waterfalls — Waterwheel Falls is the famous one, but the whole descent is a continuous sequence of slides, pools, and falls that most Yosemite visitors never see. This is the best single piece of scenery on this entire list.',
+      'It quiets down fast. Glen Aulin, a few miles in, sees real day-hiker and High Sierra Camp traffic, but past Waterwheel Falls the crowds fall away almost completely — a genuinely different feel from the Half Dome corridor or the High Sierra Camps loop. The huge granite slab pools along the river are the best swimming of anything on this list, and the river holds real wild trout.',
+      'There is no fixed loop closure required here — this is an out-and-back from Tuolumne Meadows, and the honest move for a solo trip is to push as far down the canyon as your week allows, then turn around. Further is quieter; there is no wrong amount.'
+    ],
+    why:{
+      scenery:'The single most epic feature on this list — a massive granite canyon carved by a chain of huge waterfalls. Genuinely without equal in California.',
+      fish:'Wild trout in the Tuolumne River itself — real fishing, not an afterthought, in water most people only see from a photo.',
+      wildlife:'Mule deer, black bear (real bear country — hang or canister without exception), peregrine falcons on the canyon walls.',
+      bugs:'2026 reports from Glen Aulin itself have been mild even in late June. Improves further into summer.',
+      water:'The best swimming of the whole list — huge sun-warmed granite slabs and deep pools the entire length of the canyon.'
+    },
+    route:{mode:'backpack',options:[
+      {name:'Waterwheel Falls out-and-back',stat:'3–4 days · ~18–20 mi RT · ~2,400 ft',text:'Tuolumne Meadows through Glen Aulin to Waterwheel Falls and back — the classic, still spectacular, still quiet past Glen Aulin itself.'},
+      {name:'Push to Pate Valley',stat:'5–7 days · up to 29.5 mi one-way · 4,826 ft',text:'Continue past Waterwheel Falls deeper into the canyon toward Pate Valley and the Return Creek confluence for real solitude and the best fishing — turn around whenever the week runs out. No shuttle, no fixed loop; just go as deep as you want and come back.'}
+    ]},
+    fish:{water:'Tuolumne River, Grand Canyon of the Tuolumne',species:'Wild rainbow trout',
+      method:'Barbless artificial only (Yosemite NP regs)',season:'Best once flows drop, typically August onward',
+      catch:3,label:'Moderate — real, unpressured river fishing',gear:'4–5 wt, 9 ft, 5x leader',
+      flies:['Elk Hair Caddis #14–16','Parachute Adams #16','Pheasant Tail #16','Golden Stone nymph #10'],
+      timing:'Riffles and pool tailouts, morning and evening.'},
+    wild:['Wild rainbow trout','Mule deer','Black bear','Peregrine falcon','Belding\u2019s ground squirrel'],
+    water:{spots:['Waterwheel Falls pools','Slab pools the length of the canyon','Quiet beaches near Pate Valley'],skinny:'The best swimming on this entire list — huge warm granite slabs and deep green pools, more private the further down canyon you go.'},
+    permit:{system:'Yosemite wilderness permit (NPS, recreation.gov)',
+      cost:'$10 lottery/reservation fee + $5/person confirmed',
+      where:'recreation.gov — Yosemite wilderness permits',
+      when:'24-week rolling lottery. To start Aug 9–15, 2026, for example, the lottery window is Feb 15–21; remaining 40% releases 7 days ahead of any date.',
+      notes:'Do not count on a walk-up permit — Yosemite explicitly warns few if any unreserved permits are available in person. Book the lottery.'},
+    drive:{time:'~4 h from Pacifica to Tuolumne Meadows',
+      route:'Hwy 120 east through Big Oak Flat entrance, Tioga Rd to Tuolumne Meadows',
+      flags:['Tioga Road opened May 15, 2026 (earliest in 16 years) — reconfirm it is still open, though by August/September this is essentially guaranteed','No day-use reservations required in Yosemite for 2026','Bear canister required — this is serious bear country']},
+    safety:['Real bear country the entire route — canister without exception, no hangs.','Afternoon thunderstorms build fast at 8,600+ ft — be aware of exposed granite sections.','No cell service in the canyon; carry a satellite communicator given how few people you will see past Waterwheel Falls.','The trail loses and regains real elevation on the way back out — pace your turnaround day accordingly.'],
+    insider:['Push past Waterwheel Falls if you have the days — the crowd drop-off is dramatic and the fishing improves.','The slab pools just below Waterwheel Falls are the single best swimming stop on the whole route.','Fill water and filter often; the canyon is hot and exposed by midday in August.','A partial trip (Waterwheel and back) is a completely legitimate 3-4 day version if you would rather stack this with something else.'],
+    pack:['Yosemite wilderness permit (printed)','Bear canister (required)','Fly rod + basic kit','Sun protection — the granite reflects hard','Satellite communicator','Water filter/treatment — you will refill constantly'],
+    verify:['Confirm your lottery result and print the permit within the window.','Check current Tioga Road and Yosemite alerts before you leave.','Reconfirm bear activity notices for the Tuolumne backcountry.']
+  }
+},
+{
+  id:'lostcoastloop', name:'Lost Coast & King Crest — the Full Loop', type:'backpack',
+  region:'King Range NCA · North Coast', drive:4, len:'6–7 days · solo',
+  miles:'~6/day avg (42.4 mi total)', gain:'8,195 ft total', s:[5,1,5,4,5],
+  wild:false, skinny:true, permit:'King Range permit ✦', fish:'Surf only',
+  swim:'Ocean + creeks, naked beach camp ~', season:[7,8,9,10,11], peak:[9,10],
+  epic:true, status:'ready', url:null, coord:[40.293,-124.353],
+  at:'https://www.alltrails.com/trail/us/california/lost-coast-king-range-loop',
+  blurb:'Restored per your call. The wildest, most solitary trip on the list and the only one that is genuinely bug-free — but structurally the weakest match to the swim/fish priority, since there are no alpine lakes and the fishing is surf-only.',
+  d:{
+    tag:'Solo expedition · 6–7 days · Cooper welcome · King Range BLM permit, tide-gated',
+    dog:{ok:true,agency:'King Range National Conservation Area · Bureau of Land Management',note:'Leashed dogs allowed throughout — BLM land, not a national park.'},
+    solo:{altitude:'Sea level — no altitude concern at all, the only trip on this list where that’s true.',
+      comms:'No cell service anywhere on the King Range. BLM has no dedicated search-and-rescue team out here — a satellite communicator is genuinely important, not optional, on this one.',
+      avoidOffTrail:['The three tide-gated beach sections are the real hazard, not routefinding — time your daily starts against the tide tables, not your own schedule.'],
+      mosquito:{status:'Essentially bug-free — coastal, breezy, no alpine meadow breeding grounds.',timing:'The one trip on this list where timing is driven entirely by tides and fire season, not bugs.'}},
+    over:[
+      'This extends the Mattole-to-Black-Sands trip into a full week: walk the wild coast — elephant seals, black bears, whales, tide pools, the works — then climb inland and return along the King Crest ridgeline with sweeping ocean-to-peak views. It is a genuinely different biome from everything else on this list, and the wildlife here is maxed out compared to anywhere else you are considering.',
+      'Where it is honest about ranking lower under your current priorities: there are no alpine lakes at all, and the fishing is surf-only and weak. If priority #2 is specifically "streams and alpine lakes to swim and fish," this trip does not deliver that the way Stuart Fork or Humphreys Basin do. What it delivers instead is the best solitude and the best wildlife of the six, plus a real, practical bonus — it is essentially the only trip on this list where mosquitoes are simply not a consideration. Coastal, breezy, no alpine meadow breeding grounds.',
+      'The real hazard here is not bugs or routefinding, it is tides. Three sections of beach are genuinely impassable at the wrong window, and BLM has no dedicated search-and-rescue presence out here. Plan your daily starts against the tide table, not your own schedule, and this is a completely safe, spectacular week.'
+    ],
+    why:{
+      scenery:'Wild, undeveloped coastline backed by the steep King Range — one of the last stretches of California coast with no road access at all.',
+      fish:'Honest weakness here: surf fishing only, and it is a bonus at best, never the reason to come.',
+      wildlife:'The best on this list by a wide margin — Roosevelt elk, elephant seals, black bears, whales offshore, tide pools.',
+      bugs:'Essentially bug-free — the one trip on this list where the mosquito blocker is simply not in play.',
+      water:'Ocean swimming plus freshwater creek crossings; the naked beach camping you loved on the original Mattole trip is still very much available here.'
+    },
+    route:{mode:'backpack',options:[
+      {name:'Full Lost Coast & King Range Loop',stat:'6–7 days · 42.4 mi loop · 8,195 ft',text:'Walk the beach from Mattole south, tide-gated through the three impassable zones, to Black Sands Beach — then climb inland via the King Crest Trail and return along the ridge, closing the loop with no shuttle required. Beach days are short and tide-paced; ridge days can run longer.'}
+    ]},
+    fish:{water:'Surf, tide pools, and small coastal creeks',species:'Surfperch (incidental)',
+      method:'Surf spinning rig',season:'Incoming tide, any time of year',
+      catch:1,label:'Weak — a bonus, never the plan',gear:'9–10 ft surf rod, 3–4 oz pyramid sinker',
+      flies:['Surf rig + sand crab or Gulp! sandworm','Small metal jig'],
+      timing:'Incoming tide on sandy stretches only.'},
+    wild:['Roosevelt elk','Elephant seals','Black bear','Whales (offshore, seasonal)','Tide pool life','Peregrine falcon'],
+    water:{spots:['Ocean beach the full length','Coastal creek crossings','Tide pools at low water'],skinny:'The naked beach camping that hooked you on this trip originally is still here — remote stretches with nobody around for miles.'},
+    permit:{system:'King Range Wilderness Permit (BLM, recreation.gov)',
+      cost:'$6 permit + $12/person (17+)',where:'recreation.gov — King Range Wilderness Permits',
+      when:'Rolling release ~3 months in advance at 7am PT. 3 in-person walk-up permits available daily via lottery at the King Range Visitor Center if you strike out online.',
+      notes:'CHECK THE TIDES before booking dates — three sections are genuinely impassable at the wrong window. BLM has no dedicated search-and-rescue out here; proper planning is not optional.'},
+    drive:{time:'~4 h from Pacifica to the Mattole trailhead',
+      route:'Hwy 101 to Ferndale/Petrolia, then Lighthouse Rd to the Mattole trailhead',
+      flags:['No cell service anywhere on the King Range','2026 fire-season outlook is above-normal for far-NorCal — check current conditions close to your date','Last few miles of access road are rough — allow extra time']},
+    safety:['Tides are the real hazard, not routefinding — carry a current tide table and plan daily mileage around it, not the reverse.','No BLM search-and-rescue presence — a satellite communicator is not optional here.','Sneaker waves are real; never turn your back on the ocean on the beach sections.','Standard bear-aware food storage.'],
+    insider:['September/October is the sweet spot — best weather window, fewest bugs anywhere, good wildlife activity.','Time the tide-gated sections for early morning departure so you are never racing the incoming tide.','The King Crest ridge return gives you the ocean-to-peak view the pure beach walk does not.','This remains the trip to bring nothing but a book and a rod for — it is not about the fishing.'],
+    pack:['King Range wilderness permit (printed)','Current tide table for your exact dates','Satellite communicator (important here specifically)','Bear-aware food storage','Surf rod if you want the bonus fishing','Layers — coastal fog and wind are real even in warm months'],
+    verify:['Check tide tables for your exact dates before booking — this is the single most important pre-trip step.','Check Shasta-Trinity/King Range fire and smoke conditions close to departure.','Reconfirm the King Range Visitor Center walk-up lottery schedule if you did not book online.']
+  }
+},
+{
+  id:'emigrantsolo', name:'Emigrant Wilderness — Grouse, Bear & Gem Lakes', type:'backpack',
+  region:'Emigrant Wilderness · West Sierra', drive:4, len:'5–7 days · solo',
+  miles:'~4/day avg (20.4 mi total, extendable)', gain:'~630/day avg (3,149 ft total)',
+  s:[5,5,3,3,4], wild:true, skinny:true, permit:'Free self-issue', fish:'Wild brook & rainbow',
+  swim:'Granite lakes ~', season:[8,9], peak:[9], epic:true, status:'ready', url:null,
+  coord:[38.30,-119.83],
+  at:'https://www.alltrails.com/trail/us/california/crabtree-bear-lake-gem-lake-grouse-lake-loop',
+  blurb:'Genuinely tied for #1: your own site already rates this fishing "lights out" — the best catchability of anything on Get Out — under classic granite-dome Sierra scenery, right next to Yosemite without the crowds or the permit lottery.',
+  d:{
+    tag:'Solo expedition · 5–7 days · Cooper welcome · free self-issue permit',
+    dog:{ok:true,agency:'Emigrant Wilderness · Stanislaus National Forest',note:'Leashed dogs allowed throughout.'},
+    solo:{altitude:'Trailhead around 6,000 ft, high points near 9,000 ft — moderate, no special acclimation needed.',
+      comms:'Spotty to no cell service once you’re in past Bell Meadow.',
+      avoidOffTrail:[],
+      mosquito:{status:'West-slope Sierra meadows can be buggy in a normal July.',timing:'Improves through August, best by September — same logic as the rest of the Sierra picks.'}},
+    over:[
+      'Emigrant sits directly against Yosemite\u2019s northwest border and shares the same granite-dome, glacier-polished High Sierra character — without the lottery, the crowds, or the entrance gate. This loop strings together Grouse, Bear, and Gem Lakes from the Crabtree Trailhead on fully maintained trail, and the fishing here already carries the best catchability rating anywhere on your whole site: lights out.',
+      'It is also the lowest-friction booking of anything on this list alongside Stuart Fork — free, self-issue, no quota, no advance reservation required. Combined with the Buck Lakes basin explored on the Jeremy-and-David version of this trip, there is enough terrain here for a full week without repeating ground, if you want to extend past the core loop.',
+      'This genuinely ties Stuart Fork for the top spot on your reordered priorities. Stuart Fork wins on warmest swimmable water; Emigrant wins on the single best fishing rating you have ever assigned. Hard to go wrong with either.'
+    ],
+    why:{
+      scenery:'Classic High Sierra granite domes and polished slabs, essentially Yosemite\u2019s backcountry character without Yosemite\u2019s crowds or permit system.',
+      fish:'The best catchability rating on your entire site — lights out. Wild brook and rainbow throughout the lake chain.',
+      wildlife:'Mule deer, black bear, marmots on the granite, and reliable dawn/dusk wildlife activity around the lake margins.',
+      bugs:'West-slope Sierra meadows can be buggy in a normal July. Improves through August, best by September — same pattern as the rest of the Sierra picks.',
+      water:'Clear granite-basin lakes, cold but genuinely swimmable, with plenty of private shoreline once you are a couple of lakes in.'
+    },
+    route:{mode:'backpack',options:[
+      {name:'Grouse, Bear & Gem Lakes Loop',stat:'5–6 days · 20.4 mi loop · 3,149 ft (4.5★)',text:'Crabtree TH looping through Grouse Lake, Bear Lake, and Gem Lake on maintained trail — an easy pace with real time to fish each lake rather than just pass through.'},
+      {name:'Extend into Buck Lakes basin',stat:'+1–2 days',text:'From the same Crabtree TH, the Buck Lakes basin (26.2 mi as its own loop) shares access — link a portion of it on for a fuller week without repeating the core loop.'}
+    ]},
+    fish:{water:'Grouse Lake, Bear Lake, Gem Lake, and the connecting streams',species:'Wild brook & rainbow trout',
+      method:'Fly or ultralight spin',season:'Best late June through September',
+      catch:5,label:'Lights out — the best rating on your site',
+      gear:'4–5 wt, 8–9 ft, floating line, 9 ft 5x leader, or ultralight spin',
+      flies:['Elk Hair Caddis #14–16','Parachute Adams #16','Royal Wulff #14','Copper John #16','Gold Panther Martin (spin)'],
+      timing:'All day; dawn and the evening rise are best. Numbers fishing throughout the chain.'},
+    wild:['Wild brook trout','Wild rainbow trout','Mule deer','Black bear','Marmots'],
+    water:{spots:['Grouse Lake','Bear Lake','Gem Lake'],skinny:'Clear, cold granite-basin water — very swimmable by midday once the sun has been on it a few hours.'},
+    permit:{system:'Free wilderness permit, self-issue',cost:'$0',
+      where:'Any Stanislaus National Forest ranger station (Groveland or Mi-Wok)',
+      when:'No quota, no advance reservation needed',
+      notes:'Call ahead up to three days in advance for after-hours pickup if arriving outside business hours.'},
+    drive:{time:'~4 h from Pacifica to the Crabtree Trailhead',
+      route:'Hwy 108 east through Sonora and Pinecrest to the Crabtree trailhead',
+      flags:['No cell service past Pinecrest','Trailhead parking can fill on summer weekends']},
+    safety:['Standard bear-aware food storage.','No cell service; carry a satellite communicator solo.','Afternoon thunderstorms possible in summer — plan exposed sections for morning.'],
+    insider:['This is the fishing pick if you had to choose one — the catchability rating speaks for itself.','September gives the best combination of low bugs and low crowds.','The Buck Lakes extension is worth it if you want a fuller week without backtracking the same lakes.'],
+    pack:['Free wilderness permit (printed)','Bear canister or hang kit','Fly rod + basic kit (see the Kit page)','Satellite communicator','Layers for cold nights'],
+    verify:['Confirm current Stanislaus NF fire restrictions before you go.','Check Crabtree trailhead road and parking status if going on a weekend.']
+  }
+},
+{
+  id:'goldentrout', name:'Golden Trout Wilderness — Cottonwood Pass', type:'backpack',
+  region:'Golden Trout Wilderness · South Sierra', drive:4.5, len:'5–7 days · solo',
+  miles:'up to ~40 mi RT, flexible turnaround', gain:'3,028 ft to Big Whitney Meadow alone',
+  s:[5,4,3,3,4], wild:true, skinny:true, permit:'Inyo NF quota ✦', fish:'Native golden trout',
+  swim:'Golden Trout Creek ~', season:[8,9], peak:[9], epic:true, status:'ready', url:null,
+  coord:[36.447678,-118.169739],
+  at:'https://www.alltrails.com/trail/us/california/big-whitney-meadow-trail',
+  blurb:'The actual namesake wilderness for the fish — native golden trout in their home water, big-sky South Sierra plateau country, and the most serious altitude and remoteness on the list. Route around the dog-restricted Cottonwood Lakes basin entirely.',
+  d:{
+    tag:'Solo expedition · 5–7 days, flexible turnaround · Cooper welcome (Cottonwood Pass route only) · Inyo NF quota permit',
+    dog:{ok:true,agency:'Golden Trout Wilderness · Inyo/Sequoia National Forest',note:'Confirmed dog-friendly specifically on the Cottonwood Pass Trail. The adjacent Cottonwood Lakes Trail (a different trailhead area) prohibits dogs — likely a Sierra bighorn sheep habitat closure — so stay on the Pass route and you’re clear.'},
+    solo:{altitude:'The most serious altitude on this list: trailhead at 10,000 ft, the pass itself at 11,200 ft. Spend a night at the Horseshoe Meadow campground before you head in.',
+      comms:'Very remote, south of the main Whitney corridor. A satellite communicator is strongly recommended.',
+      avoidOffTrail:[],
+      mosquito:{status:'High, dry plateau country — generally lighter bug pressure than lake-dense basins.',timing:'August onward is fine; the real driver here is the quota window (late June–mid-September) more than bugs.'}},
+    over:[
+      'This is the actual namesake wilderness for California\u2019s state fish — Golden Trout Creek and the Rocky Basin Lakes hold native golden trout in their home water, not a stocked or transplanted population like most of the other options on this list. From Horseshoe Meadow, the trail climbs over 11,200-foot Cottonwood Pass onto the Kern Plateau, a vast, open, big-sky landscape that feels nothing like the granite-basin character of the other Sierra picks.',
+      'One important routing note: the adjacent Cottonwood Lakes Trail — a different trail from a nearby trailhead area — prohibits dogs, almost certainly a Sierra bighorn sheep habitat closure. This route stays entirely on Cottonwood Pass Trail instead, which is explicitly confirmed dog-friendly, so Cooper is welcome the whole way as long as you take the right trail out of Horseshoe Meadow.',
+      'This is also the most serious trip on the list in two honest ways: the trailhead itself sits at 10,000 feet and the pass at 11,200 feet, real altitude to respect solo, and it is genuinely remote — south of the main Whitney/JMT corridor, quieter than almost anywhere else here. A night at the trailhead campground to acclimate and a satellite communicator both earn their keep on this one.'
+    ],
+    why:{
+      scenery:'Big-sky Kern Plateau country — open, high, and different from every granite-basin pick on this list. A real change of register.',
+      fish:'Native golden trout in their actual home water — the most authentic version of the fishing story anywhere on this site.',
+      wildlife:'Mule deer, marmots, and real potential for Sierra bighorn sheep on the surrounding slopes (the reason the neighboring basin is dog-restricted).',
+      bugs:'High, dry plateau country generally runs lighter on bugs than lake-dense basins. The real constraint here is the trailhead quota window, not mosquitoes.',
+      water:'Golden Trout Creek meanders through open meadows — good swimming holes, if colder and shallower than the granite lakes elsewhere on this list.'
+    },
+    route:{mode:'backpack',options:[
+      {name:'Cottonwood Pass to Big Whitney Meadow',stat:'5–6 days · ~40 mi RT · 3,028 ft to the meadow (4.7★)',text:'Horseshoe Meadow TH over Cottonwood Pass (11,200 ft) and down onto the plateau to Big Whitney Meadow, an out-and-back with a basecamp at the meadow and day-hikes without a pack from there.'},
+      {name:'Push to Golden Trout Creek & Rocky Basin Lakes',stat:'+1–2 days',text:'Continue past Big Whitney Meadow to the creek itself and the Rocky Basin Lakes for the real native golden trout water and deeper solitude — turn around whenever the week runs out.'}
+    ]},
+    fish:{water:'Golden Trout Creek, Rocky Basin Lakes',species:'Native California golden trout',
+      method:'Fly, barbless recommended for the native population',season:'Best July–September',
+      catch:3,label:'Moderate — the real, native thing',gear:'3–4 wt, 6x leader — small stream, spooky fish',
+      flies:['Parachute Adams #16–18','Elk Hair Caddis #16','Small Royal Wulff #16'],
+      timing:'Morning and evening on the meadow stretches; midday in the shaded pools.'},
+    wild:['Native golden trout','Mule deer','Marmots','Sierra bighorn sheep (possible, on surrounding slopes)'],
+    water:{spots:['Golden Trout Creek meadows','Rocky Basin Lakes'],skinny:'Open meadow swimming holes on the creek — colder and shallower than the granite lakes elsewhere, but with real solitude.'},
+    permit:{system:'Inyo NF wilderness permit — Cottonwood Pass trailhead quota (recreation.gov)',
+      cost:'$5 to book ahead, or free day-of at the Lone Pine ranger station',
+      where:'recreation.gov — Inyo National Forest Wilderness Permits',
+      when:'40 backpackers/day cap, late June through mid-September, via the same 60%-at-6-months / 40%-at-2-weeks system as the rest of Inyo NF.',
+      notes:'IMPORTANT: stay on Cottonwood PASS Trail, not Cottonwood LAKES Trail — the Lakes basin prohibits dogs.'},
+    drive:{time:'~4.5 h from Pacifica to Horseshoe Meadow (via Lone Pine)',
+      route:'US-395 to Lone Pine, west on Whitney Portal Rd, then Horseshoe Meadow Rd — 20 miles of mountain switchbacks to road\u2019s end',
+      flags:['No cell service past Lone Pine','The switchback drive up to Horseshoe Meadow is slow — budget real time','Horseshoe Meadow Campground makes a good acclimation night before you start']},
+    safety:['10,000 ft trailhead, 11,200 ft pass — real altitude. Spend a night at the trailhead campground first.','Genuinely remote and south of the main travel corridor — a satellite communicator is strongly recommended.','Standard bear-aware food storage.','Afternoon thunderstorms build fast on the exposed plateau — plan pass crossings for morning.'],
+    insider:['This is the most authentic fishing story on the whole site — native fish in native water, not a transplant.','Quota fills up for popular summer weekends; a weekday entry meaningfully improves your odds.','The open plateau character here is a real change of pace if the other picks start to feel similar.','Stay strictly on Cottonwood Pass Trail out of Horseshoe Meadow — do not follow signs toward Cottonwood Lakes.'],
+    pack:['Inyo NF wilderness permit (printed)','Bear canister or hang kit','Fly rod + basic kit','Satellite communicator (important here specifically)','Warm layers — nights are cold at 10,000+ ft','Altitude acclimation plan — a rest night at the trailhead'],
+    verify:['Reconfirm Cottonwood Pass quota availability on recreation.gov close to your date.','Confirm you are routed via Cottonwood Pass, not Cottonwood Lakes, before you leave the trailhead.','Check current Inyo NF fire restrictions and bear activity notices.']
+  }
+});
+
+/* Cross-link the six solo expeditions to each other */
+const SOLO_IDS=['stuartfork','humphreysbasin','grandcanyontuolumne','lostcoastloop','emigrantsolo','goldentrout'];
+const SOLO_NOTE={
+  stuartfork:'Tied for #1 — warmest swimmable lakes, zero permit friction, cleanest solo safety',
+  humphreysbasin:'Biggest lake basin in the Sierra — real goldens, maintained-trail-only per your call',
+  grandcanyontuolumne:'The most epic single feature on the list — best river swimming, no dog',
+  lostcoastloop:'Wildest and most solitary — but the weakest fishing/lakes match',
+  emigrantsolo:'Tied for #1 — the best fishing rating on the whole site',
+  goldentrout:'Native golden trout in home water — the most remote and highest-altitude pick'
+};
+window.TRIPS.forEach(t=>{ if(SOLO_IDS.includes(t.id)){
+  t.d.alts=SOLO_IDS.filter(x=>x!==t.id).map(id=>({id,name:window.TRIPS.find(y=>y.id===id).name,note:SOLO_NOTE[id]}));
+}});

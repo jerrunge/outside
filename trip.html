@@ -188,6 +188,26 @@
   .altnote{font-size:13px;color:var(--ink-dim);margin:5px 0 8px;line-height:1.4;}
   .altgo{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--teal);}
 
+  /* solo trip: dog status + notes */
+  .dogband{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:var(--r);margin:0 0 20px;border:1px solid var(--line);}
+  .dogband.ok{background:rgba(95,163,160,.1);border-color:var(--teal-dim);}
+  .dogband.no{background:rgba(182,93,34,.08);border-color:#5a3a23;}
+  .dogband .di{font-size:26px;line-height:1;flex:none;}
+  .dogband .dt{font-family:'Oswald';text-transform:uppercase;letter-spacing:.06em;font-size:15px;color:var(--ink);}
+  .dogband .dt b{color:var(--teal);}
+  .dogband.no .dt b{color:var(--rust-bright);}
+  .dogband .dn{font-size:13.5px;color:var(--ink-dim);margin-top:4px;line-height:1.45;}
+  .solowrap{margin-top:10px;}
+  .sologrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+  @media(max-width:600px){.sologrid{grid-template-columns:1fr;}}
+  .solocard{border:1px solid var(--line);border-radius:var(--r);background:var(--granite-850);padding:12px 14px;}
+  .solocard .sh{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--sand);margin-bottom:6px;}
+  .solocard .sb{font-size:13.5px;color:var(--ink-dim);line-height:1.5;}
+  .bugmeter{display:flex;gap:10px;margin-top:2px;}
+  .bugcol{flex:1;border:1px solid var(--line);border-radius:var(--r);padding:9px 11px;background:var(--granite-800);}
+  .bugcol .bl{font-family:'Oswald';text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:var(--ink-faint);}
+  .bugcol .bv{font-size:13px;color:var(--ink-dim);margin-top:3px;line-height:1.4;}
+
   /* hero tools */
   .toolsbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;}
   .tbtn{display:inline-flex;align-items:center;gap:7px;font-family:'Oswald';text-transform:uppercase;letter-spacing:.09em;font-size:11px;color:var(--ink-dim);background:var(--granite-800);border:1px solid var(--line);border-radius:100px;padding:8px 14px;cursor:pointer;}
@@ -268,7 +288,7 @@
 </head>
 <body>
 <div class="topbar"><div class="wrap topbar-inner">
-  <span class="bcrumb"><a href="index.html">← Get Out</a> &nbsp;·&nbsp; <a href="gear.html">Kit</a> &nbsp;/&nbsp; <span id="bcType"></span></span>
+  <span class="bcrumb"><a href="index.html" id="bcHome">← Get Out</a> &nbsp;·&nbsp; <a href="gear.html">Kit</a> &nbsp;/&nbsp; <span id="bcType"></span></span>
   <span class="nm" id="bcName"></span>
 </div></div>
 
@@ -395,6 +415,26 @@ function fishingHTML(t){
   return h;
 }
 
+/* ---------------- solo trip: dog status + notes ---------------- */
+function soloHTML(t){
+  const dg=t.d.dog, so=t.d.solo;
+  let h='<section class="sec solowrap"><h2>Solo &amp; Cooper Notes</h2>';
+  h+=`<div class="dogband ${dg.ok?'ok':'no'}"><div class="di">${dg.ok?'🐾':'🚫'}</div><div><div class="dt">Cooper: <b>${dg.ok?'welcome':'stays home'}</b> — ${esc(dg.agency)}</div><div class="dn">${esc(dg.note)}</div></div></div>`;
+  h+='<div class="sologrid">';
+  h+=`<div class="solocard"><div class="sh">Altitude &amp; acclimation</div><div class="sb">${esc(so.altitude)}</div></div>`;
+  h+=`<div class="solocard"><div class="sh">Communication</div><div class="sb">${esc(so.comms)}</div></div>`;
+  h+='</div>';
+  if(so.avoidOffTrail && so.avoidOffTrail.length){
+    h+=`<div class="notebox" style="border-left-color:var(--rust-bright)"><b style="color:var(--rust-bright);font-family:Oswald;letter-spacing:.06em">SOLO: STAY ON TRAIL</b><br>${so.avoidOffTrail.map(esc).join('<br>')}</div>`;
+  }
+  h+='<div class="bugmeter">';
+  h+=`<div class="bugcol"><div class="bl">Mosquito reality</div><div class="bv">${esc(so.mosquito.status)}</div></div>`;
+  h+=`<div class="bugcol"><div class="bl">Best timing</div><div class="bv">${esc(so.mosquito.timing)}</div></div>`;
+  h+='</div>';
+  h+='</section>';
+  return h;
+}
+
 /* ---------------- alternatives cross-link ---------------- */
 function altsHTML(a){
   return `<section class="sec"><h2>Alternatives for this weekend <span class="n">same dates, same basecamp</span></h2>
@@ -489,8 +529,9 @@ function computeRelease(type,entry){
 }
 function render(t){
   document.title='Get Out — '+t.name;
-  $('#bcType').textContent=t.type==='backpack'?'Backpacking':'Car camping';
+  $('#bcType').textContent=t.d.dog&&t.d.solo?'Solo Expedition':(t.type==='backpack'?'Backpacking':'Car camping');
   $('#bcName').textContent=t.name;
+  if(t.d.dog&&t.d.solo){ const bh=$('#bcHome'); bh.href='solo.html'; bh.textContent='← Solo Expeditions'; }
 
   const d=t.d;
   const ws=weeksStrip(t);
@@ -545,6 +586,7 @@ function render(t){
     <div class="grid">
       <div class="main">
         <section class="sec lead"><h2>The Overview</h2>${d.over.map(p=>`<p>${esc(p)}</p>`).join('')}</section>
+        ${d.dog&&d.solo?soloHTML(t):''}
 
         <section class="sec"><h2>Why it scores <span class="n">your five criteria, in order</span></h2>
           <div class="whygrid">
