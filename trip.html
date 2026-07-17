@@ -107,6 +107,15 @@
   .safety li:before{content:'△';color:var(--warn);}
   .insider li:before{content:'★';color:var(--rust-bright);}
 
+  /* tide windows */
+  .tidewins{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
+  .tidewin{border:1px solid var(--line);border-radius:var(--r);padding:11px 13px;background:var(--granite-850);}
+  .tw-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .tw-when{font-family:'Oswald';font-size:16px;color:var(--ink);letter-spacing:.02em;}
+  .tw-tier{font-size:10.5px;padding:3px 8px;border-radius:100px;border:1px solid;white-space:nowrap;}
+  .tw-tide{font-family:'Oswald';font-size:12.5px;letter-spacing:.02em;color:var(--sand);margin-top:5px;}
+  .tw-note{font-size:14px;color:var(--ink-dim);margin-top:5px;}
+
   /* sidebar cards */
   .side{position:sticky;top:64px;display:flex;flex-direction:column;gap:18px;}
   @media(max-width:900px){.side{position:static;}}
@@ -612,6 +621,19 @@ function render(t){
           </dl>
           ${d.permit.notes?`<div class="notebox">${esc(d.permit.notes)}</div>`:''}
         </section>
+
+        ${d.tideWindows?`
+        <section class="sec"><h2>Best Tide Windows <span class="n">next ~4 months · NOAA #9418024 · start dates</span></h2>
+          ${d.tideNote?`<div class="notebox" style="border-left-color:var(--teal)">${esc(d.tideNote)}</div>`:''}
+          <div class="tidewins">
+          ${d.tideWindows.map(w=>{const c=/Top/.test(w.tier)?'var(--rust-bright)':(/season/i.test(w.tier)?'var(--teal)':(/lead|now/i.test(w.tier)?'var(--warn)':'var(--ink-faint)'));return `
+            <div class="tidewin" style="border-left:3px solid ${c}">
+              <div class="tw-h"><span class="tw-when">${esc(w.when)}</span><span class="tw-tier" style="color:${c};border-color:${c}">${esc(w.tier)}</span></div>
+              <div class="tw-tide">${esc(w.tide)}</div>
+              <div class="tw-note">${esc(w.note)}</div>
+            </div>`;}).join('')}
+          </div>
+        </section>`:''}
 
         <section class="sec"><h2>Getting There</h2>
           <dl class="kv">
