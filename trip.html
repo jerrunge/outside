@@ -622,8 +622,22 @@ function render(t){
           ${d.permit.notes?`<div class="notebox">${esc(d.permit.notes)}</div>`:''}
         </section>
 
+        ${d.tidePlan?`
+        <section class="sec"><h2>Trip Plan <span class="n">${esc(d.tidePlan.status)}</span></h2>
+          <div class="notebox" style="border-left-color:var(--pine-bright)">${esc(d.tidePlan.summary)}</div>
+          <div class="tidewins" style="margin-top:12px">
+          ${d.tidePlan.nights.map(nt=>`
+            <div class="tidewin" style="border-left:3px solid var(--teal)">
+              <div class="tw-h"><span class="tw-when">${esc(nt.label)}</span><span class="tw-tier" style="color:var(--teal);border-color:var(--teal)">${esc(nt.camp)}</span></div>
+              <div class="tw-tide">Permit zone: ${esc(nt.zone)}</div>
+              <div class="tw-note">${esc(nt.note)}</div>
+            </div>`).join('')}
+          </div>
+          <div class="notebox" style="margin-top:10px;border-left-color:var(--ink-faint)">${esc(d.tidePlan.exit)}</div>
+        </section>`:''}
+
         ${d.tideWindows?`
-        <section class="sec"><h2>Best Tide Windows <span class="n">next ~4 months · NOAA #9418024 · start dates</span></h2>
+        <section class="sec"><h2>Other Tide Windows <span class="n">if the plan shifts · NOAA #9418024 · entry dates</span></h2>
           ${d.tideNote?`<div class="notebox" style="border-left-color:var(--teal)">${esc(d.tideNote)}</div>`:''}
           <div class="tidewins">
           ${d.tideWindows.map(w=>{const c=/Top/.test(w.tier)?'var(--rust-bright)':(/season/i.test(w.tier)?'var(--teal)':(/lead|now/i.test(w.tier)?'var(--warn)':'var(--ink-faint)'));return `
