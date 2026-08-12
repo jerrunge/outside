@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reset Journeys · November 2026 · Get Out</title>
+<meta name="description" content="Three vetted 14-day solo reset journeys for November 2026, departing from Indiana after the Lost Coast and the move. Kumano Kodo, Southern Appalachian Trail, Te Araroa." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --granite-900:#14171a;--granite-850:#181c1f;--granite-800:#1e2327;--granite-700:#262d32;--granite-600:#333c42;
+    --line:#2c343a;--pine:#2f4a40;--pine-bright:#3c6354;--teal:#5fa3a0;--teal-dim:#3f7370;
+    --rust:#834112;--rust-bright:#b65d22;--sand:#cdbfa6;--ink:#e9e3d6;--ink-dim:#a6a092;--ink-faint:#6f6c63;
+    --r:3px;--maxw:1180px;--shadow:0 1px 0 rgba(0,0,0,.5),0 14px 40px -24px rgba(0,0,0,.9);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--granite-900);color:var(--ink);font-family:'Spectral',Georgia,serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:.01em;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{color:var(--ink);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+  .n{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--ink-faint);}
+
+  .topbar{border-bottom:1px solid var(--line);background:var(--granite-850);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar .in{max-width:var(--maxw);margin:0 auto;padding:11px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+  .topbar .bc{font-family:'Oswald';text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--ink-faint);}
+  .topbar .bc a{color:var(--teal);}
+  .topbar .lk{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:11px;border:1px solid var(--line);border-radius:100px;padding:5px 12px;color:var(--sand);}
+
+  header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--granite-850);}
+  .hero-inner{position:relative;padding:38px 0 30px;}
+  .eyebrow{font-family:'Oswald';text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--rust-bright);}
+  .hero h1{font-size:42px;margin:6px 0 10px;line-height:1.1;}
+  .hero h1 em{color:var(--rust-bright);font-style:normal;}
+  .hero .lede{max-width:76ch;color:var(--ink-dim);font-size:17.5px;margin:0 0 20px;}
+  @media(max-width:600px){.hero h1{font-size:29px;}}
+
+  .ctx{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px;}
+  @media(max-width:820px){.ctx{grid-template-columns:1fr 1fr;}}
+  .ctxi{border:1px solid var(--line);border-radius:var(--r);background:var(--granite-800);padding:11px 13px;}
+  .ctxi .k{font-family:'Oswald';text-transform:uppercase;letter-spacing:.09em;font-size:10.5px;color:var(--ink-faint);}
+  .ctxi .v{font-family:'Oswald';font-size:15px;color:var(--sand);margin-top:3px;line-height:1.25;}
+
+  .section{padding:36px 0;border-top:1px solid var(--line);}
+  .section h2{font-size:26px;margin:0 0 6px;}
+  .section .sub{margin:0 0 20px;color:var(--ink-dim);max-width:82ch;}
+
+  .clocks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media(max-width:900px){.clocks{grid-template-columns:1fr;}}
+  .clock{border:1px solid var(--line);border-radius:var(--r);background:var(--granite-850);padding:18px;box-shadow:var(--shadow);}
+  .clock.urgent{border-left:3px solid var(--rust-bright);}
+  .clock.easy{border-left:3px solid var(--teal-dim);}
+  .clock.cond{border-left:3px solid #6a5a3a;}
+  .clock .ct{font-family:'Oswald';text-transform:uppercase;letter-spacing:.09em;font-size:10.5px;color:var(--ink-faint);}
+  .clock .cn{font-family:'Oswald';font-size:20px;margin:5px 0 8px;color:var(--ink);}
+  .clock .cbig{font-family:'Oswald';font-size:15px;color:var(--rust-bright);margin-bottom:8px;}
+  .clock.easy .cbig{color:var(--teal);}
+  .clock.cond .cbig{color:var(--sand);}
+  .clock p{margin:0;font-size:15.5px;color:var(--ink-dim);}
+
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin-top:4px;}
+  th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;}
+  th{font-family:'Oswald';text-transform:uppercase;letter-spacing:.06em;font-size:11.5px;color:var(--ink-faint);background:var(--granite-800);font-weight:500;}
+  td.nm{font-family:'Oswald';font-size:15px;color:var(--sand);}
+  .good{color:var(--teal);}
+  .warn{color:var(--sand);}
+  .bad{color:var(--rust-bright);}
+  .tscroll{overflow-x:auto;}
+
+  .corr{border:1px solid #5a3a23;border-left:3px solid var(--rust-bright);border-radius:var(--r);background:rgba(182,93,34,.07);padding:16px 18px;margin-bottom:14px;}
+  .corr h4{margin:0 0 6px;font-size:16px;color:var(--sand);text-transform:uppercase;letter-spacing:.05em;font-size:12.5px;}
+  .corr p{margin:0 0 8px;font-size:15.5px;color:var(--ink-dim);}
+  .corr p:last-child{margin-bottom:0;}
+  .corr .was{color:var(--ink-faint);font-style:italic;}
+
+  .trip{border:1px solid var(--line);border-radius:var(--r);background:var(--granite-850);box-shadow:var(--shadow);margin-bottom:22px;overflow:hidden;}
+  .thead{padding:20px 22px 16px;border-bottom:1px solid var(--line);background:var(--granite-800);}
+  .trank{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--rust-bright);}
+  .tname{font-family:'Oswald';font-size:26px;margin:5px 0 3px;line-height:1.15;}
+  .tregion{font-family:'Oswald';text-transform:uppercase;letter-spacing:.07em;font-size:11.5px;color:var(--ink-faint);}
+  .tstats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line);}
+  @media(max-width:820px){.tstats{grid-template-columns:1fr 1fr;}}
+  .tstat{background:var(--granite-850);padding:12px 14px;}
+  .tstat .k{font-family:'Oswald';text-transform:uppercase;letter-spacing:.09em;font-size:10px;color:var(--ink-faint);}
+  .tstat .v{font-family:'Oswald';font-size:15px;color:var(--sand);margin-top:3px;line-height:1.3;}
+  .tbody{padding:20px 22px 22px;}
+  .tbody h4{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--rust-bright);margin:20px 0 8px;}
+  .tbody h4:first-child{margin-top:0;}
+  .tbody p{margin:0 0 12px;color:var(--ink-dim);}
+  .tbody ul{margin:0 0 12px;padding-left:20px;color:var(--ink-dim);}
+  .tbody li{margin-bottom:6px;}
+  .tbody strong{color:var(--ink);font-weight:600;}
+
+  .days{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:12px;}
+  @media(max-width:820px){.days{grid-template-columns:1fr;}}
+  .day{background:var(--granite-850);padding:11px 14px;}
+  .day .dk{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--rust-bright);}
+  .day .dv{font-size:15px;color:var(--ink-dim);margin-top:3px;}
+  .day .dv b{color:var(--sand);font-weight:500;}
+
+  .flag{border-left:3px solid var(--teal-dim);background:rgba(95,163,160,.06);padding:12px 15px;border-radius:var(--r);margin-bottom:12px;font-size:15.5px;color:var(--ink-dim);}
+  .flag b{color:var(--teal);}
+  .stop{border-left:3px solid var(--rust-bright);background:rgba(182,93,34,.08);padding:12px 15px;border-radius:var(--r);margin-bottom:12px;font-size:15.5px;color:var(--ink-dim);}
+  .stop b{color:var(--rust-bright);}
+
+  .verify{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:820px){.verify{grid-template-columns:1fr;}}
+  .vbox{border:1px solid var(--line);border-radius:var(--r);background:var(--granite-850);padding:16px 18px;}
+  .vbox h4{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--rust-bright);margin:0 0 10px;}
+  .vbox ul{margin:0;padding-left:19px;color:var(--ink-dim);font-size:15.5px;}
+  .vbox li{margin-bottom:7px;}
+
+  footer.wrap{padding:30px 22px 46px;color:var(--ink-faint);font-size:14px;border-top:1px solid var(--line);margin-top:20px;}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="in">
+  <span class="bc"><a href="index.html">Get Out</a> · Reset Journeys</span>
+  <span style="display:flex;gap:8px;flex-wrap:wrap">
+    <a class="lk" href="solo.html">🥾 Solo Expeditions</a>
+    <a class="lk" href="gear.html">🎣 Kit</a>
+  </span>
+</div></div>
+
+<header class="hero"><div class="wrap hero-inner">
+  <div class="eyebrow">Reset Journeys · November 2026 · Departing Indiana</div>
+  <h1>Three ways to walk it <em>off</em>.</h1>
+  <p class="lede">Fourteen days, solo, after the Lost Coast and after the move. One of these three. Each one is built out to the point where you could commit to it tomorrow, with the live booking mechanics verified rather than assumed, and the places where the original plan does not survive contact with the permit systems flagged in rust.</p>
+  <div class="ctx">
+    <div class="ctxi"><div class="k">Prior commitment</div><div class="v">Lost Coast, Oct 24<br>Mattole to Black Sands, 3 nts</div></div>
+    <div class="ctxi"><div class="k">Base</div><div class="v">Parents' place, Indiana<br>Maddy and Cooper covered</div></div>
+    <div class="ctxi"><div class="k">Window A</div><div class="v">Nov 3 to Nov 16<br>Earliest realistic</div></div>
+    <div class="ctxi"><div class="k">Window B</div><div class="v">Nov 14 to Nov 30<br>Best conditions</div></div>
+  </div>
+</div></header>
+
+<main class="wrap">
+
+<section class="section">
+  <h2>The clock is the real decision</h2>
+  <p class="sub">Not cost, not scenery. These three have completely different booking physics, and two of them cannot be locked on the same timeline. Read this before anything else on the page.</p>
+  <div class="clocks">
+    <div class="clock urgent">
+      <div class="ct">Kumano Kodo</div>
+      <div class="cn">Decide this week</div>
+      <div class="cbig">Roughly 3 months out, in peak season</div>
+      <p>The tourism bureau tells people to book about six months ahead for peak seasons, and autumn counts as peak. You are already inside that. Worse, the Kohechi will not confirm a partial itinerary: every village night has to be secured or the request is refused outright. If this is the one, the request goes in now and the answer comes back in days to weeks, not instantly.</p>
+    </div>
+    <div class="clock easy">
+      <div class="ct">Southern Appalachian Trail</div>
+      <div class="cn">Cannot book yet</div>
+      <div class="cbig">Permits open 30 days out</div>
+      <p>Great Smoky Mountains backcountry permits release exactly 30 days before entry, now through Recreation.gov rather than the old park system. You physically cannot lock November today. That sounds like a downside and is actually the opposite: this option costs you nothing to hold while the move sorts itself out, and November is deep off season.</p>
+    </div>
+    <div class="clock cond">
+      <div class="ct">Te Araroa</div>
+      <div class="cn">Nothing to book</div>
+      <div class="cbig">Gated by conditions, not inventory</div>
+      <p>Huts are first come, there is no permit lottery, and the only paperwork is an NZeTA plus the visitor levy with about 72 hours of processing. Which means the decision is never forced by a booking window. It is forced by whether the snow is off the passes and the rivers are down, and that answer is not knowable until you are close.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What changed under verification</h2>
+  <p class="sub">Four findings that the working comparison either missed or got backwards. Two of them change the ranking.</p>
+
+  <div class="corr">
+    <h4>Correction 1 · The Kumano window inverts, it does not improve</h4>
+    <p class="was">Original assumption: pushing later into November is neutral or mildly positive for Japan.</p>
+    <p>It is negative. Autumn colour on the Kii Peninsula arrives later than most of Japan, and mid to late November is the actual peak. Operators now report as many trekkers in that stretch as in cherry blossom season. So <strong>Window B makes Kumano harder to book, not easier</strong>, at exactly the moment the Kohechi bottleneck villages are most likely to be gone. If Kumano is the pick, Window A is the better bet, which is the reverse of the pattern for the other two.</p>
+  </div>
+
+  <div class="corr">
+    <h4>Correction 2 · The Miura-guchi workaround does not apply to your route</h4>
+    <p class="was">Original assumption: if Miura-guchi is unavailable there is an official transport workaround using Totsukawa as a base.</p>
+    <p>The workaround is real. It is also <strong>northbound only</strong>. The Kohechi bus out of Totsukawa exists specifically for walkers going Hongu toward Koyasan, and your itinerary runs the other way, Koyasan down to Hongu. So if Miura-guchi is full in your window, the fix is not a shuttle, it is <strong>flipping the entire route to walk south to north</strong>. That is a legitimate option and it works, but it inverts the arc: you would finish at Koyasan among the temples instead of at Nachi waterfall and the ocean. Worth knowing that is the trade before you find out at booking time.</p>
+  </div>
+
+  <div class="corr">
+    <h4>Correction 3 · You do not qualify for the AT thru-hiker permit</h4>
+    <p class="was">Original plan: Winding Stair Gap to Davenport Gap, roughly 130 miles, thru-hiker permit assumed.</p>
+    <p>The Smokies thru-hiker permit requires you to <strong>begin and end at least 50 miles outside the park</strong>. Winding Stair Gap qualifies on the front end. Davenport Gap does not, because it sits on the park boundary. As written, this is a General Backcountry Permit trip, and General permit holders <strong>may not tent at shelters</strong>, they need a reserved space in one of the twelve AT shelters every single night inside the park, one night per shelter, no repeats. The four spaces held for thru-hikers only apply from mid March to mid June, so they are not there for you either. Two clean fixes exist and both are laid out below.</p>
+  </div>
+
+  <div class="corr">
+    <h4>Correction 4 · New Zealand in November is emptier, not fuller. I had this wrong too.</h4>
+    <p class="was">My own earlier note to you: that mid November would bring more parties through the Richmond Ranges and better hut company.</p>
+    <p>That is not how the trail's timing works. Southbound thru-hikers leave Cape Reinga between late October and early December and do not reach the South Island until December or January. Northbounders start in January or February. In November the Richmond Ranges are close to <strong>empty</strong>. The conditions genuinely do improve as you move later, but the social upside I described does not exist, and the hut-company argument that made Te Araroa look like a viable reset trip goes with it. Full detail in the third block, including why this matters more for you specifically than it would for most people.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Head to head, by window</h2>
+  <p class="sub">Same three trips, scored twice. Note that Kumano and the other two move in opposite directions as the calendar slides.</p>
+  <div class="tscroll">
+  <table>
+    <tr><th>Factor</th><th>Kumano Kodo</th><th>Southern AT</th><th>Te Araroa</th></tr>
+    <tr><td class="nm">Window A (Nov 3 to 16)</td><td class="good">Better. Ahead of foliage peak, slightly more inventory.</td><td class="good">Fine. Cold nights, quiet trail, no booking pressure.</td><td class="bad">Poor. Snow on passes, high rivers, nobody out there.</td></tr>
+    <tr><td class="nm">Window B (Nov 14 to 30)</td><td class="bad">Worse. Peak colour, peak demand, bottlenecks likely gone.</td><td class="warn">Colder. Freezing nights standard, first snow possible.</td><td class="warn">Improving but still early season and still solo-empty.</td></tr>
+    <tr><td class="nm">Booking risk</td><td class="bad">High and immediate</td><td class="good">Low, opens 30 days out</td><td class="good">None</td></tr>
+    <tr><td class="nm">Physical load after Lost Coast</td><td class="good">Light pack, lodging every night</td><td class="warn">Full pack, 130 miles</td><td class="bad">Full pack plus 8 to 9 day food carry</td></tr>
+    <tr><td class="nm">Reachable for Maddy</td><td class="good">Village signal most nights</td><td class="warn">Gaps and road crossings only</td><td class="bad">Effectively none for days</td></tr>
+    <tr><td class="nm">Bailout if the move goes sideways</td><td class="warn">Buses, then rail. Days, not hours.</td><td class="good">Your own car at the trailhead</td><td class="bad">Remote huts, then international flight</td></tr>
+    <tr><td class="nm">Evenings alone</td><td class="good">Innkeeper, dinner, onsen, other guests</td><td class="bad">Dark by 5:30, cold, likely solo in shelter</td><td class="bad">Empty hut, twelve hours of quiet</td></tr>
+    <tr><td class="nm">Ground cost, flights on miles</td><td>$1,800 to $2,700</td><td>$500 to $900 driving from Indiana</td><td>$1,400 to $2,200 plus levy</td></tr>
+  </table>
+  </div>
+  <div class="flag" style="margin-top:16px"><b>The honest ranking:</b> it is conditional, not fixed. <strong>If Miura-guchi and Koguchi confirm for early November, take Kumano.</strong> It is the best trip on this page for what you actually said you needed, and the only one where the structure of the day does the emotional work for you. <strong>If the lodging chain does not confirm, take the Southern AT</strong> in whichever window the move leaves open, with the Hot Springs extension so the permit and the evenings both work. Te Araroa is the one to want and not to take this year.</div>
+</section>
+
+<section class="section">
+  <h2>The three, built out</h2>
+
+  <!-- ===================== KUMANO ===================== -->
+  <div class="trip">
+    <div class="thead">
+      <div class="trank">Option 1 · Best experience, hardest to secure</div>
+      <div class="tname">Kumano Kodo · Kohechi to Nakahechi</div>
+      <div class="tregion">Kii Peninsula · Wakayama, Japan</div>
+    </div>
+    <div class="tstats">
+      <div class="tstat"><div class="k">Route</div><div class="v">Koyasan to Nachi</div></div>
+      <div class="tstat"><div class="k">Walking</div><div class="v">~65 km Kohechi<br>plus Nakahechi finish</div></div>
+      <div class="tstat"><div class="k">Passes</div><div class="v">Four over 1,000 m</div></div>
+      <div class="tstat"><div class="k">Pack</div><div class="v">Day pack<br>Luggage shuttle available</div></div>
+      <div class="tstat"><div class="k">Best window</div><div class="v">Window A<br>Nov 3 to 16</div></div>
+    </div>
+    <div class="tbody">
+      <h4>Why this one, for this particular trip</h4>
+      <p>The rhythm is the whole argument. Walk alone for six to nine hours through cedar and stone and empty mountain, arrive somewhere small where a person is expecting you, eat food you did not have to plan, sit in hot water, sleep under a heavy futon, then disappear back into the mountains at dawn. You get the solitude without handing yourself fourteen consecutive evenings alone in the dark with a headlamp and your own thoughts, which given what you are walking away from is not a small design consideration.</p>
+      <p>It is also the only one of the three that does not ask your body for a second full-pack expedition three weeks after the Lost Coast. The climbing is serious and the days are long, but the load is a day pack, and the Omata to Miura-guchi leg has an official luggage shuttle if you book it at least 20 days ahead.</p>
+
+      <h4>Route, southbound</h4>
+      <div class="days">
+        <div class="day"><div class="dk">Day 1 to 2</div><div class="dv">Arrive Kansai, overnight Osaka. Rail and cable up to <b>Koyasan</b>, temple lodging, Okunoin at dusk.</div></div>
+        <div class="day"><div class="dk">Day 3</div><div class="dv">Koyasan to <b>Omata</b>. About 16.8 km. First real Kohechi day, roughly 2,300 ft of climbing.</div></div>
+        <div class="day"><div class="dk">Day 4</div><div class="dv">Omata to <b>Miura-guchi</b>. About 18.7 km over Obako-toge. The bottleneck night, and the one to book first.</div></div>
+        <div class="day"><div class="dk">Day 5</div><div class="dv">Miura-guchi to <b>Totsukawa Onsen</b>. About 19.2 km, roughly 2,700 up and 3,400 down. Seven to nine hours.</div></div>
+        <div class="day"><div class="dk">Day 6</div><div class="dv">Totsukawa to <b>Hongu</b> via Hatenashi-toge. About 15.2 km. Kohechi complete, Kumano Hongu Taisha at the end of it.</div></div>
+        <div class="day"><div class="dk">Day 7</div><div class="dv"><b>Yunomine Onsen</b>. No mileage. Onsen, shrine, food, sit still. Build this day in deliberately.</div></div>
+        <div class="day"><div class="dk">Day 8 to 9</div><div class="dv">Ukegawa to <b>Koguchi</b> over Kogumotori-goe, then Koguchi to <b>Nachi</b> over Ogumotori-goe. The second bottleneck night is Koguchi.</div></div>
+        <div class="day"><div class="dk">Day 10 to 14</div><div class="dv"><b>Kii-Katsuura</b> for ocean and seafood, then <b>Kyoto</b> for re-entry, then home. Do not skip the re-entry days.</div></div>
+      </div>
+
+      <div class="stop"><b>The gate:</b> Kumano Travel will not confirm a partial Kohechi. Reservations are required in Koyasan, Omata, Miura-guchi and Totsukawa Onsen, and if they cannot confirm the whole chain they decline the request rather than leave you exposed on a route with four thousand-metre passes and no bail points. Miura-guchi has <strong>two properties, total</strong>. Koguchi is the same story one stage later. Book those two first and build the rest of the trip, and the flights, around whatever comes back.</div>
+
+      <div class="flag"><b>If Miura-guchi is gone:</b> flip the route and walk northbound, Hongu up to Koyasan. That unlocks the Kohechi bus out of Totsukawa, which is northbound only, and lets you sleep two nights in Totsukawa instead. You lose the ocean finish at Nachi and end among the temples instead. Different trip, still a very good one.</div>
+
+      <h4>Conditions and cost</h4>
+      <ul>
+        <li>Daytime temperatures around 10 to 15 C. Cold mornings on the high passes, wet stone after rain, early dark.</li>
+        <li>The Kohechi closes roughly mid December to mid March for snow. November is inside the season with room to spare.</li>
+        <li>Ground cost $1,800 to $2,700, most of it lodging, with many dinners and breakfasts included in the room rate.</li>
+        <li>Reservations close 20 days before check-in. Cancellation terms vary by property and some are request-only rather than instant.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== AT ===================== -->
+  <div class="trip">
+    <div class="thead">
+      <div class="trank">Option 2 · Most flexible, and Indiana changed its math</div>
+      <div class="tname">Southern Appalachian Trail · Nantahala to the Smokies</div>
+      <div class="tregion">North Carolina and Tennessee</div>
+    </div>
+    <div class="tstats">
+      <div class="tstat"><div class="k">Route</div><div class="v">Winding Stair Gap<br>to Hot Springs</div></div>
+      <div class="tstat"><div class="k">Distance</div><div class="v">~165 mi with extension</div></div>
+      <div class="tstat"><div class="k">Access</div><div class="v">~8 h drive from home</div></div>
+      <div class="tstat"><div class="k">Pack</div><div class="v">Full, cold weather</div></div>
+      <div class="tstat"><div class="k">Best window</div><div class="v">Window A<br>warmer nights</div></div>
+    </div>
+    <div class="tbody">
+      <h4>What being based in Indiana does to this option</h4>
+      <p>It removes the airport. Indianapolis to Winding Stair Gap is roughly eight hours, which means <strong>you drive your own car to your own trailhead</strong>, on your own schedule, with a shuttle only needed at the far end. If the move gets messy, if Maddy needs you, if your parents need you, you are one drive from being back, not one international flight and three connections. Nothing else on this page gives you that.</p>
+      <p>It also collapses the cost to a rounding error, though you have told me not to optimise for that. The more relevant effect is that this trip has <strong>no commitment cost until 30 days before you walk</strong>, which is the only one of the three you can genuinely hold in reserve while the rest of your life resolves.</p>
+
+      <h4>Fixing the permit problem</h4>
+      <p>As originally drawn, Winding Stair Gap to Davenport Gap does not qualify for the thru-hiker permit, and a General Backcountry Permit forces a reserved shelter space every night in the park with no tenting fallback. Two ways through:</p>
+      <ul>
+        <li><strong>Fix A, recommended. Extend to Hot Springs, then on toward Erwin.</strong> Continuing past Davenport Gap puts your finish more than 50 miles outside the park boundary, which qualifies you for the $44.50 thru-hiker permit. That permit gives you an eight day window through the Smokies, a 30 day flex range around your estimated entry date, and the right to tent beside a shelter if it is full. It also adds Hot Springs, an actual trail town with a bed and a hot meal and other humans, right when you would most want one. This is the version that solves the permit and the evenings at the same time.</li>
+        <li><strong>Fix B. Keep it at 130 miles and book shelters.</strong> General permit, $8 per night, reserve each of the twelve AT shelters you need. In November this is very likely to be available. It is simply less forgiving, since a bad weather day that puts you behind schedule puts you off your reserved shelter with nowhere legal to pitch.</li>
+      </ul>
+
+      <div class="stop"><b>The real risk on this one is not the terrain.</b> It is the evenings. Dark by 5:30, nights in the 20s at elevation, and in November you may well have the shelter to yourself for most of two weeks. For most trips that is the reward. For this trip, three weeks out from a separation and a move, fourteen straight nights alone in the cold with nothing to do but think is the exact failure mode to design against. The Hot Springs extension, and deliberately taking a room at the Nantahala Outdoor Center and at Fontana, are not luxuries here. They are the structure.</div>
+
+      <h4>Shape of it</h4>
+      <div class="days">
+        <div class="day"><div class="dk">Days 1 to 3</div><div class="dv">Winding Stair Gap to <b>Nantahala Outdoor Center</b>. About 27 mi. Siler Bald, Wayah Bald, the long descent. Take a room at NOC.</div></div>
+        <div class="day"><div class="dk">Days 4 to 6</div><div class="dv">NOC to <b>Fontana Dam</b>. About 28 mi. Cheoah Bald and the hard climbs. Resupply, shower, reset at Fontana.</div></div>
+        <div class="day"><div class="dk">Days 7 to 12</div><div class="dv">The full <b>Smokies traverse</b>. About 70 mi of high ridge. Kuwohi, Newfound Gap, Charlies Bunion. Permit window is eight days.</div></div>
+        <div class="day"><div class="dk">Days 13 to 15</div><div class="dv">Davenport Gap onward to <b>Hot Springs</b>. About 32 mi, dropping out of the high country into a town that exists for hikers.</div></div>
+      </div>
+
+      <h4>Conditions and cost</h4>
+      <ul>
+        <li>Nights in the 20s F at elevation, wind, rain and freezing rain all plausible. Real snow is uncommon before December but not unheard of.</li>
+        <li>Permits open 30 days out through Recreation.gov. The old park permit system was retired in April 2026.</li>
+        <li>Bear food storage rules apply throughout, cables at the shelters. Newfound Gap Road can close in weather, which matters for shuttles.</li>
+        <li>Total roughly $500 to $900 driving from Indiana, mostly food, shuttles, and the town nights that are the point.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== TE ARAROA ===================== -->
+  <div class="trip">
+    <div class="thead">
+      <div class="trank">Option 3 · Built out honestly, and not the one to take this year</div>
+      <div class="tname">Te Araroa · Richmond Ranges and Nelson Lakes</div>
+      <div class="tregion">South Island, New Zealand</div>
+    </div>
+    <div class="tstats">
+      <div class="tstat"><div class="k">Route</div><div class="v">Richmond Ranges<br>to Nelson Lakes</div></div>
+      <div class="tstat"><div class="k">Food carry</div><div class="v">8 to 9 days</div></div>
+      <div class="tstat"><div class="k">Skill floor</div><div class="v">Advanced backcountry<br>per DOC</div></div>
+      <div class="tstat"><div class="k">Pack</div><div class="v">Full, plus tent<br>as guaranteed shelter</div></div>
+      <div class="tstat"><div class="k">Best window</div><div class="v">Neither.<br>December onward.</div></div>
+    </div>
+    <div class="tbody">
+      <h4>What it is</h4>
+      <p>The scenery winner, and it is not close. Sharp ridges, alpine basins, beech forest and tussock, glacial valleys, remote huts, the whole South Island vocabulary. The Richmond Ranges into St Arnaud and on through Nelson Lakes is the closest thing on earth to what you are imagining when you say you want to walk until something in you resets.</p>
+
+      <h4>Why November does not work, stated plainly</h4>
+      <p>The Department of Conservation describes this specifically as one of the hardest parts of Te Araroa: extreme alpine weather, many unbridged river crossings, steep drop-offs, and the explicit warning that snow, freezing temperatures and flooded rivers occur <strong>even in summer</strong>. The guidance is to carry supplies for at least ten days precisely because you may need to sit still for several of them waiting for a river to drop. The entire trail's seasonal design exists to put walkers over the Richmond passes and Waiau Pass snow-free, and that means December at the earliest.</p>
+      <p>And the correction I owe you: the huts will not be busy. Southbound thru-hikers start at Cape Reinga between late October and early December and reach this country in December or January. Northbounders begin in January or February. Through November you would be moving through the most technically demanding stretch of the trail, alone, on an eight to nine day food carry, in an early season snowpack, with the huts largely empty and no realistic bail-out short of walking yourself out. That is not a solitude problem. That is a margin problem.</p>
+
+      <div class="stop"><b>The disqualifier is not the trail. It is who is waiting.</b> Every other risk here is one you have the skills to manage and have managed before. But this is the one option where a bad river crossing or a rolled ankle means days before anyone knows, on a different continent, while your daughter is at your parents' house in the middle of a move. That calculus is different than it would have been two years ago, and it is different than it will be next year.</div>
+
+      <h4>If you take it anyway, or take it later</h4>
+      <ul>
+        <li>Carry a tent regardless. The correct framing is tent equals guaranteed bed, hut equals upgrade.</li>
+        <li>NZeTA is NZ$17 through the mobile app or NZ$23 online, plus the NZ$100 International Visitor Levy, paid in the same transaction. Allow 72 hours for processing. Neither figure appeared in the original cost table.</li>
+        <li>Ground cost $1,400 to $2,200 excluding flights, including the levy, hut and trail passes, shuttles and town nights.</li>
+        <li><strong>The real recommendation: put this on the calendar for late January or February 2027 instead.</strong> Passes clear, rivers drop, huts fill with people walking the same direction as you, and you will be a year further into whatever the move turns out to be. It is the right trip. It is not the right November.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Staying reachable</h2>
+  <p class="sub">This applies whichever one you take, and it is the piece the original plan did not have at all.</p>
+  <div class="verify">
+    <div class="vbox">
+      <h4>The setup</h4>
+      <ul>
+        <li>Satellite communicator with two-way messaging, carried on your person and not in the pack lid. Share the tracking link with your parents and with Maddy before you leave.</li>
+        <li>One scheduled check-in per day at a fixed time, sent whether or not there is anything to say. The value is that its absence is information.</li>
+        <li>A written escalation note left with your parents: who to call, in what order, at what hour of missed contact, with the permit or booking references attached.</li>
+        <li>Kumano is the outlier here in a good way. Most nights you are in a village with signal and an innkeeper who knows you arrived.</li>
+      </ul>
+    </div>
+    <div class="vbox">
+      <h4>Verify before you commit</h4>
+      <ul>
+        <li>Submit the Kumano Travel request for Miura-guchi and Koguchi first, early November dates, before anything else on this page gets decided.</li>
+        <li>Confirm your award routing out of IND, CVG or ORD before locking Japan lodging, not after.</li>
+        <li>Re-read the Smokies permit page on Recreation.gov the week your 30 day window opens. The system changed hands in April 2026 and the details may have moved again.</li>
+        <li>Check current NZeTA and levy amounts at immigration.govt.nz if New Zealand comes back into play.</li>
+        <li>Recheck all of it before booking. Prices, inventory, permit rules and transport schedules all move.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  Get Out · Reck the Fort field operations. Reset Journeys section, verified August 2026 against Tanabe City Kumano Tourism Bureau, Kumano Travel, the Appalachian Trail Conservancy, Great Smoky Mountains National Park, New Zealand DOC and Immigration New Zealand. Reverify before booking.
+</footer>
+
+</body>
+</html>
