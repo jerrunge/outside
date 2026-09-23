@@ -83,6 +83,7 @@
   .now-col{padding:14px 18px 18px;}
   .now-col:first-child{border-right:1px solid var(--line);}
   .now-col > .colhead{margin:0 0 10px;}
+  .now-grid.one{grid-template-columns:1fr;} .now-grid.one .now-col{border:0;}
 
   /* ---------- toolbar ---------- */
   .toolbar{position:sticky;top:0;z-index:40;background:rgba(20,23,26,.93);
@@ -242,7 +243,7 @@
     <div class="now-panel" id="nowPanel">
       <div class="now-head">
         <div class="l">
-          <span class="tag">This week</span>
+          <span class="tag" id="nowTag">This week</span>
           <h2 id="nowTitle">—</h2>
           <span class="dates" id="nowDates"></span>
         </div>
@@ -479,7 +480,36 @@ function buildCalendar(){
   }
 }
 
+// next booked trip: any d.tidePlan whose status reads "Booked · Mon D to [Mon ]D, YYYY"
+function nextBooked(){
+  const today=new Date(); today.setHours(0,0,0,0);
+  return T.map(t=>{
+    const st=t.d&&t.d.tidePlan&&t.d.tidePlan.status;
+    const m=st&&/^Booked\s*·\s*([A-Z][a-z]{2}) (\d+) to (?:([A-Z][a-z]{2}) )?(\d+), (\d{4})/.exec(st);
+    if(!m) return null;
+    const y=+m[5], sm=MONTHS_SH.indexOf(m[1]), em=m[3]?MONTHS_SH.indexOf(m[3]):sm;
+    if(sm<0||em<0) return null;
+    const start=new Date(y,sm,+m[2]), end=new Date(em<sm?y+1:y,em,+m[4]);
+    return {t,start,end};
+  }).filter(b=>b&&b.end>=today).sort((a,b)=>a.start-b.start)[0]||null;
+}
+
 function buildNow(){
+  const grid=document.querySelector('.now-grid'), bpCol=document.getElementById('nowBP').parentElement, carCol=document.getElementById('nowCar').parentElement;
+  const b=nextBooked();
+  if(b){
+    const t=b.t, m=b.start.getMonth()+1, isBP=t.type==='backpack';
+    const fmt=d=>`${MONTHS_SH[d.getMonth()]} ${d.getDate()}`;
+    document.getElementById('nowTag').textContent='Booked';
+    document.getElementById('nowTitle').textContent=t.name;
+    document.getElementById('nowDates').textContent=`${fmt(b.start)} – ${fmt(b.end)}, ${b.end.getFullYear()}`;
+    document.getElementById('nowSeason').textContent=MNOTE[m]||SEASON_TAG(m);
+    grid.classList.add('one'); bpCol.style.display=isBP?'':'none'; carCol.style.display=isBP?'none':'';
+    document.getElementById(isBP?'nowBP':'nowCar').innerHTML=card(t,m);
+    return;
+  }
+  grid.classList.remove('one'); bpCol.style.display=''; carCol.style.display='';
+  document.getElementById('nowTag').textContent='This week';
   const m = 7; // late June -> first in-season window is July alpine; we surface week 1
   document.getElementById('nowTitle').textContent='Late June → first July window';
   const ws=new Date(2026,5,29), we=new Date(2026,6,5);

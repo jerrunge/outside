@@ -489,7 +489,7 @@ function downloadGPX(t){
 /* ---------------- permit release planner ---------------- */
 const PERMIT_CAL={
   littlelakes:'inyo', shadow:'inyo',
-  cathedral:'yosemite', laurel:'yosemite',
+  cathedral:'yosemite', laurel:'yosemite', halfdome:'yosemite_hd',
   lostcoast:'lostcoast', enchant:'lottery_spring', pointreyes:'recgov_pr',
   desolation:'recgov6mo', twentylakes:'recgov6mo',
   lakesbasin:'recgov6mo', junelake:'recgov6mo', bishopcreek:'recgov6mo', lassencar:'recgov6mo',
@@ -516,6 +516,9 @@ function computeRelease(type,entry){
     case 'yosemite': return {rows:[
       R('Reservation opens', minusDays(entry,168), '7am PT, 24 weeks (168 days) ahead, rolling daily')],
       caveat:'Yosemite Wilderness via recreation.gov. Does NOT include Half Dome.'};
+    case 'yosemite_hd': return {rows:[
+      R('40% first-come release', minusDays(entry,7), '7am PT, 7 days ahead; online booking closes 3 days before the start')],
+      caveat:'Yosemite Wilderness via recreation.gov. Glacier Point → LYV: 6 lottery / 4 first-come. Half Dome add-on $10/person, paid only at pickup.'};
     case 'lostcoast': return {rows:[
       R('Permit release', minusDays(entry,90), '~7am PT, rolling ≈90 days ahead')],
       caveat:'King Range via recreation.gov. Some sources cite a 6-month window — verify. And CHECK TIDES before you book; some dates have no passable window.'};
