@@ -518,7 +518,7 @@ function computeRelease(type,entry){
       caveat:'Yosemite Wilderness via recreation.gov. Does NOT include Half Dome.'};
     case 'yosemite_hd': return {rows:[
       R('40% first-come release', minusDays(entry,7), '7am PT, 7 days ahead; online booking closes 3 days before the start')],
-      caveat:'Yosemite Wilderness via recreation.gov. Glacier Point → LYV: 6 lottery / 4 first-come. Half Dome add-on $10/person, paid only at pickup.'};
+      caveat:'Yosemite Wilderness via recreation.gov. Happy Isles → Past LYV: 9 lottery / 6 first-come. Half Dome add-on $10/person, paid when the permit is issued.'};
     case 'lostcoast': return {rows:[
       R('Permit release', minusDays(entry,90), '~7am PT, rolling ≈90 days ahead')],
       caveat:'King Range via recreation.gov. Some sources cite a 6-month window — verify. And CHECK TIDES before you book; some dates have no passable window.'};
@@ -604,6 +604,7 @@ function render(t){
         </section>
 
         <section class="sec"><h2>${t.type==='backpack'?'Route &amp; Itinerary':'Basecamp &amp; Day Hikes'}</h2>${routeHTML}</section>
+        ${d.maps?`<section class="sec"><h2>AllTrails Maps <span class="n">download for offline before you lose signal</span></h2>${d.maps.map(m=>`<div class="opt"><div class="on"><a href="${m.url}" target="_blank" rel="noopener">${esc(m.name)} ◬</a></div><div class="os">${esc(m.stat)}</div><p class="ot">${esc(m.text)}</p></div>`).join('')}</section>`:''}
 
         <section class="sec"><h2>Fishing <span class="n">proven catchability</span></h2>${fishingHTML(t)}</section>
         ${d.kit?kitHTML(d.kit):''}
