@@ -480,8 +480,8 @@ function buildCalendar(){
   }
 }
 
-// next booked trip: any d.tidePlan whose status reads "Booked · Mon D to [Mon ]D, YYYY"
-function nextBooked(){
+// booked trips still ahead, soonest first: any d.tidePlan whose status reads "Booked · Mon D to [Mon ]D, YYYY"
+function bookedTrips(){
   const today=new Date(); today.setHours(0,0,0,0);
   return T.map(t=>{
     const st=t.d&&t.d.tidePlan&&t.d.tidePlan.status;
@@ -491,23 +491,35 @@ function nextBooked(){
     if(sm<0||em<0) return null;
     const start=new Date(y,sm,+m[2]), end=new Date(em<sm?y+1:y,em,+m[4]);
     return {t,start,end};
-  }).filter(b=>b&&b.end>=today).sort((a,b)=>a.start-b.start)[0]||null;
+  }).filter(b=>b&&b.end>=today).sort((a,b)=>a.start-b.start);
 }
 
 function buildNow(){
-  const grid=document.querySelector('.now-grid'), bpCol=document.getElementById('nowBP').parentElement, carCol=document.getElementById('nowCar').parentElement;
-  const b=nextBooked();
-  if(b){
-    const t=b.t, m=b.start.getMonth()+1, isBP=t.type==='backpack';
+  const grid=document.querySelector('.now-grid'), bpEl=document.getElementById('nowBP'), carEl=document.getElementById('nowCar');
+  const bpCol=bpEl.parentElement, carCol=carEl.parentElement;
+  const bpHead=bpCol.querySelector('.colhead'), carHead=carCol.querySelector('.colhead');
+  const all=bookedTrips();
+  if(all.length){
     const fmt=d=>`${MONTHS_SH[d.getMonth()]} ${d.getDate()}`;
+    const span=b=>`${fmt(b.start)} – ${fmt(b.end)}, ${b.end.getFullYear()}`;
+    const head=(b,i)=>`<span class="ct" style="color:var(--${b.t.type==='backpack'?'rust-bright':'teal'})">${i?'Then':'Next'} · ${span(b)} · ${b.t.type==='backpack'?'▲ Backpacking':'■ Car camping'}</span>`;
+    const b=all[0], m=b.start.getMonth()+1;
     document.getElementById('nowTag').textContent='Booked';
-    document.getElementById('nowTitle').textContent=t.name;
-    document.getElementById('nowDates').textContent=`${fmt(b.start)} – ${fmt(b.end)}, ${b.end.getFullYear()}`;
-    document.getElementById('nowSeason').textContent=MNOTE[m]||SEASON_TAG(m);
-    grid.classList.add('one'); bpCol.style.display=isBP?'':'none'; carCol.style.display=isBP?'none':'';
-    document.getElementById(isBP?'nowBP':'nowCar').innerHTML=card(t,m);
+    document.getElementById('nowTitle').textContent=b.t.name;
+    document.getElementById('nowDates').textContent=span(b);
+    document.getElementById('nowSeason').textContent=all.length>1?`Then ${all.slice(1).map(x=>`${x.t.name.split(' — ')[0]}, ${fmt(x.start)}`).join(' · ')}`:(MNOTE[m]||SEASON_TAG(m));
+    // every booked trip gets its card, soonest first: the next one on the left, the one after on the right
+    const two=all.length>1;
+    grid.classList.toggle('one',!two); bpCol.style.display=''; carCol.style.display=two?'':'none';
+    bpHead.innerHTML=head(all[0],0); bpEl.innerHTML=card(all[0].t,m);
+    if(two){ carHead.innerHTML=head(all[1],1); carEl.innerHTML=card(all[1].t,all[1].start.getMonth()+1); }
+    all.slice(2).forEach((x,i)=>{
+      (i%2?carEl:bpEl).insertAdjacentHTML('beforeend',`<div class="colhead" style="margin:14px 0 10px">${head(x,i+2)}</div>${card(x.t,x.start.getMonth()+1)}`);
+    });
     return;
   }
+  bpHead.innerHTML='<span class="ct" style="color:var(--rust-bright)">▲ Backpacking</span>';
+  carHead.innerHTML='<span class="ct" style="color:var(--teal)">■ Car camping</span>';
   grid.classList.remove('one'); bpCol.style.display=''; carCol.style.display='';
   document.getElementById('nowTag').textContent='This week';
   const m = 7; // late June -> first in-season window is July alpine; we surface week 1

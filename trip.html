@@ -633,7 +633,7 @@ function render(t){
           ${d.tidePlan.nights.map(nt=>`
             <div class="tidewin" style="border-left:3px solid var(--teal)">
               <div class="tw-h"><span class="tw-when">${esc(nt.label)}</span><span class="tw-tier" style="color:var(--teal);border-color:var(--teal)">${esc(nt.camp)}</span></div>
-              <div class="tw-tide">Permit zone: ${esc(nt.zone)}</div>
+              <div class="tw-tide">${esc(d.tidePlan.zoneLabel||'Permit zone')}: ${esc(nt.zone)}</div>
               <div class="tw-note">${esc(nt.note)}</div>
             </div>`).join('')}
           </div>
