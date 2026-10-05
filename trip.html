@@ -568,6 +568,7 @@ function render(t){
         ${t.epic?'<span class="tag epic">★ EPIC</span>':''}
         ${t.status==='live'?'<span class="tag live">● Live page</span>':''}
         ${/✦/.test(t.permit)?'<span class="tag" style="color:var(--flag);border-color:#5a3a23">✦ Permit / lottery</span>':'<span class="tag">No permit lottery</span>'}
+        ${t.dogs?`<span class="tag"${t.dogs==='yes'?' style="color:var(--teal);border-color:var(--teal)"':''}>${t.dogs==='yes'?'Dogs OK':t.dogs==='limited'?'Dogs limited':'No dogs'}</span>`:''}
       </div>
       <div class="region">${esc(t.region)}</div>
       <h1>${esc(t.name)}</h1>
@@ -593,7 +594,13 @@ function render(t){
     ${t.status==='live'?`<div class="disclaim" style="margin-top:20px">There\'s also a standalone deep-dive page for this trip at <a href="${t.url}" target="_blank" rel="noopener">${t.url}</a>.</div>`:''}
     <div class="grid">
       <div class="main">
+        ${(t.closedUntil && new Date(t.closedUntil+'T23:59:59')>=new Date())?`<div class="notebox" style="border-left-color:#c0442b;margin:0 0 14px"><b>Closed.</b> ${esc(t.closedNote||'This trip is closed for now.')}</div>`:''}
         <section class="sec lead"><h2>The Overview</h2>${d.over.map(p=>`<p>${esc(p)}</p>`).join('')}</section>
+        ${d.now?`<section class="sec"><h2>This Season <span class="n">as read ${esc(d.now.read)} · re-check before you go</span></h2>
+          <ul class="checklist">${d.now.lines.map(l=>`<li>${esc(l)}</li>`).join('')}</ul>
+          ${(d.now.sources&&d.now.sources.length)?`<p style="margin:8px 0 0;font-size:12px;color:var(--ink-faint)">Sources: ${d.now.sources.map(u=>{ let h=u; try{ h=new URL(u).hostname.replace(/^www\./,''); }catch(e){} return `<a href="${esc(u)}" target="_blank" rel="noopener" style="color:var(--ink-dim)">${esc(h)}</a>`; }).join(' · ')}</p>`:''}
+          ${t.dogNote?`<div class="notebox" style="border-left-color:var(--teal)"><b>Dogs.</b> ${esc(t.dogNote)}</div>`:''}
+        </section>`:(t.dogNote?`<div class="notebox" style="border-left-color:var(--teal)"><b>Dogs.</b> ${esc(t.dogNote)}</div>`:'')}
         ${d.dog&&d.solo?soloHTML(t):''}
 
         <section class="sec"><h2>Why it scores <span class="n">your five criteria, in order</span></h2>

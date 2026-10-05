@@ -517,7 +517,7 @@ window.TRIPS = [
   fish:{water:'Ocean (no freshwater trout)',species:'—',method:'—',season:'—'},
   wild:['Tule elk','Bobcat','Gray whale (Dec–Apr)','Northern elephant seal','Coyote','Raptors'],
   water:{spots:['Bass Lake (freshwater swim)','Alamere Falls','Ocean beaches'],skinny:'Bass Lake is the classic quiet freshwater dip; weekday beaches are empty.'},
-  permit:{system:'Point Reyes backcountry camping permit (recreation.gov) — required, reservable.',cost:'Camp fee',where:'recreation.gov',when:'Reservable up to ~3 months ahead; weekends book early',notes:'No campfires (charcoal in pits only at some sites). Carry water or treat. Keep distance from elk and seals.'},
+  permit:{system:'Point Reyes backcountry camping permit (recreation.gov) — required, reservable.',cost:'$30 per night for a standard site (up to 6 people); $90 per night for a group site (7 to 25); half off standard sites with a Senior or Access pass.',where:'recreation.gov',when:'Reservable up to ~3 months ahead; weekends book early',notes:'Wood and charcoal fires are prohibited in all four hike-in camps; gas stoves or canned heat only. Each camp has a faucet, usually potable; treat it anyway. Keep distance from elk and seals.'},
   drive:{time:'~1.5 hr',route:'Hwy 1 to Olema / Bear Valley or Palomarin (Bolinas)',flags:['Palomarin road is rough dirt','Fog common — bring layers']},
   safety:['Cold ocean + rip currents — wade, don\'t swim out','Ticks in the grass (Lyme) — check yourself','Keep back from tule elk in rut (fall)'],
   insider:['Winter for whales and empty trails','Swim Bass Lake on the way to Wildcat','Time Alamere Falls for low tide to walk the beach'],
@@ -531,7 +531,7 @@ window.TRIPS = [
  d:{tag:'Redwoods meeting the surf, river pools in the gorge, and blissful off-season quiet. Skip the summer crush.',
   over:['Big Sur is the iconic California coast — redwoods running down to the Pacific, the Santa Lucia range plunging into surf — and it\'s genuinely better in the off-season, when the Highway 1 crowds thin and the Big Sur River runs full through Pfeiffer\'s gorge pools.','Base at Pfeiffer Big Sur or a Los Padres campground, swim the river gorge, hike the redwood canyons and coastal bluffs, and watch for condors overhead. Two and a half hours from home for one of the most beautiful coastlines on earth.'],
   why:{scenery:'Redwoods, surf, and the Santa Lucia plunge — iconic.',fish:'Light — the river\'s steelhead run is closed; go for the place.',wildlife:'California condor, deer, sea otters offshore, bobcat.',bugs:'Coastal — low.',water:'Big Sur River gorge pools; cold but swimmable.'},
-  route:{mode:'car',basecamp:'Pfeiffer Big Sur SP, or Los Padres NF campgrounds (Bottchers Gap, Kirk Creek).',
+  route:{mode:'car',basecamp:'None of these is open as of Oct 4, 2026: Pfeiffer Big Sur is closed until further notice for the Timber and Plaskett Fires, Kirk Creek (and nearby Plaskett Creek) have been closed since August, and the Bottchers Gap road is closed by forest order through Jan 31, 2027. Confirm a reopened campground before booking this trip.',
    dayhikes:['Pfeiffer Falls / Valley View loop · ~2.0 mi · 650 ft','Big Sur River gorge pools','Andrew Molera bluff loop','Partington Cove']},
   fish:{water:'Big Sur River (limited)',species:'—',method:'—',season:'Steelhead closed — not a fishing trip'},
   wild:['California condor','Mule deer','Sea otter (offshore)','Bobcat','Gray whale (migration)'],
@@ -539,7 +539,7 @@ window.TRIPS = [
   permit:{system:'State park / Los Padres campgrounds — reservable (ReserveCalifornia / recreation.gov).',cost:'Camp fee',where:'reservecalifornia.com / recreation.gov',when:'Off-season midweek is easy; summer weekends are a scramble',notes:'Check Highway 1 status — slides periodically close sections. Pfeiffer Beach access road is narrow with a separate fee.'},
   drive:{time:'~2.5 hr',route:'Hwy 1 south through Carmel to Big Sur',flags:['Hwy 1 slide closures — check Caltrans before you go','Summer = gridlock; off-season = bliss']},
   safety:['Cold water + currents at the beaches','Poison oak in the canyons','Hwy 1 fog and cliffs — drive carefully'],
-  insider:['Go October–November or April–May for quiet and full river','Gorge pools above the campground for the swim','Andrew Molera at sunset for condors'],
+  insider:['Go October–November or April–May for quiet and full river','The gorge pools are in the closed state park this winter; swim only once Pfeiffer Big Sur reopens.','Andrew Molera at sunset for condors'],
   pack:['Swim shoes','Layers','Caltrans Hwy 1 check'],
   verify:['Highway 1 open (slides)','Campground reservations','River flow for pools']}},
 
@@ -550,12 +550,12 @@ window.TRIPS = [
  d:{tag:'A sea-tunnel blowhole, fern canyons, and dramatic headlands — the soft-landing coastal weekend.',
   over:['The Mendocino coast trades drama for charm: wave-cut headlands, hidden coves, fern-filled canyons, and the famous Russian Gulch "Punch Bowl," a collapsed sea cave where surf surges through a tunnel into an inland blowhole. It\'s a relaxed, scenic basecamp two-plus hours up the coast.','Hike the headland trails, walk to the 36-foot waterfall in the fern canyon, explore the Victorian village of Mendocino, and watch for whales offshore. Low effort, high reward.'],
   why:{scenery:'Headlands, coves, the Punch Bowl blowhole, fern canyons.',fish:'Light — abalone/rock fishing historically; check current regs.',wildlife:'Gray whale (migration), harbor seals, ospreys, deer.',bugs:'Coastal — low.',water:'Coves and the ocean (cold); waterfall in the canyon.'},
-  route:{mode:'car',basecamp:'Russian Gulch SP or Van Damme SP campgrounds.',
-   dayhikes:['Russian Gulch headland + Punch Bowl','Fern Canyon to the waterfall · ~6 mi · 450 ft','Van Damme Fern Canyon','Mendocino Headlands + village']},
+  route:{mode:'car',basecamp:'Van Damme SP in winter: the Russian Gulch campground is closed for the winter and reservable only May through Labor Day.',
+   dayhikes:['Russian Gulch headland + Punch Bowl','Part of the Russian Gulch Fern Canyon Trail is closed (the park does not say which section); confirm the waterfall is reachable before you count on it.','Van Damme Fern Canyon','Mendocino Headlands + village']},
   fish:{water:'Ocean / coves',species:'—',method:'Check current ocean regs',season:'—'},
   wild:['Gray whale (Dec–Apr)','Harbor seal','Osprey','Black-tailed deer','Pelicans'],
   water:{spots:['Russian Gulch cove','Van Damme beach'],skinny:'Cold and fairly public — this one\'s for the scenery, not the dip.'},
-  permit:{system:'State park campgrounds — reservable (ReserveCalifornia).',cost:'Camp fee',where:'reservecalifornia.com',when:'Reserve spring/fall weekends',notes:'Mendocino village (food, coffee) is minutes away. Whale-watching peaks in the winter/spring migration.'},
+  permit:{system:'State park campgrounds — reservable (ReserveCalifornia).',cost:'Camp fee',where:'reservecalifornia.com',when:'Russian Gulch campground: May through Labor Day only. Van Damme: year-round, up to six months ahead, with a few first-come sites.',notes:'Mendocino village (food, coffee) is minutes away. Whale-watching peaks in the winter/spring migration.'},
   drive:{time:'~3.5 hr',route:'US-101 to Hwy 128 through Anderson Valley to Hwy 1',flags:['Hwy 128 is a winding 2-lane','Foggy summers — spring/fall are clearer']},
   safety:['Cold water, strong surf — stay off slick rocks','Fog','Poison oak in canyons'],
   insider:['Time the Punch Bowl for a big swell','Stop in Anderson Valley wineries on the 128 drive','Spring for wildflowers on the headlands'],
@@ -576,7 +576,7 @@ window.TRIPS = [
   fish:{water:'Coyote Creek pools, Coe ponds (Mississippi, Kelly)',species:'Largemouth bass, bluegill',method:'Light spinning / small poppers in the ponds',season:'Cool season; ponds best spring'},
   wild:['Wild pig','Bobcat','Golden eagle','Tarantula (fall)','Western rattlesnake','Tule elk (nearby)'],
   water:{spots:['China Hole','The Narrows'],skinny:'China Hole\'s deeper pools are secluded midweek — skinny-dip grade when the creek runs.'},
-  permit:{system:'Henry Coe SP backcountry — self-register permit at park HQ.',cost:'Park entry + backcountry fee',where:'Park HQ self-register (Coe Ranch entrance)',when:'No quota — register on arrival',notes:'Carry/treat all water — sources are seasonal and can be dry by late spring. Brutal in summer; this is a Oct–May trip. Watch for ticks and rattlesnakes.'},
+  permit:{system:'Henry Coe SP backcountry — self-register permit at park HQ.',cost:'$5 per person per night plus $8 per vehicle per night at Coe Ranch ($6 at Hunting Hollow).',where:'Park HQ self-register (Coe Ranch entrance)',when:'No quota — register on arrival',notes:'Carry/treat all water — sources are seasonal and can be dry by late spring. Brutal in summer; this is a Oct–May trip. Watch for ticks and rattlesnakes.'},
   drive:{time:'~1.5 hr',route:'US-101 to Morgan Hill, East Dunne Ave to Coe Ranch HQ',flags:['East Dunne Ave is a steep, winding climb','Summer heat is dangerous — avoid Jun–Sep']},
   safety:['Carry plenty of water — sources unreliable','Ticks (Lyme) — check often','Rattlesnakes on warm trails','The climb out of China Hole is steep in heat'],
   insider:['Go after the first good rains for running creeks and green hills','Spring for wildflowers; fall for tarantula migration','Camp at the pools, swim at dawn'],
@@ -595,7 +595,7 @@ window.TRIPS = [
   fish:{water:'—',species:'—',method:'—',season:'—'},
   wild:['California condor','Townsend\'s big-eared bat (caves)','Bobcat','Prairie falcon','Tarantula (fall)'],
   water:{spots:['Bear Gulch Reservoir (no swim)'],skinny:'Not a water trip — come for rock and condors.'},
-  permit:{system:'Pinnacles Campground — reservable on recreation.gov; park entry fee.',cost:'Camp fee + entry',where:'recreation.gov',when:'Reserve cool-season weekends',notes:'Bring a headlamp for the talus caves. Caves close seasonally for bat protection — check status. There is a campground pool (seasonal).'},
+  permit:{system:'Pinnacles Campground — reservable on recreation.gov; park entry fee.',cost:'Tent site $44 a night through Mar 11, 2027 (plus $12 on weekend nights), $48 from Mar 12; entrance $30 per vehicle, good seven days.',where:'recreation.gov',when:'Reserve cool-season weekends',notes:'Bring a headlamp for the talus caves. Caves close seasonally for bat protection — check status. There is a campground pool (seasonal).'},
   drive:{time:'~2 hr',route:'US-101 to Hwy 25 to the east entrance',flags:['East and west entrances do NOT connect by road','Summer heat — avoid Jun–Sep']},
   safety:['Caves require a headlamp; can flood after rain','High Peaks cut steps are exposed','Heat in shoulder months'],
   insider:['Hike High Peaks early for condors on the morning thermals','Do Bear Gulch Cave when it\'s open','Spring for wildflowers among the spires'],
@@ -621,27 +621,27 @@ window.TRIPS = [
   pack:['All your water','Full fuel','Telescope/binoculars + star chart'],
   verify:['Bloom status (Feb–Mar)','Road conditions (dry)','Painted Rock closures']}},
 
-{id:'alabamahills',name:'Alabama Hills & the Owens',type:'car',region:'Lone Pine · E. Sierra',drive:5.5,len:'2–3 nts',miles:'flexible',gain:'flexible',
- s:[5,4,3,4,3],wild:true,skinny:false,permit:'Dispersed/FCFS',fish:'Lower Owens — year-round',swim:'Owens dips, Diaz Lake',
+{id:'alabamahills',name:'Alabama Hills & the Owens',type:'car',region:'Lone Pine · E. Sierra',drive:7.5,len:'2–3 nts',miles:'flexible',gain:'flexible',
+ s:[5,4,3,4,3],wild:true,skinny:false,permit:'Free camping permit; designated sites only, first come',fish:'Lower Owens — year-round',swim:'Owens dips, Diaz Lake',
  season:[9,10,11,12,1,2,3,4,5],peak:[10,11,3,4],epic:false,status:'queued',url:null,coord:[36.61,-118.12],
- blurb:'Rock arches framing Mt Whitney, free dispersed camping, and a tailwater that fishes all winter.',
+ blurb:'Rock arches framing Mt Whitney, free camping at designated sites with a permit, and a tailwater an hour north that fishes all winter.',
  d:{tag:'Rock arches framing Mt Whitney, free dispersed camping under the Sierra crest, and a tailwater that fishes all winter.',
-  over:['The Alabama Hills are a surreal jumble of rounded granite outcrops and natural arches at the foot of Lone Pine, with Mt Whitney and the entire Sierra crest as a backdrop — the most photogenic free dispersed camping in California. It\'s a year-round high-desert basecamp that comes into its own in fall, winter and spring when the high country is closed.','Crucially for the cold months: the Lower Owens River below town is a special-regulation tailwater that fishes all winter, so this is one of the few trips that keeps wild-ish trout on the menu December through March.'],
+  over:['The Alabama Hills are a surreal jumble of rounded granite outcrops and natural arches at the foot of Lone Pine, with Mt Whitney and the entire Sierra crest as a backdrop — the most photogenic free dispersed camping in California. It\'s a year-round high-desert basecamp that comes into its own in fall, winter and spring when the high country is closed.','Crucially for the cold months: the Lower Owens wild trout tailwater runs about 13 miles from Pleasant Valley Dam to Five Bridges near Bishop, roughly 65 miles north of Lone Pine; it is a day trip from this camp, not the river below town, so this is one of the few trips that keeps wild-ish trout on the menu December through March.'],
   why:{scenery:'Granite arches framing Mt Whitney — iconic, and free to camp in.',fish:'Lower Owens tailwater fishes year-round — the winter trout option.',wildlife:'Deer, coyote, jackrabbit, raptors; bighorn on the crest.',bugs:'High desert — low.',water:'Owens River dips, Diaz Lake; not a swimming destination per se.'},
-  route:{mode:'car',basecamp:'Alabama Hills dispersed camping (BLM, free, 14-day) or Tuttle Creek / Diaz Lake campgrounds.',
+  route:{mode:'car',basecamp:'Signed designated sites in the Alabama Hills (free BLM camping permit required, first come, 14 days per calendar year) or Tuttle Creek Campground ($12, first come, open all year); Diaz Lake is an Inyo County campground nearby.',
    dayhikes:['Mobius Arch loop · 0.6 mi (Whitney through the arch)','Movie Road auto tour','Whitney Portal day hike (lower)','Lone Pine Lake (if open)']},
   fish:{water:'Lower Owens River (tailwater), Pleasant Valley Reservoir, Diaz Lake',species:'Wild & holdover brown/rainbow (Lower Owens year-round special-reg)',method:'Nymphing the Lower Owens; technical winter fishing',season:'Lower Owens fishes year-round under special regs; lakes year-round'},
   wild:['Mule deer','Coyote','Black-tailed jackrabbit','Golden eagle','Sierra bighorn (crest)'],
   water:{spots:['Owens River','Diaz Lake'],skinny:'Not the trip\'s strength — come for rock, fishing, and the crest.'},
-  permit:{system:'BLM dispersed (free, 14-day limit) or developed campgrounds (Tuttle Creek, Diaz Lake).',cost:'Free dispersed / camp fee',where:'BLM Alabama Hills / FCFS',when:'No reservation for dispersed; arrive early on weekends',notes:'Pack it in/out — heavily used, stay on existing sites to protect the area. Whitney Portal Rd is seasonal up high. Lone Pine has full services.'},
-  drive:{time:'~5.5 hr',route:'US-395 to Lone Pine, Whitney Portal Rd / Movie Rd into the Hills',flags:['Dispersed sites fill on weekends','High-clearance helps on the spur roads']},
+  permit:{system:'Alabama Hills National Scenic Area: camping only at signed designated sites with the free camping permit (online, Eastern Sierra Visitor Center, or a ranger), or at Tuttle Creek Campground; open dispersed camping is no longer allowed.',cost:'Designated sites free with the permit; Tuttle Creek $12 a night',where:'BLM Alabama Hills / FCFS',when:'No reservations anywhere; get the free permit before you go (valid through the end of the calendar year per the agreement) and arrive early on weekends for a designated site',notes:'Pack it in/out — heavily used, stay on existing sites to protect the area. Whitney Portal Rd is seasonal up high. Lone Pine has full services.'},
+  drive:{time:'~7 to 7.5 hr in winter (CA-99 or I-5, CA-58 Tehachapi, CA-14, US-395)',route:'US-395 to Lone Pine, Whitney Portal Rd / Movie Rd into the Hills',flags:['Dispersed sites fill on weekends','High-clearance helps on the spur roads']},
   safety:['Cold desert nights in winter','Flash-flood washes after rain','Sun exposure year-round'],
   insider:['Sunrise through Mobius Arch onto Whitney is the shot','Fish the Lower Owens in winter when nothing else is open','Lone Pine\'s Alabama Hills Café for breakfast'],
   pack:['Fly kit (Lower Owens)','Warm layers (desert nights)','Pack-out kit (LNT)'],
   verify:['Lower Owens flows/regs','Dispersed area rules','Whitney Portal Rd status']}},
 
 {id:'deathvalley',name:'Death Valley — Saline & the Canyons',type:'car',region:'Death Valley NP',drive:8,len:'3 nts',miles:'flexible',gain:'flexible',
- s:[5,1,3,4,2],wild:false,skinny:true,permit:'Dispersed/FCFS',fish:'None',swim:'Saline Valley hot springs ~ (4WD, remote)',
+ s:[5,1,3,4,2],wild:false,skinny:true,permit:'Dispersed/FCFS',fish:'None',swim:'Saline Valley Warm Springs, Palm Spring area only this winter (Lower Springs closed after a Sept 2026 fire) ~ (4WD, remote)',
  season:[11,12,1,2,3],peak:[12,1,2],epic:true,status:'queued',url:null,coord:[36.51,-116.93],
  blurb:'Winter is the only season. Dunes, slot canyons, bighorn — and a remote clothing-optional soak. EPIC.',
  d:{tag:'Winter is the only season — dunes, slot canyons, painted hills, bighorn, and a remote clothing-optional soak. EPIC.',
@@ -652,7 +652,7 @@ window.TRIPS = [
   fish:{water:'—',species:'—',method:'—',season:'—'},
   wild:['Desert bighorn sheep','Kit fox','Sidewinder rattlesnake','Roadrunner','Coyote'],
   water:{spots:['Saline Valley Warm Springs'],skinny:'Saline\'s clothing-optional pools are the destination — but earn them via the rough road and full self-sufficiency.'},
-  permit:{system:'NP campgrounds (some reservable, some FCFS); free backcountry permit for dispersed; park entry fee.',cost:'Camp fee + entry',where:'recreation.gov (Furnace Creek) / FCFS / backcountry register',when:'Winter weekends and holidays fill — reserve Furnace Creek',notes:'SALINE VALLEY: ~50 mi of rough dirt (Steel Pass / South Pass), high-clearance 4WD strongly advised, no services, no cell, road can be impassable when wet or snowy. Carry recovery gear, extra fuel, and all water. Respect the volunteer-maintained springs and their etiquette.'},
+  permit:{system:'Furnace Creek reservable Oct 15 to Apr 15, the rest first come; roadside camping permits are mandatory ($10 a night on Recreation.gov) in Cottonwood, Marble, Echo Canyon, Hole in the Wall and Greenwater Valley and voluntary elsewhere; $30 vehicle entry.',cost:'Camp fee + entry',where:'recreation.gov (Furnace Creek) / FCFS / backcountry register',when:'Winter weekends and holidays fill — reserve Furnace Creek',notes:'SALINE VALLEY: ~50 mi of rough dirt (Steel Pass / South Pass), high-clearance 4WD strongly advised, no services, no cell, road can be impassable when wet or snowy. Carry recovery gear, extra fuel, and all water. Respect the volunteer-maintained springs and their etiquette.'},
   drive:{time:'~8 hr to Furnace Creek',route:'US-395 to Hwy 190 via Olancha, or via Bishop/Big Pine',flags:['Saline access roads are a separate, serious 4WD undertaking','No fuel inside large stretches — fill up']},
   safety:['Extreme remoteness — satellite messenger, recovery gear, extra everything','Flash floods in canyons','Saline roads impassable when wet','Even winter midday can be hot'],
   insider:['Dunes at sunrise, canyons midday, Zabriskie at sunset','Only attempt Saline with the right vehicle, recovery gear, and a buddy plan','Stargazing here is world-class — it\'s a Dark Sky park'],
@@ -660,17 +660,17 @@ window.TRIPS = [
   verify:['Saline Valley road status (deal-breaker)','Furnace Creek reservations','Park alerts / flood risk']}},
 
 {id:'anzaborrego',name:'Anza-Borrego — Palms & Badlands',type:'car',region:'Colorado Desert',drive:9,len:'2–3 nts',miles:'flexible',gain:'flexible',
- s:[5,1,4,4,2],wild:false,skinny:false,permit:'Dispersed/FCFS',fish:'None',swim:'Palm oasis pools',
+ s:[5,1,4,4,2],wild:false,skinny:false,permit:'Dispersed/FCFS',fish:'None',swim:'None open: the first Borrego Palm Canyon grove is closed and the trail ends at a viewpoint',
  season:[11,12,1,2,3,4],peak:[2,3],epic:true,status:'queued',url:null,coord:[33.26,-116.40],
  blurb:'Slot canyons, fan-palm oases, bighorn sheep, and the state\'s best super-bloom. Free dispersed camping.',
  d:{tag:'Slot canyons, fan-palm oases, bighorn sheep, and the state\'s most reliable super-bloom — with free dispersed camping anywhere. EPIC.',
   over:['Anza-Borrego is the largest state park in California, a Colorado Desert wonderland of slot canyons, native fan-palm oases, badlands, and metal-sculpture art on the plains. It\'s famous for its near-legendary roadside camping freedom — you can pull off and camp almost anywhere — and for super-blooms that, in a wet year, rival anything in the West.','Hike the Borrego Palm Canyon oasis (often with bighorn on the slopes), explore slot canyons like The Slot and Calcite Mine, and time a February–March trip to catch the desert in flower.'],
   why:{scenery:'Slot canyons, palm oases, badlands, bloom hills — endlessly varied.',fish:'None — desert park.',wildlife:'Desert bighorn (Borrego = "bighorn"), roadrunner, sidewinder, kit fox.',bugs:'Dry, cool winter — low.',water:'Palm-oasis pools (small); not a swimming destination.'},
   route:{mode:'car',basecamp:'Free dispersed roadside camping (park rules) or Borrego Palm Canyon / Tamarisk Grove campgrounds.',
-   dayhikes:['Borrego Palm Canyon oasis · ~3.0 mi · 600 ft (bighorn)','The Slot canyon · ~2.3 mi','Calcite Mine / wind caves','Font\'s Point badlands overlook','Galleta Meadows sculptures']},
+   dayhikes:['Borrego Palm Canyon to the grove viewpoint · ~3 mi RT · ~470 ft (AllTrails); the first palm grove itself is closed for fire recovery','The Slot canyon · ~2.3 mi','Calcite Mine / wind caves','Font\'s Point badlands overlook','Galleta Meadows sculptures']},
   fish:{water:'—',species:'—',method:'—',season:'—'},
   wild:['Desert bighorn sheep','Roadrunner','Sidewinder rattlesnake','Kit fox','Golden eagle'],
-  water:{spots:['Borrego Palm Canyon pools'],skinny:'Tiny oasis pools — this is a scenery/wildlife/bloom trip, not a swim.'},
+  water:{spots:['None reachable this season: the first palm grove is closed to entry'],skinny:'Tiny oasis pools — this is a scenery/wildlife/bloom trip, not a swim.'},
   permit:{system:'Anza-Borrego SP — free dispersed roadside camping (with rules) + developed campgrounds.',cost:'Free dispersed / camp fee',where:'reservecalifornia.com (developed) / dispersed allowed',when:'Bloom-season (Feb–Mar) weekends get busy; dispersed always available',notes:'Dispersed camping is allowed off established dirt roads with restrictions — read park rules. No services in the backcountry; carry water. Some 4WD-only routes (verify before attempting).'},
   drive:{time:'~9 hr',route:'I-5 south, then inland via Temecula / Hwy 79 / S-22 to Borrego Springs',flags:['Long drive — make it 3 nights','Some named routes need 4WD']},
   safety:['Carry water — desert','Flash floods in slot canyons','Heat even in spring midday'],
@@ -685,12 +685,12 @@ window.TRIPS = [
  d:{tag:'Monzogranite boulder gardens, alien trees, and the clearest winter stars in California — a scenery-and-stars pilgrimage. EPIC.',
   over:['Where the Mojave and Colorado deserts meet, Joshua Tree is a surreal landscape of piled monzogranite boulders, twisted Joshua trees, and fan-palm oases, with world-class rock scrambling and some of the darkest, clearest night skies within reach. It\'s a cold-season park — summer is brutal — and magical from fall through spring.','There\'s no fishing and no swimming; you come for the otherworldly scenery, the scrambling, and the stars. Camp among the boulders at Jumbo Rocks or Hidden Valley and watch the Milky Way come out.'],
   why:{scenery:'Boulder gardens, Joshua trees, desert vistas — utterly distinctive.',fish:'None.',wildlife:'Coyote, jackrabbit, desert tortoise, bighorn, roadrunner.',bugs:'Dry winter — low.',water:'None — bring everything.'},
-  route:{mode:'car',basecamp:'Jumbo Rocks, Hidden Valley, or Ryan campgrounds (book ahead in season).',
+  route:{mode:'car',basecamp:'Jumbo Rocks or Ryan, reservation required all year on Recreation.gov ($30); Hidden Valley cannot be booked, it is first come only ($25).',
    dayhikes:['Hidden Valley loop · 1.0 mi (4.8★)','Barker Dam · 1.3 mi (4.7★)','Ryan Mountain summit · 2.9 mi · 1,066 ft (4.8★)','Cholla Cactus Garden','Keys View at sunset','Stargazing anywhere']},
   fish:{water:'—',species:'—',method:'—',season:'—'},
   wild:['Coyote','Black-tailed jackrabbit','Desert tortoise (rare)','Bighorn sheep','Roadrunner'],
   water:{spots:['—'],skinny:'No water — this is rock and stars.'},
-  permit:{system:'NP campgrounds — many reservable on recreation.gov (some FCFS); park entry fee.',cost:'Camp fee + entry',where:'recreation.gov',when:'Reserve cool-season weekends well ahead — very popular',notes:'No water in most campgrounds — bring all of it. Designated backcountry camping with a free permit/registration is also possible. Stargazing and bouldering are the headline activities.'},
+  permit:{system:'NP campgrounds — many reservable on recreation.gov (some FCFS); park entry fee.',cost:'Camp fee + entry',where:'recreation.gov',when:'Reserve cool-season weekends well ahead — very popular',notes:'No water in most campgrounds — bring all of it. Backcountry camping needs a $6 Recreation.gov permit; the Boy Scout Trail zone requires one of its 14 designated sites. Stargazing and bouldering are the headline activities.'},
   drive:{time:'~8.5 hr',route:'I-5 south to I-10/Hwy 62 to the park (west entrance, Joshua Tree town)',flags:['Long drive — make it 3 nights','Campgrounds book out months ahead in season']},
   safety:['No water — carry plenty','Cold nights, warm days','Scrambling falls — know your limits'],
   insider:['Jumbo Rocks for sunset glow on the boulders','Ryan Mountain for the big view','Keys View + a moonless night for the stars'],
@@ -699,7 +699,7 @@ window.TRIPS = [
 
 /* ===================== WINTER-VIABLE BACKPACKING ===================== */
 {id:'dvbackpack',name:'Death Valley — Cottonwood/Marble Loop',type:'backpack',region:'Death Valley NP',drive:8,len:'2–3 nts',miles:'~9/day',gain:'≤1,800/day',
- s:[5,1,3,4,2],wild:false,skinny:false,permit:'Free backcountry register',fish:'None',swim:'Cottonwood Spring (seasonal)',
+ s:[5,1,3,4,2],wild:false,skinny:false,permit:'Recreation.gov permit, $10',fish:'None',swim:'Cottonwood Spring (seasonal)',
  season:[11,12,1,2,3],peak:[12,1,2],epic:true,status:'queued',url:null,coord:[36.94,-117.30],
  blurb:'A slot-and-spring loop through total desert silence — bighorn, wild burros, sidewinders, zero crowds. Winter only.',
  d:{tag:'A canyon-and-spring loop through total desert silence — bighorn, burros, sidewinders, and not a soul. Winter only.',
@@ -710,7 +710,7 @@ window.TRIPS = [
   fish:{water:'—',species:'—',method:'—',season:'—'},
   wild:['Desert bighorn sheep','Wild burro','Sidewinder rattlesnake','Kit fox','Coyote'],
   water:{spots:['Cottonwood Spring','Dead Horse Spring'],skinny:'Springs are small water sources, not swimming holes — this is a solitude trip.'},
-  permit:{system:'Death Valley NP — FREE backcountry permit (voluntary register; park entry fee).',cost:'Free permit + park entry',where:'Furnace Creek / Stovepipe Wells register or online',when:'No quota',notes:'WATER IS THE CRUX — springs are the only sources; confirm they\'re flowing before you commit, and cache water at the road if needed. The first ~8 mi is a high-clearance dirt approach. Navigation skills required. Winter only.'},
+  permit:{system:'Death Valley NP — Mandatory wilderness permit on Recreation.gov for any overnight on the Cottonwood-Marble loop; park entry fee too.',cost:'$10 per permit ($6 reservation plus $4 recreation fee) plus $30 vehicle entry',where:'Recreation.gov only; Furnace Creek Visitor Center staff can help you book',when:'Released 6 months before the start date; same-day online permits until 11:59 pm on the day you start',notes:'WATER IS THE CRUX — springs are the only sources; confirm they\'re flowing before you commit, and cache water at the road if needed. The first ~8 mi is a high-clearance dirt approach. Navigation skills required. Winter only.'},
   drive:{time:'~8 hr',route:'US-395 to Hwy 190 to Stovepipe Wells; dirt road to the Cottonwood Canyon trailhead',flags:['Cottonwood Canyon Rd needs high clearance','No services — carry/cache water']},
   safety:['Water sources can be dry — verify and cache','Flash floods in the narrows','Remote — satellite messenger','Navigation by map/GPS, not trail signs'],
   insider:['Cache water at the road end to lighten the climb','Camp near Cottonwood Spring for the cottonwood grove','Go on a new moon for the stars'],
@@ -718,37 +718,37 @@ window.TRIPS = [
   verify:['Spring flow status (deal-breaker)','Cottonwood Rd condition','Flood/weather forecast']}},
 
 {id:'ventana',name:'Ventana Wilderness — Big Sur River',type:'backpack',region:'Los Padres · Big Sur',drive:2.5,len:'1–2 nts',miles:'~7/day',gain:'≤2,200/day',
- s:[4,2,3,3,4],wild:false,skinny:true,permit:'Free self-issue · verify trail',fish:'Light (river)',swim:'Big Sur River gorge pools ~',
+ s:[4,2,3,3,4],wild:false,skinny:true,permit:'No permit issued; free campfire permit for a stove; trail closed to Jan 31, 2027',fish:'Light (river)',swim:'Big Sur River gorge pools ~',
  season:[10,11,12,1,2,3,4,5],peak:[10,11,4,5],epic:false,status:'queued',url:null,coord:[36.25,-121.74],
- blurb:'Redwood canyons and river pools above Big Sur, green and running in the wet months. Confirm post-fire trail status.',
+ blurb:'Redwood canyons and river pools above Big Sur. Closed this winter: the Pine Ridge Trail is under a fire closure through Jan 31, 2027.',
  d:{tag:'Redwood canyons and river pools above Big Sur — green and running in the wet months, and just 2.5 hours away.',
   over:['The Ventana Wilderness rises behind Big Sur into the Santa Lucia range — steep redwood canyons, chaparral ridges, and the Big Sur River with its gorge pools. The Pine Ridge Trail from Big Sur Station is the classic corridor toward Sykes (the hot-spring stretch), best in the wet, green months when the creeks run.','Important caveat: this country burned hard in recent fires and trails open and close — so this trip is bookable but conditions-dependent. Confirm current Pine Ridge / Sykes trail status before you go.'],
   why:{scenery:'Redwood canyons and river country above the Big Sur coast.',fish:'Light — the river is more for swimming than fishing.',wildlife:'Deer, condor overhead, bobcat, wild pig.',bugs:'Cool wet season — moderate; ticks present.',water:'Big Sur River gorge pools (and historically Sykes hot springs).'},
   route:{mode:'backpack',options:[
    {name:'Pine Ridge toward Sykes',stat:'2 nts · 20.6 mi RT · 5,442 ft (4.7★)',text:'Big Sur Station up the Pine Ridge Trail to riverside camps and pools. Steep, hot-in-sun ridge sections then redwood shade. Distance/feasibility depend on current trail repair.'}]},
-  fish:{water:'Big Sur River',species:'Light',method:'Optional small dries',season:'Wet season'},
+  fish:{water:'Big Sur River',species:'Light',method:'Optional small dries',season:'Closed in winter: above the gorge pool the Big Sur River opens only from the Saturday before Memorial Day through Sept 30, zero trout, artificial lures with barbless hooks; inside Pfeiffer Big Sur State Park it is closed to all fishing all year.'},
   wild:['Mule deer','California condor','Bobcat','Wild pig','Steelhead (river, protected)'],
   water:{spots:['Big Sur River gorge pools','Sykes vicinity pools'],skinny:'Riverside pools off-season are quiet and private — that\'s the draw.'},
-  permit:{system:'Ventana Wilderness (Los Padres NF) — FREE self-issue permit; campfire permit for stoves.',cost:'Free',where:'Big Sur Station self-issue',when:'No quota',notes:'POST-FIRE TRAIL CONDITIONS VARY — the Pine Ridge/Sykes corridor has had long closures and reroutes. Confirm open status and water before you go. Ticks and poison oak are real here.'},
+  permit:{system:'Ventana Wilderness (Los Padres NF) — FREE self-issue permit; campfire permit for stoves.',cost:'Permits are free; parking at Big Sur Station is $10 per vehicle per calendar day, so one night is $20.',where:'Campfire permit online from CAL FIRE or at Forest Service offices; parking is self-pay at the Big Sur Station lot or a pass bought at the station.',when:'No quota',notes:'POST-FIRE TRAIL CONDITIONS VARY — the Pine Ridge/Sykes corridor has had long closures and reroutes. Confirm open status and water before you go. Ticks and poison oak are real here.'},
   drive:{time:'~2.5 hr',route:'Hwy 1 to Big Sur Station (just past Pfeiffer Big Sur SP)',flags:['Hwy 1 slide closures — check Caltrans','Pine Ridge trail repair status is the key variable']},
   safety:['Poison oak everywhere — long sleeves','Ticks (Lyme) — check often','Steep, sun-exposed climbs — carry water','Burn-area hazards (falling snags)'],
   insider:['Go after rains for full river pools and green canyons','Confirm trail status with the Ventana Wilderness Alliance','Riverside camps midweek are blissfully empty'],
-  pack:['Self-issue + campfire permit','Tick + poison-oak kit','Water/filter'],
+  pack:['California Campfire Permit (there is no wilderness permit)','Tick + poison-oak kit','Water/filter'],
   verify:['Pine Ridge/Sykes trail open status (key)','Highway 1 conditions','River flow / water sources']}},
 
 {id:'jtbackpack',name:'Joshua Tree — Boy Scout Trail',type:'backpack',region:'Joshua Tree NP',drive:8.5,len:'1–2 nts',miles:'~8/day',gain:'≤1,200/day',
- s:[5,1,3,4,1],wild:false,skinny:false,permit:'Free backcountry register',fish:'None',swim:'None (dry)',
+ s:[5,1,3,4,1],wild:false,skinny:false,permit:'Recreation.gov permit, $6; 14 designated sites ✦',fish:'None',swim:'None (dry)',
  season:[10,11,12,1,2,3,4],peak:[11,12,3],epic:true,status:'queued',url:null,coord:[34.02,-116.16],
  blurb:'Sleep among monzogranite giants and Joshua trees, coyotes calling, the clearest winter stars in the state.',
  d:{tag:'Sleep among monzogranite giants and Joshua trees, coyotes calling, under the clearest winter stars in the state. EPIC.',
-  over:['The Boy Scout Trail traverses the northwest corner of Joshua Tree from the high Mojave boulder country down toward the Wonderland of Rocks fringe — an ~8-mile point-to-point (or out-and-back) through classic monzogranite-and-Joshua-tree landscape, with designated backcountry camping and a free self-register permit.','It\'s the way to experience Joshua Tree\'s scenery and silence overnight: no water, no fishing, no swimming — just surreal rock, desert wildlife at dusk, and a sky full of stars in the cool months.'],
+  over:['The Boy Scout Trail traverses the northwest corner of Joshua Tree from the high Mojave boulder country down toward the Wonderland of Rocks fringe — an ~8-mile point-to-point (or out-and-back) through classic monzogranite-and-Joshua-tree landscape, with 14 designated backcountry sites reserved through a $6 Recreation.gov permit.','It\'s the way to experience Joshua Tree\'s scenery and silence overnight: no water, no fishing, no swimming — just surreal rock, desert wildlife at dusk, and a sky full of stars in the cool months.'],
   why:{scenery:'Monzogranite and Joshua trees in every direction — distinctive.',fish:'None.',wildlife:'Coyote, jackrabbit, kangaroo rat, owls, bighorn.',bugs:'Dry winter — low.',water:'None — pack every drop.'},
   route:{mode:'backpack',options:[
-   {name:'Boy Scout Trail',stat:'1–2 nts · 8.0 mi pt-to-pt · ~250 ft (4.7★)',text:'Keys West to Indian Cove (or out-and-back), camping in the designated backcountry zone past the day-use mile markers. Carry all water.'}]},
+   {name:'Boy Scout Trail',stat:'1–2 nts · 8.0 mi pt-to-pt · ~250 ft (4.7★)',text:'Keys West to Indian Cove (or out-and-back), camping in one of the zone\'s 14 designated sites, reserved on Recreation.gov. Carry all water.'}]},
   fish:{water:'—',species:'—',method:'—',season:'—'},
   wild:['Coyote','Black-tailed jackrabbit','Kangaroo rat','Great horned owl','Bighorn sheep'],
   water:{spots:['—'],skinny:'No water at all — plan and pack accordingly.'},
-  permit:{system:'Joshua Tree NP — FREE backcountry permit (self-register at backcountry boards / online); park entry fee.',cost:'Free permit + entry',where:'Backcountry registration boards / recreation.gov',when:'No quota',notes:'NO WATER on route — carry everything (plan ~1 gal/person/day). Camp only in designated backcountry zones (past the 1-mile day-use limit, set back from trails/roads). Cold nights in winter.'},
+  permit:{system:'Joshua Tree NP — Joshua Tree NP backcountry permit, $6 on Recreation.gov (1 to 12 people, up to 14 nights); park entry fee too.',cost:'$6 permit plus $30 vehicle entry',where:'Recreation.gov, 1-877-444-6777, or in person at park headquarters in Twentynine Palms',when:'Up to 6 months ahead; the Boy Scout Trail zone has 14 designated sites, one party each, and fills on cool-season weekends',notes:'NO WATER on route — carry everything (plan ~1 gal/person/day). On the Boy Scout Trail you must camp in your reserved designated site; the at-large rules (1 mile from a backcountry trailhead, half a mile from roads, 200 feet from trails) apply only in the other 12 zones. Cold nights in winter.'},
   drive:{time:'~8.5 hr',route:'I-5 south to I-10/Hwy 62 to the park; Keys West / Indian Cove trailheads',flags:['Long drive — pair with car-camping days','Point-to-point needs a short shuttle/two cars']},
   safety:['No water — carry all of it','Cold nights, warm days','Navigation in open desert — mark your camp','Flash floods in washes after rain'],
   insider:['Camp on the high boulder benches for sunrise glow','Dusk is prime for desert wildlife','New moon for the full star show'],
@@ -1490,3 +1490,1911 @@ const SOLO_NOTE={
 window.TRIPS.forEach(t=>{ if(SOLO_IDS.includes(t.id)){
   t.d.alts=SOLO_IDS.filter(x=>x!==t.id).map(id=>({id,name:window.TRIPS.find(y=>y.id===id).name,note:SOLO_NOTE[id]}));
 }});
+
+/* ============================================================
+   WINTER 2026 TO 2027: new destinations, and this season's read on the trips
+   that are in season November through January. Researched Oct 4, 2026.
+   Each carries its own fish kit and links, and a dogs field (yes, limited, no).
+============================================================ */
+window.TRIPS.push(...
+[
+ {
+  "id": "pyramid",
+  "name": "Pyramid Lake: winter cutthroat from the ladder",
+  "type": "car",
+  "region": "Pyramid Lake · NV",
+  "drive": 4.75,
+  "len": "3 nts",
+  "miles": "easy",
+  "gain": "flat",
+  "s": [
+   4,
+   4,
+   3,
+   5,
+   2
+  ],
+  "wild": false,
+  "skinny": false,
+  "permit": "Tribal fishing + camping permits, buy online",
+  "fish": "Trophy Lahontan cutthroat from shore",
+  "swim": "Summer swim lake; too cold in winter",
+  "season": [
+   10,
+   11,
+   12,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "peak": [
+   11,
+   3,
+   4
+  ],
+  "epic": true,
+  "coord": [
+   39.97,
+   -119.63
+  ],
+  "blurb": "Trophy Lahontan cutthroat from a stepladder on a turquoise desert lake, camped on the beach on Paiute land.",
+  "dogs": "yes",
+  "dogNote": "Dogs are allowed on the open west and south shore beaches, but the Tribe's rule 1.7.4 says dogs must be on a leash at all times, and the Tribal Council can post areas closed to animals.",
+  "d": {
+   "tag": "Big cutthroat, cold wind and a ladder in the shallows: the strangest and best winter stillwater within a day's drive.",
+   "over": [
+    "Pyramid Lake is a desert terminal lake on the Pyramid Lake Paiute Reservation northeast of Reno, ringed by tufa and bare ranges, and the home of the Lahontan cutthroat: the 1925 record from this lake was 41 pounds. From October into spring the big trout cruise the shallow shelf along the west and south shore, so the winter method is to wade out or stand on a stepladder, cast a sinking line and strip a beetle or bugger, or hang midges under an indicator.",
+    "Everything here runs on Tribal land and Tribal rules: a fishing permit for each angler, a camping permit for each vehicle, primitive beach camps, no trash service. The trout are raised by the Tribe's own hatcheries, which release 600,000 to 1,000,000 young cutthroat a year, and they grow large in the alkaline water. Expect wind, cold hands and slow hours broken by a fish that can be the biggest trout of your life."
+   ],
+   "why": {
+    "scenery": "Turquoise desert lake ringed by tufa and bare ranges, the Pyramid and the Needles on the skyline.",
+    "fish": "Trophy Lahontan cutthroat cruising the shelf in winter: slow fishing, real size.",
+    "wildlife": "Waterbirds, coyotes and raptors; the Anaho Island pelican colony is a spring and summer sight.",
+    "bugs": "Winter: nothing that bites.",
+    "water": "Clear, alkaline and swimmable in summer; far too cold to get in from November to January."
+   },
+   "route": {
+    "mode": "car",
+    "basecamp": "A primitive beach camp on the open west shore near Sutcliffe, such as Pelican Point, a few minutes from the Ranger Station and its permit desk. The camping permit is per vehicle: $32 to $35 a night, or $82 to $90 for three nights, depending on which posted price is current. Camp at least 100 ft back from the water, no drinking water, pack out every scrap of trash.",
+    "dayhikes": [
+     "Shoreline walk along the open beaches north of Sutcliffe · easy, flat",
+     "Pyramid Lake Museum and Visitor Center, Nixon · weekdays 10am to 4:30pm",
+     "Pyramid Lake Scenic Drive · 49.3 mi out and back by car (AllTrails)"
+    ]
+   },
+   "fish": {
+    "water": "Pyramid Lake, the open beaches of the west and south shore from Monument Rock to Popcorn Rock",
+    "species": "Lahontan cutthroat trout (raised by the Tribe), plus Sacramento perch and tui chub",
+    "method": "Fly from shore or a tagged stepladder: a sinking line stripped with beetles, boobies and buggers, or midges under an indicator on a floating line",
+    "season": "Trout season runs Oct 1, 2026 to Jun 30, 2027. The rule that bites: barbless hooks and no bait at all, and only fish 17 to 20 in or 24 in and longer may be kept, two a day with only one over 24 in.",
+    "catch": 3,
+    "label": "Slow, big fish; blank days are normal",
+    "gear": "7 to 8 wt, 9 to 10 ft; an intermediate or sinking line or shooting head for stripping beetles and buggers, plus a floating line with an indicator for midges; 1X to 3X fluorocarbon; stripping basket. A 4 to 5 wt is too light for the wind and the fish.",
+    "flies": [
+     "Foam beetle, black with red or chartreuse #6 to 8",
+     "Booby, black or white #8",
+     "Woolly Bugger, black or olive #6 to 8",
+     "Midge or chironomid #10 to 14 under an indicator",
+     "Tui chub streamer"
+    ],
+    "timing": "Honest read: the casting and stripping are learnable in a day, but this is a low-numbers lake. A competent trout angler new to it should count one to three fish over three days as a good trip and a fishless day as normal. First and last light, overcast skies and a light chop fish best."
+   },
+   "wild": [
+    "Coyote",
+    "Black-tailed jackrabbit",
+    "Western grebe",
+    "Common merganser",
+    "American white pelican (Anaho Island, spring to fall)"
+   ],
+   "water": {
+    "spots": [
+     "Pyramid Lake shallows off the open beaches (summer)",
+     "Sutcliffe Marina beach (a family beach, no alcohol)"
+    ],
+    "skinny": "Not realistic in winter: the water is cold and the beaches are open and shared."
+   },
+   "permit": {
+    "system": "Pyramid Lake Paiute Tribe permits: a fishing permit for each angler 12 and up and a camping permit for each vehicle. No Nevada fishing license is needed.",
+    "cost": "Fishing $27 a day or $70 for three days (second rod the same); camping $35 a night or $90 for three nights per vehicle; day use $25 for a non-fishing companion. Vendors may add up to $1.",
+    "where": "Online at plpt.nagfa.net/online, or the Ranger Station at 2500 Lakeview Drive, Sutcliffe (listed daily 6am to 6pm), or the Pyramid Lake Museum and Visitor Center, 709 State Street, Nixon (weekdays 10am to 4:30pm). No American Express.",
+    "when": "No reservations and no quota; buy before you drive. No seasonal permit is sold after Sep 30.",
+    "notes": "Permits are nontransferable and not replaced if lost. A camping permit runs from sunrise on the first day to 11am after the last night. Ranger Station: 775-476-1155."
+   },
+   "drive": {
+    "time": "~4.75 hr",
+    "route": "I-80 east over Donner Summit to Sparks, then Pyramid Way (NV 445) north to Sutcliffe on the west shore.",
+    "flags": [
+     "I-80 over Donner Summit: chain controls in storms, check Caltrans QuickMap",
+     "Fill up on fuel, food and water in Sparks",
+     "Beach access roads are dirt, with soft sand in places"
+    ]
+   },
+   "safety": [
+    "Wind can build whitecaps in minutes: get off the ladder and out of the water when it comes up",
+    "Cold water and a ladder: cinch a wading belt, carry a staff, and do not stand in breaking waves",
+    "Park on firm ground; soft sand can trap a two-wheel-drive car",
+    "Hard freezes at night: a winter bag, and keep water jugs inside the car"
+   ],
+   "insider": [
+    "Any ladder, crate or box in the water must carry a permanent tag with the owner's name, address and phone, stay attended, and come out by the end of legal hours",
+    "Overcast days with a light chop usually fish better than flat bluebird calm",
+    "Stop at the Ranger Station in Sutcliffe for the week's beach and wind news; rangers check permits on the beach",
+    "Measure fork length with the fish in the water: 17 to 20 in or 24 in and up can be kept, everything else goes back, and filleting on the reservation is not allowed"
+   ],
+   "pack": [
+    "7 to 8 wt rod, sinking and floating lines, stripping basket",
+    "Tagged stepladder (name, address, phone)",
+    "Insulated waders, wind shell, gloves and a warm hat",
+    "All your water, firewood and trash bags: there is no trash service on the reservation"
+   ],
+   "verify": [
+    "Call the Ranger Station, 775-476-1155: open beaches, closures, recent wind",
+    "NWS Reno lake wind forecast for Pyramid",
+    "I-80 chain controls over Donner Summit",
+    "Current prices on pyramidlake.us/permits",
+    "Whether the 2026 brochure changes posted in September are final"
+   ],
+   "now": {
+    "read": "Oct 4, 2026",
+    "lines": [
+     "Trout season opened Oct 1, 2026 and runs to Jun 30, 2027. Under the 2026 brochure changes, all fishing then closes Jul 1 to Sep 30.",
+     "Prices: the 2026 brochure lists fishing at $27 a day or $70 for three days and camping at $35 per vehicle per night or $90 for three nights. The Tribe's ranger station page still shows $24, $62, $32 and $82, so expect one or the other at checkout. The $750 seasonal permit was sold only Sep 8 to 30.",
+     "Buy online at plpt.nagfa.net/online or at the Sutcliffe Ranger Station (listed every day 6am to 6pm); the Nixon visitor center sells on weekdays. No American Express.",
+     "Rules: barbless hooks, no bait or scent of any kind, two trout a day of 17 to 20 in or 24 in and up (one over 24 in), legal hours one hour before sunrise to one hour after sunset, no fishing within 250 ft of boat docks.",
+     "Closed to the public: the Needles, Anaho Island, the Marble Bluff area, the Beehives, the Pyramid and Stone Mother area, the east shore beaches (closed on the Tribe's map) and the Truckee River and delta. Popcorn Rock has been closed to boat launching since Dec 2024 over the golden mussel threat.",
+     "Camping rules: camps and vehicles at least 100 ft from the shoreline, fires no taller than 4 ft and at least 50 ft from the water, no glass or pallets on beaches, no drones, and no portable toilets with removable waste bags.",
+     "Weather: expect hard freezes most nights in December and January; wind decides the fishing, so read the Reno lake wind forecast daily."
+    ],
+    "sources": [
+     "https://pyramidlake.us/fishing",
+     "https://pyramidlake.us/permits",
+     "https://pyramidlake.us/wp-content/uploads/2025/11/111945-Pyramid-Lake-Regulations-Book.pdf",
+     "https://pyramidlake.us/wp-content/uploads/2026/09/RegulationsChange2026s.pdf",
+     "https://pyramidlake.us/wp-content/uploads/2020/01/2019_Open_Beaches_Map.pdf",
+     "https://pyramidlake.us/wp-content/uploads/2024/12/Press-Release-POCORN-Rock-Dec-20242024_08_13-17_08_42-UTC.pdf",
+     "https://plpt.nagfa.net/online/",
+     "https://pyramidlakefisheries.org/hatcheries/"
+    ]
+   }
+  },
+  "status": "queued",
+  "url": null,
+  "at": "https://www.alltrails.com/trail/us/nevada/pyramid-lake-scenic-drive",
+  "air": "Reno-Tahoe (RNO) ~50 min"
+ },
+ {
+  "id": "trinitysteel",
+  "name": "Trinity River: winter steelhead on the wade water",
+  "type": "car",
+  "region": "Trinity River · Lewiston to Junction City",
+  "drive": 4.75,
+  "len": "3 nts",
+  "miles": "easy",
+  "gain": "flat",
+  "s": [
+   4,
+   4,
+   4,
+   5,
+   2
+  ],
+  "wild": true,
+  "skinny": false,
+  "permit": "CA license + steelhead card; first-come camp",
+  "fish": "Fall and winter steelhead, walk-in water",
+  "swim": "Cold river; a summer swim, not a winter one",
+  "season": [
+   10,
+   11,
+   12,
+   1,
+   2,
+   3
+  ],
+  "peak": [
+   11,
+   12
+  ],
+  "epic": false,
+  "coord": [
+   40.7,
+   -122.97
+  ],
+  "blurb": "Wade the upper Trinity for fall and winter steelhead, from a Forest Service camp that stays open all year.",
+  "dogs": "yes",
+  "dogNote": "Dogs are welcome on a leash of 6 ft or shorter in Forest Service campgrounds such as Pigeon Point, Big Flat and Ackerman, and BLM requires leashes in its campgrounds.",
+  "d": {
+   "tag": "Steelhead on trout tactics in a pine and oak canyon, with the river nearly to yourself on a weekday.",
+   "over": [
+    "The upper Trinity below Lewiston Dam is one of the most approachable steelhead rivers in California for a wading angler: a clear, cold, medium-size tailwater through a canyon of pine, fir, oak and madrone, with public walk-in water from Lewiston down past Douglas City and Junction City along Hwy 299. Fall-run steelhead push up from the Klamath from September and hold here into winter, joined by adipose-clipped hatchery fish bound for the Trinity River Hatchery at Lewiston.",
+    "Winter camping is the catch: BLM's riverside camps close for the season, so the base is a Forest Service camp that stays open all year. Nymph an indicator through tailouts and riffle seams, the same game as trout with heavier tippet, keep a hatchery fish if you want one and release every wild one. Brown trout are a legal keeper too."
+   ],
+   "why": {
+    "scenery": "Forested canyon of pine, fir, oak and madrone, with snow on the Trinity Alps above.",
+    "fish": "Wild and hatchery steelhead plus resident browns on public wade water.",
+    "wildlife": "Bald eagles, river otters, deer, dippers and mergansers along the river.",
+    "bugs": "Winter: none.",
+    "water": "Clear, cold river; a summer swim, not a winter one."
+   },
+   "route": {
+    "mode": "car",
+    "basecamp": "Pigeon Point Campground (Shasta-Trinity National Forest) on Hwy 299, about 4 miles west of Junction City, above the river: open all year, $12 a night, self-register, first come, no drinking water. Big Flat, about 4 miles further west, is also open all year at $12 and has vault toilets. For the Lewiston end, Ackerman's north loop on Lewiston Lake, 8 miles above Lewiston, is open all year for walk-ins. BLM's Douglas City, Junction City and Steel Bridge camps close for winter.",
+    "dayhikes": [
+     "Lewiston Lake Trail · 3.2 mi out and back, 341 ft (AllTrails)",
+     "Day Ranch Spur and East Weaver Creek Loop, Weaverville · 2.4 mi, 321 ft (AllTrails)",
+     "Canyon Creek Trail, the lower miles only, snow permitting · full route 15.6 mi out and back, 2,864 ft (AllTrails)"
+    ]
+   },
+   "fish": {
+    "water": "Trinity River from the Old Lewiston Bridge down through Douglas City and Junction City",
+    "species": "Steelhead (wild, plus adipose-clipped hatchery fish), brown trout, resident rainbows; fall Chinook through Dec 31",
+    "method": "Indicator nymphing with egg patterns and stoneflies through riffles and tailouts, or swinging flies on a switch rod",
+    "season": "Below the Old Lewiston Bridge to the Hwy 299 bridge at Cedar Flat: open all year, 2 hatchery trout or steelhead a day (4 in possession), 10 brown trout, wild fish released, barbless hooks only. The rule that bites: the water from 250 ft below Lewiston Dam to the Old Lewiston Bridge is open only Apr 1 to Sep 15, so it is closed all winter.",
+    "catch": 3,
+    "label": "Moderate; nymphing makes it trout-like",
+    "gear": "6 to 7 wt, 9.5 to 10 ft, floating line, indicator with split shot, 2X to 3X fluorocarbon; a switch rod if you want to swing. A 5 wt can handle half-pounders but is light for a 6 lb adult in current.",
+    "flies": [
+     "Egg pattern, peach or orange #10 to 12",
+     "Pat's Rubberlegs #6 to 8",
+     "Copper John #12 to 14",
+     "Prince or Hare's Ear nymph #10 to 14",
+     "Silver Hilton or Brindle Bug #6 (swing)"
+    ],
+    "timing": "Honest read: indicator nymphing here is trout fishing with heavier tippet, so the learning curve is short, but the run is modest. Expect a few hookups over three days in good water, more half-pounders than big adults, and possible zeros right after a storm or a big release. Mid-morning to late afternoon in winter."
+   },
+   "wild": [
+    "Bald eagle",
+    "River otter",
+    "Black-tailed deer",
+    "American dipper",
+    "Common merganser"
+   ],
+   "water": {
+    "spots": [
+     "River pools around Douglas City (summer)",
+     "Lewiston Lake (summer)"
+    ],
+    "skinny": "No winter swimming: the river at Lewiston ran about 46 to 48 F last winter."
+   },
+   "permit": {
+    "system": "No camping permit: Forest Service camps are first come with a self-pay station. California fishing license plus a Steelhead Report Card; a North Coast Salmon Report Card if you fish for salmon.",
+    "cost": "$12 a night at Pigeon Point or Big Flat. 2026 resident license $64.54 (one day $21.09, two days $32.40); Steelhead Report Card $10.29; North Coast Salmon Report Card $9.21.",
+    "where": "Licenses and report cards online from CDFW or at local license agents; pay for camp at the fee station on site.",
+    "when": "Licenses and cards are calendar year: a trip that crosses Jan 1 needs 2027 versions, and the 2026 steelhead card must be reported by Jan 31, 2027.",
+    "notes": "Weaverville Ranger Station: 530-623-2121. BLM Redding Field Office: 530-224-2100. Klamath and Trinity hotline for rules and quotas: 1-800-564-6479."
+   },
+   "drive": {
+    "time": "~4.75 hr",
+    "route": "I-80 and I-505 to I-5 north to Redding, then Hwy 299 west over Buckhorn Summit to Douglas City and Junction City; Lewiston is a short detour north of Hwy 299.",
+    "flags": [
+     "Hwy 299 over Buckhorn Summit can need chains in storms",
+     "One-way traffic control for roadwork is common on Hwy 299: check Caltrans QuickMap"
+    ]
+   },
+   "safety": [
+    "Cold, strong current: cleated boots, a wading staff, and no deep crossings",
+    "Storm-timed releases from Lewiston Dam can raise the river fast: check release notices daily",
+    "Food in a bear box or the car, even in winter",
+    "Short days in a deep canyon: plan to be off the water and back at the car before dark"
+   ],
+   "insider": [
+    "Use the BLM Trinity River public access map to find walk-in water between Lewiston and Junction City",
+    "Fish the days after a small rise in flow, when fresh fish move, and skip the day the river is up and colored",
+    "Weekdays beat weekends, when drift boats work the popular runs",
+    "If CDFW's Junction City weir is still in, no fishing within 750 ft of it"
+   ],
+   "pack": [
+    "6 to 7 wt rod, 9.5 to 10 ft, indicator kit, split shot, 2X to 3X fluorocarbon",
+    "Cleated wading boots and a staff",
+    "Water for the whole stay: no drinking water at Pigeon Point or Big Flat",
+    "2027 license and steelhead card if any day falls after Jan 1"
+   ],
+   "verify": [
+    "Lewiston Dam release and any planned storm pulse: the Trinity Releases notice group and USGS gauge 11525500",
+    "Pigeon Point or Big Flat open: Weaverville Ranger Station, 530-623-2121",
+    "Klamath and Trinity hotline, 1-800-564-6479, for in-season rule or quota changes",
+    "Hwy 299 chain controls and roadwork",
+    "Whether the Junction City weir is in",
+    "For a January trip, the 2027 CDFW regulations booklet"
+   ],
+   "now": {
+    "read": "Oct 4, 2026",
+    "lines": [
+     "Lewiston Dam is releasing 450 cfs until Oct 15, then drops to the 300 cfs winter base flow under the restoration program's water year 2027 plan. The Winter Flow Project continues, so expect occasional big releases: Lewiston hit about 5,800 to 6,000 cfs in Dec 2024 and Dec 2025, and ran near 1,500 cfs for weeks in Jan 2025 and Jan 2026.",
+     "Closed all winter: 250 ft below Lewiston Dam to the Old Lewiston Bridge (open Apr 1 to Sep 15 only). Open all year from the Old Lewiston Bridge to the Hwy 299 bridge at Cedar Flat: 2 hatchery trout or steelhead a day, 4 in possession, 10 brown trout, barbless hooks only.",
+     "Fall Chinook are open through Dec 31 below the Old Lewiston Bridge on a 536-fish quota for this reach: 2 a day, only one over 23 in until the quota fills, then only fish 23 in or shorter. Salmon need the North Coast Salmon Report Card ($9.21).",
+     "2026 resident license $64.54 and Steelhead Report Card $10.29. Both expire Dec 31, so a trip past New Year needs 2027 versions.",
+     "Camps: BLM's Douglas City, Junction City and Steel Bridge close for winter (Recreation.gov shows the first two reservable only through Oct 31), and BLM posts Steiner Flat as closed for maintenance. Forest Service Pigeon Point and Big Flat are open all year at $12, first come, with no drinking water; Ackerman's north loop on Lewiston Lake is open all year for walk-ins.",
+     "Run size is modest: the Junction City weir counted 425 steelhead, 145 of them hatchery fish, through Dec 16, 2025, before the weirs were pulled.",
+     "Trinity Lake held about 1.68 million acre-feet on Oct 3, down from about 1.81 million a year earlier."
+    ],
+    "sources": [
+     "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=209090&inline",
+     "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=245278&inline",
+     "https://trrp.net/restoration/flows/current",
+     "https://waterdata.usgs.gov/monitoring-location/11525500/",
+     "https://www.fs.usda.gov/r05/shasta-trinity/recreation/pigeon-point-campground",
+     "https://www.fs.usda.gov/r05/shasta-trinity/recreation/big-flat-campground",
+     "https://www.fs.usda.gov/r05/shasta-trinity/recreation/ackerman-campground",
+     "https://www.recreation.gov/camping/campgrounds/233346"
+    ]
+   }
+  },
+  "status": "queued",
+  "url": null,
+  "at": "https://www.alltrails.com/trail/us/california/lewiston-lake-trail",
+  "air": "Redding (RDD) ~1 h · Sacramento (SMF) ~3.25 h"
+ },
+ {
+  "id": "lowersac",
+  "name": "Lower Sacramento: the Redding tailwater on foot",
+  "type": "car",
+  "region": "Redding · Lower Sac",
+  "drive": 4,
+  "len": "3 nts",
+  "miles": "easy",
+  "gain": "flat",
+  "s": [
+   3,
+   4,
+   3,
+   5,
+   2
+  ],
+  "wild": true,
+  "skinny": false,
+  "permit": "CA license; Peltier reservation, park pass",
+  "fish": "Wild rainbows, salmon-egg bite",
+  "swim": "Cold tailwater; no winter swim",
+  "season": [
+   10,
+   11,
+   12,
+   1,
+   2,
+   3
+  ],
+  "peak": [
+   11,
+   12
+  ],
+  "epic": false,
+  "coord": [
+   40.59,
+   -122.38
+  ],
+  "blurb": "Redding's big tailwater on foot: wild rainbows on the salmon-egg bite, a tent on Clear Creek, about four hours away.",
+  "dogs": "yes",
+  "dogNote": "Whiskeytown, including Peltier Bridge camp, requires a leash of 6 ft or shorter and bars dogs from its swim beaches and buildings; the Sacramento River Trail and Turtle Bay in Redding are leashed-dog areas.",
+  "d": {
+   "tag": "The year-round trout river closest to home, best on foot when Keswick runs low.",
+   "over": [
+    "Below Keswick Dam the Sacramento runs cold and clear through Redding: a big tailwater full of wild rainbows that gorge on salmon eggs in late fall and eat caddis, mayfly and stonefly nymphs the rest of the winter. Most anglers fish it from drift boats, but when Keswick releases sit in the low winter range of about 3,000 to 5,000 cfs, the riffles at the Posse Grounds by the Sundial Bridge, Girvan Road, Knighton Road and Anderson River Park open up to a careful wader.",
+    "This is the easy one: about four hours from Pacifica, a tent site on Clear Creek at Whiskeytown's Peltier Bridge camp 25 minutes from the river, town for a rainy night, and a fishery that does not depend on a run showing up. The catch is flow: when a wet January sends flood releases past 10,000 cfs, wading ends and only a guided boat makes sense."
+   ],
+   "why": {
+    "scenery": "A big clear river through Redding's riparian corridor and under the Sundial Bridge; forested Whiskeytown hills at camp.",
+    "fish": "A dense population of wild rainbows on public wade water when flows are low.",
+    "wildlife": "Bald eagles, river otters, herons and mergansers, with fall Chinook spawning into December.",
+    "bugs": "Winter: none.",
+    "water": "No winter swim; Clear Creek runs past camp."
+   },
+   "route": {
+    "mode": "car",
+    "basecamp": "Peltier Bridge Campground in Whiskeytown National Recreation Area, 13.5 miles west of Redding on Clear Creek: open all year, 9 tent-only sites, $20 a night, reservations required on Recreation.gov, vault toilets, bear lockers, no drinking water (fill at the visitor center), no towing. Whiskeytown requires a $25 vehicle pass good for 7 days.",
+    "dayhikes": [
+     "Sacramento River Trail loop, Redding · 5.6 mi, 173 ft (AllTrails)",
+     "Sacramento River Trail, Keswick Dam to Spring Creek · 5.8 mi out and back, 643 ft (AllTrails)",
+     "Whiskeytown Falls Trail · 3.0 mi out and back, 725 ft (AllTrails)",
+     "Boulder Creek Falls · 5.5 mi out and back, 1,036 ft (AllTrails)"
+    ]
+   },
+   "fish": {
+    "water": "Sacramento River from the Posse Grounds in Redding down to Anderson River Park, with Reading Island below the Deschutes Road bridge",
+    "species": "Wild rainbow trout, some steelhead, a few browns; fall Chinook spawning",
+    "method": "Indicator nymphing from riffles and gravel bars: egg patterns in November and December, caddis, mayfly and stonefly nymphs after",
+    "season": "650 ft below Keswick Dam to the Hwy 44 bridge: open Aug 1 to Mar 31; Hwy 44 to the Deschutes Road bridge: open all year. Both barbless only, 2 hatchery trout or steelhead and 5 brown trout a day, wild rainbows released. The rule that bites: everything above the Hwy 44 bridge closes Apr 1 to Jul 31.",
+    "catch": 4,
+    "label": "Good on foot at low flows; poor above ~5,000 cfs",
+    "gear": "6 wt, 9 to 10 ft, floating line, indicator, split shot, 3X to 4X fluorocarbon; long drag-free drifts. A 5 wt works, but big fish in heavy current test it.",
+    "flies": [
+     "Egg or bead pattern, peach #10 to 14 (Nov and Dec)",
+     "Pat's Rubberlegs, brown #4 to 6",
+     "Caddis pupa #14 to 16",
+     "Zebra midge or small mayfly nymph #16 to 18",
+     "S&M nymph"
+    ],
+    "timing": "Honest read: this is trout fishing, not steelhead fishing, and the fish are many. A competent nymph angler who gets long drifts through the Posse Grounds riffle should hook fish most days at low winter flows; above about 5,000 cfs, walk-in water shrinks and the odds drop hard. The November and December egg bite is the peak, and midday is fine in winter."
+   },
+   "wild": [
+    "Bald eagle",
+    "River otter",
+    "Great blue heron",
+    "Common merganser",
+    "Fall-run Chinook salmon"
+   ],
+   "water": {
+    "spots": [
+     "Clear Creek at Peltier Bridge (summer)",
+     "Whiskeytown Lake beaches (summer; no dogs on the swim beaches)"
+    ],
+    "skinny": "No winter swimming."
+   },
+   "permit": {
+    "system": "Peltier Bridge campsite reserved on Recreation.gov; Whiskeytown vehicle entrance pass; California fishing license, plus a Steelhead Report Card if you fish for steelhead in anadromous water.",
+    "cost": "$20 a night; $25 Whiskeytown vehicle pass for 7 days; 2026 resident license $64.54 (one day $21.09, two days $32.40); Steelhead Report Card $10.29.",
+    "where": "Recreation.gov for the site and the park pass (or the Whiskeytown visitor center); CDFW online or a Redding license agent for the license.",
+    "when": "Reservations are required: book on Recreation.gov before you go. Every site showed open on the winter nights sampled.",
+    "notes": "Maximum 6 people and 2 vehicles per site, tents only. Whiskeytown visitor center: 530-246-1225. Licenses are calendar year: a trip past Jan 1 needs a 2027 license."
+   },
+   "drive": {
+    "time": "~4 hr",
+    "route": "I-80 and I-505 to I-5 north to Redding; Hwy 299 west 10 miles, then Kennedy Memorial Drive, Paige Bar Road and Peltier Valley Road to camp.",
+    "flags": [
+     "Tule fog on I-5 in the valley on winter mornings",
+     "Narrow gravel road into Peltier Bridge: no trailers or motorhomes"
+    ]
+   },
+   "safety": [
+    "A big, powerful river: wade only near the low end of the winter range, with a staff, cleats and a PFD",
+    "Stay off salmon redds, the clean pale gravel patches in November and December",
+    "Post-Carr Fire hazard trees remain in Whiskeytown: pitch away from dead snags",
+    "Lock the car and keep gear out of sight at in-town access points"
+   ],
+   "insider": [
+    "The Posse Grounds riffle off Auditorium Drive is the classic walk-in and fishes best at low winter flows",
+    "A guided drift boat day early in the trip teaches the river fast and shows you where the wade water is",
+    "Fish the drift below spawning salmon with an egg pattern, never over the redds",
+    "Below the Deschutes Road bridge, Reading Island has a riffle by the parking area, and salmon season there runs through Dec 31"
+   ],
+   "pack": [
+    "6 wt rod, 9 to 10 ft, indicator kit, split shot, 3X to 4X fluorocarbon",
+    "PFD, wading staff, cleated boots",
+    "Water jugs (no water at camp)",
+    "Whiskeytown pass and the Peltier reservation saved on the phone"
+   ],
+   "verify": [
+    "Keswick release (USGS gauge 11370500): plan to wade only near the low end of the winter range",
+    "Peltier Bridge reservation on Recreation.gov",
+    "Whiskeytown entrance pass",
+    "Any CDFW emergency closure on the upper Sacramento",
+    "For a January trip, the 2027 CDFW regulations booklet"
+   ],
+   "now": {
+    "read": "Oct 4, 2026",
+    "lines": [
+     "Keswick is releasing about 6,060 cfs (Oct 4). Over the last four winters the November and December medians ran about 3,000 to 5,000 cfs, while January medians jumped past 10,000 cfs in 2025 and 2026 with flood releases.",
+     "Open this winter: 650 ft below Keswick Dam to the Hwy 44 bridge (Aug 1 to Mar 31) and Hwy 44 to the Deschutes Road bridge (all year). Both are barbless only: 2 hatchery trout or steelhead a day (4 in possession) and 5 brown trout; wild rainbows go back. Keswick Dam to 650 ft below is closed all year.",
+     "No salmon fishing above the Deschutes Road bridge; below it, Chinook are open Nov 1 to Dec 31, 2 a day.",
+     "2026 resident license $64.54; Steelhead Report Card $10.29 to fish for steelhead in anadromous water; both expire Dec 31.",
+     "Peltier Bridge, Whiskeytown: open all year, 9 tent sites on Clear Creek, $20 a night, reservations required; all 9 sites showed open on the winter nights sampled. Vault toilets, no water, no towing. Whiskeytown vehicle pass $25 for 7 days.",
+     "Shasta Lake held about 2.43 million acre-feet on Oct 3, about 53 percent of its 4.55 million capacity and down from about 2.67 million a year earlier."
+    ],
+    "sources": [
+     "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=209090&inline",
+     "https://waterdata.usgs.gov/monitoring-location/11370500/",
+     "https://calflyfisher.com/destinations/wading-the-lower-sacramento/",
+     "https://www.recreation.gov/camping/campgrounds/272248",
+     "https://www.nps.gov/whis/planyourvisit/peltier-bridge.htm",
+     "https://www.nps.gov/whis/planyourvisit/fees.htm",
+     "https://www.nps.gov/whis/planyourvisit/pets.htm",
+     "https://cdec.water.ca.gov/dynamicapp/QueryDaily?s=SHA"
+    ]
+   }
+  },
+  "status": "queued",
+  "url": null,
+  "at": "https://www.alltrails.com/trail/us/california/sacramento-river-trail",
+  "air": "Redding (RDD) ~15 min · Sacramento (SMF) ~2.5 h"
+ },
+ {
+  "id": "sespe",
+  "name": "Sespe Wilderness: Willett Hot Springs",
+  "type": "backpack",
+  "region": "Los Padres · Ojai",
+  "drive": 6,
+  "len": "3 nts",
+  "miles": "~10/day",
+  "gain": "≤1,500/day",
+  "s": [
+   4,
+   2,
+   3,
+   4,
+   5
+  ],
+  "wild": true,
+  "skinny": true,
+  "permit": "No wilderness permit · Adventure Pass to park · campfire permit for stoves",
+  "fish": "Small wild rainbows, catch and release",
+  "swim": "Willett hot tub, Sespe Hot Springs, creek pools ~",
+  "season": [
+   10,
+   11,
+   12,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "peak": [
+   11,
+   3,
+   4
+  ],
+  "epic": false,
+  "coord": [
+   34.56,
+   -119.16
+  ],
+  "blurb": "Ten miles down a sandstone creek canyon to a 100 degree hot spring tub, with wild trout in the riffles and condors overhead.",
+  "dogs": "yes",
+  "dogNote": "Dogs are allowed on the Sespe River Trail and in the Sespe Wilderness on a leash no longer than six feet, the Los Padres rule on trails and in camps; the nearby Sespe Condor Sanctuary is closed to everyone.",
+  "d": {
+   "tag": "A creek-bottom walk through sandstone country to a hot spring tub at an old homestead, cold-season country when the rest of the map is snowed in.",
+   "over": [
+    "The Sespe River Trail leaves Piedra Blanca trailhead at the end of Rose Valley Road and follows Sespe Creek downstream past Bear Creek, Oak Flat and Thacher camps to Willett, about 9.8 miles in. Willett is a cluster of camps around the ruins of an early 1900s homestead, and a short, brushy climb above camp is a rock tub that holds about 99 to 100 degrees. The canyon is sandstone, chaparral, oak and sycamore, with the white Piedra Blanca formations right at the start.",
+    "The longer play keeps going downstream past Coltrell Flat and up a side canyon to Sespe Hot Springs, a desert-feeling canyon of much hotter springs and soaking pools about 15 miles from the car. Winter is the season: summer runs over 100 degrees, and November through April the creek runs, the bugs are gone and a hot soak on a cold night is the point. The catch is the creek itself, which can turn waist deep and dangerous after a storm."
+   ],
+   "why": {
+    "scenery": "Sandstone cliffs, the Piedra Blanca formations and a long creek canyon; big and quiet, not alpine.",
+    "fish": "Sespe Creek is a CDFW designated Wild Trout Water, but the rainbows are small and it is catch and release only.",
+    "wildlife": "California condors fly this country; black bear, deer, and bighorn near Sespe Hot Springs.",
+    "bugs": "No mosquitoes to speak of in winter, but ticks are active by February and poison oak lines the trail.",
+    "water": "A 100 degree tub at Willett, hotter pools at Sespe Hot Springs, and creek swimming holes between them."
+   },
+   "route": {
+    "mode": "backpack",
+    "options": [
+     {
+      "name": "Piedra Blanca to Willett Hot Springs",
+      "stat": "3 nts · 20.1 mi · 2,509 ft",
+      "text": "Day 1: ford Sespe Creek at the trailhead and walk the old road and trail downstream past Bear Creek (4.3 mi) and Oak Flat (7.4 mi) to Willett (9.8 mi); fill water at Kerr Spring, 0.8 mi past Bear Creek. Day 2: soak, fish the riffles around camp, and explore downstream toward Hartman Camp. Day 3: walk back upstream and split the return with a night at Oak Flat or Bear Creek. Day 4: out to the car by midday. Mileage and gain from AllTrails; camp mileages from Hike Los Padres."
+     },
+     {
+      "name": "On to Sespe Hot Springs",
+      "stat": "3 nts · 30.4 mi · 3,612 ft",
+      "text": "Day 1: Piedra Blanca to Willett, 9.8 mi. Day 2: downstream past Coltrell Flat (about mile 14), then north up the side trail roughly 2 miles to Sespe Hot Springs and its pools, which run far hotter than Willett, so find the pool that has cooled enough. Day 3: back to Willett for a second soak. Day 4: out. Past Willett the trail gets brushy, harder to follow and has more fords, so allow extra time. Mileage and gain from AllTrails."
+     }
+    ]
+   },
+   "fish": {
+    "water": "Sespe Creek, from Piedra Blanca downstream through Willett",
+    "species": "Wild coastal rainbow trout (small); the creek is a CDFW designated Wild Trout Water",
+    "method": "Light fly gear, small dries and nymphs in the riffles and pocket water; barbless only",
+    "season": "Above the Alder Creek confluence: open all year, artificial lures with barbless hooks only, zero trout (Title 14, section 7.50, operative Jan 1, 2025). Endangered southern steelhead share the system, so handle fish wet and quick.",
+    "catch": 2,
+    "label": "Light (small wild rainbows, C&R)",
+    "gear": "3 to 4 weight, 7.5 to 8 ft, 6x tippet; barbless hooks required",
+    "flies": [
+     "Parachute Adams #16 to 18",
+     "Elk Hair Caddis #16",
+     "Pheasant Tail #16 to 18",
+     "Zebra Midge #18 to 20",
+     "Small olive Woolly Bugger #12"
+    ],
+    "timing": "Midday in winter, once the water warms, in the riffles and pocket water around Bear Creek, Oak Flat and Willett; let the creek clear for a few days after a storm."
+   },
+   "wild": [
+    "California condor",
+    "Black bear",
+    "Mule deer",
+    "Desert bighorn (near Sespe Hot Springs)",
+    "Wild rainbow trout",
+    "Red-tailed hawk"
+   ],
+   "water": {
+    "spots": [
+     "Willett Hot Springs tub, about 99 to 100 F",
+     "Sespe Hot Springs pools (longer option, much hotter)",
+     "Creek pools near Bear Creek and Oak Flat"
+    ],
+    "skinny": "Midweek, the Willett tub and the Sespe Hot Springs pools are often empty, and Sespe Hot Springs is known as clothing optional."
+   },
+   "permit": {
+    "system": "No wilderness permit for any Los Padres wilderness. An Adventure Pass or America the Beautiful pass to park at Piedra Blanca. A free California Campfire Permit to run a stove (required year round in Ventura County).",
+    "cost": "Adventure Pass $5 a day or $30 a year; the campfire permit is free.",
+    "where": "Adventure Pass by card at the trailhead, at the Ojai Ranger Station, or online at MyScenicDrives; campfire permit from any Forest Service office or online at readyforwildfire.org.",
+    "when": "No quota; the trail camps are first come, first served.",
+    "notes": "Forest fire order 05-07-00-26-05 runs Jun 4, 2026 to Jan 31, 2027: no wood or charcoal fires anywhere outside 69 designated campgrounds (Middle Lion and Rose Valley are on the list, the wilderness camps are not); gas stoves with a shutoff are allowed with the campfire permit. Ojai Ranger District: 805-646-4348, open weekday afternoons. A daily pass covers one day, so four days parked means four day passes or the annual."
+   },
+   "drive": {
+    "time": "~6 hr",
+    "route": "US-101 south to Ventura, Hwy 33 north through Ojai 14.7 mi to Rose Valley Road, about 5 mi of pavement, then left about 1 mi to the trailhead lot. Or I-5 and Hwy 166 to Hwy 33 south over Pine Mountain.",
+    "flags": [
+     "Hwy 33 above Ojai is narrow and has closed for slides in big storms; check Caltrans QuickMap",
+     "The Pine Mountain route can see snow in winter",
+     "Rose Valley Road has rough sections; the trailhead lot is paved"
+    ]
+   },
+   "safety": [
+    "The creek is the hazard: a February 2026 report had waist to chest deep, fast crossings after storms. Do not go in or out during or right after heavy rain.",
+    "Cold water and wet feet in winter: dry layers and a warm camp setup matter.",
+    "Poison oak and brush are heavy past Willett and on the climb to the tub; wear long pants.",
+    "Ticks were active between Willett and Bear Creek in February 2026; check daily.",
+    "Keep your head out of hot spring water."
+   ],
+   "insider": [
+    "If the first ford at the trailhead looks bad, it only gets worse downstream; turn around there.",
+    "Kerr Spring, 0.8 mi past Bear Creek, is the first year-round water source.",
+    "Willett can draw 50 or more people on a weekend; go midweek for the tub to yourself.",
+    "Middle Lion Campground, 1 mi before the trailhead, is reservable at $30 and is one of the few places a wood fire is legal under this winter's order: a good night-before base.",
+    "Walk the first mile up to the Piedra Blanca sandstone formations on the way in or out."
+   ],
+   "pack": [
+    "Sandals or water shoes and trekking poles for the fords",
+    "Long pants for brush and poison oak",
+    "Water filter",
+    "Adventure Pass and campfire permit",
+    "Tick kit",
+    "Warm sleep system for frosty canyon nights"
+   ],
+   "verify": [
+    "Los Padres alerts page for any new Ojai district, Rose Valley Road or Sespe closure",
+    "The USGS gauge Sespe Creek near Wheeler Springs and the storm forecast; skip the trip if a storm is due",
+    "Caltrans QuickMap for Hwy 33",
+    "Whether the forest fire order is extended or lifted (it runs to Jan 31, 2027)",
+    "The current CDFW special regulations for Sespe Creek",
+    "Adventure Pass in the windshield and the campfire permit on the phone"
+   ],
+   "now": {
+    "read": "Oct 4, 2026",
+    "lines": [
+     "No closure order on the Los Padres alerts page for Rose Valley Road, Piedra Blanca or the Sespe River Trail as of Oct 4; Caltrans finished its Hwy 33 tunnel repairs above Ojai in September.",
+     "Fire order 05-07-00-26-05 is in force through Jan 31, 2027: no wood or charcoal fires at the trail camps; stoves with a free California Campfire Permit only.",
+     "Parking at Piedra Blanca needs an Adventure Pass ($5 a day, $30 a year) or an America the Beautiful pass; no wilderness permit is required.",
+     "Sespe Creek near Wheeler Springs was running 0.64 cfs on Oct 4: very low, so expect pools rather than flow until the first winter rains.",
+     "A September 2026 trail report: clear and easy to Bear Creek, overgrown below, plenty of water at Bear Creek and intermittent after, and the Willett tub in excellent condition.",
+     "Fishing above the Alder Creek confluence is open all year, catch and release, artificial lures with barbless hooks only.",
+     "After storms the fords can run waist to chest deep, as one hiker found in February 2026; time the trip for a dry spell."
+    ],
+    "sources": [
+     "https://www.fs.usda.gov/r05/lospadres/alerts",
+     "https://www.fs.usda.gov/r05/lospadres/alerts/los-padres-fire-use-and-firearm-restrictions",
+     "https://www.fs.usda.gov/r05/lospadres/wilderness",
+     "https://fs.usda.gov/r05/lospadres/recreation/ojai-ranger-district-0",
+     "https://www.fs.usda.gov/r05/lospadres/offices/ojai-ranger-district",
+     "https://www.fs.usda.gov/r05/lospadres/recreation/middle-lion-campground",
+     "https://www.fs.usda.gov/r05/lospadres/recreation/camping-cabins",
+     "https://fs.usda.gov/r05/passes/adventure-pass"
+    ]
+   }
+  },
+  "status": "queued",
+  "url": null,
+  "at": "https://www.alltrails.com/trail/us/california/sespe-river-trail-to-willett-hot-springs",
+  "air": "Santa Barbara (SBA) ~1.5 h · Burbank (BUR) ~2 h"
+ },
+ {
+  "id": "santacruzisland",
+  "name": "Santa Cruz Island: Scorpion to Prisoners",
+  "type": "backpack",
+  "region": "Channel Islands NP",
+  "drive": 5.5,
+  "len": "3 nts",
+  "miles": "~5/day",
+  "gain": "≤2,500/day",
+  "s": [
+   5,
+   1,
+   5,
+   5,
+   3
+  ],
+  "wild": false,
+  "skinny": false,
+  "permit": "Recreation.gov site + Island Packers boat ✦",
+  "fish": "Ocean only; none at Scorpion",
+  "swim": "Scorpion Beach kelp, cold winter water ~",
+  "season": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   9,
+   10,
+   11,
+   12
+  ],
+  "peak": [
+   10,
+   11,
+   3,
+   4
+  ],
+  "epic": true,
+  "coord": [
+   34.05,
+   -119.56
+  ],
+  "blurb": "An hour by boat to sea cliffs, endemic island foxes and gray whales, with a new point-to-point backpack between Scorpion and Prisoners.",
+  "dogs": "no",
+  "dogNote": "Pets are not allowed on any Channel Islands park island or on Island Packers boats; only pre-screened service dogs may travel, so the dog stays home.",
+  "d": {
+   "tag": "California's Galapagos, an hour off Ventura: sea cliffs, island foxes, gray whales on the crossing, and a new camp that makes the island a point-to-point walk.",
+   "over": [
+    "Santa Cruz is the biggest of the Channel Islands, and the national park's eastern end is reached by Island Packers boats from Ventura in about an hour. Scorpion Anchorage has the main campground, potable water and the classic bluff walks to Cavern Point and Potato Harbor. Prisoners Harbor, on the north shore, leads up the Del Norte Trail to a four-site backcountry camp in an oak grove with views down the coast.",
+    "The news this year: the park opened a six-site Prisoners Harbor Campground on Aug 27, 2026, and now pitches Scorpion to Prisoners as a point-to-point backpack. Winter brings gray whales on the crossing from December to mid-February and quiet camps, but also rough seas that cancel boats. Everything rides on the boat and on carrying water, since only Scorpion has a tap."
+   ],
+   "why": {
+    "scenery": "Volcanic sea cliffs, Potato Harbor from above, the Montañon ridge and an empty coastline in every direction.",
+    "fish": "Not a fishing trip: no trout, and Scorpion sits inside a no-take marine reserve.",
+    "wildlife": "The endemic island fox and island scrub-jay, plus gray whales, dolphins and sea lions on the crossing.",
+    "bugs": "Winter means no bugs; yellow jackets at the water spigots are a summer and early fall problem.",
+    "water": "Snorkel or kayak the kelp and sea caves off Scorpion, but winter ocean water is cold."
+   },
+   "route": {
+    "mode": "backpack",
+    "options": [
+     {
+      "name": "Scorpion to Del Norte to Prisoners",
+      "stat": "3 nts · ~14 mi · ~2,700 ft",
+      "text": "Day 1: boat to Scorpion, set up at Scorpion Canyon campground (half a mile to a mile from the pier), and walk the Cavern Point and Potato Harbor bluffs. Day 2: fill every bottle at Scorpion and hike about 10 miles over the Montañon country to Del Norte camp, the hard day, with an unmaintained, overgrown stretch and some scrambling at the high point. Day 3: drop 3.5 miles to the new Prisoners Harbor Campground near the pier, then walk out to Eagle Canyon Overlook. Day 4: boat home from Prisoners. Distances from NPS; gain from the AllTrails point-to-point route run the other way. This only works if Island Packers will land you at Scorpion and take you off at Prisoners on your days, so ask first; it also runs fine in reverse."
+     },
+     {
+      "name": "Scorpion basecamp",
+      "stat": "3 nts · ~22 mi of day hikes · ≤1,300/day",
+      "text": "Camp three nights at Scorpion with water on tap and a food box. Day 1: Cavern Point Loop and the North Bluff Trail to Potato Harbor, 5 mi. Day 2: Smugglers Road to the cobble beach at Smugglers Cove, 7.5 mi, carrying water. Day 3: the 10 mi Montañon Ridge Loop for experienced hikers, or Scorpion Canyon Loop (4.5 mi) for the island scrub-jay. The simple version when boats to Prisoners do not line up. Distances from the NPS hiking guide."
+     }
+    ]
+   },
+   "fish": {
+    "water": "Pacific shoreline outside the marine reserves, such as around Prisoners Harbor; none at Scorpion",
+    "species": "Nearshore ocean fish (surfperch, kelp bass, rockfish)",
+    "method": "Light spin gear from shore with a California license and ocean validation",
+    "season": "Scorpion Anchorage is inside Scorpion State Marine Reserve: no take at all. Elsewhere ocean regulations apply; check the CDFW groundfish season before keeping anything.",
+    "catch": 1,
+    "label": "Ocean only (incidental)",
+    "gear": "Leave the 4 to 5 weight home; a light spinning rod if anything",
+    "flies": [
+     "Small metal jig (spin)",
+     "Soft plastic swimbait (spin)"
+    ],
+    "timing": "Only outside the marine reserves, from the rocks near Prisoners Harbor; a bonus, never the reason you came."
+   },
+   "wild": [
+    "Island fox (endemic)",
+    "Island scrub-jay (endemic)",
+    "Gray whale (Dec to mid-Feb)",
+    "California sea lion",
+    "Common dolphin",
+    "Bald eagle"
+   ],
+   "water": {
+    "spots": [
+     "Scorpion Beach, kelp at the east end",
+     "Sea caves toward Cavern Point (kayak)",
+     "Smugglers Cove cobble beach",
+     "Prisoners Harbor cobble beach"
+    ],
+    "skinny": "Smugglers Cove on a quiet winter weekday is the most private beach in reach, but the water is cold and the camps are shared."
+   },
+   "permit": {
+    "system": "Campsite reservation on Recreation.gov (Scorpion, Del Norte or Prisoners Harbor) plus an Island Packers boat ticket, booked first; Recreation.gov requires the boat before the site.",
+    "cost": "$15 per site per night at all three camps (Scorpion group sites $40); Island Packers camper round trip $96 adult, $91 senior, $71 child; no park entrance fee.",
+    "where": "recreation.gov; islandpackers.com or (805) 642-1393; park info (805) 658-5730.",
+    "when": "Scorpion books on a six-month rolling window; Del Norte has four sites and Prisoners Harbor six, so those go first. No walk-ups at any camp.",
+    "notes": "No campfires or charcoal; enclosed gas stoves only. Island Packers will not carry 5-gallon propane tanks, wagons or carts, coolers over 45 lb or Yeti-style coolers, and no single item may weigh over 45 lb. November through May, check the morning of departure for weather changes."
+   },
+   "drive": {
+    "time": "~5.5 hr",
+    "route": "US-101 south to Ventura, then Harbor Boulevard and Spinnaker Drive to Island Packers in Ventura Harbor (1691 Spinnaker Dr).",
+    "flags": [
+     "Campers check in a full hour before departure",
+     "Winter swell and wind cancel boats; build in a spare day"
+    ]
+   },
+   "safety": [
+    "Boats cancel and can fail to pick up in winter; carry an extra day of food and water.",
+    "Wind comes up hard and fast; stake and guy the tent.",
+    "Hantavirus is present in island deer mice; do not touch mice or nests, and keep food sealed.",
+    "In winter, Prisoners campers may wade Cañada del Puerto up to 2 ft deep and fast.",
+    "Cliff edges on the bluff trails are unfenced and crumbly."
+   ],
+   "insider": [
+    "Book Del Norte and Prisoners Harbor the day the window opens; they are tiny.",
+    "Hike Cavern Point clockwise from near campsite 22 to skip the steep climb (NPS guide).",
+    "Watch for gray whales on the crossing and from Cavern Point, December to mid-February.",
+    "Ravens and foxes open zippers: clip tent and pack zippers with safety pins or small carabiners.",
+    "Look for island scrub-jays up Scorpion Canyon and on the walk up from Prisoners."
+   ],
+   "pack": [
+    "About a gallon of water per person per day for the dry camps",
+    "Zipper clips for ravens and foxes",
+    "Stove with small canisters (no 5-gallon tanks)",
+    "Wind-solid tent",
+    "Sandals for the Prisoners creek crossing",
+    "Spare day of food"
+   ],
+   "verify": [
+    "The Island Packers schedule for your exact days, to Scorpion and from Prisoners",
+    "That your camper ticket allows in at Scorpion and out at Prisoners",
+    "Marine forecast and Island Packers service alerts the morning before",
+    "Recreation.gov confirmation for each night",
+    "Whether Cañada del Puerto is flowing, for a filter refill at Prisoners"
+   ],
+   "now": {
+    "read": "Oct 4, 2026",
+    "lines": [
+     "The new Prisoners Harbor Campground opened Aug 27, 2026: six sites, four people each, $15 a night, no water, about 0.3 mi from the pier.",
+     "Scorpion and Del Norte are also $15 a night per site on Recreation.gov; reserve only after the boat is booked, with no walk-ups.",
+     "Island Packers camper fares to Santa Cruz are $96 adult, $91 senior and $71 child round trip.",
+     "Water: potable at Scorpion only; none at Del Norte or Prisoners Harbor, so carry about a gallon per person per day.",
+     "Island Packers posts that it will not transport 5-gallon propane tanks, wagons or carts, coolers over 45 lb or Yeti-style coolers.",
+     "No pets on the islands or the boats; no campfires; no fishing at Scorpion, which is a marine reserve.",
+     "November to May, boat schedules change with wind and swell; recheck the morning of the trip."
+    ],
+    "sources": [
+     "https://www.nps.gov/chis/planyourvisit/camping.htm",
+     "https://www.nps.gov/chis/learn/news/2026-08-17-prisoners-harbor-campground-open.htm",
+     "https://www.nps.gov/chis/planyourvisit/backcountry-beach-camping-on-santa-cruz-island.htm",
+     "https://www.nps.gov/chis/planyourvisit/conditions.htm",
+     "https://www.nps.gov/chis/planyourvisit/fees.htm",
+     "https://www.nps.gov/chis/planyourvisit/santa-cruz-things-to-do.htm",
+     "https://www.nps.gov/chis/planyourvisit/upload/sci-hiking-2022-ADA.pdf",
+     "https://www.recreation.gov/camping/campgrounds/232498"
+    ]
+   }
+  },
+  "status": "queued",
+  "url": null,
+  "at": "https://www.alltrails.com/trail/us/california/del-norte-and-scorpion-campground-via-del-norte-and-montanon-trail",
+  "air": "Santa Barbara (SBA) ~45 min to Ventura Harbor · Burbank (BUR) ~1.25 h"
+ },
+ {
+  "id": "mojave",
+  "name": "Mojave National Preserve: Hole-in-the-Wall and Kelso Dunes",
+  "type": "car",
+  "region": "Mojave Natl Preserve",
+  "drive": 8.5,
+  "len": "3 nts",
+  "miles": "day hikes",
+  "gain": "flexible",
+  "s": [
+   4,
+   1,
+   3,
+   5,
+   1
+  ],
+  "wild": false,
+  "skinny": false,
+  "permit": "Recreation.gov, reservation only ✦",
+  "fish": "None",
+  "swim": "None (dry)",
+  "season": [
+   10,
+   11,
+   12,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "peak": [
+   11,
+   3,
+   4
+  ],
+  "epic": false,
+  "coord": [
+   35.05,
+   -115.39
+  ],
+  "blurb": "Volcanic walls and a ring-ladder canyon, 600 foot singing dunes, a lava tube with light beams, and almost nobody else.",
+  "dogs": "yes",
+  "dogNote": "Pets are allowed on all trails in the preserve on a leash no longer than six feet and are barred only inside buildings, though the ring climb in Banshee Canyon is not passable for most dogs.",
+  "d": {
+   "tag": "The empty desert between Barstow and Las Vegas: volcanic walls, singing dunes, a lava tube and Joshua tree country, with no entrance fee and no crowds.",
+   "over": [
+    "Mojave National Preserve fills the triangle between I-15 and I-40, and Hole-in-the-Wall Campground sits at 4,400 feet among pocked volcanic walls, with water, vault toilets and the Rings Loop starting a short walk away. From there the preserve opens in every direction: Kelso Dunes rising some 600 feet off the valley floor, a lava tube with sunbeams through its roof, and Teutonia Peak above the Cima Dome Joshua tree forest, part of which burned in August 2020.",
+    "Winter is the season, with days in the 40s to 60s at camp and nights often below freezing; Mid Hills, at 5,600 feet in pinyon and juniper, runs colder still. Both campgrounds are now reservation only. There is no gas, no food and almost no cell service in the preserve, and the paved roads are potholed and washed out at the shoulders, so drive it like the backcountry it is."
+   ],
+   "why": {
+    "scenery": "Volcanic tuff walls, tall dunes, cinder cones and Joshua trees; strange and wide open more than grand.",
+    "fish": "None. It is the desert.",
+    "wildlife": "Desert bighorn, coyote, kit fox, golden eagle; tortoises sleep through winter.",
+    "bugs": "Cold and dry in winter: no bugs.",
+    "water": "None to swim; only the spigots at Hole-in-the-Wall and Kelso Depot."
+   },
+   "route": {
+    "mode": "car",
+    "basecamp": "Hole-in-the-Wall Campground: 38 sites at 4,400 ft among volcanic walls, water spigots, vault toilets, a dump station and Wi-Fi at the information center next door, $25 a night by reservation only. The Rings Loop and Barber Peak start from camp. Mid Hills (5,600 ft, $20, no water, 9 miles of unpaved road) is the colder, piney alternative, and free dispersed sites on previously used ground are the backup if both are full.",
+    "dayhikes": [
+     "Rings Loop up Banshee Canyon · 1.4 mi (AllTrails; NPS says 1.5)",
+     "Barber Peak Loop from camp · 5.7 mi · 761 ft",
+     "Kelso Dunes to the crest · 3.0 mi · 511 ft",
+     "Teutonia Peak through the Cima Dome Joshua trees · 3.2 mi · 633 ft",
+     "Lava Tube · 0.5 mi (4WD road in)",
+     "Hole-in-the-Wall to Mid Hills · 7.9 mi one way · 2,500 ft round trip"
+    ]
+   },
+   "fish": {
+    "water": "None",
+    "species": "None",
+    "method": "None",
+    "season": "No fishable water in the preserve.",
+    "catch": 0,
+    "label": "No fishery (desert)",
+    "gear": "Leave the rods home",
+    "flies": [],
+    "timing": "No fishable water in the preserve."
+   },
+   "wild": [
+    "Desert bighorn sheep",
+    "Coyote",
+    "Kit fox",
+    "Golden eagle",
+    "Black-tailed jackrabbit",
+    "Desert tortoise (dormant in winter)"
+   ],
+   "water": {
+    "spots": [
+     "No swimming water: fill jugs at Hole-in-the-Wall or the Kelso Depot spigot"
+    ],
+    "skinny": "There is no water to get into anywhere in the preserve."
+   },
+   "permit": {
+    "system": "Hole-in-the-Wall and Mid Hills are reservation only on Recreation.gov; dispersed roadside camping is free and needs no permit.",
+    "cost": "$25 a night at Hole-in-the-Wall, $20 at Mid Hills; no entrance fee.",
+    "where": "recreation.gov; preserve information (760) 252-6100.",
+    "when": "Book ahead for winter weekends and holidays.",
+    "notes": "Dispersed camping only in previously used sites, at least a quarter mile from paved roads, 200 yards from water, not along the Kelso Dunes road or within half a mile of Kelso Depot, 14-day limit. Fires only in existing rings or a fire pan when restrictions are lifted; bring your own wood, gathering is banned. Tell the preserve before leaving a car overnight for a backpack."
+   },
+   "drive": {
+    "time": "~8.5 hr",
+    "route": "I-5 south, Hwy 58 over Tehachapi to Barstow, I-40 east to Essex Road, north 10 mi to Black Canyon Road, then 10 mi north to Hole-in-the-Wall. Or I-15 to Baker and Kelbaker Road south to Kelso.",
+    "flags": [
+     "No gas in the preserve or at the I-40 Kelbaker exit; fill in Barstow",
+     "Kelbaker Road can hold you up to an hour at the Kelso rail crossing",
+     "Navigate to Kelso or Hole-in-the-Wall, never to Mojave, California"
+    ]
+   },
+   "safety": [
+    "Nights drop to the 20s at Hole-in-the-Wall and the teens at Mid Hills; bring a real winter bag.",
+    "No cell service and no services: carry extra water, a spare tire and a paper map.",
+    "Watch for potholes, shoulder drop-offs and tortoises on the paved roads.",
+    "The lava tube has loose rock and very low ceilings; bring a light and enter at your own risk.",
+    "Never enter old mines; stay out of washes when storms threaten."
+   ],
+   "insider": [
+    "Climb Kelso Dunes in late light and slide down the slip face to hear the sand boom.",
+    "Hit the lava tube near midday, when the sunbeams through the roof are strongest.",
+    "Teutonia Peak walks through both a living Joshua tree forest and a burned one from the 2020 Dome Fire.",
+    "Fill water at Hole-in-the-Wall before heading to Mid Hills, which has none.",
+    "The dog can do Barber Peak and the dunes; skip the rings section of the Rings Loop with him."
+   ],
+   "pack": [
+    "Water jugs",
+    "Winter sleeping bag and down layers",
+    "Firewood from outside the preserve, if fires are allowed",
+    "Headlamp for the lava tube",
+    "Paper map",
+    "Full-size spare tire"
+   ],
+   "verify": [
+    "The NPS road conditions page (go.nps.gov/MojaveRoads), especially Kelso Dunes Road and the Aiken Mine Road to the lava tube",
+    "Whether the summer no-open-fires restriction has been lifted",
+    "Recreation.gov confirmation",
+    "Forecast for wind, cold and snow at Mid Hills",
+    "Kelso Depot status, in case the indoor visitor center has reopened"
+   ],
+   "now": {
+    "read": "Oct 4, 2026",
+    "lines": [
+     "Hole-in-the-Wall ($25) and Mid Hills ($20) campgrounds are open and reservation only on Recreation.gov; water at Hole-in-the-Wall, none at Mid Hills.",
+     "There is no entrance fee for the preserve.",
+     "All primary paved roads are open per the Sept 22, 2026 update, with potholes and washed-out shoulders; Kelbaker Road can delay you up to an hour at the Kelso rail crossing, and Hart Mine Road is closed.",
+     "Kelso Depot's indoor visitor center is closed; its outdoor areas, restrooms, parking and water filling are open.",
+     "Kelso Dunes Road is open but rough with deep potholes, high clearance advised; the Aiken Mine Road to the lava tube is 4WD only with soft sand and mudholes after a storm.",
+     "As of June 12, 2026 the preserve banned all open fires; check whether that has been lifted before bringing wood.",
+     "Winter averages at Hole-in-the-Wall: days 40 to 60 F, nights 20 to 40 F; Mid Hills nights 10 to 30 F."
+    ],
+    "sources": [
+     "https://www.nps.gov/moja/planyourvisit/conditions.htm",
+     "https://www.nps.gov/moja/planyourvisit/camping.htm",
+     "https://www.nps.gov/moja/planyourvisit/pets.htm",
+     "https://www.nps.gov/moja/planyourvisit/lava-tube.htm",
+     "https://www.nps.gov/moja/planyourvisit/fire-restrictions.htm",
+     "https://www.nps.gov/moja/planyourvisit/fees.htm",
+     "https://www.recreation.gov/camping/campgrounds/10332664",
+     "https://www.recreation.gov/camping/campgrounds/10332703"
+    ]
+   }
+  },
+  "status": "queued",
+  "url": null,
+  "at": "https://www.alltrails.com/trail/us/california/hole-in-the-wall-rings-trail",
+  "air": "Las Vegas (LAS) ~2 h"
+ },
+ {
+  "id": "ohlone",
+  "name": "Ohlone Wilderness: Del Valle to Sunol over Rose Peak",
+  "type": "backpack",
+  "region": "East Bay · Diablo Range",
+  "drive": 1.5,
+  "len": "3 nts",
+  "miles": "~6/day",
+  "gain": "≤2,750/day",
+  "s": [
+   4,
+   1,
+   4,
+   4,
+   2
+  ],
+  "wild": false,
+  "skinny": false,
+  "permit": "Trail camp reservation by phone, 2 business days ahead",
+  "fish": "None on trail; stocked Lake Del Valle at the start",
+  "swim": "No swimming in Alameda Creek; Murietta Falls to look at",
+  "season": [
+   11,
+   12,
+   1,
+   2,
+   3,
+   4
+  ],
+  "peak": [
+   2,
+   3,
+   4
+  ],
+  "epic": false,
+  "coord": [
+   37.5,
+   -121.74
+  ],
+  "blurb": "A green-season traverse of the East Bay backcountry: Murietta Falls, Rose Peak and three quiet trail camps, and no trail permit needed anymore.",
+  "dogs": "no",
+  "dogNote": "Dogs are allowed on the Ohlone Wilderness Trail in daytime only and are not allowed on overnight backpacking trips or at the trail camps, so the dog sits this one out (day hikes at Sunol and Del Valle are fine).",
+  "d": {
+   "tag": "Three short nights across the green winter Diablo Range, Del Valle to Sunol over Rose Peak, ninety minutes from home.",
+   "over": [
+    "The Ohlone Wilderness Trail runs about 28 miles across the Diablo Range from Lake Del Valle in Livermore to Mission Peak in Fremont, through the Ohlone and Sunol wildernesses and over Rose Peak, 3,817 feet and one of the high points of the East Bay. In summer it is a shadeless oven. After the first rains the grass goes green, the springs and troughs at the trail camps run, Murietta Falls comes alive, and the whole thing is closer than any trailhead in the Sierra.",
+    "Walk the Del Valle to Sunol section, about 19 miles, as three short nights with a car at each end: Stewart's Camp, Maggie's Half Acre under Rose Peak, the Sunol backpack camps, then out past the Little Yosemite gorge. The day permit is gone as of 2026; what you need is a trail camp reservation by phone at least two business days ahead. Dogs are day use only, so this is a people trip."
+   ],
+   "why": {
+    "scenery": "Green rolling Diablo Range ridges, Rose Peak at 3,817 ft with long views on a clear winter day, and the rocky Little Yosemite gorge.",
+    "fish": "None on the trail; Lake Del Valle at the trailhead gets winter trout plants, and Alameda Creek is closed to fishing.",
+    "wildlife": "Golden eagles and hawks on the ridges, deer, coyote, wild pig, newts in the creeks after rain, and cattle everywhere.",
+    "bugs": "No mosquitoes in winter, but ticks ride the grass: check every evening.",
+    "water": "Not a swim trip: the draw is Murietta Falls when it runs and creeks after storms."
+   },
+   "route": {
+    "mode": "backpack",
+    "options": [
+     {
+      "name": "Del Valle to Sunol over Rose Peak",
+      "stat": "3 nts · 19.2 mi · 4,931 ft (AllTrails, 4.7★)",
+      "text": "Day 1: from the Lichen Bark trailhead at Del Valle, the steep first climb, a drop into Williams Gulch and another climb to Stewart's Camp, about 6 to 6.6 mi and roughly 2,750 ft, with the short side trail to Murietta Falls if it has rained. Day 2 is short: across the high country past Rose Peak to Maggie's Half Acre, about 4.5 mi, with sunset on the summit. Day 3 drops about 6 mi to the Sunol backpack camps above Alameda Creek. Day 4 is a short walk out to the Sunol visitor center and the second car, with a detour to the Little Yosemite gorge."
+     },
+     {
+      "name": "Full traverse, Del Valle to Mission Peak",
+      "stat": "3 nts · 28.3 mi · 7,444 ft (AllTrails, 4.8★)",
+      "text": "Stewart's Camp the first night, then the long day over Rose Peak to the Sunol backpack camps (about 10 mi by trail guides), then about 8 mi to Eagle Springs below Mission Peak. Day 4 goes over the top of Mission Peak and down to the Stanford Avenue staging area in Fremont, about 4.4 mi. Eagle Springs had water on Oct 4; arrange a pickup at the Fremont end, where guides warn of car break-ins."
+     },
+     {
+      "name": "No shuttle: Del Valle out and back to Rose Peak",
+      "stat": "2 to 3 nts · 19.3 mi RT · 5,518 ft (AllTrails, 4.7★)",
+      "text": "Base at Stewart's Camp or Maggie's Half Acre and take Rose Peak and Murietta Falls as day trips from camp, then walk back down to the car at Del Valle. Simplest logistics, the same best scenery, and every night near a listed water source."
+     }
+    ]
+   },
+   "fish": {
+    "water": "None on the trail; Lake Del Valle at the trailhead",
+    "species": "Stocked rainbow trout in the cool months, plus bass, striped bass, catfish and panfish",
+    "method": "A few casts from the Del Valle shore the morning you start, if at all",
+    "season": "Del Valle is open all year and needs a $5 daily district fishing permit plus a California license (16 and over); the district plants trout fall through spring. Alameda Creek through Sunol is closed to fishing in winter under the 2026 CDFW regulations.",
+    "catch": 1,
+    "label": "Stocked lake only (Del Valle)",
+    "gear": "Light spin, or a 5 wt with a sinking line, from the Lake Del Valle shore; $5 district permit plus a CA license",
+    "flies": [
+     "Woolly Bugger, olive or black #10",
+     "Thin Mint #10",
+     "Kastmaster 1/8 oz (spin)"
+    ],
+    "timing": "Only for a cast at the trailhead the morning you start; Del Valle is put-and-take trout water in winter, and nothing on the trail is fishable."
+   },
+   "wild": [
+    "Golden eagle",
+    "Red-tailed hawk",
+    "Black-tailed deer",
+    "Coyote",
+    "Wild pig",
+    "California newt (wet season)"
+   ],
+   "water": {
+    "spots": [
+     "Murietta Falls (only after rain)",
+     "Little Yosemite gorge on Alameda Creek (look only)"
+    ],
+    "skinny": "No: swimming and wading are not allowed in Alameda Creek, and the trail has nothing else to get into."
+   },
+   "permit": {
+    "system": "East Bay Regional Park District backpack camp reservation. The Ohlone trail permit was discontinued: sales ended Nov 19, 2025, and none is required from Jan 1, 2026.",
+    "cost": "$15 per site per night plus an $8 non-refundable reservation fee (2026 district rate); parking $5 at the Del Valle and Sunol kiosks, with the overnight pass included in the reservation",
+    "where": "By phone: 1-888-327-2757, option 2, Monday to Friday 9am to 4pm",
+    "when": "At least two business days ahead; winter weekdays are wide open, spring weekends fill",
+    "notes": "Ohlone and Sunol camps: Eagle Springs, the Sunol backpack area (Sky, Cathedral, Hawk's Nest, Oak View, Sycamore, Eagle's Eyrie, Star's Rest), Maggie's Half Acre, Doe Camp, Stewart's Camp and Boyd Camp. Backpack stoves only, no campfires, no alcohol, quiet hours 10pm to 7am, no refunds for rain. The trail map is now free at the Sunol, Del Valle and Coyote Hills visitor centers."
+   },
+   "drive": {
+    "time": "~1.5 hr",
+    "route": "Across the San Mateo Bridge, I-880 and I-680 to I-580 in Livermore, then Mines Rd and Del Valle Rd to the park; the Sunol end is off I-680 at Calaveras Rd and Geary Rd",
+    "flags": [
+     "Two-car shuttle, or a drop-off and pickup; Del Valle to Sunol is roughly 45 minutes by car",
+     "Del Valle Rd is narrow and winding for the last miles",
+     "Drive in midday to miss the 580 and 680 commute"
+    ]
+   },
+   "safety": [
+    "Cattle graze the whole route: give cows with calves a wide berth and close every gate",
+    "Wet adobe clay turns the steep fire roads to grease after storms; trekking poles help",
+    "Exposed ridges: cold wind and the odd dusting of snow on Rose Peak in winter storms, with no shade or shelter",
+    "Ticks in the grass: check daily",
+    "Short days: sunset is around 5pm in December, so start early"
+   ],
+   "insider": [
+    "Go a few dry days after a good storm: Murietta Falls runs and the troughs are full, but the clay has firmed up",
+    "Rose Peak at sunset from Maggie's Half Acre, then back to camp by headlamp",
+    "Pick up the free trail map at the Del Valle or Sunol visitor center; there is no permit to buy anymore",
+    "Midweek, the trail camps are usually yours alone"
+   ],
+   "pack": [
+    "Water filter or treatment: every camp source is non-potable",
+    "Trekking poles for the steep pitches",
+    "Warm layers and a real rain shell",
+    "Tick check kit"
+   ],
+   "verify": [
+    "Camp reservation confirmed (1-888-327-2757, option 2)",
+    "The water list on the district's Ohlone page, updated as springs change",
+    "Storm forecast: plan around a dry window, the clay roads are miserable wet",
+    "That no fire-season stove restriction is still posted for Sunol",
+    "Shuttle: the second car at Sunol, or a ride"
+   ],
+   "now": {
+    "read": "Oct 4, 2026",
+    "lines": [
+     "No Ohlone trail permit is needed in 2026: the district stopped selling them on Nov 19, 2025, and the trail map is now free at the Sunol, Del Valle and Coyote Hills visitor centers.",
+     "Overnight still needs a trail camp reservation, by phone at 1-888-327-2757 option 2 (Monday to Friday, 9am to 4pm), at least two business days ahead: $15 per site per night plus an $8 non-refundable reservation fee in 2026.",
+     "Water was listed as available on Oct 4, 2026 at Eagle Springs, Backpack Camp, Doe Camp, Maggie's Half Acre, Boyd Camp, Stromer Springs and Stewart's Camp; all of it must be filtered, treated or boiled.",
+     "Dogs: daytime only on the Ohlone, never on overnight backpacking trips.",
+     "Winter hours Nov 2 to Jan 31 are 8am to 5pm; parking is $5 at the Del Valle kiosk and $5 at Sunol on weekends and holidays.",
+     "Closures as of Oct 4: the Shady Glen Trail at Sunol (off this route); Lake Del Valle carries a blue-green algae caution at East Swim Beach and golden mussels with a mandatory boat quarantine.",
+     "No campfires or barbecues anywhere on the trail; backpack stoves only at the camps."
+    ],
+    "sources": [
+     "https://www.ebparks.org/about-us/whats-new/news/permit-requirement-discontinued-ohlone-wilderness-trail",
+     "https://ebparks.org/permits/ohlone-wilderness",
+     "https://ebparks.org/parks/ohlone",
+     "https://ebparks.org/recreation/camping/backpack-camping-faqs",
+     "https://ebparks.org/parks/sunol",
+     "https://www.ebparks.org/parks/del-valle",
+     "https://www.ebparks.org/alerts-closures",
+     "https://www.ebparks.org/permits/fishing-permit"
+    ]
+   }
+  },
+  "status": "queued",
+  "url": null,
+  "at": "https://www.alltrails.com/trail/us/california/sunol-wilderness-via-sailor-camp-rocky-ridge-and-canyonview-trail",
+  "air": "Oakland (OAK) ~45 min · San Jose (SJC) ~40 min"
+ },
+ {
+  "id": "yosemitewinter",
+  "name": "Yosemite Valley in Winter: Upper Pines and Dewey Point",
+  "type": "car",
+  "region": "Yosemite · Valley",
+  "drive": 4.5,
+  "len": "3 nts",
+  "miles": "~5/day",
+  "gain": "≤1,100/day",
+  "s": [
+   5,
+   2,
+   4,
+   5,
+   2
+  ],
+  "wild": true,
+  "skinny": false,
+  "permit": "Upper Pines reservation + $35 entry ✦",
+  "fish": "Wild trout, Merced now open all year (C&R rainbows)",
+  "swim": "None in winter",
+  "season": [
+   11,
+   12,
+   1,
+   2,
+   3,
+   4
+  ],
+  "peak": [
+   1,
+   2
+  ],
+  "epic": true,
+  "coord": [
+   37.736,
+   -119.563
+  ],
+  "blurb": "Yosemite Valley under snow with the crowds gone: camp at Upper Pines, walk Mirror Lake and Columbia Rock, snowshoe to Dewey Point.",
+  "dogs": "limited",
+  "dogNote": "Leashed dogs (6 ft max) are allowed at Upper Pines and on paved roads, sidewalks and bike paths, including the paved road to Mirror Lake, Lower Yosemite Fall and Cook's Meadow, but not at Camp 4, on unpaved trails like Columbia Rock and the Mirror Lake loop, or on snow-covered unplowed roads like the Dewey Point route.",
+  "d": {
+   "tag": "Yosemite Valley in snow and near silence: Upper Pines, Mirror Lake, Columbia Rock and a snowshoe to Dewey Point.",
+   "over": [
+    "Winter is the quiet Yosemite. The Valley floor at 4,000 feet takes snow a few times a season and usually clears between storms, so the walks stay open while the walls go white above them. Upper Pines is the one Valley campground on reservations all year and it takes dogs; Camp 4 goes first-come, first-served after Nov 29. The days are short and full: the loop to Mirror Lake under Half Dome, the Yosemite Falls trail to Columbia Rock for the Valley view, a piece of the Valley Loop, and the Merced at midday with a fly rod, open all year as of 2026.",
+    "Once the road to Badger Pass is plowed, from about mid-December, drive up to the ski area and snowshoe the marked winter route to Dewey Point, about seven miles round trip to the rim straight across from El Capitan. Two things to watch this year: the Dome Fire, which closed Glacier Point Road in late September, and chains, which every vehicle must carry whenever controls are up, four-wheel drive included."
+   ],
+   "why": {
+    "scenery": "Half Dome, El Capitan and Yosemite Falls with snow on the rim and frost on the meadows; Dewey Point looks straight across the Valley.",
+    "fish": "Wild trout in the Merced, now open all year, but winter fish are slow and every rainbow goes back.",
+    "wildlife": "Mule deer and coyotes in the meadows, bobcats hunting voles in the snow, dippers on the river; most bears den, some stay active.",
+    "bugs": "None in winter.",
+    "water": "Not a swim trip: the Merced runs near freezing and Mirror Lake fills after storms."
+   },
+   "route": {
+    "mode": "car",
+    "basecamp": "Upper Pines Campground (4,000 ft, open all year, reservation only, $36 a night, flush toilets, drinking water, a food locker at every site, dogs allowed), walking distance to Happy Isles and the Mirror Lake road. Fallback: Camp 4, by Recreation.gov reservation one week ahead through Nov 29, then first-come, first-served at $10 a night, no pets.",
+    "dayhikes": [
+     "Mirror Lake Loop · 5.1 mi · 341 ft (AllTrails); dogs only on the paved first mile",
+     "Yosemite Falls Trail to Columbia Rock · 2.3 mi RT · 1,036 ft (AllTrails); icy above in cold snaps",
+     "Middle Valley Loop from Camp 4 past El Capitan Meadow · 5.8 mi · 249 ft (AllTrails); the El Capitan Bridge crossing is closed weekdays through December",
+     "Dewey Point winter route from Badger Pass on snowshoes · 7.2 mi RT · 702 ft (AllTrails); only once the road is plowed and any Dome Fire closure lifts",
+     "Lower Yosemite Fall loop and Cook's Meadow · 1.2 mi · 59 ft (AllTrails); paved, dogs on leash OK",
+     "Full Valley Loop · 20.6 mi · 1,318 ft (AllTrails), in sections"
+    ]
+   },
+   "fish": {
+    "water": "Merced River through Yosemite Valley",
+    "species": "Wild rainbow (catch and release) and brown trout",
+    "method": "Barbless flies or artificial lures only, no bait or scent; nymph the deep slow runs in the warm middle of the day",
+    "season": "Open all year (new in 2026). Only artificial lures or flies with barbless hooks; rainbow trout catch and release only; brown and brook trout 5 per day, 10 in possession. No fishing from any bridge. California license for 16 and over.",
+    "catch": 2,
+    "label": "Slow (wild, winter river)",
+    "gear": "4 to 5 wt, 9 ft, 5x to 6x tippet, barbless only; indicator nymph rigs in the slow runs",
+    "flies": [
+     "Zebra Midge #18 to 20",
+     "Pheasant Tail #16 to 18",
+     "Blue Winged Olive #18 to 20",
+     "Woolly Bugger, olive #10"
+    ],
+    "timing": "11am to 2pm on sunny days, in the deep tailouts and slow runs; cast from the bank, never from a bridge."
+   },
+   "wild": [
+    "Mule deer",
+    "Coyote",
+    "Bobcat",
+    "American dipper",
+    "Steller's jay",
+    "Black bear (mostly denning)"
+   ],
+   "water": {
+    "spots": [
+     "Merced River below Sentinel Bridge (to look at in winter)",
+     "Mirror Lake (fills after storms)"
+    ],
+    "skinny": "Not a swim trip: the Merced runs near freezing in winter."
+   },
+   "permit": {
+    "system": "Upper Pines on Recreation.gov (reservation only, all year) plus the park entrance fee. Yosemite ended timed entry reservations for 2026.",
+    "cost": "Upper Pines $36 a night; entrance $35 per vehicle for 7 days ($70 Yosemite annual pass); Camp 4 $10 a night in the winter first-come season",
+    "where": "recreation.gov (Upper Pines, and Camp 4 through Nov 29); entrance stations for the entry pass",
+    "when": "Upper Pines dates release five months ahead on the 15th at 7am Pacific and sell out in minutes; every Nov to Jan date is already released, so watch for cancellations",
+    "notes": "Winter first-come campgrounds are Camp 4 (after Nov 29), Wawona and Hodgdon Meadow, and they can fill on holidays and weekends. A day snowshoe to Dewey Point needs no permit; camping on the rim would need a wilderness permit, and camping is not allowed at Dewey Point itself. Food and scented items go in the site locker: bears."
+   },
+   "drive": {
+    "time": "~4.5 hr",
+    "route": "Across the bay to I-580 and I-205, Hwy 99 to Merced, then Hwy 140 through Mariposa and El Portal, the lowest and least-chained entrance in winter; Hwy 120 through Groveland is shorter but higher",
+    "flags": [
+     "Carry chains: whenever controls are up, every vehicle must have them, including four-wheel drive and rentals; Hwy 41, Hwy 120 and the Badger Pass road get controls more often than Hwy 140",
+     "Hwy 140 runs one lane on temporary bridges around the Ferguson slide; Caltrans began the rock shed build in summer 2026 (about five years of work)",
+     "El Capitan Bridge stabilization: 15 minute delays Monday to Friday, 7am to 7pm, through December 2026",
+     "The road to Badger Pass is plowed only from about mid-December to early April; Tioga and Glacier Point roads beyond close with the first big storm"
+    ]
+   },
+   "safety": [
+    "Chains in the car and know how to fit them; storms can close roads for hours",
+    "Ice above Columbia Rock and on shaded switchbacks: microspikes, and turn around where it glazes",
+    "Dewey Point ends at a sheer drop that can carry a snow cornice: stay well back from the edge",
+    "Rockfall in the Valley after freeze-thaw and heavy rain",
+    "Nights in the 20s: wet snow and short days make hypothermia the real risk"
+   ],
+   "insider": [
+    "Midweek in December and early January is the emptiest the Valley gets; Upper Pines cancellations show up on Recreation.gov",
+    "After a storm clears, go to Tunnel View and Valley View early",
+    "On the Dewey Point route wear snowshoes and stay off the set ski tracks: the park asks hikers not to boot or microspike the trail",
+    "Fish the Merced from the bank between about 11am and 2pm, when the sun is on the water"
+   ],
+   "pack": [
+    "Tire chains, practiced once at home",
+    "Microspikes",
+    "Snowshoes, or rent at Badger Pass once the ski area opens",
+    "A 15 degree bag and an insulated pad",
+    "Barbless flies and a California fishing license"
+   ],
+   "verify": [
+    "Upper Pines reservation on Recreation.gov, or Camp 4 first-come rules after Nov 29",
+    "Road and chain status: 209-372-0200, then 1, 1",
+    "Glacier Point Road plowed to Badger Pass, and the Dewey Point route outside any Dome Fire closure",
+    "Badger Pass opening date and snowshoe rentals",
+    "El Capitan Bridge weekday trail closure if the Valley Loop is on the list"
+   ],
+   "now": {
+    "read": "Oct 4, 2026",
+    "lines": [
+     "Upper Pines is open all year by reservation only, $36 a night; Camp 4 is by Recreation.gov reservation through November (sources give Nov 9 and Nov 29 as the last reserved night, so confirm), then first-come, first-served at $10 a night, no pets. Wawona and Hodgdon Meadow are also first-come in winter.",
+     "No entry reservation: Yosemite dropped timed entry for 2026. Entrance is $35 per vehicle for 7 days, and Nov 11 (Veterans Day) is listed as a fee-free day.",
+     "Chains: whenever controls are in effect, every vehicle must carry them, four-wheel drive and rentals included. Road info: 209-372-0200.",
+     "The Dome Fire, reported Sept 15 near Chilnualna Falls, was 40 percent contained on Oct 1; it has Glacier Point Road closed and the Ostrander Lake Trail and the country south of it closed. NPS normally plows the road to Badger Pass from about mid-December to early April.",
+     "Valley Loop: the trail over El Capitan Bridge is closed weekdays through December for bridge work, with 15 minute road delays weekdays 7am to 7pm through December 2026.",
+     "Merced River: open all year as of 2026, barbless artificial lures and flies only, rainbows catch and release, browns and brook trout 5 a day.",
+     "Mariposa Grove Road closes about Nov 30; Tioga Road and Glacier Point Road close with the first big storm."
+    ],
+    "sources": [
+     "https://www.nps.gov/yose/planyourvisit/camping.htm",
+     "https://www.nps.gov/yose/planyourvisit/campgrounds.htm",
+     "https://www.nps.gov/yose/planyourvisit/camp4.htm",
+     "https://www.recreation.gov/camping/campgrounds/232447",
+     "https://www.nps.gov/yose/planyourvisit/fees.htm",
+     "https://www.nps.gov/yose/planyourvisit/reservations.htm",
+     "https://www.nps.gov/yose/planyourvisit/pets.htm",
+     "https://www.nps.gov/yose/planyourvisit/tirechains.htm"
+    ]
+   }
+  },
+  "status": "queued",
+  "url": null,
+  "at": "https://www.alltrails.com/trail/us/california/dewey-point-trail--4",
+  "air": "Fresno (FAT) ~2.5 hr · Merced (MCE) ~2 hr"
+ },
+ {
+  "id": "saltpoint",
+  "name": "Sonoma Coast: Salt Point and Gualala Point storm camp",
+  "type": "car",
+  "region": "Sonoma Coast",
+  "drive": 3,
+  "len": "3 nts",
+  "miles": "~4/day",
+  "gain": "≤1,300/day",
+  "s": [
+   5,
+   3,
+   4,
+   5,
+   2
+  ],
+  "wild": true,
+  "skinny": false,
+  "permit": "Reservable (ReserveCalifornia / Sonoma County Parks)",
+  "fish": "Wild Gualala steelhead (flows permitting), shore rockfish",
+  "swim": "Storm surf and tidepools, no swim",
+  "season": [
+   10,
+   11,
+   12,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "peak": [
+   1,
+   2
+  ],
+  "epic": false,
+  "coord": [
+   38.567,
+   -123.33
+  ],
+  "blurb": "Storm-watching camp on the Sonoma coast: Salt Point's honeycomb bluffs and coves, gray whales offshore, and a dog-friendly fallback on the Gualala River.",
+  "dogs": "limited",
+  "dogNote": "At Salt Point dogs are allowed on leash in the campground, on paved areas and on the trails from the campground to the cove, but not on hiking trails, beaches or the Kruse reserve trails; at Gualala Point Regional Park leashed dogs are allowed throughout the park, bluff trail and beach included.",
+  "d": {
+   "tag": "Storm-season camping on the wildest stretch of the Sonoma coast: Salt Point's tafoni bluffs, Gerstle Cove, whales offshore, and a steelhead river at Gualala Point.",
+   "over": [
+    "North of Jenner the Sonoma coast turns wild: sandstone headlands weathered into honeycomb tafoni, kelp coves, and bishop pine and redwood running down to the bluffs. Salt Point State Park holds a long run of that shoreline, with Stump Beach, Gerstle Cove and Fisk Mill Cove along the bluff trail and a prairie and pygmy forest above the highway, and the Kruse rhododendron reserve sits next door. In winter Gerstle Cove is the campground that stays open, and storm days are the show: big surf exploding on the points and gray whales heading south offshore.",
+    "Gualala Point Regional Park, about 20 miles north at the Sonoma and Mendocino line, is the alternate and the dog camp: a small campground in the trees on the Gualala River, leashed dogs allowed everywhere including the bluff trail and beach, and a wild steelhead river at the door when winter flows allow. Split the three nights between them or pick one."
+   ],
+   "why": {
+    "scenery": "Sculpted sandstone, kelp coves and storm surf at Stump Beach and Fisk Mill; redwood and bishop pine down to the bluffs.",
+    "fish": "Wild winter steelhead in the Gualala when flows allow (release them all), plus shore rockfish outside Gerstle Cove.",
+    "wildlife": "Gray whales southbound, harbor seals and river otters at the Gualala mouth, sea lions, deer.",
+    "bugs": "Winter coast: none to speak of.",
+    "water": "Not swimming weather: tidepools and a calm-day look into Gerstle Cove."
+   },
+   "route": {
+    "mode": "car",
+    "basecamp": "Gerstle Cove Campground at Salt Point (30 sites in the pines above the cove, open all year, $35 a night, food lockers), walking distance to the cove and the bluff trail. For the dog, or for steelhead: Gualala Point Regional Park (19 sites on the Gualala River, open all year, reservation only, $41 a night plus tax), about 20 miles north.",
+    "dayhikes": [
+     "Salt Point Trail to Stump Beach along the bluffs · 3.4 mi RT · 141 ft (AllTrails)",
+     "Salt Point and North Trail loop: prairie, pygmy forest, Stump Beach · 8.6 mi · 1,295 ft (AllTrails)",
+     "South Gerstle and the southern bluffs, tafoni country · 1.1 mi RT · 36 ft (AllTrails)",
+     "Bluff Trail to Fisk Mill Cove and Sentinel Rock · 1.2 mi RT · 98 ft (AllTrails)",
+     "Kruse Rhododendron reserve, Chinese Gulch and Phillips Gulch loop · 2.2 mi · 406 ft (AllTrails); blooms mid-April to mid-June",
+     "Gualala Point Bluff Top Trail, dogs on leash · 5.8 mi RT · 252 ft (AllTrails)"
+    ]
+   },
+   "fish": {
+    "water": "Gualala River from Gualala Point Regional Park for steelhead; Salt Point rocks and Stump Beach for shore rockfish",
+    "species": "Wild winter steelhead (catch and release); rockfish, cabezon, greenling, lingcod and surfperch",
+    "method": "Swing a sink tip on a 7 to 8 wt for steelhead when the river is open and in shape; rockfish from the rocks only on calm low tides",
+    "season": "Gualala main stem: fourth Saturday in May through Mar 31, barbless hooks only from Nov 1, 2 hatchery steelhead a day with every wild fish released, no fishing from a float tube or boat Nov 15 to Feb 28 from the North Fork down to the Hwy 1 bridge, and closed by low-flow rule whenever the South Fork gauge near Sea Ranch is under 150 cfs (Sept 1 to Apr 30). Steelhead Report Card required. Ocean: Gerstle Cove is no take; the Salt Point marine area allows finfish only; shore anglers are exempt from groundfish seasons and depths; 10 rockfish, cabezon and greenling combined (1 copper), lingcod 2 at 22 in, no quillback or yelloweye.",
+    "catch": 2,
+    "label": "Hard but wild (steelhead) + shore rockfish",
+    "gear": "7 to 8 wt, 10 ft, with a sink tip for the Gualala (heavier than the 4 to 5 wt kit); a 9 to 10 ft spinning rod for rockfish off the rocks; barbless on the river",
+    "flies": [
+     "Egg-sucking leech, black or purple #4 to 6",
+     "Single egg or Glo Bug, barbless",
+     "Intruder-style, purple and black",
+     "Clouser Minnow (rockfish, calm days)"
+    ],
+    "timing": "Gualala on the drop after a storm, gauge above 150 cfs and the mouth open; rockfish only at low tide on a calm day."
+   },
+   "wild": [
+    "Gray whale (southbound in winter)",
+    "Harbor seal",
+    "River otter",
+    "California sea lion",
+    "Black-tailed deer",
+    "Steelhead (Gualala River)"
+   ],
+   "water": {
+    "spots": [
+     "Gerstle Cove tidepools and calm-day snorkel (look, never take)",
+     "Gualala River estuary (flat water for a paddle)"
+    ],
+    "skinny": "Not realistic in storm season: cold, dangerous surf and public coves."
+   },
+   "permit": {
+    "system": "ReserveCalifornia for Gerstle Cove (Salt Point State Park); Sonoma County Regional Parks for Gualala Point",
+    "cost": "Gerstle Cove $35 a night plus an $8.25 reservation fee, extra vehicle $10, day use $10; Gualala Point $41 a night plus tax and a $10 reservation fee, extra vehicle $10, day use $8",
+    "where": "reservecalifornia.com or 1-800-444-7275; socoparks.org/camping or 707-565-2267 (Monday to Friday, 10am to 3pm)",
+    "when": "Both open six months ahead (ReserveCalifornia at 8am Pacific); winter weekdays are easy",
+    "notes": "State Parks rules: cancel 7 or more days out for a refund less the $8.25 fee, 2 to 6 days out forfeits the first night, inside 2 days or a no-show forfeits everything, and three no-shows in a calendar year bring a 365-day booking ban; the site is held until noon the day after arrival. Gualala Point campsites are reservation only (hike and bike sites are first-come). Max RV length 31 ft at Gerstle Cove, 24 ft at Gualala Point."
+   },
+   "drive": {
+    "time": "~3 hr",
+    "route": "US-101 north to Hwy 116 at Cotati, through Sebastopol and Guerneville to Jenner, then Hwy 1 north about 18 to 20 miles to Salt Point; Gualala Point is about 20 miles further",
+    "flags": [
+     "Hwy 1 north of Jenner is narrow, winding and exposed; winter storms bring slides and closures, so check QuickMap",
+     "Weekday one-way signals on Hwy 116 near Monte Rio (7am to 3:30pm) through January 2027, and on Hwy 1 in Bodega Bay (7am to 3pm) through about December",
+     "Fuel is scarce: fill up in Guerneville or Gualala"
+    ]
+   },
+   "safety": [
+    "Sneaker waves and storm surf: never turn your back on the ocean, and stay off wet rocks at Stump Beach and the points",
+    "Undercut, crumbling bluff edges",
+    "Wind storms drop limbs and trees in the campground forest",
+    "Hwy 1 at night in rain: slides, rockfall, no shoulders"
+   ],
+   "insider": [
+    "Time the storm-watching for a big swell, then walk Stump Beach and Fisk Mill as it eases",
+    "The tafoni honeycomb is best on the south Gerstle bluffs and around Fisk Mill Cove",
+    "Watch for gray whales from Whale Watch Point at Gualala Point",
+    "Gualala steelhead move after storms open the river mouth: check the gauge and the low-flow status before rigging"
+   ],
+   "pack": [
+    "Full rain kit and a tarp for a dry kitchen",
+    "Binoculars",
+    "Headlamp: sunset is around 5pm",
+    "Fishing license and Steelhead Report Card if the rod comes"
+   ],
+   "verify": [
+    "Gerstle Cove reservation, and that Woodside is closed for the season",
+    "Hwy 1 and Hwy 116 on Caltrans QuickMap",
+    "Storm, wind and high surf advisories",
+    "Gualala low-flow status (CDFW updates it Monday, Wednesday and Friday)",
+    "CDPH shellfish advisories before eating anything gathered outside the marine protected areas"
+   ],
+   "now": {
+    "read": "Oct 4, 2026",
+    "lines": [
+     "Gerstle Cove is the Salt Point campground open in winter: 30 sites at $35 a night plus an $8.25 ReserveCalifornia fee, $10 day use; Woodside closes for the season (last winter it reopened May 1).",
+     "ReserveCalifornia opens dates six months ahead at 8am Pacific. Cancel 7 or more days out for a refund less the $8.25 fee; 2 to 6 days out forfeits the first night; inside 2 days or a no-show forfeits everything, and three no-shows in a calendar year bring a 365-day booking ban.",
+     "Gualala Point Regional Park camps all year, reservation only: $41 a night plus tax and a $10 reservation fee, $8 day use, leashed dogs allowed throughout the park.",
+     "Highway 1: Caltrans listed no restrictions in Sonoma County on Oct 4; expect weekday one-way signals on Hwy 1 in Bodega Bay through about December and on Hwy 116 near Monte Rio through January 2027, and one-way control in Gualala on the Mendocino side through Oct 30.",
+     "The late-July Woodside Fire (about 152 acres near Timber Cove, south of the park) is out; the Salt Point campgrounds reopened in August.",
+     "Gerstle Cove is a no-take marine reserve and the rest of the Salt Point marine area allows finfish only (abalone is closed until at least 2036), so no mussels, crabs or seaweed. The sport mussel quarantine ran May 1 to Oct 31.",
+     "Gualala River: open to Mar 31 with barbless hooks from Nov 1 and all wild steelhead released, but closed whenever the South Fork gauge near Sea Ranch reads under 150 cfs."
+    ],
+    "sources": [
+     "https://www.parks.ca.gov/?page_id=453",
+     "https://www.parks.ca.gov/?page_id=448",
+     "https://www.parks.ca.gov/29676",
+     "https://www.parks.ca.gov/1029",
+     "https://campflare.com/campground/rc-703-648",
+     "https://parks.sonomacounty.ca.gov/visit/find-a-park/gualala-point-regional-park",
+     "https://parks.sonomacounty.ca.gov/play/camping/tent-trailer-and-rv-campsites",
+     "https://wildlife.ca.gov/Conservation/Marine/MPAs/Salt-Point-Gerstle-Cove"
+    ]
+   }
+  },
+  "status": "queued",
+  "url": null,
+  "at": "https://www.alltrails.com/trail/us/california/salt-point-and-north-trail-loop",
+  "air": "Sonoma County (STS) ~1.5 hr · SFO ~3 hr"
+ }
+]
+);
+const WINTER_NOW = {
+ "pointreyes": {
+  "dogs": "no",
+  "dogNote": "Pets are prohibited in all four hike-in camps and on almost all Point Reyes trails, including every route to Wildcat and Coast Camp; leashed dogs (6 foot leash) are allowed only on a few trails such as the Kehoe Beach Trail and on set beach stretches at Kehoe, Limantour (southeast of the lot toward Coast Camp) and Point Reyes Beach.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Permits: Recreation.gov only, $30 a night for a standard site (up to 6 people) and $90 for a group site (7 to 25); Senior and Access passes take half off standard sites. There are no walk-up or same-day sites: do not arrive without a reservation.",
+    "Release: most sites open three months to the day ahead and the rest 14 days ahead, both at 7am Pacific, so a mid-January weekend opens in mid-October. At Wildcat, sites 1, 2, 3, 5 and 7 are on the three-month window and 4, 6 and 8 on the 14-day window.",
+    "Fire: wood and charcoal fires are prohibited in all four hike-in camps; cook on a gas stove or canned heat. Driftwood fires on sandy beaches need a free daily permit printed from the park site, void on high fire danger, winds over 30 mph or Spare the Air days.",
+    "Water: faucets at Wildcat, Coast, Sky and Glen, usually potable; bring a filter anyway. There is no water at the Palomarin or Five Brooks trailheads.",
+    "Closures: the Palomarin Beach Trail has been closed since 2020 for failing cliffs; no other trail or camp closures were posted today. The cliff-top Alamere Falls Trail is unmaintained and the park warns against it: reach the falls by walking 1.1 miles south from Wildcat on the beach at low tide, and since winter beaches hold less sand, turn back if waves reach the bluffs.",
+    "Limits: four nights per visit and 30 a year. Print the confirmation for the ranger and leave a copy face up on the dash of each car parked overnight at the trailhead."
+   ],
+   "sources": [
+    "https://www.nps.gov/pore/planyourvisit/camping.htm",
+    "https://www.recreation.gov/camping/campgrounds/233359",
+    "https://www.nps.gov/pore/planyourvisit/pets.htm",
+    "https://www.nps.gov/pore/planyourvisit/beachfires.htm",
+    "https://home.nps.gov/pore/planyourvisit/alamere_falls.htm",
+    "https://home.nps.gov/pore/learn/management/lawsandpolicies.htm"
+   ]
+  }
+ },
+ "bigsur": {
+  "dogs": "limited",
+  "dogNote": "Pfeiffer Big Sur allows dogs only on the Warden's Path and River Path and in its day-use lots and campground; Julia Pfeiffer Burns and Andrew Molera allow no dogs at all; Limekiln allows leashed dogs in the campground and on the beach but not on trails; Forest Service campgrounds require a leash no longer than 6 feet.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Highway 1 is open end to end, Carmel to Cambria, since Regent's Slide reopened Jan 14, 2026. As of Oct 4 there is 24-hour one-way signal control at Rocky Creek Bridge through Nov 30, plus overnight full closures (11pm to 5am) Oct 8 near Nepenthe and Oct 12 to 15 near Point Sur. Winter storms can still close it: check Caltrans the morning you drive.",
+    "Fires: the Timber Fire (started Aug 8 southeast of Big Sur, 25,352 acres) was 88 percent contained on Oct 4; the Plaskett Fire (30,124 acres) was fully contained Oct 1. Repair work continues in both.",
+    "Pfeiffer Big Sur State Park, campground and river gorge included, is closed until further notice, and State Parks says all backcountry trails east of Highway 1 stay closed indefinitely. When it reopens, reservations are on ReserveCalifornia up to six months ahead.",
+    "Forest Service camps are out too: Kirk Creek and Plaskett Creek have been closed since August for the fires, and the Bottchers Gap road is closed under Forest Order 05-07-51-26-11 through Jan 31, 2027. Pfeiffer Beach and Sycamore Canyon Road are exempt from that order; on the road you must stay in a vehicle.",
+    "Open now: Julia Pfeiffer Burns day use and the Partington Cove trail ($10 per vehicle; the McWay Falls beach and Saddle Rock area are off limits), Andrew Molera on a limited basis (the old coast road and East Molera Trail are closed), and Limekiln day use (its campground is closed for a bridge study). None of these has winter camping today.",
+    "Fire rules: a Los Padres order in force June 4, 2026 to Jan 31, 2027 bans any fire, campfire or stove fire outside designated campfire sites; a gas or pressurized liquid fuel stove is legal only with a free California Campfire Permit.",
+    "Fishing: the 2026 CDFW booklet (updated July 10, 2026) closes the Big Sur River to all fishing all year inside Pfeiffer Big Sur State Park, and above the gorge pool it opens only from the Saturday before Memorial Day through Sept 30 (zero trout, barbless artificial lures), so there is no legal winter fishing on this reach."
+   ],
+   "sources": [
+    "https://www.parks.ca.gov/?page_id=570",
+    "https://www.parks.ca.gov/?page_id=21284",
+    "https://www.parks.ca.gov/post/128",
+    "https://www.parks.ca.gov/?page_id=578",
+    "https://www.parks.ca.gov/?page_id=582",
+    "https://www.parks.ca.gov/?page_id=577",
+    "https://www.fs.usda.gov/r05/lospadres/recreation/kirk-creek-campground",
+    "https://www.fs.usda.gov/r05/lospadres/recreation/plaskett-creek-campground"
+   ]
+  },
+  "fix": [
+   {
+    "path": "d.route.dayhikes",
+    "was": "Pfeiffer Falls / Valley View loop · ~2.0 mi · 650 ft; Big Sur River gorge pools",
+    "now": "Both are inside Pfeiffer Big Sur State Park, closed until further notice. Partington Cove (Julia Pfeiffer Burns) is open, and Andrew Molera is open on a limited basis with the old coast road and East Molera Trail closed."
+   }
+  ],
+  "closedUntil": "2027-01-31",
+  "closedNote": "No campground this trip relies on is open: Pfeiffer Big Sur State Park, Kirk Creek and Plaskett Creek are closed after the Timber and Plaskett Fires. Recheck in February."
+ },
+ "ventana": {
+  "dogs": "yes",
+  "dogNote": "The Forest Service rule on the Pine Ridge Trail is a leash no longer than 6 feet or other physical restraint, but the trail is closed to everyone, dogs included, through Jan 31, 2027.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Closed: Forest Order 05-07-51-26-11 closes the Pine Ridge Trail (with Pine Ridge and Divide camps), the Big Sur and Mt. Manuel trails and about 60 more Monterey District trails from Sept 26, 2026 to Jan 31, 2027, unless lifted sooner; violations carry fines up to $5,000. Sykes sits on the Pine Ridge Trail, so it is closed with it.",
+    "The Timber Fire started Aug 8 about 4 miles southeast of Big Sur and burned portions of the Pine Ridge Trail; it was 88 percent contained on Oct 4 with repair work ongoing.",
+    "Permits: the Los Padres does not issue wilderness or backcountry permits. A free California Campfire Permit is required to run a stove. Parking at Big Sur Station is $10 per vehicle per calendar day (one night costs $20), 55 spaces.",
+    "Fire: Los Padres order 05-07-00-26-05 (June 4, 2026 to Jan 31, 2027) bans any fire, campfire or stove fire outside designated campfire sites, and none is on this route; campfire permit holders may use gas or pressurized liquid fuel stoves.",
+    "Below the trailhead, Pfeiffer Big Sur State Park is closed until further notice, and State Parks has closed all backcountry trails east of Highway 1 indefinitely.",
+    "Highway 1 is open Carmel to Cambria, with one-way signal control at Rocky Creek Bridge through Nov 30. Big Sur Station visitor center: daily 9am to 4pm, 831-667-2315.",
+    "Fishing: the 2026 CDFW booklet (updated July 10, 2026) closes the Big Sur River to all fishing all year inside Pfeiffer Big Sur State Park, and above the gorge pool it opens only from the Saturday before Memorial Day through Sept 30 (zero trout, barbless artificial lures), so there is no legal winter fishing on this reach."
+   ],
+   "sources": [
+    "https://www.fs.usda.gov/r05/lospadres/recreation/trails/pine-ridge-trail-3e06",
+    "https://www.fs.usda.gov/r05/lospadres/alerts/monterey-ranger-district-emergency-closure-order-exceptions",
+    "https://www.fs.usda.gov/sites/nfs/files/r05/lospadres/publication/alerts/Order%2005%2007%2051%2026%2011%20Monterey%20Ranger%20District%20Emergency%20Closure%20With%20Exceptions%2009252026signed.pdf",
+    "https://www.fs.usda.gov/r05/lospadres/alerts/los-padres-fire-use-and-firearm-restrictions",
+    "https://www.fs.usda.gov/r05/lospadres/conditions",
+    "https://lpforest.org/timber-fire-closures-trail-work-ahead/",
+    "https://www.fire.ca.gov/incidents/2026/8/8/timber-fire",
+    "https://www.parks.ca.gov/?page_id=570"
+   ]
+  },
+  "fix": [
+   {
+    "path": "d.permit.system",
+    "was": "Ventana Wilderness (Los Padres NF): FREE self-issue permit; campfire permit for stoves.",
+    "now": "The Los Padres does not issue wilderness or backcountry permits; a free California Campfire Permit is required to operate a stove."
+   },
+   {
+    "path": "d.permit.notes",
+    "was": "POST-FIRE TRAIL CONDITIONS VARY: the Pine Ridge/Sykes corridor has had long closures and reroutes. Confirm open status and water before you go. Ticks and poison oak are real here.",
+    "now": "Closed this winter: Forest Order 05-07-51-26-11 closes the Pine Ridge Trail from Sept 26, 2026 to Jan 31, 2027 after the Timber and Plaskett Fires, and the Timber Fire burned portions of the trail. No fires outside designated sites through Jan 31, 2027. Ticks and poison oak are real here."
+   }
+  ],
+  "closedUntil": "2027-01-31",
+  "closedNote": "Closed this winter: the Pine Ridge Trail, the way to Sykes, is under a Forest Service fire closure through Jan 31, 2027."
+ },
+ "mendocino": {
+  "dogs": "limited",
+  "dogNote": "Russian Gulch allows dogs on a leash no longer than 6 feet in the campground, picnic area, beach, paved roads and Headlands Trail but not on the Fern Canyon Trail or any other trail; Van Damme allows them in the campground, on the beach and at Spring Ranch but not on the Fern Canyon, Old Logging Road or Pygmy Forest trails; at night dogs stay in a tent or vehicle.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Russian Gulch campground is closed for the winter: State Parks takes reservations only May through Labor Day. Day use stays open at $10 per vehicle.",
+    "Base at Van Damme instead: open year-round on ReserveCalifornia (up to six months ahead) with a limited number of first-come sites. A temporary 10-foot single-lane bridge serves the sites east of Little River, and the hike-in environmental camps are closed for maintenance.",
+    "Trails: a portion of the Russian Gulch Fern Canyon Trail is closed and the park does not say which, so the 36-foot waterfall may be cut off. Van Damme's Cabbage Patch trail is closed for budget reasons.",
+    "Firewood: do not gather dead or downed wood in either park; buy it at the campground.",
+    "Ocean: the red abalone sport fishery stays closed until April 1, 2036; check CDFW ocean rules before any rock fishing.",
+    "Drive: Highway 128 had no restrictions in Mendocino County on Oct 4. Highway 1 has one-way control near Westport through Dec 31 and at a rock slide north of Point Arena, both off the 128 route."
+   ],
+   "sources": [
+    "https://www.parks.ca.gov/?page_id=432",
+    "https://www.parks.ca.gov/?page_id=433",
+    "https://wildlife.ca.gov/News/Archive/california-fish-and-game-commission-extends-red-abalone-recreational-fishery-closure-finds-cesa-listing-of-bear-lake-buckwheat-warranted",
+    "https://roads.dot.ca.gov/roadscell.php?roadnumber=128",
+    "https://roads.dot.ca.gov/roadscell.php?roadnumber=1"
+   ]
+  }
+ },
+ "henrycoe": {
+  "dogs": "no",
+  "dogNote": "Dogs are allowed only at the Coe Ranch entrance, in its campground, on paved areas and on the half-mile Live Oak Trail; they are not allowed anywhere else in the park, so not on the China Hole route or at any backcountry camp.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Backpacking permits are first-come, first-served and cannot be reserved: register at the Coe Ranch entrance in Morgan Hill or at Hunting Hollow. Both entrances are open 365 days a year; the Dowdy Ranch entrance is seasonal and can close with rain.",
+    "Fees: $5 per person per night plus $8 per vehicle per night at Coe Ranch ($6 at Hunting Hollow, cash or check only). Bring exact change; cards work when the Coe Ranch visitor center is open. Annual day-use passes do not cover overnight parking.",
+    "Fire: wood or charcoal fires are never allowed in the backcountry; cook on a gas stove. Since June 12, 2026 wood and charcoal are also banned at the drive-in campground for the rest of fire season.",
+    "Trail reports (Pine Ridge Association): China Hole Trail open with plenty of avoidable poison oak (Jul 11); Madrone Soda Springs open and clear (Mar 29); Mile Trail open (Jun 21); Manzanita Point Road and Poverty Flat Road open and clear (Sep 26); the Narrows clear from China Hole to Los Cruzeros (Jul 23).",
+    "Water: creeks mostly stop flowing by summer, so the China Hole pools and creek water depend on the first real rains; check the coepark.net water map and purify everything.",
+    "A car night first: Coe Ranch Campground drive-in sites are $20 a night on ReserveCalifornia, with potable water spigots and no showers."
+   ],
+   "sources": [
+    "https://www.parks.ca.gov/?page_id=561",
+    "https://coepark.net/planning-your-visit/trail-conditions/",
+    "https://coepark.net/planning-your-visit/water-resources/"
+   ]
+  }
+ },
+ "pinnacles": {
+  "dogs": "limited",
+  "dogNote": "Leashed dogs (6 foot leash) are allowed only in the campground, picnic areas, parking lots and on paved roads; they are banned from every park trail, the shuttle and park buildings.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Camping: Pinnacles Campground on the east side is open year-round, by reservation only on Recreation.gov with no first-come sites. Tent and RV sites open six months ahead, group sites twelve.",
+    "Fees: tent sites $44 a night through Mar 11, 2027, plus $12 on weekend nights, rising to $48 from Mar 12; RV electric $62. Entrance is $30 per vehicle for seven days, or the $55 annual pass.",
+    "Caves on Oct 4: both sections of Bear Gulch Cave and Balconies Cave were open, the October full-cave window. From Nov 1 to the end of February only the lower Bear Gulch section may stay open, for the hibernating bats; the whole cave usually reopens the last week of March. Either cave can close after heavy rain.",
+    "Fire: the park's last posted level (Jul 16) was Very High, with wood and charcoal fires banned and gas stoves allowed for cooking in designated areas. Campfires in the campground rings return only when conditions allow, so check before you pack wood.",
+    "The campground pool runs Apr 1 to Oct 31, weather permitting, so it is closed for this trip.",
+    "Cliffs and crags carry raptor advisories or closures January to July for nesting falcons; that matters for scrambling and climbing, not the main trails."
+   ],
+   "sources": [
+    "https://www.nps.gov/pinn/planyourvisit/cavestatus.htm",
+    "https://www.nps.gov/pinn/planyourvisit/pets.htm",
+    "https://www.nps.gov/pinn/planyourvisit/conditions.htm",
+    "https://www.nps.gov/pinn/planyourvisit/camp.htm",
+    "https://www.nps.gov/pinn/planyourvisit/fees.htm",
+    "https://www.recreation.gov/camping/campgrounds/234015"
+   ]
+  }
+ },
+ "carrizo": {
+  "dogs": "yes",
+  "dogNote": "Pets must be under control at all times and leashed or caged at developed sites (the visitor center, overlooks, trailheads and both campgrounds), and no pets are allowed in the Painted Rock exclusion zone.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Camping: Selby (13 sites) and KCL (12 sites) are first-come, first-served with no reservations; KCL charges no fee. Both have spigots that may not run and there is no garbage service, so bring all your water and pack out trash.",
+    "Fire: BLM lists Bakersfield Field Office seasonal fire restrictions in effect as of Oct 4: no campfires or wood or charcoal barbecues, even in campground rings; pressurized gas stoves only with a California Campfire Permit. They stay until BLM lifts them, usually after the rains, so check before you go.",
+    "Roads: every vehicle must be street legal and stay on roads. BLM's road note lists Soda Lake, Elkhorn, Simmler and Panorama Roads open and recommends high clearance in muddy areas; the dirt sections turn impassable after rain. Highways 58 and 166 had no restrictions on Oct 4.",
+    "Painted Rock needs a Recreation.gov reservation (no admission fee, but a reservation fee); self-guided visits need the gate code it sends. It closes March 1 to July 15 except for BLM guided tours, so winter is self-guided season.",
+    "The Goodwin Education Center opens Dec 1 to May 31, Thursday to Sunday, 9am to 4pm; its restrooms are open around the clock all year.",
+    "Target shooting is banned monument-wide, and the land within a quarter mile of Sulphur Springs is closed to entry."
+   ],
+   "sources": [
+    "https://www.blm.gov/visit/carrizo-plain-national-monument",
+    "https://www.blm.gov/visit/kcl-campground",
+    "https://www.blm.gov/visit/selby-campground",
+    "https://www.blm.gov/visit/painted-rock",
+    "https://www.blm.gov/nlcs_web/sites/ca/st/en/prog/nlcs/Carrizo_Plain_NM/recreation/camping.html",
+    "https://www.blm.gov/programs/fire/regional-info/california/fire-restrictions",
+    "https://roads.dot.ca.gov/roadscell.php?roadnumber=58",
+    "https://roads.dot.ca.gov/roadscell.php?roadnumber=166"
+   ]
+  }
+ },
+ "alabamahills": {
+  "dogs": "yes",
+  "dogNote": "BLM land, so dogs may come on the roads, trails and signed designated campsites of the Alabama Hills and at Tuttle Creek; the camping agreement requires packing out dog waste, and the BLM pages state no leash rule, so keep the dog leashed around other camps.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Camping outside Tuttle Creek is allowed only at the signed designated sites (tent symbol), first come, and every camper needs the free Alabama Hills camping permit: fill it out online through Sierra Forever, or pick it up at the Eastern Sierra Visitor Center in Lone Pine or from a BLM ranger. The online agreement says it is valid through the end of the calendar year, so a trip that runs into January needs a fresh one.",
+    "Designated-site stay limit is 14 days per calendar year (Recreation.gov adds no more than 7 days in any 28). Use the six porta potties (Mobius Arch trailhead, across from Shark Fin parking) or pack out solid waste and toilet paper in a wag bag or portable toilet; no new sites, no moving rocks.",
+    "Tuttle Creek Campground (BLM): 83 sites, $12 a night, no reservations, open all year; potable water is seasonal and the dump station closes in winter, so arrive with water.",
+    "Fire: BLM Bishop seasonal fire restrictions took effect June 22, 2026 until further notice, which allows campfires only in agency fire rings in developed campgrounds such as Tuttle Creek; that was still the latest BLM notice found on Oct 4. In past years they lifted Oct 10 (2023) and Nov 22 (2024); once lifted, fires are allowed only in existing rings at designated sites with a free California campfire permit, and never against the rock outcrops.",
+    "Roads: Inyo County's Aug 11, 2026 report lists Whitney Portal Road open with falling rock in the road; Movie Road is maintained dirt fine for cars, while most spur roads are unpaved and the BLM map says most need 4WD.",
+    "Winter drive from Pacifica with Tioga and Sonora shut: CA-99 or I-5 to Bakersfield, CA-58 over Tehachapi Pass to Mojave, CA-14 and US-395 north to Lone Pine, about 450 miles and 7 to 7.5 hours without stops; CA-178 over Walker Pass is a little shorter when dry. Storms can bring chain controls or closures on Tehachapi and Walker passes, so check Caltrans QuickMap.",
+    "Fishing (2026 CDFW regulations, section 7.50(b)(104)): the Lower Owens wild trout water near Bishop, about 65 miles north of Lone Pine, stays open all winter. From Pleasant Valley Dam to the footbridge at the lower end of Pleasant Valley Campground it is 0 trout with barbless artificial lures only from Nov 16 to the Friday before the last Saturday in April; from that footbridge down to Five Bridges Road it is 0 trout, barbless artificials, all year. The rest of the Owens is open all year with a 5 trout limit."
+   ],
+   "sources": [
+    "https://www.blm.gov/alabamahills",
+    "https://www.blm.gov/site-page/programs-national-conservation-lands-california-alabama-hills-national-scenic-area",
+    "https://sierraforever.org/alabama-hills-camping-agreement/",
+    "https://www.recreation.gov/gateways/607",
+    "https://www.recreation.gov/camping/campgrounds/10004620",
+    "https://www.blm.gov/announcement/blm-announces-seasonal-fire-restrictions-eastern-sierra-0",
+    "https://www.blm.gov/announcement/blm-bishop-field-office-eases-seasonal-fire-restrictions",
+    "https://www.blm.gov/press-release/blm-bishop-field-office-eases-seasonal-fire-restrictions-effective-today"
+   ]
+  }
+ },
+ "deathvalley": {
+  "dogs": "limited",
+  "dogNote": "Leashed dogs (6 ft max, four per campsite) may go on paved and dirt roads, in campgrounds and parking lots, and no more than 50 feet from roads or developed areas; never on trails, in wilderness, or within 50 feet of the Saline Valley pools and springs.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Saline Valley: a fire on Sept 15, 2026 burned the Lower Springs area, which is closed to all entry by superintendent order. Camping around Palm Spring and between Lower Springs and Palm Spring reopened Sept 17. Park rules already close the Palm Spring and lower source pools to bathing, and the fire destroyed the volunteer host site and melted the pool piping, so confirm what is soakable before committing to the drive.",
+    "Saline access: Inyo County's Aug 11, 2026 report lists both North and South Saline Valley Road open, and the county was grading North Pass for fire cleanup in September; Hunter Mountain Road is closed for mud. The springs sit about 40 miles from pavement, with no services, and the high passes can hold snow and ice in winter.",
+    "Still closed from flood damage: Bonnie Clare Road and Scotty's Castle (no reopening date), Darwin Falls road (likely summer 2027), and Titus Canyon's one-way section (repairs through about May 2027); Titus's two-way western section from North Highway to Fall Canyon closes Oct 27 through December 2026. North Highway and southern Badwater Road carry loose-gravel and soft-shoulder cautions.",
+    "Campgrounds: Furnace Creek is the only reservable one (Recreation.gov, Oct 15 to Apr 15, from 6 months to 2 days ahead, $30 dry site, check in at the kiosk). First come: Mesquite Spring $20, Texas Spring $20, Sunset $18, Stovepipe Wells $18; on Oct 4 the park still listed Texas Spring, Sunset, Stovepipe Wells and Emigrant closed for the season.",
+    "Roadside backcountry camping needs a mandatory Recreation.gov permit ($10 a night, up to 6 months ahead) along Cottonwood and Marble canyons, Echo Canyon, Hole in the Wall and Greenwater Valley; elsewhere the permit is voluntary. Backcountry camps must be more than 1 mile from paved roads and developed areas and 100 feet from springs.",
+    "Fees and fire: $30 per vehicle for 7 days. Wood fires only in NPS metal fire rings and grates or on a fire pan that keeps the fire off the ground; gathering any wood in the park is banned, so bring all firewood.",
+    "Winter drive from Pacifica: CA-99 or I-5 to Bakersfield, CA-58 to Mojave, CA-14 and US-395 to Olancha, then CA-190 over Towne Pass to Stovepipe Wells, about 485 miles and 8 hours, about 8.5 to Furnace Creek. For Saline's North Pass, stay on US-395 to Big Pine (about 8 hours) before the long dirt road."
+   ],
+   "sources": [
+    "https://www.nps.gov/deva/planyourvisit/conditions.htm",
+    "https://www.nps.gov/deva/learn/news/fire_9-15-2026.htm",
+    "https://www.nps.gov/deva/learn/news/saline-fire-9-18-2026.htm",
+    "https://www.nps.gov/deva/learn/management/rules-and-regulations.htm",
+    "https://www.nps.gov/deva/planyourvisit/pets.htm",
+    "https://www.nps.gov/deva/planyourvisit/wilderness-permits.htm",
+    "https://www.nps.gov/deva/learn/news/death-valley-national-park-to-launch-online-backcountry-permits-system-on-recreation-gov.htm",
+    "https://www.nps.gov/deva/planyourvisit/developed-campgrounds.htm"
+   ]
+  },
+  "fix": [
+   {
+    "path": "d.water.spots",
+    "was": "Saline Valley Warm Springs",
+    "now": "Saline Valley Warm Springs: Palm Spring area open; Lower Springs closed to all entry since Sept 16, 2026 after the fire"
+   },
+   {
+    "path": "d.water.skinny",
+    "was": "Saline's clothing-optional pools are the destination",
+    "now": "Saline's pools were the destination, but the Lower Springs are closed after the Sept 15, 2026 fire and the host site is gone; confirm what is open before the drive"
+   }
+  ]
+ },
+ "dvbackpack": {
+  "dogs": "no",
+  "dogNote": "No dogs: the Cottonwood-Marble loop is trail and designated wilderness, where pets are banned; leashed dogs are allowed only on roads, in campgrounds, and within 50 feet of roads or developed areas.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "A wilderness permit is mandatory for every overnight on the loop: Recreation.gov only, $10 per permit ($6 reservation plus $4 recreation fee), 1 to 12 people and no more than 4 vehicles, released 6 months before the start date, with same-day online permits until 11:59 pm. Recreation.gov says in-person permits are no longer issued for this route; Furnace Creek Visitor Center staff (8 am to 5 pm) can help you book.",
+    "Roadside camping along Cottonwood and Marble Canyon roads also needs a mandatory Recreation.gov permit ($10 a night), and camping is banned on the first 8 miles of Cottonwood Canyon Road.",
+    "Access: Cottonwood Canyon Road starts at Stovepipe Wells; NPS says high clearance to the canyon mouth and 4x4 beyond, with the trailhead 8 to 10 miles in. It was not on the park's road closure list on Oct 4, 2026. NPS gives the loop as 26 miles, longer with any road walk.",
+    "Water: the only sources are seasonal springs in upper Cottonwood Canyon and Deadhorse Canyon, which NPS warns can be dry or contaminated; treat everything and carry a margin.",
+    "Fire and fees: no campfires in the backcountry, stove only; $30 per vehicle for 7 days.",
+    "Nearby closures that do not touch the loop: Titus Canyon (one-way section closed through about May 2027, western section Oct 27 through December 2026), Scotty's Castle and Bonnie Clare Road, and the Darwin Falls road.",
+    "Winter drive from Pacifica: CA-99 or I-5 to Bakersfield, CA-58 to Mojave, CA-14 and US-395 to Olancha, then CA-190 over Towne Pass to Stovepipe Wells, about 485 miles and 8 hours, then the slow dirt of Cottonwood Canyon Road."
+   ],
+   "sources": [
+    "https://www.nps.gov/deva/planyourvisit/wilderness-permits.htm",
+    "https://www.recreation.gov/permits/4675343",
+    "https://www.nps.gov/deva/planyourvisit/backpacking.htm",
+    "https://www.nps.gov/deva/learn/news/death-valley-national-park-to-launch-online-backcountry-permits-system-on-recreation-gov.htm",
+    "https://www.nps.gov/deva/learn/management/rules-and-regulations.htm",
+    "https://www.nps.gov/deva/planyourvisit/pets.htm",
+    "https://www.nps.gov/deva/planyourvisit/conditions.htm",
+    "https://www.nps.gov/deva/learn/news/titus-canyon-closing-oct-2-2026.htm"
+   ]
+  },
+  "fix": [
+   {
+    "path": "d.over[0]",
+    "was": "It's a free-permit, no-quota route through some of the most profound silence and solitude in the park system.",
+    "now": "It takes a mandatory $10 Recreation.gov wilderness permit, and it runs through some of the most profound silence and solitude in the park system."
+   }
+  ]
+ },
+ "anzaborrego": {
+  "dogs": "limited",
+  "dogNote": "Leashed dogs (6 ft max) may go in the campgrounds, on park roads open to vehicles, dirt roads included, and on the Visitor Center to campground trail; never on other trails, in the backcountry or in wildflower fields, and overnight they must be in your tent or vehicle.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Borrego Palm Canyon Trail is open sunrise to sunset ($10 day-use parking), but the first palm grove is closed for fire recovery and the trail now ends at a viewpoint above it, about 1.5 miles in.",
+    "Campgrounds on ReserveCalifornia, bookable 6 months ahead with reservations taken Oct 1 to Apr 30: Borrego Palm Canyon (tent $35, full hookup $45) and Tamarisk Grove (tent $35, cabin $70, RVs to 21 ft; open Oct 1 to May 31). The primitive camps at Fish Creek, Bow Willow, Mountain Palm Springs and Sheep Canyon now list $20 a night.",
+    "Open camping along designated dirt roads is still allowed: park no more than one car length off the road without disturbing natural features, 30 days per calendar year in the whole park; the park fee schedule lists no charge for it.",
+    "Fire: no ground fires; campfires only in a camp stove or a metal container with a bottom and sides, and nothing natural may be removed, so bring firewood. During extreme heat or fire danger warnings, open fires are banned at Blair Valley, Culp Valley, all backcountry sites and day-use lots; the Colorado Desert District office (760-767-4037) has the current status.",
+    "Dirt roads (park report dated Feb 5, 2026): Font's Point Wash is deep sand, hard even in 4x4 at the S-curves; Coyote Canyon is closed at the 3rd Crossing gate and Collins Valley is closed; most dirt roads want AWD or 4x4 and some need high clearance. Day-use parking at The Slot and Hellhole Canyon is $10.",
+    "The Visitor Center is open daily Oct 1 to May 31; Coyote Canyon beyond Lower Willows, Tamarisk Grove and Vern Whitaker close every June 1 to Sept 30, so all are open for a winter trip.",
+    "Winter drive from Pacifica: I-5 over the Grapevine, through the LA basin to I-15 at Temecula, then CA-79 and S-2 or S-22 into Borrego Springs, about 530 miles and 8.75 hours without traffic; storms can close the Grapevine (Tejon Pass)."
+   ],
+   "sources": [
+    "https://www.parks.ca.gov/?page_id=638",
+    "https://www.parks.ca.gov/?page_id=30308",
+    "https://www.parks.ca.gov/?page_id=29292",
+    "https://www.alltrails.com/trail/us/california/borrego-palm-canyon--5",
+    "https://quickmap.dot.ca.gov/"
+   ]
+  }
+ },
+ "joshuatree": {
+  "dogs": "limited",
+  "dogNote": "Leashed dogs (6 ft max) may go in campgrounds and picnic areas, on paved and dirt roads, within 100 feet of roads, parking areas and campgrounds, and on the paved Oasis of Mara and Keys View trails; never on other trails or in the backcountry, even carried.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "Reservation required all year on Recreation.gov, same day to 6 months ahead: Jumbo Rocks (124 sites, $30), Ryan (31, $30), Indian Cove (101, $35), Black Rock (99, $35), Cottonwood (62, $35). First come only: Hidden Valley (44 sites, $25), Belle and White Tank ($25, seasonal); claim a site, then pay at an entrance station within an hour.",
+    "Water and flush toilets only at Black Rock and Cottonwood; Jumbo Rocks, Ryan, Hidden Valley, Indian Cove, Belle and White Tank are pit toilets and no water.",
+    "Fire: the annual campfire ban ran June 15 to Oct 1, 2026, so this winter wood and charcoal fires are allowed only in campground fire grates; buy firewood near the park and burn it there. No fires in the backcountry.",
+    "Entrance: $30 per vehicle for 7 days or $55 for the Joshua Tree annual pass; digital passes on Recreation.gov at no extra cost.",
+    "Closures: the Oasis of Mara Trail is closed past the oasis after flood damage, and the west entrance and Park Boulevard have had short construction closures (Dec 3 to 5, 2025 and Jan 12 to 17, 2026); check the park's closure map before you go.",
+    "Backcountry overnights need a $6 Recreation.gov permit; the Boy Scout Trail zone has only 14 designated sites.",
+    "Winter drive from Pacifica: I-5 over the Grapevine through Los Angeles to I-10 and CA-62 (about 490 miles, 8 hours without traffic), or CA-58 over Tehachapi to Barstow and CA-247 to Yucca Valley (about 500 miles, 8.3 hours) to skip LA traffic; storms can close the Grapevine and Tehachapi."
+   ],
+   "sources": [
+    "https://www.nps.gov/jotr/planyourvisit/campgrounds.htm",
+    "https://www.recreation.gov/camping/campgrounds/272300",
+    "https://www.nps.gov/jotr/planyourvisit/pets.htm",
+    "https://www.nps.gov/jotr/planyourvisit/fees.htm",
+    "https://www.nps.gov/jotr/planyourvisit/backpacking.htm",
+    "https://www.nps.gov/jotr/planyourvisit/conditions.htm",
+    "https://home.nps.gov/feeds/getnewsrss.htm?id=jotr",
+    "https://www.nps.gov/jotr/learn/news/2026-01-08-west-entrance-closure.htm"
+   ]
+  }
+ },
+ "jtbackpack": {
+  "dogs": "no",
+  "dogNote": "No dogs: pets are banned on all Joshua Tree trails and in the backcountry, even carried; leashed dogs (6 ft max) are allowed only in campgrounds, picnic areas, on roads and within 100 feet of roads, parking areas and campgrounds.",
+  "now": {
+   "read": "Oct 4, 2026",
+   "lines": [
+    "A backcountry permit is required for every overnight: Recreation.gov (or 1-877-444-6777, or park headquarters in Twentynine Palms, 8 am to 4 pm daily), $6 per permit for 1 to 12 people, up to 6 months ahead, same day online until 11:59 pm. It replaced the old self-registration boards in 2023.",
+    "The Boy Scout Trail zone is the only zone with designated camping: 14 sites, one party each, sized for 1 to 4, 5 to 8 or 9 to 12 people, and Recreation.gov calls it limited and likely competitive, so book cool-season weekends as soon as dates open.",
+    "Limits: 3 consecutive nights per zone, 14 nights per season, and a park entrance pass ($30 per vehicle for 7 days) is required.",
+    "No campfires anywhere in the backcountry; stoves only. No water on the route: NPS says carry at least a gallon per person per day.",
+    "Trail: 7.8 miles (NPS) from the Boy Scout trailhead at about 4,000 ft down to Indian Cove at about 2,800 ft; AllTrails lists 8.0 miles point to point with about 230 ft of gain in that direction. No closure on the route was posted on Oct 4, 2026.",
+    "The west entrance and Park Boulevard have had short construction closures (Dec 3 to 5, 2025 and Jan 12 to 17, 2026); check alerts and use the north entrance at Twentynine Palms if one hits your dates.",
+    "Winter drive from Pacifica: I-5 over the Grapevine through Los Angeles to I-10 and CA-62 (about 490 miles, 8 hours without traffic), or CA-58 over Tehachapi to Barstow and CA-247 to Yucca Valley (about 500 miles, 8.3 hours) to skip LA traffic; storms can close the Grapevine and Tehachapi."
+   ],
+   "sources": [
+    "https://www.nps.gov/jotr/planyourvisit/backpacking.htm",
+    "https://www.recreation.gov/permits/4675329",
+    "https://www.nps.gov/thingstodo/boy-scout-trail-zone-backpacking.htm",
+    "https://www.nps.gov/jotr/planyourvisit/pets.htm",
+    "https://www.nps.gov/jotr/planyourvisit/fees.htm",
+    "https://www.nps.gov/jotr/planyourvisit/conditions.htm",
+    "https://home.nps.gov/feeds/getnewsrss.htm?id=jotr",
+    "https://www.nps.gov/jotr/learn/news/2026-01-08-west-entrance-closure.htm"
+   ]
+  }
+ }
+};
+const _wget=(o,p)=>p.replace(/\[(\d+)\]/g,'.$1').split('.').reduce((x,k)=>x==null?x:x[k],o);
+const _wset=(o,p,v)=>{ const ks=p.replace(/\[(\d+)\]/g,'.$1').split('.'); const last=ks.pop(); const tgt=ks.reduce((x,k)=>x==null?x:x[k],o); if(tgt!=null) tgt[last]=v; };
+window.TRIPS.forEach(t=>{ const o=WINTER_NOW[t.id]; if(!o) return;
+  t.dogs=o.dogs; t.dogNote=o.dogNote; t.d.now=o.now;
+  if(o.closedUntil){ t.closedUntil=o.closedUntil; t.closedNote=o.closedNote; }
+  (o.fix||[]).forEach(f=>{ const cur=_wget(t,f.path);
+    if(Array.isArray(cur)){ const i=cur.findIndex(x=>typeof x==='string' && f.was && x.includes(f.was)); if(i>=0) cur[i]=f.now; else cur.push(f.now); }
+    else if(typeof cur==='string' || cur==null){ _wset(t,f.path,f.now); } });
+});

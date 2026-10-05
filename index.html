@@ -159,6 +159,13 @@
   .card .m.fish{color:var(--teal);border-color:var(--teal-dim);}
   .card .m.swim{color:var(--sand);}
   .card .m.permit{color:var(--flag);border-color:#5a3a23;}
+  .ribbon.closed{background:#7a2a1c;color:#f3e9e2;}
+  .card .m.dog{color:var(--teal);border-color:var(--teal-dim);}
+  .card .m.nodog{color:var(--ink-faint);}
+  details.pastwrap{margin:26px 0 0;border:1px solid var(--line);border-radius:var(--r);padding:10px 16px;}
+  details.pastwrap summary{cursor:pointer;font-family:'Oswald';letter-spacing:.1em;text-transform:uppercase;font-size:12px;color:var(--ink-faint);}
+  details.pastwrap[open] summary{margin-bottom:6px;}
+  .wk-now{font-family:'Oswald';font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--granite-900);background:var(--rust-bright);padding:2px 8px;border-radius:100px;}
   .card .m.epic{color:var(--granite-900);background:var(--rust-bright);border-color:var(--rust-bright);}
   .card .bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;}
 
@@ -275,6 +282,7 @@
       <button class="filt" data-f="close" aria-pressed="false"><span class="dot"></span>≤5 hr</button>
       <button class="filt" data-f="wild" aria-pressed="false"><span class="dot"></span>Wild trout</button>
       <button class="filt" data-f="skinny" aria-pressed="false"><span class="dot"></span>Skinny-dip water</button>
+      <button class="filt" data-f="dogs" aria-pressed="false"><span class="dot"></span>Dogs OK</button>
       <button class="filt" data-f="saved" aria-pressed="false"><span class="dot" style="background:var(--rust-bright)"></span>★ Saved <span id="savedCount" style="color:var(--ink-faint)"></span></button>
     </div>
     <span class="spacer"></span>
@@ -303,7 +311,7 @@
   </div>
 
   <div class="disclaim" id="legendNote">
-    Each cell opens a fully-spec'd trip page — scenery, fishing (proven catchability with recommended gear and flies), wildlife, water, permits, logistics, live weather, GPX export, a permit-release planner, and an interactive packing list. All 36 are built on real trail data, with AllTrails mileage and gain on every route. Conditions — road status, snow, tides, permit windows — still get re-verified per page the way your other trip pages work.
+    Each cell opens a fully-spec'd trip page — scenery, fishing (proven catchability with recommended gear and flies), wildlife, water, permits, logistics, live weather, GPX export, a permit-release planner, and an interactive packing list. All of them are built on real trail data, with AllTrails mileage and gain on every route. Conditions — road status, snow, tides, permit windows — still get re-verified per page the way your other trip pages work.
   </div>
 
   <div id="calendar"></div>
@@ -369,6 +377,7 @@ function passFilters(t){
   if(f.has('close') && t.drive>5) return false;
   if(f.has('wild') && !t.wild) return false;
   if(f.has('skinny') && !t.skinny) return false;
+  if(f.has('dogs') && t.dogs!=='yes') return false; // only trips whose dog rule has been checked and allows dogs
   if(f.has('saved') && !SAVED.includes(t.id)) return false;
   return true;
 }
@@ -384,6 +393,7 @@ function pips(t){
   return h+'</div>';
 }
 
+const closedNow = t => !!(t.closedUntil && new Date(t.closedUntil+'T23:59:59')>=new Date());
 function card(t,month){
   const peak = t.peak && t.peak.includes(month);
   const fishIc = t.wild?'◐':'○';
@@ -396,19 +406,24 @@ function card(t,month){
   if(t.type==='backpack') meta+=`<span class="m">${t.miles}</span>`;
   meta+=`<span class="m fish">${fishIc} ${t.fish}</span>`;
   if(t.skinny) meta+=`<span class="m swim">~ skinny-dip</span>`;
+  if(t.dogs==='yes') meta+=`<span class="m dog">dogs ok</span>`;
+  else if(t.dogs==='limited') meta+=`<span class="m nodog">dogs limited</span>`;
+  else if(t.dogs==='no') meta+=`<span class="m nodog">no dogs</span>`;
   if(/✦/.test(t.permit)) meta+=`<span class="m permit">✦ permit</span>`;
   if(t.epic) meta+=`<span class="m epic">★ EPIC</span>`;
   return `<a class="card ${t.type==='backpack'?'bp':'car'}" href="${href}"${tgt} id="card-${t.id}">
-    ${peak?'<span class="ribbon">PEAK</span>':''}
+    ${closedNow(t)?'<span class="ribbon closed">CLOSED</span>':(peak?'<span class="ribbon">PEAK</span>':'')}
     <div class="top"><div><div class="nm">${t.name}</div><div class="rg">${t.region}</div></div><button class="savestar ${SAVED.includes(t.id)?'on':''}" data-save="${t.id}" aria-label="Save ${t.name}" title="Save to my trips">${SAVED.includes(t.id)?'★':'☆'}</button></div>
-    <div class="blurb">${t.blurb}</div>
+    <div class="blurb">${closedNow(t)&&t.closedNote?t.closedNote:t.blurb}</div>
     <div class="meta">${meta}</div>
     <div class="bottom">${pips(t)}<span class="go">Open page →</span></div>
   </a>`;
 }
 
 function pickForWeek(month, type, weekIdx){
-  let pool = T.filter(t=>t.type===type && t.season.includes(month) && passFilters(t));
+  const wkStart = new Date(2026,5,29); wkStart.setDate(wkStart.getDate()+weekIdx*7);
+  // a trip under a dated closure is left out of every week that starts before the closure ends
+  let pool = T.filter(t=>t.type===type && t.season.includes(month) && passFilters(t) && !(t.closedUntil && new Date(t.closedUntil+'T23:59:59')>=wkStart));
   pool.sort((a,b)=>{
     const c = composite(b)-composite(a);
     if(c!==0) return c;
@@ -434,6 +449,10 @@ function buildCalendar(){
   const jump = document.getElementById('monthJump');
   jump.innerHTML='<option value="">Jump to month…</option>';
   const seenMonths=new Set();
+  const today=new Date(); today.setHours(0,0,0,0);
+  const fmtD = d=>`${MONTHS_SH[d.getMonth()]} ${d.getDate()}`;
+  const past=document.createElement('details'); past.className='pastwrap';
+  let pastWeeks=0, pastFirst=null, pastLast=null, curPastKey='', pastMonthEl=null;
 
   for(let w=0; w<WEEKS; w++){
     const ws = new Date(start); ws.setDate(start.getDate()+w*7);
@@ -442,7 +461,17 @@ function buildCalendar(){
     const m = mid.getMonth()+1, y=mid.getFullYear();
     const mk = m+'-'+y;
 
-    if(mk!==curMonthKey){
+    const isPast = we < today;
+    if(isPast){
+      if(mk!==curPastKey){
+        curPastKey=mk;
+        pastMonthEl=document.createElement('section');
+        pastMonthEl.className='month';
+        pastMonthEl.innerHTML=`<div class="mhead"><span class="mname">${MONTHS[m-1]}</span><span class="myear">${y}</span><span class="mnote">${MNOTE[m]||''}</span></div>`;
+        past.appendChild(pastMonthEl);
+      }
+      pastWeeks++; if(!pastFirst) pastFirst=ws; pastLast=we;
+    } else if(mk!==curMonthKey){
       curMonthKey=mk;
       monthEl=document.createElement('section');
       monthEl.className='month';
@@ -465,7 +494,7 @@ function buildCalendar(){
     const week=document.createElement('div');
     week.className='week';
     week.innerHTML=`<div class="whead">
-        <span class="wk-label">Week ${w+1}</span>
+        <span class="wk-label">Week ${w+1}</span>${(ws<=today && today<=we)?'<span class="wk-now">This week</span>':''}
         <span class="wdate">${fmt(ws)} – ${fmt(we)}</span>
         <span class="wseason">${SEASON_TAG(m)}</span>
       </div>
@@ -475,8 +504,12 @@ function buildCalendar(){
         ${showCar?`<div class="wcol"><div class="colhead car"><span class="ct">■ Car camping</span><span class="cl"></span></div>
           <div class="cardstack">${car.length?car.map(t=>card(t,m)).join(''):emptyCard('car')}</div></div>`:''}
       </div>`;
-    monthEl.appendChild(week);
+    (isPast?pastMonthEl:monthEl).appendChild(week);
     weekIdx++;
+  }
+  if(pastWeeks){
+    past.insertAdjacentHTML('afterbegin',`<summary>Earlier this season: ${fmtD(pastFirst)} to ${fmtD(pastLast)}, ${pastWeeks} weeks</summary>`);
+    cal.insertBefore(past, cal.firstChild);
   }
 }
 
@@ -522,14 +555,17 @@ function buildNow(){
   carHead.innerHTML='<span class="ct" style="color:var(--teal)">■ Car camping</span>';
   grid.classList.remove('one'); bpCol.style.display=''; carCol.style.display='';
   document.getElementById('nowTag').textContent='This week';
-  const m = 7; // late June -> first in-season window is July alpine; we surface week 1
-  document.getElementById('nowTitle').textContent='Late June → first July window';
-  const ws=new Date(2026,5,29), we=new Date(2026,6,5);
-  document.getElementById('nowDates').textContent=`Jun 29 – Jul 5, 2026`;
-  document.getElementById('nowSeason').textContent='High Sierra coming online — low-snow year, early access';
-  const bp=pickForWeek(7,'backpack',0), car=pickForWeek(7,'car',0);
-  document.getElementById('nowBP').innerHTML=bp.map(t=>card(t,7)).join('');
-  document.getElementById('nowCar').innerHTML=car.map(t=>card(t,7)).join('');
+  const start=new Date(2026,5,29), today=new Date(); today.setHours(0,0,0,0);
+  const w=Math.min(38,Math.max(0,Math.floor((today-start)/(7*864e5))));
+  const ws=new Date(start); ws.setDate(start.getDate()+w*7); const we=new Date(ws); we.setDate(ws.getDate()+6);
+  const mid=new Date(ws); mid.setDate(ws.getDate()+3); const m=mid.getMonth()+1;
+  const fmt=d=>`${MONTHS_SH[d.getMonth()]} ${d.getDate()}`;
+  document.getElementById('nowTitle').textContent=`${MONTHS[m-1]}: ${SEASON_TAG(m)}`;
+  document.getElementById('nowDates').textContent=`${fmt(ws)} – ${fmt(we)}, ${we.getFullYear()}`;
+  document.getElementById('nowSeason').textContent=MNOTE[m]||'';
+  const bp=pickForWeek(m,'backpack',w), car=pickForWeek(m,'car',w);
+  document.getElementById('nowBP').innerHTML=bp.length?bp.map(t=>card(t,m)).join(''):emptyCard('backpack');
+  document.getElementById('nowCar').innerHTML=car.length?car.map(t=>card(t,m)).join(''):emptyCard('car');
 }
 
 function buildLibrary(){
