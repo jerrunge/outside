@@ -441,7 +441,7 @@ window.TRIPS = [
  season:[7,8,9],peak:[7,8,9],epic:false,status:'queued',url:null,coord:[37.46,-118.74],
  blurb:'Drive-up basecamp at 9,700ft with Little Lakes Valley out the back door. Best of both worlds.',
  d:{tag:'A drive-up basecamp at 9,700 ft with Little Lakes Valley out the back door — the best of both worlds.',
-  over:['Rock Creek Road climbs to one of the highest developed campgrounds in the Sierra, right on Rock Creek Lake, with the Mosquito Flat trailhead — and all of Little Lakes Valley — a few minutes up the road. You sleep at altitude with a car, then day-hike into genuinely world-class alpine.','It\'s the move when you want Little Lakes scenery and golden-trout fishing without the overnight permit, or when David wants a comfortable base. Full High Sierra at car-camping effort.'],
+  over:['Rock Creek Road climbs to one of the highest developed campgrounds in the Sierra, right on Rock Creek Lake, with the Mosquito Flat trailhead — and all of Little Lakes Valley — a few minutes up the road. You sleep at altitude with a car, then day-hike into genuinely world-class alpine.','It\'s the move when you want Little Lakes scenery and golden-trout fishing without the overnight permit, or for a comfortable base. Full High Sierra at car-camping effort.'],
   why:{scenery:'9,700-ft basin with Little Lakes Valley next door.',fish:'Rock Creek + the wild brook/golden chain up the trail.',wildlife:'Bear, marmot, deer, bighorn habitat above.',bugs:'High and open — manageable.',water:'Rock Creek Lake plus the day-hike lakes up the valley.'},
   route:{mode:'car',basecamp:'Rock Creek Lake or East Fork campgrounds.',
    dayhikes:['Little Lakes Valley (no permit for day use)','Hilton Lakes','Mono Pass','Ruby Lake']},
@@ -1388,7 +1388,7 @@ window.TRIPS.push(
       mosquito:{status:'West-slope Sierra meadows can be buggy in a normal July.',timing:'Improves through August, best by September — same logic as the rest of the Sierra picks.'}},
     over:[
       'Emigrant sits directly against Yosemite\u2019s northwest border and shares the same granite-dome, glacier-polished High Sierra character — without the lottery, the crowds, or the entrance gate. This loop strings together Grouse, Bear, and Gem Lakes from the Crabtree Trailhead on fully maintained trail, and the fishing here already carries the best catchability rating anywhere on your whole site: lights out.',
-      'It is also the lowest-friction booking of anything on this list alongside Stuart Fork — free, self-issue, no quota, no advance reservation required. Combined with the Buck Lakes basin explored on the Jeremy-and-David version of this trip, there is enough terrain here for a full week without repeating ground, if you want to extend past the core loop.',
+      'It is also the lowest-friction booking of anything on this list alongside Stuart Fork — free, self-issue, no quota, no advance reservation required. Combined with the Buck Lakes basin explored on the two-person version of this trip, there is enough terrain here for a full week without repeating ground, if you want to extend past the core loop.',
       'This genuinely ties Stuart Fork for the top spot on your reordered priorities. Stuart Fork wins on warmest swimmable water; Emigrant wins on the single best fishing rating you have ever assigned. Hard to go wrong with either.'
     ],
     why:{

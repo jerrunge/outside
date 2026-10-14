@@ -718,7 +718,7 @@ function render(t){
     </div>
 
     <footer>
-      <p>Field plan for <b style="color:var(--ink-dim)">Jeremy &amp; David</b>. Scores reflect your five criteria in priority order. Content blends verified 2026 research with deep destination knowledge — the <b style="color:var(--ink-dim)">Confirm Before You Go</b> list flags what to re-check (road, snow, tide, permit windows) at booking time.</p>
+      <p>Field plan for <b style="color:var(--ink-dim)">Jeremy</b>. Scores reflect your five criteria in priority order. Content blends verified 2026 research with deep destination knowledge — the <b style="color:var(--ink-dim)">Confirm Before You Go</b> list flags what to re-check (road, snow, tide, permit windows) at booking time.</p>
       <p style="margin-top:6px"><a href="index.html">← Back to the calendar</a></p>
     </footer>
   </div>`;
@@ -762,9 +762,9 @@ function buildPacking(t){
     const pj=cc.tot?Math.round(cc.j/cc.tot*100):0, pd=cc.tot?Math.round(cc.dd/cc.tot*100):0;
     let html=`<div class="pk-prog">
       <div class="pk-person j"><div class="pn"><span>Jeremy</span><span>${cc.j}/${cc.tot}</span></div><div class="bar"><i style="width:${pj}%"></i></div></div>
-      <div class="pk-person"><div class="pn"><span>David</span><span>${cc.dd}/${cc.tot}</span></div><div class="bar"><i style="width:${pd}%"></i></div></div>
+      <div class="pk-person"><div class="pn"><span>Plus one</span><span>${cc.dd}/${cc.tot}</span></div><div class="bar"><i style="width:${pd}%"></i></div></div>
     </div>
-    <div class="pk-row" style="border-top:0;padding-bottom:0"><span class="it" style="color:var(--ink-faint);font-size:11px;font-family:Oswald;letter-spacing:.06em;text-transform:uppercase">Item</span><span class="pk-cbh">JR</span><span class="pk-cbh">DV</span><span style="width:18px"></span></div>`;
+    <div class="pk-row" style="border-top:0;padding-bottom:0"><span class="it" style="color:var(--ink-faint);font-size:11px;font-family:Oswald;letter-spacing:.06em;text-transform:uppercase">Item</span><span class="pk-cbh">JR</span><span class="pk-cbh">+1</span><span style="width:18px"></span></div>`;
     Object.keys(comp).forEach(cat=>{
       html+=`<div class="pk-cat">${esc(cat)}</div>`;
       comp[cat].forEach(it=>{
